@@ -19,6 +19,8 @@ return new class extends Migration
             $table->boolean('realizada');
             $table->foreignId('prueba_id')->references('id')->on('pruebas')->onDelete('cascade')
             ->onUpdate('cascade');
+            $table->foreignId('user_id')->references('id')->on('users')->onDelete('cascade')
+            ->onUpdate('cascade');
             $table->timestamps();
         });
     }
