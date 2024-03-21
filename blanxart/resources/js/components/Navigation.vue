@@ -1,8 +1,6 @@
 <template>
     <nav class="navbar navbar-expand-lg navbar-light">
       <div class="container">
-        
-        
         <div class="navbar-brand" to="/">
             <div class="logo"></div>
             Blanxart
