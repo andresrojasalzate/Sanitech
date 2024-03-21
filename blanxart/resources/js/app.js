@@ -1,4 +1,5 @@
 import { createApp } from 'vue';
 import HelloWorld from './components/HelloWorld.vue';
+import Navigation from './components/Navigation.vue';
 
-createApp(HelloWorld).mount("#app");
+createApp(Navigation).mount("#app");
