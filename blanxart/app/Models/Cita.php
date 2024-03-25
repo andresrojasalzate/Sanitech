@@ -24,6 +24,11 @@ class Cita extends Model
         return $this->belongsTo(Prueba::class);
     }
 
+    public function user(): BelongsTo
+    {
+        return $this->belongsTo(User::class);
+    }
+
     public function resultado(): HasOne
     {
         return $this->hasOne(Resultado::class);
