@@ -54,8 +54,6 @@
   background-color: #434371;
 }
 
-
-
 .container{
     padding: 0;
 }

@@ -7,7 +7,7 @@
 
     <main class="homeContainer">
         <section class="info">
-            <h1 class="">Hola, </h1>
+            <h1 class="medionegrita">Hola, Lordan Burgos</h1>
             <h2 class="regular">Bienvenido a tu espacio de salud digitat.</h2>
         </section>
 
@@ -17,7 +17,7 @@
                     <div class="opciones-opcion-card">
                         <i class="fa-solid fa-calendar-days"></i>
                     </div>
-                    <p>Agenda</p>
+                    <h4 class="medionegrita">Agenda</h4>
                 </div>
             </a>
 
@@ -26,7 +26,7 @@
                     <div class="opciones-opcion-card">
                         <i class="fa-solid fa-microscope"></i>
                     </div>
-                    <p>Informes y resultados</p>
+                    <h4 class="medionegrita">Informes y resultados</h4>
                 </div>
             </a>
 
@@ -35,7 +35,7 @@
                     <div class="opciones-opcion-card">
                         <i class="fa-solid fa-question"></i>
                     </div>
-                    <p>Solicitudes</p>
+                    <h4 class="medionegrita">Solicitudes</h4>
                 </div>
             </a>
 
@@ -44,7 +44,7 @@
                     <div class="opciones-opcion-card">
                         <i class="fa-solid fa-question"></i>
                     </div>
-                    <p>Solicitudes</p>
+                    <h4 class="medionegrita">Solicitudes</h4>
                 </div>
             </a>
         </section>

@@ -1,42 +1,57 @@
 .homeContainer {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: auto auto 1fr;
-    place-items: center;
-    padding: 20px;
+    @include grid-container-center;
+    padding: 20px 0;
 
     .info {
         display: flex;
         flex-direction: column;
-        padding: 20px;
+        padding: 20px 0 60px;
     }
 
     .opciones {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr); 
-        gap: 100px; 
+        @include card-grid-3-columns;
+        gap: 100px;
 
         &-opcion {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-
-            p {
-                margin-top: 10px; 
+            @include flex-column-center;
+            h4 {
+                padding: 20px 0;
             }
 
             &-card {
-                display: flex;
-                align-items: center;
-                justify-content: center;
+                @include flex-column-center;
 
-                background-color: #f0f0f0; 
+                background-color: $verde; 
                 width: 150px; 
                 height: 150px; 
                 border-radius: 10px; 
                 padding: 20px;
+
+                i {
+                    color: $negro;
+                    font-size: 50px;
+                }
+                box-shadow: $sombra;
+            }
+        }
+    }
+
+    @media (max-width: 768px) { 
+        .opciones {
+            gap: 10px; 
+
+            .opciones-opcion {
+                h4 {
+                    font-size: 15px;
+                }
+                &-card {
+                    width: 50px; 
+                    height: 50px; 
+
+                    i {
+                        font-size: 30px;
+                    }
+                }
             }
         }
     }
