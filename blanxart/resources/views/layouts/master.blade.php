@@ -31,7 +31,9 @@
         
     </div>
 
-    @yield('content')
+    <div class="allContent">
+        @yield('content')
+    </div>
 
     @include('partials.footer')
 </body>

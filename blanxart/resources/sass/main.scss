@@ -6,7 +6,9 @@
 @import 'base/reset';
 @import 'base/typography';
 
+@import 'layout/master';
 @import 'layout/header';
 @import 'layout/footer';
 
 @import 'pages/home';
+@import 'pages/solicitudes';
