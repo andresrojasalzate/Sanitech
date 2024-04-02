@@ -3,7 +3,7 @@
       <div class="container">
         <div class="navbar-brand" to="/">
             <div class="logo"></div>
-            Blanxart
+            Sanitech
         </div>
         <button class="navbar-toggler icon" type="button" @click="toggleNavbar">
           <i class="fas fa-bars"></i>
