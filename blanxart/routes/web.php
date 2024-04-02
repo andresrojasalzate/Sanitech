@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\InformeClinicosController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,3 +21,4 @@ Route::get('/header', function () {
 });
 
 Route::get('/', [HomeController::class, 'home'])->name('home');
+Route::get('/informesClinicos', [InformeClinicosController::class, 'show'])->name('informesClinicos');

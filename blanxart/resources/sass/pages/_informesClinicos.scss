@@ -1,0 +1,45 @@
+.informesContainer{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto 1fr;
+}
+
+.tituloInformes{
+    padding-top: 15%;
+    padding-bottom: 5%;
+
+    & h1{
+        text-align: center;
+        font-size: 2rem;
+    }
+}
+
+.informe{
+    display: grid;
+    grid-template-columns: auto auto;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+
+    &-parte1{
+        grid-row: span 2; 
+        padding: 2% 0 2% 10%;
+
+        & p{
+            margin: 0;
+        }
+
+        & > p:first-child{
+            margin-bottom: 3%;
+        }
+    }
+
+    &-parte2{
+        grid-row: 1 / 3;
+        grid-column: 2;
+        display: flex;
+        justify-content: flex-end; 
+        align-items: center; 
+        padding-right: 15%;
+    }
+
+}
