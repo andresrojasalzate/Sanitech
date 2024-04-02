@@ -1,6 +1,7 @@
 <template>
-    <div>
+    <div class="agenda-container">
         <h1>Agenda</h1>
+        <p>tipo de cita</p>
         <select v-model="opcionSeleccionada">
             <option value="realizadas">Citas realizadas</option>
             <option value="no_realizadas">Citas no realizadas</option>
@@ -28,7 +29,7 @@
             </tbody>
         </table>
         <div v-else>
-            <p>No hay citas disponibles.</p>
+            <p class="no-citas">No hay citas disponibles.</p>
         </div>
     </div>
 </template>
@@ -55,3 +56,7 @@ export default {
     }
 }
 </script>
+
+<style>
+
+</style>
