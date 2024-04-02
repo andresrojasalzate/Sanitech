@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CitasController;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\HomeController;
@@ -20,3 +21,4 @@ Route::get('/header', function () {
 });
 
 Route::get('/', [HomeController::class, 'home'])->name('home');
+Route::get('/citas', [CitasController::class, 'citas'])->name('citas');
