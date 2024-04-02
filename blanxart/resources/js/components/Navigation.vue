@@ -3,7 +3,7 @@
       <div class="container">
         <div class="navbar-brand" to="/">
             <div class="logo"></div>
-            Blanxart
+            Sanitech
         </div>
         <button class="navbar-toggler icon" type="button" @click="toggleNavbar">
           <i class="fas fa-bars"></i>
@@ -11,13 +11,13 @@
         <div :class="['collapse', { 'show': isNavbarOpen }]" class="navbar-collapse">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-              <a class="nav-link" href="">Inicio</a>
+              <a class="nav-link" href="/">Inicio</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="">Agenda</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="">Citas</a>
+              <a class="nav-link" href="/citas">Citas</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="">Solicitudes</a>
