@@ -17,6 +17,14 @@ use App\Http\Controllers\SolicitudesController;
 |
 */
 
-Route::get('/', [HomeController::class, 'home'])->name('home');
+Route::get('/', function () {
+    return redirect()->route('login');
+})->name('index');
+
+Route::get('/login',function(){
+    return view('pages.login');
+})->name('login');
+
+// Route::get('/', [HomeController::class, 'home'])->name('home');
 Route::get('/solicitudes', [SolicitudesController::class, 'solicitudes'])->name('solicitudes');
 Route::get('/citas', [CitasController::class, 'citas'])->name('citas');

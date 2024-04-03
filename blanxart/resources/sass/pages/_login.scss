@@ -1,38 +1,46 @@
-@media (min-width: 501px) {
+@media (min-width: 1000px) {
     .html-login {
         height: 100vh;
         width: 100vw;
         display: grid;
         justify-content: center;
         align-content: center;
-        background-image: url('./laboratorio.jpg');
+        background-image: url('../../../public/storage/images/login.jpg');
         background-size: cover;
         background-repeat: no-repeat;
-        font-family: sans-serif;
+    }
+
+    .body-login {
+        background-color: transparent;
     }
 
     .login {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
-        gap: 30px;
+        gap: 40px;
         border-radius: 20px;
-        color: white;
+        color: $blanco;
         justify-content: center;
         align-content: center;
         padding: 50px;
         background-color: rgb(0, 0, 0, 0.5);
+        backdrop-filter: blur(10px);
+        &-img{
+            background-image: url('../../../public/storage/images/login.jpg');
+            background-size: cover;
+            border-radius: 10px;
+        }
     }
 }
 
 
-@media (max-width: 500px) {
+@media (max-width: 999px) {
     .html-login {
         height: 100vh;
         width: 100vw;
-        background-image: url('./laboratorio.jpg');
+        background-image: url('../../../public/storage/images/login.jpg');
         background-size: cover;
         background-repeat: no-repeat;
-        font-family: sans-serif;
     }
 
     .body-login {
@@ -51,7 +59,7 @@
 }
 
 .login-form {
-    color: white;
+    color: $blanco;
     display: grid;
     gap: 60px;
 
@@ -65,20 +73,14 @@
     }
 
     &-input {
-        color: white;
+        color: $blanco;
         border: none;
-        border-bottom: 1px solid white;
+        border-bottom: 1px solid $blanco;
         outline: none;
         background-color: unset;
-        font-family: sans-serif;
         font-size: 1em;
         min-width: 60vmin;
         margin-bottom: 20px;
-
-        &::placeholder {
-            color: white;
-        }
-
     }
 
     &-label {
@@ -87,6 +89,7 @@
         left: 0;
         transform-origin: 0 0;
         transition: transform 0.2s ease-in;
+        color: $blanco;
     }
 
     &-blanxart {
@@ -94,6 +97,9 @@
         gap: 15px;
         justify-content: center;
         align-content: center;
+        &-name{
+            color: $blanco;
+        }
     }
 }
 
@@ -103,13 +109,17 @@
 }
 
 .button-login {
-    padding: 5px 15px;
+    padding: 15px;
+    background-color: $azulFuerte;
+    color: $blanco;
+    border: none;
+    border-radius: 5px;
     cursor: pointer;
 }
 
 .recover-password {
     text-align: center;
     & a{
-        color: white;
+        color: $blanco;
     }
 } 
