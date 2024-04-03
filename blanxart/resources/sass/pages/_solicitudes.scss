@@ -3,7 +3,7 @@
     .info {
         display: flex;
         flex-direction: column;
-        padding: 20px 0 60px;
+        padding: 20px 0 20px;
     }
 
     .solicitudes {
@@ -37,6 +37,31 @@
 
         @media (max-width: 957px) { 
             @include card-grid-columns(1);
+            gap: 70px;
+
+            &-solicitud {
+                border-radius: 20px;
+                width: 350px;
+                height: 130px;
+
+                &-card {
+                    @include flex-column-center;
+                    border: 1px solid $gris;
+                    border-radius: 20px 0 0 20px;
+                    width: 100px;
+                    height: 130px;
+                    background-color: $azulMuyClaro;
+                    i {
+                        font-size: 50px;
+                    }
+                }
+    
+                &-info {
+                    @include flex-row-center;
+                    width: 200px;
+                    height: auto;
+                }
+            }
         }
     }
 }
