@@ -14,7 +14,6 @@
     <meta property="og:url" content="@yield('og_url', request()->fullUrl())">
     <meta property="og:type" content="website">
 
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">

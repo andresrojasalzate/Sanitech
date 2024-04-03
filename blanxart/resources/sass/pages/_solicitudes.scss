@@ -1,32 +1,42 @@
 .solicitudesContainer {
 
     .info {
-
+        display: flex;
+        flex-direction: column;
+        padding: 20px 0 60px;
     }
 
     .solicitudes {
-        @include card-grid-columns(1);
+        @include card-grid-columns(2);
         gap: 100px;
         &-solicitud {
             @include flex-row-center;
             border: 1px solid $gris;
             border-radius: 20px;
-            width: 350px;
-            height: 100px;
+            width: 400px;
+            height: 150px;
+            gap: 100px;
             &-card {
-                // border: 1px solid $gris;
+                @include flex-column-center;
+                border: 1px solid $gris;
                 border-radius: 20px 0 0 20px;
-                width: 100px;
-                height: 100px;
+                width: 150px;
+                height: 150px;
                 background-color: $azulMuyClaro;
                 i {
                     font-size: 50px;
                 }
             }
+
+            &-info {
+                @include flex-row-center;
+                width: 150px;
+                height: auto;
+            }
         }
-    }
 
-    @media (max-width: 768px) { 
-
+        @media (max-width: 957px) { 
+            @include card-grid-columns(1);
+        }
     }
 }

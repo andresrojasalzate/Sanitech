@@ -18,7 +18,9 @@
                     <div class="solicitudes-solicitud-card">
                         <i class="fa-solid fa-arrows-to-eye"></i>
                     </div>
-                    <h4 class="medionegrita">Valoraciones</h4>
+                    <div class="solicitudes-solicitud-info">
+                        <h4 class="medionegrita">Valoraciones</h4>
+                    </div>
                 </div>
             </a>
 
@@ -27,7 +29,9 @@
                     <div class="solicitudes-solicitud-card">
                         <i class="fa-solid fa-user-doctor"></i>
                     </div>
-                    <h4 class="medionegrita">Cambio de médico</h4>
+                    <div class="solicitudes-solicitud-info">
+                        <h4 class="medionegrita">Cambio de médico</h4>
+                    </div>
                 </div>
             </a>
 
@@ -36,7 +40,9 @@
                     <div class="solicitudes-solicitud-card">
                         <i class="fa-solid fa-file"></i>
                     </div>
-                    <h4 class="medionegrita">Justificantes</h4>
+                    <div class="solicitudes-solicitud-info">
+                        <h4 class="medionegrita">Justificantes</h4>
+                    </div>
                 </div>
             </a>
 
@@ -45,7 +51,9 @@
                     <div class="solicitudes-solicitud-card">
                         <i class="fa-regular fa-calendar-check"></i>
                     </div>
-                    <h4 class="medionegrita">Pedir cita</h4>
+                    <div class="solicitudes-solicitud-info">
+                        <h4 class="medionegrita">Pedir cita</h4>
+                    </div>
                 </div>
             </a>
 
@@ -54,7 +62,9 @@
                     <div class="solicitudes-solicitud-card">
                         <i class="fa-solid fa-heart-circle-exclamation"></i>
                     </div>
-                    <h4 class="medionegrita">Reclamaciones</h4>
+                    <div class="solicitudes-solicitud-info">
+                        <h4 class="medionegrita">Reclamaciones</h4>
+                    </div>
                 </div>
             </a>
         </section>
