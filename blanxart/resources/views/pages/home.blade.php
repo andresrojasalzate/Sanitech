@@ -7,12 +7,12 @@
 
     <main class="homeContainer">
         <section class="info">
-            <h1 class="medionegrita">Hola, Lordan Burgos</h1>
+            <h1 class="regular">Hola, Lordan Burgos</h1>
             <h2 class="regular">Bienvenido a tu espacio de salud digitat.</h2>
         </section>
 
         <section class="opciones">
-            <a href="#">
+            <a>
                 <div class="opciones-opcion">
                     <div class="opciones-opcion-card">
                         <i class="fa-solid fa-calendar-days"></i>
@@ -30,7 +30,7 @@
                 </div>
             </a>
 
-            <a href="#">
+            <a href="{{ route('solicitudes') }}">
                 <div class="opciones-opcion">
                     <div class="opciones-opcion-card">
                         <i class="fa-solid fa-question"></i>

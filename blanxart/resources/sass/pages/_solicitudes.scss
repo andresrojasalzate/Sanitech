@@ -1,0 +1,21 @@
+.solicitudesContainer {
+
+    .info {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .solicitudes {
+
+        &-solicitud {
+
+            &-card {
+
+            }
+        }
+    }
+
+    @media (max-width: 768px) { 
+
+    }
+}
