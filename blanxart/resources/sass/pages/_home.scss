@@ -7,7 +7,7 @@
     }
 
     .opciones {
-        @include card-grid-3-columns;
+        @include card-grid-columns(3);
         gap: 100px;
 
         &-opcion {

@@ -1,16 +1,27 @@
 .solicitudesContainer {
 
     .info {
-        display: flex;
-        flex-direction: column;
+
     }
 
     .solicitudes {
-
+        @include card-grid-columns(1);
+        gap: 100px;
         &-solicitud {
-
+            @include flex-row-center;
+            border: 1px solid $gris;
+            border-radius: 20px;
+            width: 350px;
+            height: 100px;
             &-card {
-
+                // border: 1px solid $gris;
+                border-radius: 20px 0 0 20px;
+                width: 100px;
+                height: 100px;
+                background-color: $azulMuyClaro;
+                i {
+                    font-size: 50px;
+                }
             }
         }
     }
