@@ -8,7 +8,8 @@
 @import 'base/reset';
 @import 'base/typography';
 
-/*layouts*/
+@import 'components/buttons';
+
 @import 'layout/master';
 @import 'layout/header';
 @import 'layout/footer';

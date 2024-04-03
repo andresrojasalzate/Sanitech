@@ -1,40 +1,139 @@
-#citas{
+#citas {
     width: 100%;
 }
 
 .agenda-container {
     font-family: Arial, sans-serif;
-    max-width: 600px;
     margin: 0 auto;
     padding: 20px;
-  }
-  
-  select {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+select {
     padding: 8px;
     font-size: 16px;
     margin-bottom: 20px;
-  }
-  
-  table {
+}
+
+table {
     width: 100%;
     border-collapse: collapse;
     margin-bottom: 20px;
-  
-    th, td {
-        padding: 10px;
-        
-    }
-  
-    th {
-      background-color: $grisClaro;
-    }
-  
+
+    th,
     td {
-      text-align: center;
-      border-bottom: 1px solid $negro;
+        padding: 10px;
+        text-align: center;
     }
-  }
-  
-  .no-citas {
+
+    th {
+        background-color: $grisClaro;
+    }
+
+    td {
+        border-bottom: 1px solid $negro;
+    }
+}
+
+.no-citas {
     color: red;
-  }
+}
+
+.citas-table,
+.citas-type,
+.citas-title {
+    width: 100%;
+}
+
+.citas-title {
+    text-align: center;
+    padding: 5px;
+}
+
+.citas-table {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 5px;
+    p {
+        font-weight: bold;
+    }
+}
+
+.citas-type {
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+}
+.paginacion {
+    margin-top: 20px;
+    button {
+        background-color: $azulClaro;
+        color: $blanco;
+        border: none;
+        border-radius: 5px;
+        padding: 5px 10px;
+        margin-right: 5px;
+        cursor: pointer;
+
+        &:hover {
+            background-color: $azulOscuro;
+        }
+
+        &:disabled {
+            background-color: $grisClaro;
+            cursor: not-allowed;
+        }
+
+        &.ant-sig {
+            margin-left: auto;
+
+            &:hover {
+                background-color: $azulOscuro;
+            }
+
+            &:disabled {
+                background-color: $grisClaro;
+                cursor: not-allowed;
+            }
+        }
+    }
+
+    .paginas {
+      display: inline-block;
+
+      button {
+        background-color: transparent;
+        color: $negro;
+        border: none;
+        border-radius: 5px;
+        padding: 5px 10px;
+        margin-right: 5px;
+        cursor: pointer;
+
+        &:hover{
+          background-color: $grisClaro;
+        }
+
+        &:disabled {
+          color: $grisClaro;
+          cursor: not-allowed;
+      }
+
+      &.pagina-actual {
+        background-color: $azulClaro;
+        color: $blanco;
+    }
+    }
+  } 
+}
+
+@media screen and (min-width: 768px) {
+    .citas-table,
+    .citas-type,
+    .citas-title {
+        width: 80%;
+    }
+}
