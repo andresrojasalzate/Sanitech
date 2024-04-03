@@ -1,14 +1,21 @@
 @import 'bootstrap/scss/bootstrap';
 
+/*abstracts*/
 @import 'abstracts/variables';
 @import 'abstracts/mixins';
 
+/*base*/
 @import 'base/reset';
 @import 'base/typography';
 
+/*layouts*/
 @import 'layout/master';
 @import 'layout/header';
 @import 'layout/footer';
 
+/*Components*/
+@import 'components/boton-atras';
+
+/*Pages*/
 @import 'pages/home';
 @import 'pages/solicitudes';

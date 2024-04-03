@@ -6,6 +6,9 @@
 @section('content')
 
     <main class="solicitudesContainer">
+
+        <x-boton-atras :url="route('home')" />
+
         <section>
             <section class="info">
                 <h1 class="regular">Solicitudes</h1>
