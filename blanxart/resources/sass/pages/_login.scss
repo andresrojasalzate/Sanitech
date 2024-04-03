@@ -1,0 +1,115 @@
+@media (min-width: 501px) {
+    .html-login {
+        height: 100vh;
+        width: 100vw;
+        display: grid;
+        justify-content: center;
+        align-content: center;
+        background-image: url('./laboratorio.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        font-family: sans-serif;
+    }
+
+    .login {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+        border-radius: 20px;
+        color: white;
+        justify-content: center;
+        align-content: center;
+        padding: 50px;
+        background-color: rgb(0, 0, 0, 0.5);
+    }
+}
+
+
+@media (max-width: 500px) {
+    .html-login {
+        height: 100vh;
+        width: 100vw;
+        background-image: url('./laboratorio.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        font-family: sans-serif;
+    }
+
+    .body-login {
+        display: grid;
+        justify-content: center;
+        align-content: center;
+        margin: 0;
+        background-color: rgb(0, 0, 0, 0.5);
+        height: 100vh;
+        width: 100vw;
+    }
+
+    .login-img {
+        display: none;
+    }
+}
+
+.login-form {
+    color: white;
+    display: grid;
+    gap: 60px;
+
+    &-content {
+        display: grid;
+        gap: 30px;
+    }
+
+    &-unit {
+        position: relative;
+    }
+
+    &-input {
+        color: white;
+        border: none;
+        border-bottom: 1px solid white;
+        outline: none;
+        background-color: unset;
+        font-family: sans-serif;
+        font-size: 1em;
+        min-width: 60vmin;
+        margin-bottom: 20px;
+
+        &::placeholder {
+            color: white;
+        }
+
+    }
+
+    &-label {
+        padding-bottom: 10px;
+        position: absolute;
+        left: 0;
+        transform-origin: 0 0;
+        transition: transform 0.2s ease-in;
+    }
+
+    &-blanxart {
+        display: grid;
+        gap: 15px;
+        justify-content: center;
+        align-content: center;
+    }
+}
+
+.login-form-input:focus+.login-form-label,
+.login-form-input:not(:placeholder-shown)+.login-form-label {
+    transform: translateY(-1em) scale(0.8);
+}
+
+.button-login {
+    padding: 5px 15px;
+    cursor: pointer;
+}
+
+.recover-password {
+    text-align: center;
+    & a{
+        color: white;
+    }
+} 

@@ -19,4 +19,5 @@ Route::get('/header', function () {
     return view('layouts.example');
 });
 
+
 Route::get('/', [HomeController::class, 'home'])->name('home');
