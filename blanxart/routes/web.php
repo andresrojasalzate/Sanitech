@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AgendaController;
 use App\Http\Controllers\CitasController;
 use Illuminate\Support\Facades\Route;
 
@@ -20,5 +21,5 @@ use App\Http\Controllers\SolicitudesController;
 
 Route::get('/', [HomeController::class, 'home'])->name('home');
 Route::get('/solicitudes', [SolicitudesController::class, 'solicitudes'])->name('solicitudes');
-Route::get('/citas', [CitasController::class, 'citas'])->name('citas');
+Route::get('/agenda', [AgendaController::class, 'agenda'])->name('agenda');
 Route::get('/informesClinicos', [InformeClinicosController::class, 'show'])->name('informesClinicos');

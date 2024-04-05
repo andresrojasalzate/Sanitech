@@ -5,14 +5,14 @@ namespace App\Http\Controllers;
 use App\Models\Cita;
 use Illuminate\Http\Request;
 
-class CitasController extends Controller
+class AgendaController extends Controller
 {
-    public function citas() 
+    public function agenda() 
     {
 
         $citas = Cita::getAllCitasByUserId();
         // dd($citas);
-        return view('pages.citas', compact('citas'));
+        return view('pages.agenda', compact('citas'));
     }
 
     

@@ -1,15 +1,15 @@
 @import 'bootstrap/scss/bootstrap';
 
-@import 'abstracts/variables';
-@import 'abstracts/mixins';
+/*abstracts*/
+@import 'abstracts/variables', 'abstracts/mixins';
 
-@import 'base/reset';
-@import 'base/typography';
+/*base*/
+@import 'base/reset', 'base/typography';
 
-@import 'layout/master';
-@import 'layout/header';
-@import 'layout/footer';
+/*layouts*/
+@import 'layout/master', 'layout/footer', 'layout/header';
 
-@import 'pages/home';
-@import 'pages/informesClinicos';
-@import 'pages/solicitudes';
+/*Components*/
+@import 'components/boton-atras', 'components/buttons';
+/*Pages*/
+@import 'pages/home', 'pages/agenda', 'pages/solicitudes', 'pages/informesClinicos';
