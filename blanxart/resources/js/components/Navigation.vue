@@ -17,7 +17,7 @@
               <a class="nav-link" href="">Agenda</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/citas">Citas</a>
+              <a class="nav-link" href="/informesClinicos">Informes</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="">Solicitudes</a>
