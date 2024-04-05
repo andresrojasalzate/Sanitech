@@ -1,10 +1,10 @@
 <?php
 
+use App\Http\Controllers\AgendaController;
+use App\Http\Controllers\CitasController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
-
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\CitasController;
 use App\Http\Controllers\SolicitudesController;
 
 /*
@@ -22,14 +22,12 @@ Route::get('/', function () {
     return redirect()->route('login-page');
 })->name('index');
 
-Route::get('/login',function(){
+Route::get('/Sanitech-login',function(){
     return view('pages.login');
 })->name('login-page');
 
 Route::post('/custom-login', [AuthController::class, 'login'])->name('custom-login');
 
-Route::get('/logados', function () {})->name('logados');
-
 Route::get('/home', [HomeController::class, 'home'])->name('home');
 Route::get('/solicitudes', [SolicitudesController::class, 'solicitudes'])->name('solicitudes');
-Route::get('/citas', [CitasController::class, 'citas'])->name('citas');
+Route::get('/agenda', [AgendaController::class, 'agenda'])->name('agenda');

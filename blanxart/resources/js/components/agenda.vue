@@ -61,6 +61,7 @@ export default {
     },
     computed: {
         citasFiltradas() {
+            this.paginaActual = 1;
             if (this.opcionSeleccionada === 'realizadas') {
                 return this.citas.filter(cita => cita.realizada === true);
             } else if (this.opcionSeleccionada === 'no_realizadas') {
