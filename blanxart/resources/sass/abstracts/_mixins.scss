@@ -1,9 +1,9 @@
 @mixin grid-container-center {
-    margin-top: 120px;
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: auto auto 1fr;
     place-items: center;
+    margin: 80px;
 }
 
 

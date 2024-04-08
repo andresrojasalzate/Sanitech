@@ -5,6 +5,8 @@ use App\Http\Controllers\CitasController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\InformeClinicosController;
+use App\Http\Controllers\NotificacionesController;
 use App\Http\Controllers\SolicitudesController;
 
 /*
@@ -31,6 +33,8 @@ Route::post('/custom-login', [AuthController::class, 'login'])->name('custom-log
 Route::get('/home', [HomeController::class, 'home'])->name('home');
 Route::get('/solicitudes', [SolicitudesController::class, 'solicitudes'])->name('solicitudes');
 Route::get('/agenda', [AgendaController::class, 'agenda'])->name('agenda');
+Route::get('/informesClinicos', [InformeClinicosController::class, 'show'])->name('informesClinicos');
+Route::get('/notificaciones', [NotificacionesController::class, 'notificaciones'])->name('notificaciones');
 
 
 Route::fallback(function(){
