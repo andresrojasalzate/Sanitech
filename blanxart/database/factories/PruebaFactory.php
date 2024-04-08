@@ -17,7 +17,7 @@ class PruebaFactory extends Factory
     public function definition(): array
     {
         return [
-            'nombre' => fake()->name(),
+            'nombre' => fake()->sentence(3),
             'descripcion' => fake()->sentence(),
             'video' => fake()->url(),
             'documento' => fake()->word(),
