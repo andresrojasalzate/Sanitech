@@ -22,7 +22,7 @@ Route::get('/', function () {
     return redirect()->route('login-page');
 })->name('index');
 
-Route::get('/Sanitech-login',function(){
+Route::get('/login',function(){
     return view('pages.login');
 })->name('login-page');
 
@@ -31,3 +31,8 @@ Route::post('/custom-login', [AuthController::class, 'login'])->name('custom-log
 Route::get('/home', [HomeController::class, 'home'])->name('home');
 Route::get('/solicitudes', [SolicitudesController::class, 'solicitudes'])->name('solicitudes');
 Route::get('/agenda', [AgendaController::class, 'agenda'])->name('agenda');
+
+
+Route::fallback(function(){
+    return view('pages.error404');
+});
