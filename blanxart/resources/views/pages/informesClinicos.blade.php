@@ -15,10 +15,10 @@
                 <informes-component :cita='@json($cita)'></informes-component>
             @endforeach
 
-            @if ($citas->count())
-                <nav>
-                    {{ $citas->links() }} 
-                </nav>
+            @if ($citas->count()) 
+                <nav class="menu-paginacion">
+                    {{ $citas->links() }}
+                </nav>  
             @endif
         </div>
     </section>
