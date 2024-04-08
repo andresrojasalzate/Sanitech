@@ -1,0 +1,20 @@
+.footer {
+    height: 50px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $azulOscuro;
+    padding: 5px 0;
+    text-align: center;
+
+    &-link {
+        text-decoration: none;
+        color: $blanco;
+        padding: 5px 10px;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
