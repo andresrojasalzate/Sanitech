@@ -19,7 +19,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/dda3477dd5.js" crossorigin="anonymous"></script>
     <link rel="icon" type="image/svg+xml" href="{{ asset('storage/icono/logo-eventium.svg') }}">
-    @vite(['resources/sass/main.scss', 'resources/js/app.js'])
+    @vite(['resources/sass/main.scss','resources/css/app.css', 'resources/js/app.js'])
 
     <title>@yield('title')</title>
 </head>

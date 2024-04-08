@@ -23,7 +23,7 @@
             <a class="nav-link" href="">Solicitudes</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="">Notificaciones</a>
+            <a class="nav-link" href="/notificaciones">Notificaciones</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="">Logout</a>
