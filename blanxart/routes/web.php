@@ -24,7 +24,7 @@ Route::get('/', function () {
     return redirect()->route('login-page');
 })->name('index');
 
-Route::get('/Sanitech-login',function(){
+Route::get('/login',function(){
     return view('pages.login');
 })->name('login-page');
 
@@ -35,3 +35,8 @@ Route::get('/solicitudes', [SolicitudesController::class, 'solicitudes'])->name(
 Route::get('/agenda', [AgendaController::class, 'agenda'])->name('agenda');
 Route::get('/informesClinicos', [InformeClinicosController::class, 'show'])->name('informesClinicos');
 Route::get('/notificaciones', [NotificacionesController::class, 'notificaciones'])->name('notificaciones');
+
+
+Route::fallback(function(){
+    return view('pages.error404');
+});
