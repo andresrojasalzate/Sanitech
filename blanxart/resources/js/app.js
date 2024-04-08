@@ -3,11 +3,16 @@ import HelloWorld from './components/HelloWorld.vue';
 import Navigation from './components/Navigation.vue';
 import agenda from './components/agenda.vue';
 import informesClinicos from './components/InformeClinico.vue';
+import notificacionesComponent from './components/notificaciones.vue';
 
-const app = createApp({});
-app.component('citas-component', agenda);
+const citas = createApp({});
+citas.component('citas-component', agenda);
+citas.mount("#agenda");
 createApp(Navigation).mount("#app");
-app.mount("#agenda");
+
+const notificaciones = createApp({});
+notificaciones.component('notificaciones-component', notificacionesComponent);
+notificaciones.mount("#notificaciones");
 
 const informes = createApp({});
 informes.component('informes-component', informesClinicos);

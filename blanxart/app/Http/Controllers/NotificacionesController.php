@@ -7,10 +7,13 @@ use Illuminate\Http\Request;
 
 class NotificacionesController extends Controller
 {
-    public function notificaciones() 
+    public function notificaciones()
     {
 
-        $notificaciones = Notificacion::where('user_id', 26)->get()->toJson();
+        $notificaciones = Notificacion::where('user_id', 26)
+            ->orderBy('created_at', 'desc') 
+            ->get()
+            ->toJson();
         return view('pages.notificaciones', compact('notificaciones'));
     }
 }

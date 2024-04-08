@@ -5,7 +5,8 @@
 
 @section('content')
 
-
-@dd($notificaciones)
+<div id="notificaciones">
+    <notificaciones-component :notificaciones='{{$notificaciones}}'></notificaciones-component>
+</div>
 
 @endsection
