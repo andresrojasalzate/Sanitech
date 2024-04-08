@@ -7,6 +7,9 @@
     background-color: $azulOscuro;
     padding: 5px 0;
     text-align: center;
+    position: fixed; /* Posicionamiento fijo */
+    bottom: 0; /* Fijar en la parte inferior */
+    left: 0; /* Fijar en el borde izquierdo */
 
     &-link {
         text-decoration: none;

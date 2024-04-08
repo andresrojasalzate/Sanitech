@@ -6,7 +6,7 @@
     }
     .opciones {
         @include card-grid-columns(3);
-        gap: 100px;
+        gap: 50px;
         &-opcion {
             @include flex-column-center;
             h4 {
@@ -19,7 +19,6 @@
                 width: 150px;
                 height: 150px;
                 border-radius: 10px;
-                padding: 20px;
 
                 i {
                     color: $negro;
