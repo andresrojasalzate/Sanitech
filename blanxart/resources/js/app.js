@@ -8,3 +8,7 @@ const app = createApp({});
 app.component('citas-component', agenda);
 createApp(Navigation).mount("#app");
 app.mount("#agenda");
+
+const informes = createApp({});
+informes.component('informes-component', informesClinicos);
+informes.mount('#informesClinicos');

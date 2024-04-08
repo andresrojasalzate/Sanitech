@@ -11,7 +11,7 @@ class InformeClinicosController extends Controller
     {
         
         return view('pages.informesClinicos', [
-           'citas' =>  Cita::where('user_id', 26)->with('prueba')->get(),
+           'citas' =>  Cita::where('user_id', 26)->with('prueba')->paginate(10),
         ]);
     }
 }

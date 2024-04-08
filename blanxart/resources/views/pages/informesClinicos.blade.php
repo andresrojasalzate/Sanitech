@@ -12,8 +12,14 @@
     <section class="listaInformes"> 
         <div id="informesClinicos">
             @foreach($citas as $cita)
-            <informes-component :cita='@json($cita)'></informes-component>
+                <informes-component :cita='@json($cita)'></informes-component>
             @endforeach
+
+            @if ($citas->count())
+                <nav>
+                    {{ $citas->links() }} 
+                </nav>
+            @endif
         </div>
     </section>
     

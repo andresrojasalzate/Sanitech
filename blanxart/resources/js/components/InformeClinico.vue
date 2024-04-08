@@ -1,8 +1,8 @@
 <template>
-    <div class="contenedor-informe" ref="contenedorInforme">
+    <div class="contenedor-informe">
         <div class="informe"  ref="informe":style="{ backgroundColor: informeColor }">
                 <div class="informe-parte1">
-                    <p class="medionegrita" ref="primerParrafo">{{cita.prueba.nombre}}</p>
+                    <p class="medionegrita titulo-informe" ref="primerParrafo">{{cita.prueba.nombre}}</p>
                     <p>{{cita.fecha}}</p>
                 </div>
                 <div class="informe-parte2" @click="seleccionado">
@@ -38,13 +38,11 @@ export default {
                 this.informeColor = 'white';
                 this.$refs.primerParrafo.style.marginBottom = '3%';
                 this.$refs.primerParrafo.style.marginTop = '0'; 
-                this.$refs.contenedorInforme.style.marginBottom = '0';
                
             } else {
                 this.informeColor = '#E3E5FA'; 
-                this.$refs.primerParrafo.style.marginBottom = '13%'; 
+                this.$refs.primerParrafo.style.marginBottom = '6vh'; 
                 this.$refs.primerParrafo.style.marginTop = '3%';  
-                this.$refs.contenedorInforme.style.marginBottom = '5%';
             }
         }
     }

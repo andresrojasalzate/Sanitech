@@ -14,7 +14,7 @@
 }
 
 .tituloInformes{
-    padding-top: 15%;
+    padding-top: 5%;
     padding-bottom: 5%;
 
     & h1{
@@ -30,7 +30,7 @@
     
     &-parte1{
         grid-row: span 2; 
-        padding: 2% 0 2% 10%;
+        padding: 2% 0 2% 5vw;
 
         & p{
             margin: 0;
@@ -47,8 +47,15 @@
         display: flex;
         justify-content: flex-end; 
         align-items: center; 
-        padding-right: 15%;
+        padding-right: 6vw;
     }
+}
+
+.titulo-informe{
+    max-width: 75vw;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .cuerpo-informe{
@@ -56,7 +63,9 @@
     grid-template-columns: 1fr 1fr; 
     grid-template-rows: repeat(3, auto);
     gap: 5%;
-    margin-top: 5%;
+    padding-top: 5%;
+    padding-bottom: 5%;
+    background-color: #eeee;
 
     &-titulo{
         align-self: center; 
@@ -64,6 +73,7 @@
     }
 
     &-texto{
-        font-size: 0.8rem;
+        font-size: calc(0.8rem + 0.4vw);
+        padding-right: 5vw;
     }
 }
