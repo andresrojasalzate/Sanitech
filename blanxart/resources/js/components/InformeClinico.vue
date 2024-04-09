@@ -11,11 +11,11 @@
                 </div>   
         </div>
         <div class="cuerpo-informe" v-if="!clickado">
-            <p class="medionegrita cuerpo-informe-titulo">Diagnóstico</p>
+            <p class="medionegrita cuerpo-informe-titulo">Diagnòstic</p>
             <p class="cuerpo-informe-texto">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod  tempor incididunt ut labore et dolore magna aliqua.</p>
-            <p class="medionegrita cuerpo-informe-titulo">Servicio</p>
+            <p class="medionegrita cuerpo-informe-titulo">Servei</p>
             <p class="cuerpo-informe-texto">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            <p class="medionegrita cuerpo-informe-titulo">Centro</p> 
+            <p class="medionegrita cuerpo-informe-titulo">Centre</p> 
             <p class="cuerpo-informe-texto">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
         </div>
     </div>
@@ -36,13 +36,13 @@ export default {
 
             if (this.clickado) {
                 this.informeColor = 'white';
-                this.$refs.primerParrafo.style.marginBottom = '3%';
+                this.$refs.primerParrafo.style.marginBottom = '3vh';
                 this.$refs.primerParrafo.style.marginTop = '0'; 
                
             } else {
                 this.informeColor = '#E3E5FA'; 
                 this.$refs.primerParrafo.style.marginBottom = '6vh'; 
-                this.$refs.primerParrafo.style.marginTop = '3%';  
+                this.$refs.primerParrafo.style.marginTop = '3vh';  
             }
         }
     }
