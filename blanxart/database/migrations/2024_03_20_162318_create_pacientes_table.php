@@ -13,9 +13,13 @@ return new class extends Migration
     {
         Schema::create('pacientes', function (Blueprint $table) {
             $table->id();
-            $table->string('telefono');
-            $table->string('correo');
-            $table->string('tarjeta_sanitaria');
+            $table->string('genre');
+            $table->string('birth_date');
+            $table->string('CIP');
+            $table->string('address');
+            $table->string('city');
+            $table->string('post_code');
+            $table->string('familiar_contact');
             $table->foreignId('user_id')->references('id')->on('users')->onDelete('cascade')
             ->onUpdate('cascade');
             $table->timestamps();

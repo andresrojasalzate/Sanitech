@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('resultados', function (Blueprint $table) {
             $table->id();
-            $table->string('ruta');
-            $table->foreignId('cita_id')->references('id')->on('citas')->onDelete('cascade')
+            $table->string('path');
+            $table->foreignId('paciente_id')->references('id')->on('pacientes')->onDelete('cascade')
             ->onUpdate('cascade');
             $table->timestamps();
         });
