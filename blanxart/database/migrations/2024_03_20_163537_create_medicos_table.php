@@ -13,8 +13,9 @@ return new class extends Migration
     {
         Schema::create('medicos', function (Blueprint $table) {
             $table->id();
-            $table->string('numero_colegiado');
-            $table->string('especialidad');
+            $table->string('collegiate_number');
+            $table->string('speciality');
+            $table->integer('consultation');
             $table->foreignId('user_id')->references('id')->on('users')->onDelete('cascade')
             ->onUpdate('cascade');
             $table->timestamps();

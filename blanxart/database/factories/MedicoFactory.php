@@ -18,8 +18,9 @@ class MedicoFactory extends Factory
     public function definition(): array
     {
         return [
-            'numero_colegiado' => fake()->numerify('####'),
-            'especialidad' => fake()->word(),
+            'collegiate_number' => fake()->numerify('####'),
+            'speciality' => fake()->word(),
+            'consultation' => fake()->numberBetween(100, 999),
             'user_id' =>  User::factory()->create()->id            
         ];
     }

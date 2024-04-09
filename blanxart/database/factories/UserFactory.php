@@ -20,9 +20,12 @@ class UserFactory extends Factory
         $roles = ['paciente','medico','admin'];
         
         return [
-            'name' => fake()->name(),
-            'email' => fake()->unique()->safeEmail(),
+            'dni' => $this->faker->dni(),
+            'name' => $this->faker->name(),
+            'lastName' => $this->faker->lastName(),
+            'email' => $this->faker->unique()->safeEmail(),
             'email_verified_at' => now(),
+            'phone_number' => $this->faker->phoneNumber(),
             'password' => bcrypt('sanitech'),
             'rol' => $this->faker->randomElement($roles),
             'remember_token' => Str::random(10),

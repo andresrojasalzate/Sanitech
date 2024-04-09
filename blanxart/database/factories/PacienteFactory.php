@@ -17,10 +17,17 @@ class PacienteFactory extends Factory
      */
     public function definition(): array
     {
+        $genre = $this->faker->randomElement(['hombre', 'mujer']);
+        $birth_date = $this->faker->dateTimeBetween('-80 years', '-18 years')->format('Y-m-d');
+
         return [
-            'telefono' => fake()->tollFreeNumber(),
-            'correo' => fake()->email(),
-            'tarjeta_sanitaria' => fake()->uuid(),
+            'genre' => $genre,
+            'birth_date' => $birth_date,
+            'CIP' => 'A123456789123',
+            'address' => fake()->address(),
+            'city' => fake()->city(),
+            'post_code' => fake()->postcode(),
+            'familiar_contact' => fake()->tollFreeNumber(),
             'user_id' => User::factory()->create()->id
         ];
     }

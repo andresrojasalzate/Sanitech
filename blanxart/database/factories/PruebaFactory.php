@@ -17,10 +17,10 @@ class PruebaFactory extends Factory
     public function definition(): array
     {
         return [
-            'nombre' => fake()->sentence(3),
-            'descripcion' => fake()->sentence(),
+            'name' => fake()->sentence(3),
+            'description' => fake()->sentence(),
             'video' => fake()->url(),
-            'documento' => fake()->word(),
+            'document' => fake()->word(),
         ];
     }
 }

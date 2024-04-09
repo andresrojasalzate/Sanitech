@@ -13,10 +13,10 @@ return new class extends Migration
     {
         Schema::create('citas', function (Blueprint $table) {
             $table->id();
-            $table->date('fecha')->nullable();
-            $table->integer('nivel_emergencia');
-            $table->boolean('aceptada')->nullable();
-            $table->boolean('realizada');
+            $table->date('date')->nullable();
+            $table->integer('emergency_level');
+            $table->boolean('accepted')->nullable();
+            $table->boolean('done');
             $table->foreignId('prueba_id')->references('id')->on('pruebas')->onDelete('cascade')
             ->onUpdate('cascade');
             $table->foreignId('user_id')->references('id')->on('users')->onDelete('cascade')

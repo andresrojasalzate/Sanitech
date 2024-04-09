@@ -2,7 +2,7 @@
 
 namespace Database\Factories;
 
-use App\Models\Cita;
+use App\Models\Paciente;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -18,8 +18,8 @@ class ResultadoFactory extends Factory
     public function definition(): array
     {
         return [
-            'ruta' => fake()->word(),
-            'cita_id' => Cita::factory(),
+            'path' => fake()->word(),
+            'paciente_id' => Paciente::factory(),
         ];
     }
 }

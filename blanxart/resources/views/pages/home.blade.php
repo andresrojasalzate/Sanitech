@@ -12,7 +12,7 @@
         </section>
 
         <section class="opciones">
-            <a>
+            <a href="{{ route('agenda') }}">
                 <div class="opciones-opcion">
                     <div class="opciones-opcion-card">
                         <i class="fa-solid fa-calendar-days"></i>
@@ -21,7 +21,7 @@
                 </div>
             </a>
 
-            <a href="#">
+            <a href="{{ route('informesClinicos') }}">
                 <div class="opciones-opcion">
                     <div class="opciones-opcion-card">
                         <i class="fa-solid fa-microscope"></i>

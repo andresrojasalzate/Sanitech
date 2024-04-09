@@ -14,8 +14,8 @@ class Resultado extends Model
         'ruta'
     ];
 
-    public function cita(): BelongsTo
+    public function paciente(): BelongsTo
     {
-        return $this->belongsTo(Cita::class);
+        return $this->belongsTo(Paciente::class);
     }
 }
