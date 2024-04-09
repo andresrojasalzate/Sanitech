@@ -18,13 +18,14 @@ class AuthController extends Controller
 	    // Se extraen las credenciales necesarios para login desde el request recibido
 	    $credentials = $request->only('email', 'password');
         
-	    // Si son correctas las credenciales se realiza el login
+	    // Si son correctas las credenciales se realiza el login y redirige a la pantalla correspondiente
 	    if (Auth::attempt($credentials)) {
+			
 	        return redirect()->intended('home');
 	    }
 	
 	    // Si el usuario no existe devolvemos al usuario al formulario de login con un mensaje de error
-	    return redirect()->route('login-page')->with('error', 'Credenciales incorrectas, intente de nuevo.');
+	    return redirect()->route('login-page')->with('error', 'Credencials incorrectes, intenti de nou.');
 	}
 
     public function logout(Request $request)
