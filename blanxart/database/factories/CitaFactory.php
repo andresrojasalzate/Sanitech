@@ -19,10 +19,10 @@ class CitaFactory extends Factory
     public function definition(): array
     {
         return [
-            'fecha' => fake()->date(),
-            'nivel_emergencia' => fake()->numberBetween(1, 5),
-            'aceptada' => fake()->boolean(),
-            'realizada' => fake()->boolean(),
+            'date' => fake()->date(),
+            'emergency_level' => fake()->numberBetween(1, 5),
+            'accepted' => fake()->boolean(),
+            'done' => fake()->boolean(),
             'prueba_id' => Prueba::factory(),
             'user_id' => User::factory(),
         ];

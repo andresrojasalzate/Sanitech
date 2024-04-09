@@ -16,9 +16,9 @@ class Notificacion extends Model
         'tipo',
     ];
 
-    public function user(): BelongsTo
+    public function citas(): BelongsTo
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(Cita::class);
     }
 
     
