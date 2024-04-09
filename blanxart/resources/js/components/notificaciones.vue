@@ -3,10 +3,10 @@
       <div v-for="item in notificaciones" :key="item.id" class="notificacion-card">
         <div class="notificacion-content">
           <div class="notificacion-header">
-            <h3>{{ item.titulo }}</h3>
+            <h3>{{ item.title }}</h3>
           </div>
           <div class="notificacion-body">
-            <p>{{ item.asunto }}</p>
+            <p>{{ item.affair }}</p>
             <p>{{ item.descripcion }}</p>
           </div>
         </div>
@@ -27,14 +27,14 @@
         if (currentDate.getFullYear() === createdDate.getFullYear()) {
           if (currentDate.getMonth() === createdDate.getMonth() && currentDate.getDate() === createdDate.getDate()) {
             // Mismo día
-            return createdDate.toLocaleTimeString('es-ES', { hour: 'numeric', minute: 'numeric' });
+            return createdDate.toLocaleTimeString('ca-ES', { hour: 'numeric', minute: 'numeric' });
           } else {
             // Mismo año, pero diferente día
-            return createdDate.toLocaleDateString('es-ES', { month: 'long', day: 'numeric' });
+            return createdDate.toLocaleDateString('ca-ES', { month: 'long', day: 'numeric' });
           }
         } else {
           // Diferente año
-          return createdDate.toLocaleDateString('es-ES', { year: 'numeric', month: 'long', day: 'numeric' });
+          return createdDate.toLocaleDateString('ca-ES', { year: 'numeric', month: 'long', day: 'numeric' });
         }
       }
     }
