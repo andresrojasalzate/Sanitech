@@ -5,3 +5,56 @@
     }
     
 }
+
+.confirmar-btn {
+    background-color: $azulClaro; 
+    color: $blanco; 
+    padding: 10px 20px; 
+    font-size: 16px; 
+    border: none; 
+    border-radius: 5px; 
+    outline: none;
+    grid-column: 1 / 3;
+
+    &:hover {
+        background-color: $azulOscuro;
+      }
+  }
+
+  .dialog-button{
+    width: 5rem;
+    padding: 10px 20px;
+    
+    border: none;
+    border-radius: 5px;
+    grid-row: 2;
+    
+    &-confirmar{
+        background-color: #2ecc71;
+        color: $blanco;
+
+        &:hover{
+            background-color: #27ae60;            ;
+        }
+    }
+
+    &-rechazar{
+        background-color: #e74c3c;
+        color: $blanco;
+
+        &:hover{
+            background-color: #c0392b;
+        }
+    }
+
+  }
+
+  .cerrar-btn {
+    width: 8rem;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    margin-top: 1rem;
+  }
+  
+  

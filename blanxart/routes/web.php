@@ -24,6 +24,7 @@ Route::get('/', function () {
     return redirect()->route('login');
 })->name('index');
 
+
 //Ruta login
 Route::get('/login', function () {
     return view('pages.login');
@@ -50,6 +51,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/agenda', [AgendaController::class, 'agenda'])->name('agenda');
     Route::get('/informesClinicos', [InformeClinicosController::class, 'show'])->name('informesClinicos');
     Route::get('/notificaciones', [NotificacionesController::class, 'notificaciones'])->name('notificaciones');
+    Route::get('/respuestaCita/{id}/{respuesta}',[NotificacionesController::class, 'respuestaCita'])->name('respuesta-cita');
 
 });
 
@@ -58,3 +60,4 @@ Route::group(['middleware' => 'auth'], function () {
 Route::fallback(function () {
     return view('pages.error404');
 });
+

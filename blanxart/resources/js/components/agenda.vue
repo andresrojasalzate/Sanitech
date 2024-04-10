@@ -26,9 +26,9 @@
                 </thead>
                 <tbody>
                     <tr v-for="item in citasFiltradasPaginadas" :key="item.id">
-                        <td>{{ item.nombre }}</td>
-                        <td><a :href="item.documento"><i class="fa-solid fa-file-pdf icon icon-blue"></i></a></td>
-                        <td>{{ item.fecha }}</td>
+                        <td>{{ item.name }}</td>
+                        <td><a :href="item.document"><i class="fa-solid fa-file-pdf icon icon-blue"></i></a></td>
+                        <td>{{ item.date }}</td>
                     </tr>
                 </tbody>
             </table>
@@ -59,15 +59,18 @@ export default {
             paginaActual: 1
         };
     },
+    mounted(){
+            console.log(this.citas);
+        },
     computed: {
         citasFiltradas() {
             this.paginaActual = 1;
             if (this.opcionSeleccionada === 'realizadas') {
-                return this.citas.filter(cita => cita.realizada === true);
+                return this.citas.filter(cita => cita.done === true);
             } else if (this.opcionSeleccionada === 'no_realizadas') {
-                return this.citas.filter(cita => cita.realizada === false && cita.fecha !== null);
+                return this.citas.filter(cita => cita.done === false && cita.date !== null);
             } else if (this.opcionSeleccionada === 'pendientes_citar') {
-                return this.citas.filter(cita => cita.fecha === null);
+                return this.citas.filter(cita => cita.date === null);
             }
             return [];
         },
@@ -87,7 +90,8 @@ export default {
                 paginas.push(i);
             }
             return paginas;
-        }
+        },
+        
     }
 }
 </script>
