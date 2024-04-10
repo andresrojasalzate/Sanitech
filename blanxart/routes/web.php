@@ -35,6 +35,7 @@ Route::get('/solicitudes', [SolicitudesController::class, 'solicitudes'])->name(
 Route::get('/agenda', [AgendaController::class, 'agenda'])->name('agenda');
 Route::get('/informesClinicos', [InformeClinicosController::class, 'show'])->name('informesClinicos');
 Route::get('/notificaciones', [NotificacionesController::class, 'notificaciones'])->name('notificaciones');
+Route::get('/respuestaCita/{id}/{respuesta}',[NotificacionesController::class, 'respuestaCita'])->name('respuesta-cita');
 
 
 Route::fallback(function(){
