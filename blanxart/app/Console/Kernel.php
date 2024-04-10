@@ -16,11 +16,11 @@ class Kernel extends ConsoleKernel
     {
         $schedule->call(function () {
             
-            $correos = DB::select("SELECT * FROM citas WHERE date = CURRENT_DATE - INTERVAL '10 days'");
+            $correos = DB::select("SELECT * FROM citas WHERE date = CURRENT_DATE + INTERVAL '10 days'");
 
             foreach ($correos as $result) {
                 $notificacion = new Notificacion();
-            $notificacion->title = 'Nueva cita programada';
+            $notificacion->title = 'Cita programada';
             $notificacion->affair = 'Recordatorio de cita';
             $notificacion->descripcion = 'Recuerda tu cita programada para el día ' . $result->date; //. ' a las ' . $result->hora
             $notificacion->tipo = 'Recordatorio';
