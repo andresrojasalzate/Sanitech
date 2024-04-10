@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="html-login" lang="en">
+<html class="html-login" lang="cat">
 
 <head>
     <meta charset="UTF-8">
@@ -20,23 +20,23 @@
                 <form class="login-form-content" action="{{ route('custom-login') }}" method="POST">
                     @csrf
                     <div class="login-form-unit">
-                        <input class="login-form-input" type="text" id="user" autocomplete="off" name="email"
+                        <input class="login-form-input" type="text" id="dni" autocomplete="off" name="dni"
                             required placeholder="">
-                        <label class="login-form-label" for="user">Usuario</label>
+                        <label class="login-form-label" for="dni">Dni</label>
                         @if ($errors->has('email'))
-                            <span class="msg-error">El campo usuario es requerido</span>
+                            <span class="msg-error">El camp DNI és requerit.</span>
                         @endif
                     </div>
                     <div class="login-form-unit">
                         <input class="login-form-input" type="password" id="password" name="password"
                             autocomplete="off" required placeholder="">
-                        <label class="login-form-label" for="password">Contraseña</label>
+                        <label class="login-form-label" for="password">Contrasenya</label>
                         @if ($errors->has('password'))
-                            <span class="msg-error">El campo contraseña es requerido</span>
+                            <span class="msg-error">El camp Contrasenya és requerit</span>
                         @endif
                     </div>
-                    <div class="recover-password"><a href="">¿Has olvidado la contraseña?</a></div>
-                    <button class="button-login medionegrita" type="submit">Iniciar sesión</button>
+                    <div class="recover-password"><a href="">Has oblidat la contrasenya?</a></div>
+                    <button class="button-login medionegrita" type="submit">Iniciar sessió</button>
                     <div class="error">
                         @if (session('error'))
                             <span class="msg-error">{{ session('error') }}</span>

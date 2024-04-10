@@ -4,11 +4,10 @@
 @section('descripcion_pagina', 'Bienvenido a Blanxart, tu espacio de salut digital.')
 
 @section('content')
-
     <main class="homeContainer">
         <section class="info">
-            <h1 class="regular">Hola, Lordan Burgos</h1>
-            <h2 class="regular">Bienvenido a tu espacio de salud digitat.</h2>
+            <h1 class="regular">Hola {{auth()->user()->name}}</h1>
+            <h2 class="regular">Benvingut al teu espai de salut digital.</h2>
         </section>
 
         <section class="opciones">

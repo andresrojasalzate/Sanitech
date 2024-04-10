@@ -21,23 +21,43 @@ use App\Http\Controllers\SolicitudesController;
 */
 
 Route::get('/', function () {
-    return redirect()->route('login-page');
+    return redirect()->route('login');
 })->name('index');
 
-Route::get('/login',function(){
+
+//Ruta login
+Route::get('/login', function () {
     return view('pages.login');
-})->name('login-page');
+})->name('login');
 
-Route::post('/custom-login', [AuthController::class, 'login'])->name('custom-login');
+Route::post('/sanitech', [AuthController::class, 'login'])->name('custom-login');
 
-Route::get('/home', [HomeController::class, 'home'])->name('home');
-Route::get('/solicitudes', [SolicitudesController::class, 'solicitudes'])->name('solicitudes');
-Route::get('/agenda', [AgendaController::class, 'agenda'])->name('agenda');
-Route::get('/informesClinicos', [InformeClinicosController::class, 'show'])->name('informesClinicos');
-Route::get('/notificaciones', [NotificacionesController::class, 'notificaciones'])->name('notificaciones');
-Route::get('/respuestaCita/{id}/{respuesta}',[NotificacionesController::class, 'respuestaCita'])->name('respuesta-cita');
+//---------------Rutas que necesitan autenticación de usuarios----------------------------------------
+
+Route::group(['middleware' => 'auth'], function () {
+
+    //Ruta 'home'
+    Route::get('/home', function () {
+        return view('pages.home');
+    })->name('home');
 
 
-Route::fallback(function(){
+    //ruta 'logout'
+    Route::get('/logout', [AuthController::class, 'logout'])->name('logout')->middleware('auth');
+
+
+
+    Route::get('/solicitudes', [SolicitudesController::class, 'solicitudes'])->name('solicitudes');
+    Route::get('/agenda', [AgendaController::class, 'agenda'])->name('agenda');
+    Route::get('/informesClinicos', [InformeClinicosController::class, 'show'])->name('informesClinicos');
+    Route::get('/notificaciones', [NotificacionesController::class, 'notificaciones'])->name('notificaciones');
+    Route::get('/respuestaCita/{id}/{respuesta}',[NotificacionesController::class, 'respuestaCita'])->name('respuesta-cita');
+
+});
+
+
+//Ruta por defecto ----> muestra pagina error 404
+Route::fallback(function () {
     return view('pages.error404');
 });
+
