@@ -20,9 +20,9 @@
                 <form class="login-form-content" action="{{ route('custom-login') }}" method="POST">
                     @csrf
                     <div class="login-form-unit">
-                        <input class="login-form-input" type="text" id="user" autocomplete="off" name="dni"
+                        <input class="login-form-input" type="text" id="dni" autocomplete="off" name="dni"
                             required placeholder="">
-                        <label class="login-form-label" for="user">Dni</label>
+                        <label class="login-form-label" for="dni">Dni</label>
                         @if ($errors->has('email'))
                             <span class="msg-error">El camp DNI és requerit.</span>
                         @endif
@@ -35,7 +35,7 @@
                             <span class="msg-error">El camp Contrasenya és requerit</span>
                         @endif
                     </div>
-                    <div class="recover-password"><a href="">¿Has oblidat la contrasenya?</a></div>
+                    <div class="recover-password"><a href="">Has oblidat la contrasenya?</a></div>
                     <button class="button-login medionegrita" type="submit">Iniciar sessió</button>
                     <div class="error">
                         @if (session('error'))
