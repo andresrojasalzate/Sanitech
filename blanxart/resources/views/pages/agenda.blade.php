@@ -6,7 +6,7 @@
 @section('content')
 
 <div id="agenda">
-    {{-- @dd(json_encode($citas)); --}}
+   
     <citas-component :citas='@json($citas)'></citas-component>
 </div>
 

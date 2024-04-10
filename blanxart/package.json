@@ -15,5 +15,8 @@
         "vite": "^4.5.2",
         "vite-plugin-sass": "^0.1.0",
         "vue": "^3.2.37"
+    },
+    "dependencies": {
+        "bootstrap-vue": "^2.23.1"
     }
 }
