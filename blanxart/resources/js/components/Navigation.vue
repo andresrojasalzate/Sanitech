@@ -36,6 +36,7 @@
   
   <script>
   export default {
+    props: ['userData'],
     data() {
       return {
         isNavbarOpen: false
@@ -45,6 +46,9 @@
       toggleNavbar() {
         this.isNavbarOpen = !this.isNavbarOpen;
       }
+    },
+    mounted(){
+      console.log(this.userData);
     }
   };
   </script>

@@ -8,7 +8,10 @@ import notificacionesComponent from './components/notificaciones.vue';
 const citas = createApp({});
 citas.component('citas-component', agenda);
 citas.mount("#agenda");
-createApp(Navigation).mount("#app");
+
+const navegacion = createApp({});
+navegacion.component('navegacion-component', Navigation);
+navegacion.mount("#app");
 
 const notificaciones = createApp({});
 notificaciones.component('notificaciones-component', notificacionesComponent);
