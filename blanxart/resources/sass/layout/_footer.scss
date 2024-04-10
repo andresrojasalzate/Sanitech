@@ -1,23 +1,38 @@
 .footer {
-    height: 50px;
-    width: 100%;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     background-color: $azulOscuro;
-    padding: 5px 0;
+    padding: 10px 0;
     text-align: center;
-    position: fixed; /* Posicionamiento fijo */
-    bottom: 0; /* Fijar en la parte inferior */
-    left: 0; /* Fijar en el borde izquierdo */
+    // position: absolute;
+    bottom: 0; 
+    left: 0; 
+    width: 100%;
+    p, i {
+        color: $blanco
+    }
 
-    &-link {
-        text-decoration: none;
-        color: $blanco;
-        padding: 5px 10px;
+    &-logos-instituto {
+        display: flex;
+        justify-content: center;
+        gap: 100px;
+        width: 100%;
+        
+        img {
+            width: 100px;
+            height: 100px;
+        }
+    }
 
-        &:hover {
-            text-decoration: underline;
+    &-copyright {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+        i {
+            margin-right: 5px;
         }
     }
 }
