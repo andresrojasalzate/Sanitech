@@ -17,7 +17,6 @@ class JustificanteController extends Controller
 
     public function generarJustificante() 
     {
-        
         $pdf = Pdf::loadView('templates.generarJustificante');
         return $pdf->download('invoice.pdf');
     }

@@ -2,6 +2,7 @@
     <div class="agenda-container">
         <div class="citas-title">
             <h2>Agenda</h2>
+            <p>Aquí podràs visualitzar totes les teves cites</p>
         </div>
         <div class="citas-type">
             <label>tipo de cita</label>
