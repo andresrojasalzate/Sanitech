@@ -5,17 +5,20 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 use Barryvdh\DomPDF\Facade\Pdf;
+use App\Models\Cita;
 
 class JustificanteController extends Controller
 {
     public function justificante(): View 
     {
-        return view ('pages.justificante');
+        $citas = Cita::getAllCitasByUserId();
+        return view ('pages.justificante', compact('citas'));
     }
 
     public function generarJustificante() 
     {
+        
         $pdf = Pdf::loadView('templates.generarJustificante');
-        return $pdf->stream('invoice.pdf');
+        return $pdf->download('invoice.pdf');
     }
 }
