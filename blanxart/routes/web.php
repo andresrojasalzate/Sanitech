@@ -49,18 +49,29 @@ Route::group(['middleware' => 'auth'], function () {
 
 
 
-    Route::get('/solicitudes', [SolicitudesController::class, 'solicitudes'])->name('solicitudes');
-    Route::get('/agenda', [AgendaController::class, 'agenda'])->name('agenda');
-    Route::get('/informesClinicos', [InformeClinicosController::class, 'show'])->name('informesClinicos');
-    Route::get('/notificaciones', [NotificacionesController::class, 'notificaciones'])->name('notificaciones');
-    Route::get('/respuestaCita/{id}/{respuesta}',[NotificacionesController::class, 'respuestaCita'])->name('respuesta-cita');
+    
+    
 
+
+    Route::group(['middleware' => ['rol:admin']], function () {
+    });
+
+    Route::group(['middleware' => ['rol:medico']], function () {
+        Route::get('/crearCita', [CrearCitaController::class, 'show'])->name('crearCita');
+    });
+
+    Route::group(['middleware' => ['rol:paciente']], function () {
+        Route::get('/notificaciones', [NotificacionesController::class, 'notificaciones'])->name('notificaciones');
+        Route::get('/respuestaCita/{id}/{respuesta}', [NotificacionesController::class, 'respuestaCita'])->name('respuesta-cita');
+        Route::get('/solicitudes', [SolicitudesController::class, 'solicitudes'])->name('solicitudes');
+        Route::get('/agenda', [AgendaController::class, 'agenda'])->name('agenda');
+    Route::get('/informesClinicos', [InformeClinicosController::class, 'show'])->name('informesClinicos');
+    });
 });
-Route::get('/crearCita', [CrearCitaController::class, 'show'])->name('crearCita');
+
 
 
 //Ruta por defecto ----> muestra pagina error 404
 Route::fallback(function () {
     return view('pages.error404');
 });
-
