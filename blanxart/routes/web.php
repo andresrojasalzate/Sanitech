@@ -32,6 +32,10 @@ Route::get('/login', function () {
 
 Route::post('/sanitech', [AuthController::class, 'login'])->name('custom-login');
 
+Route::get('/justificante', function(){
+    return view('templates.justificante');
+})->name('justificante');
+
 //---------------Rutas que necesitan autenticación de usuarios----------------------------------------
 
 Route::group(['middleware' => 'auth'], function () {
