@@ -9,6 +9,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\InformeClinicosController;
 use App\Http\Controllers\NotificacionesController;
 use App\Http\Controllers\SolicitudesController;
+use App\Http\Controllers\JustificanteController;
 
 
 /*
@@ -65,7 +66,9 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('/respuestaCita/{id}/{respuesta}', [NotificacionesController::class, 'respuestaCita'])->name('respuesta-cita');
         Route::get('/solicitudes', [SolicitudesController::class, 'solicitudes'])->name('solicitudes');
         Route::get('/agenda', [AgendaController::class, 'agenda'])->name('agenda');
-    Route::get('/informesClinicos', [InformeClinicosController::class, 'show'])->name('informesClinicos');
+        Route::get('/informesClinicos', [InformeClinicosController::class, 'show'])->name('informesClinicos');
+        Route::get('/justificante', [JustificanteController::class, 'justificante'])->name('justificante');
+    Route::get('/generarJustificante', [JustificanteController::class, 'generarJustificante'])->name('generarJustificante');
     });
 });
 
