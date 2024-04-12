@@ -25,7 +25,6 @@ use App\Http\Controllers\JustificanteController;
 
 Route::get('/', function () {
     return redirect()->route('login');
-    return redirect()->route('login');
 })->name('index');
 
 
@@ -73,6 +72,12 @@ Route::group(['middleware' => 'auth'], function () {
     });
 });
 
+
+Route::get('/prueba', function(){
+    return view('templates.justificante');
+})->name('prueba');
+
+Route::get('/prueba/{id}',[JustificanteController::class,'generarJustificante'])->name('prueba1');
 
 
 //Ruta por defecto ----> muestra pagina error 404
