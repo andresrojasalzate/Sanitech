@@ -38,7 +38,7 @@
                 </div>
             </a>
 
-            <a>
+            <a href="{{ route('justificante') }}">
                 <div class="solicitudes-solicitud">
                     <div class="solicitudes-solicitud-icon">
                         <i class="fa-solid fa-file"></i>

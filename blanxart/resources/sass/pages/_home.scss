@@ -31,15 +31,16 @@
 
     @media (max-width: 768px) {
         .opciones {
+            @include card-grid-columns(2);
             gap: 10px;
 
             .opciones-opcion {
                 h4 {
-                    font-size: 15px;
+                    font-size: 16px;
                 }
                 &-card {
-                    width: 100px;
-                    height: 100px;
+                    width: 130px;
+                    height: 130px;
 
                     i {
                         font-size: 30px;

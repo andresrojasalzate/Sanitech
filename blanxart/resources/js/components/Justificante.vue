@@ -11,21 +11,21 @@
             <table v-if="citasRealizadasPaginadas.length > 0">
                 <thead>
                     <tr>
-                        <th>Nombre</th>
-                        <th>Adjuntos</th>
-                        <th>Fecha</th>
+                        <th>Nom</th>
+                        <th>Fetxa</th>
+                        <th>Generar justificant</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr v-for="item in citasRealizadasPaginadas" :key="item.id">
                         <td>{{ item.name }}</td>
-                        <td><a @click="navegarAJustificante(item.document)"><i class="fa-solid fa-file-pdf icon icon-blue"></i></a></td>
                         <td>{{ item.date }}</td>
+                        <td><a @click="navegarAJustificante(item.document)"><i class="fa-solid fa-file-pdf icon icon-blue"></i></a></td>
                     </tr>
                 </tbody>
             </table>
             <div v-else>
-                <p class="no-citas">No hay citas disponibles.</p>
+                <p class="no-citas">No has fet .</p>
             </div>
             <div class="paginacion">
                 <button @click="paginaActual -= 1" :disabled="paginaActual === 1"><i class='fas fa-chevron-left'></i></button>
