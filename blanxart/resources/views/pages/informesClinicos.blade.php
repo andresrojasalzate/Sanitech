@@ -4,6 +4,8 @@
 @section('descripcion_pagina', 'Lista de tus Informes Clínicos')
 
 @section('content')
+
+{{-- @dd($resultados); --}}
 <main class="informesContainer">
     <section class="tituloInformes">
         <h1 class="medionegrita">Informes clínicos</h1>
@@ -11,13 +13,13 @@
 
     <section class="listaInformes"> 
         <div id="informesClinicos">
-            @foreach($citas as $cita)
-                <informes-component :cita='@json($cita)'></informes-component>
+            @foreach($resultados as $resultado)
+                <informes-component :resultado='@json($resultado)'></informes-component>
             @endforeach
 
-            @if ($citas->count()) 
+            @if ($resultados->count()) 
                 <nav class="menu-paginacion">
-                    {{ $citas->links() }}
+                    {{ $resultados->links() }}
                 </nav>  
             @endif
         </div>

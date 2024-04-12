@@ -55,10 +55,12 @@ Route::group(['middleware' => 'auth'], function () {
 
 
     Route::group(['middleware' => ['rol:admin']], function () {
+        
     });
 
     Route::group(['middleware' => ['rol:medico']], function () {
         Route::get('/crearCita', [CrearCitaController::class, 'show'])->name('crearCita');
+        Route::get('/resultadosPaciente/{id}', [InformeClinicosController::class, 'show'])->name('informesClinicos');
     });
 
     Route::group(['middleware' => ['rol:paciente']], function () {
@@ -66,7 +68,7 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('/respuestaCita/{id}/{respuesta}', [NotificacionesController::class, 'respuestaCita'])->name('respuesta-cita');
         Route::get('/solicitudes', [SolicitudesController::class, 'solicitudes'])->name('solicitudes');
         Route::get('/agenda', [AgendaController::class, 'agenda'])->name('agenda');
-        Route::get('/informesClinicos', [InformeClinicosController::class, 'show'])->name('informesClinicos');
+        Route::get('/informesClinicos/{id}', [InformeClinicosController::class, 'show'])->name('informesClinicos');
         Route::get('/justificante', [JustificanteController::class, 'justificante'])->name('justificante');
     Route::get('/generarJustificante', [JustificanteController::class, 'generarJustificante'])->name('generarJustificante');
     });
