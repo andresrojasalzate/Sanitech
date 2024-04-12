@@ -4,6 +4,7 @@
 @section('descripcion_pagina', 'Bienvenido a Blanxart, tu espacio de salut digital.')
 
 @section('content')
+
     <main class="homeContainer">
         <section class="info">
             <h1 class="regular">Hola {{auth()->user()->name}}</h1>
@@ -20,7 +21,8 @@
                 </div>
             </a>
 
-            <a href="{{ route('informesClinicos') }}">
+            <a href="{{ route('informesClinicos', ['id' => auth()->user()->id]) }}">
+
                 <div class="opciones-opcion">
                     <div class="opciones-opcion-card">
                         <i class="fa-solid fa-microscope"></i>
