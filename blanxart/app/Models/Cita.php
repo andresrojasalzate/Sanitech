@@ -42,7 +42,7 @@ class Cita extends Model
         $citas = DB::table('citas')
             ->join('pruebas', 'citas.prueba_id', '=', 'pruebas.id')
             ->select('citas.*', 'pruebas.*')
-            ->where('citas.user_id', 26)
+            ->where('citas.user_id', 8)
             ->get();
 
             return $citas;

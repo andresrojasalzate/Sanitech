@@ -18,7 +18,10 @@ class ResultadoFactory extends Factory
     public function definition(): array
     {
         return [
-            'path' => fake()->word(),
+            'prueba' => fake()->word(),
+            'resultado' => fake()->sentence(),
+            'servicio' => fake()->word(),
+            'centro' => fake()->word(),
             'paciente_id' => Paciente::factory(),
         ];
     }

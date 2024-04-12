@@ -9,6 +9,12 @@ use Barryvdh\DomPDF\Facade\Pdf;
 
 class JustificanteController extends Controller
 {
+    public function justificante(): View 
+    {
+        $citas = Cita::getAllCitasByUserId();
+        return view ('pages.justificante', compact('citas'));
+    }
+
     public function generarJustificante() 
     {
         $cita = Cita::fillPDF();
