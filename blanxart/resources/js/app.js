@@ -26,3 +26,5 @@ informes.mount('#informesClinicos');
 const justificante = createApp({});
 justificante.component('justificante-component', justificanteComponent);
 justificante.mount('#justificante');
+
+createApp(buscadorPaciente).mount("#buscadorPacientes");
