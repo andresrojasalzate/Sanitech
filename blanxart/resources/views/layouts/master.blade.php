@@ -25,9 +25,12 @@
 </head>
 
 <body>
+    {{-- @dd(auth()->user()->id); --}}
     @include('partials.header')
     <div id="app">
         
+        <navegacion-component :user-data="{{ json_encode(auth()->user()) }}"></navegacion-component>
+
     </div>
 
     <div class="allContent">

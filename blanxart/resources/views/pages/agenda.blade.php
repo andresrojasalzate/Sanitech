@@ -6,7 +6,6 @@
 @section('content')
 
 <div id="agenda">
-   
     <citas-component :citas='@json($citas)'></citas-component>
 </div>
 

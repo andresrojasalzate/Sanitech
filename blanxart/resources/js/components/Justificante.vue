@@ -1,40 +1,31 @@
 <template>
     <div class="agenda-container">
         <div class="citas-title">
-            <h2>Agenda</h2>
-            <p>Aquí podràs visualitzar totes les teves cites</p>
-        </div>
-        <div class="citas-type">
-            <label>tipo de cita</label>
-            <select v-model="opcionSeleccionada">
-                <option value="realizadas">Citas realizadas</option>
-                <option value="no_realizadas">Citas no realizadas</option>
-                <option value="pendientes_citar">Citas pendientes por citar</option>
-            </select>
+            <h2>Pedir justificante</h2>
         </div>
 
         <div class="citas-table">
-            <p v-if="citasFiltradas.length > 0">
-                Citas encontradas: {{ citasFiltradas.length }}
+            <p v-if="citasRealizadas.length > 0">
+                Citas encontradas: {{ citasRealizadas.length }}
             </p>
-            <table v-if="citasFiltradasPaginadas.length > 0">
+            <table v-if="citasRealizadasPaginadas.length > 0">
                 <thead>
                     <tr>
-                        <th>Nombre</th>
-                        <th>Adjuntos</th>
-                        <th>Fecha</th>
+                        <th>Nom</th>
+                        <th>Fetxa</th>
+                        <th>Generar justificant</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr v-for="item in citasFiltradasPaginadas" :key="item.id">
+                    <tr v-for="item in citasRealizadasPaginadas" :key="item.id">
                         <td>{{ item.name }}</td>
-                        <td><a :href="item.document"><i class="fa-solid fa-file-pdf icon icon-blue"></i></a></td>
                         <td>{{ item.date }}</td>
+                        <td><a @click="navegarAJustificante(item.document)"><i class="fa-solid fa-file-pdf icon icon-blue"></i></a></td>
                     </tr>
                 </tbody>
             </table>
             <div v-else>
-                <p class="no-citas">No hay citas disponibles.</p>
+                <p class="no-citas">No has fet .</p>
             </div>
             <div class="paginacion">
                 <button @click="paginaActual -= 1" :disabled="paginaActual === 1"><i class='fas fa-chevron-left'></i></button>
@@ -55,7 +46,6 @@ export default {
     props: ['citas'],
     data() {
         return {
-            opcionSeleccionada: 'realizadas',
             elementosPorPagina: 4,
             paginaActual: 1
         };
@@ -64,24 +54,17 @@ export default {
             console.log(this.citas);
         },
     computed: {
-        citasFiltradas() {
+        citasRealizadas() {
             this.paginaActual = 1;
-            if (this.opcionSeleccionada === 'realizadas') {
-                return this.citas.filter(cita => cita.done === true);
-            } else if (this.opcionSeleccionada === 'no_realizadas') {
-                return this.citas.filter(cita => cita.done === false && cita.date !== null);
-            } else if (this.opcionSeleccionada === 'pendientes_citar') {
-                return this.citas.filter(cita => cita.date === null);
-            }
-            return [];
+            return this.citas.filter(cita => cita.done === true);
         },
         totalPaginas() {
-            return Math.ceil(this.citasFiltradas.length / this.elementosPorPagina);
+            return Math.ceil(this.citasRealizadas.length / this.elementosPorPagina);
         },
-        citasFiltradasPaginadas() {
+        citasRealizadasPaginadas() {
             const inicio = (this.paginaActual - 1) * this.elementosPorPagina;
             const fin = this.paginaActual * this.elementosPorPagina;
-            return this.citasFiltradas.slice(inicio, fin);
+            return this.citasRealizadas.slice(inicio, fin);
         },
         paginasMostradas() {
             const paginas = [];
@@ -93,6 +76,13 @@ export default {
             return paginas;
         },
         
+    },
+
+    methods: {
+        navegarAJustificante(documento) {
+            window.location.href = `generarJustificante`;
+        }
     }
+    
 }
 </script>
