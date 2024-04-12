@@ -14,6 +14,14 @@ class CrearCitaController extends Controller
 
     public function filtrarPaciente(string $texto)
     {
-        User::where();
+        $textoNoEspacios = trim($texto);
+        $resultados = User::where('rol', 'paciente')
+        ->where(function ($query) use ($textoNoEspacios) {
+            $query->where('name', 'like', '%' . $textoNoEspacios . '%')
+                ->orWhere('lastName', 'like', '%' . $textoNoEspacios . '%')
+                ->orWhereRaw('CONCAT(name, \' \' ,"lastName") = ?', [$textoNoEspacios]);
+        })
+        ->get();
+        return $resultados;
     }
 }

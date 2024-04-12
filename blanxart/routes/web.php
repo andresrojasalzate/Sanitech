@@ -4,6 +4,7 @@ use App\Http\Controllers\AgendaController;
 use App\Http\Controllers\CitasController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\BuscadorPacienteController;
 use App\Http\Controllers\CrearCitaController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\InformeClinicosController;
@@ -57,6 +58,7 @@ Route::group(['middleware' => 'auth'], function () {
 
 });
 Route::get('/crearCita', [CrearCitaController::class, 'show'])->name('crearCita');
+Route::get('/buscadorPacientes', [BuscadorPacienteController::class, 'show'])->name('buscadorPacientes');
 
 
 //Ruta por defecto ----> muestra pagina error 404
