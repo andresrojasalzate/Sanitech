@@ -1,0 +1,52 @@
+.homeContainer {
+    .info {
+        display: flex;
+        flex-direction: column;
+        padding: 20px;
+    }
+    .opciones {
+        @include card-grid-columns(3);
+        gap: 50px;
+        &-opcion {
+            @include flex-column-center;
+            h4 {
+                padding: 20px 0;
+            }
+
+            &-card {
+                @include flex-column-center;
+                background-color: $verde;
+                width: 150px;
+                height: 150px;
+                border-radius: 10px;
+
+                i {
+                    color: $negro;
+                    font-size: 50px;
+                }
+                box-shadow: $sombra;
+            }
+        }
+    }
+
+    @media (max-width: 768px) {
+        .opciones {
+            @include card-grid-columns(2);
+            gap: 10px;
+
+            .opciones-opcion {
+                h4 {
+                    font-size: 16px;
+                }
+                &-card {
+                    width: 130px;
+                    height: 130px;
+
+                    i {
+                        font-size: 30px;
+                    }
+                }
+            }
+        }
+    }
+}
