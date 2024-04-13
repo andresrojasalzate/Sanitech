@@ -1,0 +1,24 @@
+.header-404{
+    background-color: $azulOscuro;
+    color: $blanco;
+    font-size: 30px;
+    padding: 10px 50px;
+}
+
+@media (min-width: 1000px) {
+    .header-404{
+        font-size: 50px;
+        padding: 20px 100px;
+    }
+}
+
+.error-404{
+    display:grid;
+    justify-content: center;
+    align-content: center;
+    height: 80vh;
+    &-image{
+        height: 50vh;
+        width: 80vw;
+    }
+}
