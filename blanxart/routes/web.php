@@ -58,7 +58,7 @@ Route::group(['middleware' => 'auth'], function () {
     });
 
     Route::group(['middleware' => ['rol:paciente']], function () {
-        Route::get('/notificaciones', [NotificacionesController::class, 'notificaciones'])->name('notificaciones');
+        Route::get('/notificaciones/{id}', [NotificacionesController::class, 'notificaciones'])->name('notificaciones');
         Route::get('/respuestaCita/{id}/{respuesta}', [NotificacionesController::class, 'respuestaCita'])->name('respuesta-cita');
         Route::get('/solicitudes', [SolicitudesController::class, 'solicitudes'])->name('solicitudes');
         Route::get('/agenda/{id}', [AgendaController::class, 'agenda'])->name('agenda');
