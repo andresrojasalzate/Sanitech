@@ -23,8 +23,8 @@ class CitaFactory extends Factory
             'emergency_level' => fake()->numberBetween(1, 5),
             'accepted' => fake()->boolean(),
             'done' => fake()->boolean(),
-            'prueba_id' => Prueba::factory(),
-            'user_id' => User::factory(),
+            'prueba_id' => Prueba::factory()->create()->id,
+            'user_id' => User::factory()->create()->id,
         ];
     }
 }

@@ -20,8 +20,7 @@ class MedicoFactory extends Factory
         return [
             'collegiate_number' => fake()->numerify('####'),
             'speciality' => fake()->word(),
-            'consultation' => fake()->numberBetween(100, 999),
-            'user_id' =>  User::factory()->create()->id            
+            'consultation' => fake()->numberBetween(100, 999),         
         ];
     }
 }

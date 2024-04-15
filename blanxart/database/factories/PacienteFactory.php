@@ -28,7 +28,7 @@ class PacienteFactory extends Factory
             'city' => fake()->city(),
             'post_code' => fake()->postcode(),
             'familiar_contact' => fake()->tollFreeNumber(),
-            'user_id' => User::factory()->create()->id
+            
         ];
     }
 }
