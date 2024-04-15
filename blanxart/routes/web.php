@@ -53,7 +53,7 @@ Route::group(['middleware' => 'auth'], function () {
     });
 
     Route::group(['middleware' => ['rol:medico']], function () {
-        Route::get('/crearCita', [CrearCitaController::class, 'show'])->name('crearCita');
+        Route::get('/crearCita/{idUsuarioPaciente}', [CrearCitaController::class, 'show'])->name('crearCita');
         Route::get('/resultadosPaciente/{id}', [InformeClinicosController::class, 'show'])->name('informesClinicos');
         Route::get('/buscadorPacientes', [BuscadorPacienteController::class, 'show'])->name('buscadorPacientes');
     });
@@ -67,8 +67,8 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('/justificante', [JustificanteController::class, 'justificante'])->name('justificante');
         Route::get('/generarJustificante', [JustificanteController::class, 'generarJustificante'])->name('generarJustificante');
         //Pedir una cita
-        Route::get('/pedirCita', [PedirCitaController::class, 'create'])->name('create');
-        Route::post('/miscitas', [PedirCitaController::class, 'store'])->name('store');
+        // Route::get('/pedirCita', [PedirCitaController::class, 'create'])->name('create');
+        // Route::post('/miscitas', [PedirCitaController::class, 'store'])->name('store');
     });
 });
 

@@ -45,8 +45,6 @@
     gap: 10px;
     border-top: 1px solid black;
     align-items: center; 
-    
-
 
     & img {
         width: 5rem;
@@ -63,8 +61,14 @@
         flex-direction: column;
         padding-right: 5vw;
 
-        & button:not(:last-child) {
+        & a:not(:last-child) {
             margin-bottom: 2vh;
+        }
+
+        & button{
+            width: 100%;
+            padding-top: 0.5vh;
+            padding-bottom: 0.5vh;
         }
 
     }

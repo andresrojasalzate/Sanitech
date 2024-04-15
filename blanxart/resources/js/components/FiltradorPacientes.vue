@@ -14,9 +14,16 @@
                 <p>Telef: {{ user.phone_number }}</p>
             </div>
             <div class="pacienteBotones">
-                <button>Crear cita</button>
-                <button>Consultar pruebas</button>
-                <button>Consultar resultados</button>
+                <a :href="'/crearCita/' + user.id">
+                    <button>Crear cita</button>
+                </a>
+                <a href="">
+                    <button>Consultar pruebas</button>
+                </a>
+                <a href="">
+                    <button>Consultar resultados</button>
+                </a>
+                
             </div>
         </div>
     </div>
