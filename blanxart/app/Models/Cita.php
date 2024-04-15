@@ -37,12 +37,12 @@ class Cita extends Model
     }
 
 
-    public static function getAllCitasByUserId()
+    public static function getAllCitasByUserId($id)
     {
         $citas = DB::table('citas')
             ->join('pruebas', 'citas.prueba_id', '=', 'pruebas.id')
             ->select('citas.*', 'pruebas.*')
-            ->where('citas.user_id', 5)
+            ->where('citas.user_id', $id)
             ->get();
 
             return $citas;
