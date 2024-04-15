@@ -12,7 +12,7 @@
         </section>
 
         <section class="opciones">
-            <a href="{{ route('agenda') }}">
+            <a href="{{ route('agenda' , ['id' => auth()->user()->id])  }}">
                 <div class="opciones-opcion">
                     <div class="opciones-opcion-card">
                         <i class="fa-solid fa-calendar-days"></i>
