@@ -14,7 +14,7 @@
             <a class="nav-link" href="/">Inicio</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" :href="'/agenda/' + userData.id.toString()">Agenda</a>
+            <a class="nav-link" :href="'/agenda/' + userData.id">Agenda</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/citas">Citas</a>
@@ -23,7 +23,7 @@
             <a class="nav-link" href="">Solicitudes</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/notificaciones">Notificaciones</a>
+            <a class="nav-link" :href="'/notificaciones/' + userData.id">Notificaciones</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="logout">Logout</a>
@@ -33,28 +33,24 @@
     </div>
   </nav>
 </template>
-  
-  <script>
-  export default {
-    props: ['userData'],
-    data() {
-      return {
-        isNavbarOpen: false
-      };
-    },
-    methods: {
-      toggleNavbar() {
-        this.isNavbarOpen = !this.isNavbarOpen;
-      }
-    },
-    mounted(){
-      console.log(this.userData);
+
+<script>
+export default {
+  props: ['userData'],
+  data() {
+    return {
+      isNavbarOpen: false
+    };
+  },
+  methods: {
+    toggleNavbar() {
+      this.isNavbarOpen = !this.isNavbarOpen;
     }
-  };
-  </script>
-  
-<style>
+  },
+  mounted() {
+    console.log(this.userData);
+  }
+};
+</script>
 
-</style>
-
-  
+<style></style>
