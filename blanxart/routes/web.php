@@ -1,5 +1,4 @@
 <?php
-
 use App\Http\Controllers\AgendaController;
 use App\Http\Controllers\CitasController;
 use Illuminate\Support\Facades\Route;
