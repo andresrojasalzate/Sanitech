@@ -1,5 +1,4 @@
 <?php
-
 use App\Http\Controllers\AgendaController;
 use App\Http\Controllers\PedirCitaController;
 use Illuminate\Support\Facades\Route;
@@ -65,8 +64,8 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('/justificante', [JustificanteController::class, 'justificante'])->name('justificante');
         Route::get('/generarJustificante', [JustificanteController::class, 'generarJustificante'])->name('generarJustificante');
         //Pedir una cita
-        Route::get('/pedirCita', [PedirCitaController::class, 'create'])->name('create');
-        Route::post('/miscitas', [PedirCitaController::class, 'store'])->name('store');
+        // Route::get('/pedirCita', [PedirCitaController::class, 'create'])->name('create');
+        // Route::post('/miscitas', [PedirCitaController::class, 'store'])->name('store');
     });
 });
 
