@@ -3,6 +3,7 @@ use App\Http\Controllers\AgendaController;
 use App\Http\Controllers\PedirCitaController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\BuscadorPacienteController;
 use App\Http\Controllers\CrearCitaController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\InformeClinicosController;
@@ -51,8 +52,9 @@ Route::group(['middleware' => 'auth'], function () {
     });
 
     Route::group(['middleware' => ['rol:medico']], function () {
-        Route::get('/crearCita', [CrearCitaController::class, 'show'])->name('crearCita');
+        Route::get('/crearCita/{idUsuarioPaciente}', [CrearCitaController::class, 'show'])->name('crearCita');
         Route::get('/resultadosPaciente/{id}', [InformeClinicosController::class, 'show'])->name('informesClinicos');
+        Route::get('/buscadorPacientes', [BuscadorPacienteController::class, 'show'])->name('buscadorPacientes');
     });
 
     Route::group(['middleware' => ['rol:paciente']], function () {
@@ -74,6 +76,7 @@ Route::get('/prueba', function(){
 })->name('prueba');
 
 Route::get('/prueba/{id}',[JustificanteController::class,'generarJustificante'])->name('prueba1');
+
 
 //Ruta por defecto ----> muestra pagina error 404
 Route::fallback(function () {
