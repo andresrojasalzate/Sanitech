@@ -2,14 +2,21 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Prueba;
 use App\Models\User;
+
 use Illuminate\Http\Request;
 
 class CrearCitaController extends Controller
 {
-    public function show()
+    public function show(string $idUsuarioPaciente)
     {
-        return view('pages.crearCita');
+        $paciente = User::find($idUsuarioPaciente);
+        $pruebas = Prueba::all();
+        return view('pages.crearCita', [
+            'paciente' => $paciente,
+            'pruebas' => $pruebas
+        ]);
     }
 
     public function filtrarPaciente(string $texto)

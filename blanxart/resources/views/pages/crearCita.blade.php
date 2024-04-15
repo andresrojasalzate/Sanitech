@@ -11,21 +11,15 @@
 
     <section class="contenidoCrearCita">
         <form action="" class="formularioCrearCita">
-            <label for="nombrePaciente">Nom i cognoms del pacient:</label>
-            <input type="text" name="nombrePaciente" list="pacientes">
-            <datalist id="pacientes">
-                <option>Volvo</option>
-                <option>Saab</option>
-                <option>Mercedes</option>
-                <option>Audi</option>
-            </datalist>
+            <p class="medionegrita">Paciente: {{$paciente->name}} {{$paciente->lastName}}</p>
             <label for="nombrePaciente">Selecciona la prova per a la cita:</label>
-            <select name="tipoPrueba" id="">
-                <option value="opcion1">Opcion1</option>
-                <option value="opcion1">Opcion2</option>
-                <option value="opcion1">Opcion2</option>
+            <select name="prueba_id" id="">
+                <option value="" disabled selected>Escull una prova...</option>
+                @foreach($pruebas as $prueba)
+                    <option value="{{ $prueba->id }}">{{ $prueba->name }}</option>
+                @endforeach
             </select>
-            <label for="nombrePaciente">Selecciona el nivel de emergencia:</label> 
+            <label for="nombrePaciente">Selecciona el nivel de emergencia:</label>
             <div class="nivelEmergencia">
                 <input type="radio" name="emergency_level" id="nivel1">
                 <label for="nivel1">1</label>
@@ -38,11 +32,12 @@
                 <input type="radio" name="emergency_level" id="nivel5">
                 <label for="nivel5">5</label>
             </div>
-           <button>Crear Cita</button>
-        </form> 
-        
-        
+            <input type="hidden" name="user_id" value="{{ $paciente->id}}">
+            <button>Crear Cita</button>
+        </form>
+
+
     </section>
-    
+
 </main>
 @endsection
