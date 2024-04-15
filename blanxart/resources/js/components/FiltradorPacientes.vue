@@ -17,10 +17,10 @@
                 <a :href="'/crearCita/' + user.id">
                     <button>Crear cita</button>
                 </a>
-                <a :href="'/resultadosPaciente/' + user.id">
+                <a href="">
                     <button>Consultar pruebas</button>
                 </a>
-                <a href="">
+                <a :href="'/resultadosPaciente/' + user.id">
                     <button>Consultar resultados</button>
                 </a>
                 
