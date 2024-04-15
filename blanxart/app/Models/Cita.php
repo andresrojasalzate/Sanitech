@@ -48,11 +48,11 @@ class Cita extends Model
             return $citas;
     }
 
-    public static function fillPDF(){
+    public static function fillPDF($id){
         $cita = DB::table('citas')
         ->join('users','users.id','=','citas.user_id')
         ->select('users.name','users.lastName','users.dni','citas.date')
-        ->where('citas.id','1')
+        ->where('citas.id', $id)
         ->get();
 
         return $cita;
