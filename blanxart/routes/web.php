@@ -1,5 +1,4 @@
 <?php
-
 use App\Http\Controllers\AgendaController;
 use App\Http\Controllers\PedirCitaController;
 use Illuminate\Support\Facades\Route;
@@ -62,7 +61,7 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('/notificaciones', [NotificacionesController::class, 'notificaciones'])->name('notificaciones');
         Route::get('/respuestaCita/{id}/{respuesta}', [NotificacionesController::class, 'respuestaCita'])->name('respuesta-cita');
         Route::get('/solicitudes', [SolicitudesController::class, 'solicitudes'])->name('solicitudes');
-        Route::get('/agenda', [AgendaController::class, 'agenda'])->name('agenda');
+        Route::get('/agenda/{id}', [AgendaController::class, 'agenda'])->name('agenda');
         Route::get('/informesClinicos/{id}', [InformeClinicosController::class, 'show'])->name('informesClinicos');
         Route::get('/justificante', [JustificanteController::class, 'justificante'])->name('justificante');
         Route::get('/generarJustificante', [JustificanteController::class, 'generarJustificante'])->name('generarJustificante');

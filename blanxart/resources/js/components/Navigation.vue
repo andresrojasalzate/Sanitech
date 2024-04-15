@@ -14,7 +14,7 @@
             <a class="nav-link" href="/">Inicio</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/agenda">Agenda</a>
+            <a class="nav-link" :href="'/agenda/' + userData.id.toString()">Agenda</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/citas">Citas</a>

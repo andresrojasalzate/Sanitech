@@ -11,7 +11,7 @@ class NotificacionesController extends Controller
     public function notificaciones()
     {
 
-        $notificaciones = Notificacion::where('user_id', 26)
+        $notificaciones = Notificacion::where('user_id', 10)
             ->join('citas', 'citas.id', '=', 'notificacions.cita_id')
             ->select('notificacions.cita_id', 'notificacions.title', 'citas.accepted', 'notificacions.affair', 'notificacions.descripcion', 'notificacions.tipo', 'notificacions.created_at')
             ->orderBy('notificacions.created_at', 'desc')

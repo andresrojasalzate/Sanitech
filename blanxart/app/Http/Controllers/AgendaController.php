@@ -7,10 +7,10 @@ use Illuminate\Http\Request;
 
 class AgendaController extends Controller
 {
-    public function agenda() 
+    public function agenda($id) 
     {
 
-        $citas = Cita::getAllCitasByUserId();
+        $citas = Cita::getAllCitasByUserId($id);
         // dd($citas);
         return view('pages.agenda', compact('citas'));
     }
