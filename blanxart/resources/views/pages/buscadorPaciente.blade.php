@@ -9,10 +9,6 @@
         <div id="buscadorPacientes">
             <buscadorPaciente-component></buscadorPaciente-component>
         </div>
-        <!-- <div class="contenedorFiltro">
-            <input type="text" name="" id="" placeholder="Buscar paciente...">
-            <p>Pacientes encontrados: 6</p>
-        </div> -->
     </section>
 </main>
 @endsection

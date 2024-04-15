@@ -1,36 +1,86 @@
-.filtrarPacientesContainer{
+.filtrarPacientesContainer {
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: auto auto 1fr;
     width: 100%;
     height: 100vh;
-
 }
 
-.contenedorFiltro{
+.contenedorFiltro {
     display: flex;
     flex-direction: column;
     margin-top: 10vh;
     text-align: center;
     text-justify: center;
-    
-    & input[type="text"]{
+
+    & input[type="text"] {
         margin-left: 5vw;
         margin-right: 5vw;
         padding: 2vh;
         border: 1px solid black;
         border-radius: 5px;
         box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-        
     }
 
-    & p{
+    & p {
         margin-top: 5vh;
         text-align: center;
         text-justify: center;
     }
 }
 
-.paciente{
+.pacientenesEncontrados{
+    max-height: 70.5vh;
+    overflow-y: auto;
+
+    & > .paciente:last-child{
+        border-bottom: 1px solid black;
+    }
+}
+
+.paciente {
+    display: grid;
+    grid-template-columns: auto 1fr 1fr; 
+    grid-template-rows: 1fr;
+    gap: 10px;
     border-top: 1px solid black;
+    align-items: center; 
+    
+
+
+    & img {
+        width: 5rem;
+        height: 5rem;
+        padding-left: 5vw;
+    }
+
+    &Info{
+        margin-left: 5vw;
+    }
+
+    &Botones{
+        display: flex;
+        flex-direction: column;
+        padding-right: 5vw;
+
+        & button:not(:last-child) {
+            margin-bottom: 2vh;
+        }
+
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .filtrarPacientesContainer{
+        width: 80%;
+    }
+
+    .paciente {
+        & img{
+            width: 10rem;
+            height: 10rem;
+        }
+
+    }
+
 }
