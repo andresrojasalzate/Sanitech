@@ -17,7 +17,7 @@
                 <a :href="'/crearCita/' + user.id">
                     <button>Crear cita</button>
                 </a>
-                <a href="">
+                <a :href="'/resultadosPaciente/' + user.id">
                     <button>Consultar pruebas</button>
                 </a>
                 <a href="">
