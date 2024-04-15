@@ -9,7 +9,7 @@
                 alt="" srcset="">
             <div class="pacienteInfo">
                 <p class="medionegrita">{{ user.name }} {{ user.lastName }}</p>
-                <p>CIF: {{ user.paciente.CIP }}</p>
+                <!-- <p>CIF: {{ user.paciente.CIP }}</p> -->
                 <p>DNI: {{ user.dni }}</p>
                 <p>Telef: {{ user.phone_number }}</p>
             </div>
