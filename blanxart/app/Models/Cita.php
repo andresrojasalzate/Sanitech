@@ -15,10 +15,11 @@ class Cita extends Model
 
     protected $fillable = [
         'fecha',
-        'nivel_emergencia',
+        'emergency_level',
         'aceptada',
-        'realizada',
-        'prueba_id'
+        'done',
+        'prueba_id',
+        'user_id'
     ];
 
     public function prueba(): BelongsTo

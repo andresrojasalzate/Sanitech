@@ -11,7 +11,7 @@ class CitaRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,18 @@ class CitaRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'prueba_id' => 'required',
+            'emergency_level' => 'required',
+            'user_id' => 'required'
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'prueba_id.required' => 'Escull una proba per a la cita.',
+            'emergency_level.required' => 'Escull el nivell de emergència de la cita.',
+            'user_id.required' => 'Fallo al seleccionar el pacinte.',
         ];
     }
 }
