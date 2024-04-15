@@ -1,0 +1,42 @@
+.body-justificante {
+    margin: 50px;
+
+    & div+ :not(div .justificante-subtitulo, div .justificante-motivo-tipo, .justificante-horaImpresion) {
+        margin: 5px 0;
+    }
+
+    & label{
+        font-size: 16px;
+        padding: 0 10px;
+    }
+}
+
+.justificante {
+    display: grid;
+
+    &-titulo {
+        text-align: center;
+        margin: 20px 0;
+    }
+
+    &-subtitulo {
+        border-bottom: 1px solid black;
+        padding: 10px 0;
+        margin: 20px 0;
+    }
+
+    &-motivo-tipo {
+        display: grid;
+        margin: 40px;
+        justify-content: center;
+
+        &-und{
+            display: flex;
+        }
+    }
+
+    &-horaImpresion {
+        text-align: right;
+        margin-top: 30px;
+    }
+}

@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasOne;
@@ -41,9 +42,19 @@ class Cita extends Model
         $citas = DB::table('citas')
             ->join('pruebas', 'citas.prueba_id', '=', 'pruebas.id')
             ->select('citas.*', 'pruebas.*')
-            ->where('citas.user_id', 8)
+            ->where('citas.user_id', 5)
             ->get();
 
             return $citas;
+    }
+
+    public static function fillPDF(){
+        $cita = DB::table('citas')
+        ->join('users','users.id','=','citas.user_id')
+        ->select('users.name','users.lastName','users.dni','citas.date')
+        ->where('citas.id','1')
+        ->get();
+
+        return $cita;
     }
 }

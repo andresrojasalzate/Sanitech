@@ -50,8 +50,8 @@ Route::group(['middleware' => 'auth'], function () {
 
 
 
-    
-    
+
+
 
 
     Route::group(['middleware' => ['rol:admin']], function () {
@@ -70,10 +70,16 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('/agenda', [AgendaController::class, 'agenda'])->name('agenda');
         Route::get('/informesClinicos/{id}', [InformeClinicosController::class, 'show'])->name('informesClinicos');
         Route::get('/justificante', [JustificanteController::class, 'justificante'])->name('justificante');
-    Route::get('/generarJustificante', [JustificanteController::class, 'generarJustificante'])->name('generarJustificante');
+        Route::get('/generarJustificante', [JustificanteController::class, 'generarJustificante'])->name('generarJustificante');
     });
 });
 
+
+Route::get('/prueba', function(){
+    return view('templates.justificante');
+})->name('prueba');
+
+Route::get('/prueba/{id}',[JustificanteController::class,'generarJustificante'])->name('prueba1');
 
 
 //Ruta por defecto ----> muestra pagina error 404
