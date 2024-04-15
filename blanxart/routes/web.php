@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\AgendaController;
-use App\Http\Controllers\CitasController;
+use App\Http\Controllers\PedirCitaController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CrearCitaController;
@@ -44,16 +44,9 @@ Route::group(['middleware' => 'auth'], function () {
         return view('pages.home');
     })->name('home');
 
-
     //ruta 'logout'
     Route::get('/logout', [AuthController::class, 'logout'])->name('logout')->middleware('auth');
-
-
-
-
-
-
-
+    
     Route::group(['middleware' => ['rol:admin']], function () {
         
     });
@@ -71,16 +64,17 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('/informesClinicos/{id}', [InformeClinicosController::class, 'show'])->name('informesClinicos');
         Route::get('/justificante', [JustificanteController::class, 'justificante'])->name('justificante');
         Route::get('/generarJustificante', [JustificanteController::class, 'generarJustificante'])->name('generarJustificante');
+        //Pedir una cita
+        Route::get('/pedirCita', [PedirCitaController::class, 'create'])->name('create');
+        Route::post('/miscitas', [PedirCitaController::class, 'store'])->name('store');
     });
 });
-
 
 Route::get('/prueba', function(){
     return view('templates.justificante');
 })->name('prueba');
 
 Route::get('/prueba/{id}',[JustificanteController::class,'generarJustificante'])->name('prueba1');
-
 
 //Ruta por defecto ----> muestra pagina error 404
 Route::fallback(function () {
