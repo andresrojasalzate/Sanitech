@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use Illuminate\View\View;
-use Barryvdh\DomPDF\Facade\Pdf;
 use App\Models\Cita;
+use Illuminate\View\View;
+use Illuminate\Http\Request;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class JustificanteController extends Controller
 {
@@ -17,7 +17,8 @@ class JustificanteController extends Controller
 
     public function generarJustificante() 
     {
-        $pdf = Pdf::loadView('templates.generarJustificante');
-        return $pdf->download('invoice.pdf');
+        $cita = Cita::fillPDF();
+        $pdf = Pdf::loadView('templates.justificante',compact('cita'));
+        return $pdf->stream('justificant.pdf');
     }
 }
