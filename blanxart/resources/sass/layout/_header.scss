@@ -1,21 +1,29 @@
 .navbar {
-    
-
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
     &-paciente {
-      background-color: $azulOscuro;
+        background-color: $azulOscuro;
     }
 
     &-medico {
-      background-color: $verde;
+        background-color: $verde;
     }
 
     &-admin {
-      background-color: $blanco;
-      color: $negro;
+        background-color: $blanco;
+        color: $negro;
     }
-
+    .navbar-collapse {
+        width: 100%;
+    }
     .container {
-        padding: 0;
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        align-items: center;
+        justify-content: space-between;
     }
 
     .navbar-brand {
@@ -44,8 +52,9 @@
 
     .navbar-nav {
         width: 100%;
+        display: flex;
         justify-content: space-evenly;
-
+        list-style-type: none;
         .nav-item:hover {
             background-color: #36369f;
             cursor: pointer;
@@ -53,14 +62,36 @@
     }
 
     .navbar-toggler {
-        color: #ffffff;
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
     }
 
     .icon {
         font-size: 2rem;
+        color: $blanco;
     }
 
     @media (max-width: 991.98px) {
+        .container {
+            flex-direction: column;
+        }
+
+        .top-container {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+        }
+
+        .navbar-collapse {
+            display: none;
+            /* Ocultar la lista de navegación en dispositivos móviles */
+        }
+
+        .show-mobile {
+            display: block !important;
+            /* Mostrar la lista de navegación en dispositivos móviles cuando está abierta */
+        }
         .navbar-nav {
             flex-direction: column;
 
