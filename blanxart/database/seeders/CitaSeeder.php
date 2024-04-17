@@ -13,11 +13,16 @@ class CitaSeeder extends Seeder
      */
     public function run(): void
     {
-        $cantidadCitas = (int)$this->command->ask('¿Cuántos citas deseas crear?', 10);
-
-        Cita::factory()->count($cantidadCitas)->create();
         
-        $this->command->info('¡Se han creado ' . $cantidadCitas . ' citas!');
-    
+
+
+        for ($i = 1; $i <= 10; $i++) {
+            Cita::factory()->count(5)->create([
+                'paciente_id' => $i,
+            ]);
+        }
+
+
+        $this->command->info('¡Se han creado ' . 5 . ' citas por paciente!');
     }
 }

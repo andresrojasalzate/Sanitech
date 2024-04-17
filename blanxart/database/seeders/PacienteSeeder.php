@@ -20,7 +20,11 @@ class PacienteSeeder extends Seeder
             'genre' => 'Dona',
             'birth_date' => '15/03/1994',
             'address' => 'Carrer de Sant Jaume,25',
-            
+            'city' => 'Sabadell',
+            'post_code' => '08192',
+            'familiar_contact' => '644 567 890',
+            'CIP' => 'LOGA  1  940315  00 3'
+
         ]))->create([
             'dni' => '50321478X',
             'name' => 'Maria',
@@ -32,7 +36,15 @@ class PacienteSeeder extends Seeder
             'rol' => 'paciente',
             
         ]);
-        User::factory()->has(Paciente::factory())->create([
+        User::factory()->has(Paciente::factory([
+            'genre' => 'Home',
+            'birth_date' => '22/08/1979',
+            'address' => 'Avinguda de la generalitat,10',
+            'city' => 'Terrassa',
+            'post_code' => '08221',
+            'familiar_contact' => '633 210 987',
+            'CIP' => 'MAPE  0  790822  01 6'
+        ]))->create([
             'dni' => '71985632T',
             'name' => 'Juan',
             'lastName' => 'Martínez Pérez',

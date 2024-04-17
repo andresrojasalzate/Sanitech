@@ -35,7 +35,7 @@ class CitaFactory extends Factory
             'emergency_level' => fake()->numberBetween(1, 5),
             'accepted' => fake()->boolean(),
             'done' => fake()->boolean(),
-            'prueba_id' => Prueba::factory()->create()->id,
+            'prueba_id' => $this->faker->numberBetween(1, 3),
             'paciente_id' => $this->faker->numberBetween(1, 10),
             'medico_id' => $this->faker->numberBetween(1, 10)
         ];

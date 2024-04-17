@@ -15,11 +15,11 @@ class AdministradorSeeder extends Seeder
      */
     public function run(): void
     {
-        $cantidadAdministradores = (int)$this->command->ask('¿Cuántos administradores deseas crear?', 5);
-
-        User::factory()->count($cantidadAdministradores)->has(Administrador::factory())->create(['rol'=>'admin']);
         
-        $this->command->info('¡Se han creado ' . $cantidadAdministradores . ' administradores!');
+
+        User::factory()->count(7)->has(Administrador::factory())->create(['rol'=>'admin']);
+        
+        $this->command->info('¡Se han creado ' . 7 . ' administradores!');
     
     }
 }

@@ -16,7 +16,9 @@ class MedicoSeeder extends Seeder
     {
         $cantidadMedicos = (int)$this->command->ask('¿Cuántos médicos deseas crear?', 10);
 
-        User::factory()->count($cantidadMedicos)->has(Medico::factory())->create(['rol'=>'medico']);
+        User::factory()->count($cantidadMedicos)->has(Medico::factory(
+            
+        ))->create(['rol'=>'medico']);
         
         $this->command->info('¡Se han creado ' . $cantidadMedicos . ' médicos!');
     }

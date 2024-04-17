@@ -14,7 +14,6 @@ return new class extends Migration
         Schema::create('pruebas', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('description');
             $table->string('video');
             $table->string('document');
             $table->timestamps();
