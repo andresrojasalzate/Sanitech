@@ -36,7 +36,8 @@ class CitaFactory extends Factory
             'accepted' => fake()->boolean(),
             'done' => fake()->boolean(),
             'prueba_id' => Prueba::factory()->create()->id,
-            'user_id' => User::factory()->create()->id,
+            'paciente_id' => $this->faker->numberBetween(1, 10),
+            'medico_id' => $this->faker->numberBetween(1, 10)
         ];
     }
 }
