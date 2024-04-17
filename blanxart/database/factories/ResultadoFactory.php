@@ -22,7 +22,7 @@ class ResultadoFactory extends Factory
             'resultado' => fake()->sentence(),
             'servicio' => fake()->word(),
             'centro' => fake()->word(),
-            'paciente_id' => Paciente::factory(),
+            'paciente_id' => Paciente::factory()->create()->id,
         ];
     }
 }

@@ -14,12 +14,16 @@ return new class extends Migration
         Schema::create('citas', function (Blueprint $table) {
             $table->id();
             $table->date('date')->nullable();
+            $table->time('hour_entry')->nullable();
+            $table->time('hour_departure')->nullable();
             $table->integer('emergency_level');
             $table->boolean('accepted')->nullable();
             $table->boolean('done');
             $table->foreignId('prueba_id')->references('id')->on('pruebas')->onDelete('cascade')
             ->onUpdate('cascade');
-            $table->foreignId('user_id')->references('id')->on('users')->onDelete('cascade')
+            $table->foreignId('paciente_id')->references('id')->on('pacientes')->onDelete('cascade')
+            ->onUpdate('cascade');
+            $table->foreignId('medico_id')->references('id')->on('medicos')->onDelete('cascade')
             ->onUpdate('cascade');
             $table->timestamps();
         });

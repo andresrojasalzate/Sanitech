@@ -8,10 +8,10 @@ use Illuminate\Http\Request;
 
 class NotificacionesController extends Controller
 {
-    public function notificaciones()
+    public function notificaciones($id)
     {
 
-        $notificaciones = Notificacion::where('user_id', 10)
+        $notificaciones = Notificacion::where('user_id', $id)
             ->join('citas', 'citas.id', '=', 'notificacions.cita_id')
             ->select('notificacions.cita_id', 'notificacions.title', 'citas.accepted', 'notificacions.affair', 'notificacions.descripcion', 'notificacions.tipo', 'notificacions.created_at')
             ->orderBy('notificacions.created_at', 'desc')

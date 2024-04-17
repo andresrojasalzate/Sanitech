@@ -2,9 +2,10 @@
 
 namespace Database\Seeders;
 
+use App\Models\User;
 use App\Models\Medico;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 class MedicoSeeder extends Seeder
 {
@@ -15,7 +16,7 @@ class MedicoSeeder extends Seeder
     {
         $cantidadMedicos = (int)$this->command->ask('¿Cuántos médicos deseas crear?', 10);
 
-        Medico::factory()->count($cantidadMedicos)->create();
+        User::factory()->count($cantidadMedicos)->has(Medico::factory())->create(['rol'=>'medico']);
         
         $this->command->info('¡Se han creado ' . $cantidadMedicos . ' médicos!');
     }
