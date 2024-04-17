@@ -21,7 +21,9 @@ return new class extends Migration
             $table->boolean('done');
             $table->foreignId('prueba_id')->references('id')->on('pruebas')->onDelete('cascade')
             ->onUpdate('cascade');
-            $table->foreignId('user_id')->references('id')->on('users')->onDelete('cascade')
+            $table->foreignId('paciente_id')->references('id')->on('pacientes')->onDelete('cascade')
+            ->onUpdate('cascade');
+            $table->foreignId('medico_id')->references('id')->on('medicos')->onDelete('cascade')
             ->onUpdate('cascade');
             $table->timestamps();
         });

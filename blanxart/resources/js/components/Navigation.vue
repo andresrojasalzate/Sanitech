@@ -15,28 +15,28 @@
         class="navbar-collapse">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <a class="nav-link" @click="navigateTo('/')">Inicio</a>
+            <a class="nav-link" href="/">Inicio</a>
           </li>
           <li class="nav-item" v-if="userData.rol === 'paciente'">
-            <a class="nav-link" @click="navigateTo('/agenda/' + userData.id)">Agenda</a>
+            <a class="nav-link" :href="'/agenda/' + userData.id">Agenda</a>
           </li>
           <li class="nav-item" v-if="userData.rol === 'paciente'">
-            <a class="nav-link" @click="navigateTo('/citas')">Citas</a>
+            <a class="nav-link" :href="'/citas'">Citas</a>
           </li>
           <li class="nav-item" v-if="userData.rol === 'paciente'">
-            <a class="nav-link" @click="navigateTo('')">Solicitudes</a>
+            <a class="nav-link" :href="''">Solicitudes</a>
           </li>
           <li class="nav-item" v-if="userData.rol === 'paciente'">
-            <a class="nav-link" @click="navigateTo('/notificaciones/' + userData.id)">Notificaciones</a>
+            <a class="nav-link" :href="'/notificaciones/' + userData.id">Notificaciones</a>
           </li>
           <li class="nav-item" v-if="userData.rol === 'medico'">
-            <a class="nav-link" @click="navigateTo('/buscadorPacientes')">Pacientes</a>
+            <a class="nav-link" href="/buscadorPacientes">Pacientes</a>
           </li>
           <li class="nav-item" v-if="userData.rol === 'admin'">
-            <a class="nav-link" @click="navigateTo('')">Tareas</a>
+            <a class="nav-link" href="">Tareas</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" @click="navigateTo('logout')">Logout</a>
+            <a class="nav-link" href="logout">Logout</a>
           </li>
         </ul>
       </div>
