@@ -3,8 +3,9 @@
 namespace Database\Seeders;
 
 use App\Models\Cita;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Notificacion;
 use Illuminate\Database\Seeder;
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 class CitaSeeder extends Seeder
 {
@@ -13,16 +14,15 @@ class CitaSeeder extends Seeder
      */
     public function run(): void
     {
-        
-
-
         for ($i = 1; $i <= 10; $i++) {
-            Cita::factory()->count(5)->create([
+            Cita::factory()->has(Notificacion::factory([
+                'title' => 'Dierna',
+                'affair' => 'El usuario tiene dierna',
+                'descripcion' => 'El usuario tiene mucha dierna necesita ayuda',
+            ]))->count(30)->create([
                 'paciente_id' => $i,
             ]);
         }
-
-
-        $this->command->info('¡Se han creado ' . 5 . ' citas por paciente!');
+        $this->command->info('¡Se han creado ' . 30 . ' citas por paciente!');
     }
 }
