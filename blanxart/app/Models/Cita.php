@@ -20,7 +20,9 @@ class Cita extends Model
         'aceptada',
         'done',
         'prueba_id',
-        'user_id'
+        'user_id',
+        'paciente_id',
+        'medico_id'
     ];
 
     public function prueba(): BelongsTo

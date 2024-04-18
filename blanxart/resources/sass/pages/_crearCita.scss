@@ -32,21 +32,39 @@
         margin-bottom: 5vh;
     }
 
-     & input[type="radio"] {
-       grid-row: 2;
+    & input[type="radio"] {
+        grid-row: 2;
     }
-
 
     & select {
         border-radius: 3px;
+    }
+
+    & p{
         margin-bottom: 5vh;
     }
 }
 
+.selecionTipoCita {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    grid-template-rows: repeat(2, auto);
+    justify-items: center;
+    margin-right: 48vw;
+    margin-bottom: 5vh;
+    
+}
+
+.selectorPrueba {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 5vh;
+}
+
 .nivelEmergencia {
     display: grid;
-    grid-template-columns: repeat(5, 1fr); /* 5 columnas con el mismo ancho */
-    grid-template-rows: repeat(2, 1fr); /* 2 filas con altura automática */
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(2, 1fr);
     justify-items: center;
     margin-bottom: 5vh;
 }
