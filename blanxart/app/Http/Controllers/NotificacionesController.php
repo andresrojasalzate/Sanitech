@@ -11,9 +11,11 @@ class NotificacionesController extends Controller
 {
     public function notificaciones($id)
     {
-        $notificaciones = Notificacion::where('user_id', $id)
+
+        $paciente_id = Paciente::where('user_id', $id)->value('id');
+        $notificaciones = Notificacion::where('paciente_id', $paciente_id)
             ->join('citas', 'citas.id', '=', 'notificacions.cita_id')
-            ->select('notificacions.cita_id', 'notificacions.title', 'citas.accepted', 'notificacions.affair', 'notificacions.descripcion', 'notificacions.tipo', 'notificacions.created_at')
+            ->select('notificacions.cita_id', 'notificacions.title', 'citas.accepted', 'notificacions.descripcion', 'notificacions.tipo', 'notificacions.created_at')
             ->orderBy('notificacions.created_at', 'desc')
             ->get()->toJson();
         // dd($notificaciones);

@@ -16,9 +16,6 @@ class CitaSeeder extends Seeder
     {
         for ($i = 1; $i <= 10; $i++) {
             Cita::factory()->has(Notificacion::factory([
-                'title' => 'Dierna',
-                'affair' => 'El usuario tiene dierna',
-                'descripcion' => 'El usuario tiene mucha dierna necesita ayuda',
             ]))->count(30)->create([
                 'paciente_id' => $i,
             ]);

@@ -10,7 +10,6 @@
           <h3>{{ item.title }}</h3>
         </div>
         <div class="notificacion-body">
-          <p>{{ item.affair }}</p>
           <p>{{ item.descripcion }}</p>
         </div>
       </div>
