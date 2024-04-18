@@ -19,7 +19,15 @@ class MedicoFactory extends Factory
     {
         return [
             'collegiate_number' => fake()->numerify('####'),
-            'speciality' => fake()->word(),
+            'speciality' => $this->faker->randomElement([
+                'Medicina de família',
+                'Medicina comunitària',
+                'Pediatria',
+                'Ginecologia',
+                'Obstetrícia',
+                'Medicina Interna',
+                "Medicina d'urgències",
+            ]),
             'consultation' => fake()->numberBetween(100, 999),         
         ];
     }

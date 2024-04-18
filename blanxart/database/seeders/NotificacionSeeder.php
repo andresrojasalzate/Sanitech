@@ -13,10 +13,10 @@ class NotificacionSeeder extends Seeder
      */
     public function run(): void
     {
-        $cantidadNotificaciones = (int)$this->command->ask('¿Cuántas notificaciones quieres crear?', 10);
+        // $cantidadNotificaciones = (int)$this->command->ask('¿Cuántas notificaciones quieres crear?', 10);
 
-        Notificacion::factory()->count($cantidadNotificaciones)->create();
+        // Notificacion::factory()->count($cantidadNotificaciones)->create();
         
-        $this->command->info('¡Se han creado ' . $cantidadNotificaciones . ' notificaciones!');
+        // $this->command->info('¡Se han creado ' . $cantidadNotificaciones . ' notificaciones!');
     }
 }

@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Cita extends Model
@@ -37,13 +38,17 @@ class Cita extends Model
         return $this->hasOne(Resultado::class);
     }
 
+    public function notificacion(): HasMany 
+    {
+        return $this->hasMany(Notificacion::class);
+    }
 
     public static function getAllCitasByUserId($id)
     {
         $citas = DB::table('citas')
             ->join('pruebas', 'citas.prueba_id', '=', 'pruebas.id')
             ->select('citas.*', 'pruebas.*')
-            ->where('citas.user_id', $id)
+            ->where('citas.paciente_id', $id)
             ->get();
 
             return $citas;

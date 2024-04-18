@@ -1,69 +1,81 @@
 .navbar {
-  background-color: #434371;
-
-  .container {
-    padding: 0;
-  }
-
-  .navbar-brand {
-    display: flex;
-    align-items: center;
-    font-weight: bold;
-    color: white;
-    font-size: 30px;
-
-    .logo {
-      width: 2rem;
-      height: 2rem;
-      background-color: white;
-      margin-right: 1rem;
+    &-paciente {
+        background-color: $azulOscuro;
     }
-  }
 
-  .nav-link {
-    color: #FFFFFF;
-    font-size: 20px;
+    &-medico {
+        background-color: $verde;
+    }
 
-    &:hover {
+    &-admin {
+        background-color: $blanco;
+        color: $negro;
+    }
+  
+    .container {
+      padding: 0;
+    }
+  
+    .navbar-brand {
+      display: flex;
+      align-items: center;
+      font-weight: bold;
       color: white;
-    }
-  }
-
-  .navbar-nav {
-    width: 100%;
-    justify-content: space-evenly;
-
-    .nav-item:hover {
-      background-color: #36369F;
-      cursor: pointer;
-    }
-  }
-
-  .navbar-toggler {
-    color: #FFFFFF;
-  }
-
-  .icon {
-    font-size: 2rem;
-  }
-
-  @media (max-width: 991.98px) {
-    .navbar-nav {
-      flex-direction: column;
-
-      .nav-item {
-        margin-bottom: 5px;
+      font-size: 30px;
+  
+      .logo {
+        width: 2rem;
+        height: 2rem;
+        background-color: white;
+        margin-right: 1rem;
       }
     }
-
-    .navbar-brand {
-      font-weight: bold;
-      padding: 1rem;
-    }
-
+  
     .nav-link {
       color: #FFFFFF;
-      padding: 1rem;
+      font-size: 20px;
+  
+      &:hover {
+        color: white;
+      }
+    }
+  
+    .navbar-nav {
+      width: 100%;
+      justify-content: space-evenly;
+  
+      .nav-item:hover {
+        background-color: #36369F;
+        cursor: pointer;
+      }
+    }
+  
+    .navbar-toggler {
+      color: #FFFFFF;
+    }
+  
+    .icon {
+      font-size: 2rem;
+    }
+  
+    @media (max-width: 991.98px) {
+      .navbar-nav {
+        flex-direction: column;
+  
+        .nav-item {
+          margin-bottom: 5px;
+        }
+      }
+  
+      .navbar-brand {
+        font-weight: bold;
+        padding: 1rem;
+      }
+  
+      .nav-link {
+        color: #FFFFFF;
+        padding: 1rem;
+      }
     }
   }
-}
+  

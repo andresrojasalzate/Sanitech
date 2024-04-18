@@ -22,7 +22,6 @@ class NotificacionFactory extends Factory
             'affair' => $this->faker->sentence,
             'descripcion' => $this->faker->paragraph,
             'tipo' => $this->faker->randomElement(['Recordatorio', 'Confirmacion']),
-            'cita_id' => Cita::factory()->create()->id,
         ];
     }
 }

@@ -1,5 +1,5 @@
 <template>
-  <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+  <nav :class="['navbar navbar-expand-lg navbar-light fixed-top', userRoleClass]">
     <div class="container">
       <div class="navbar-brand" to="/">
         <div class="logo"></div>
@@ -45,6 +45,15 @@ export default {
   methods: {
     toggleNavbar() {
       this.isNavbarOpen = !this.isNavbarOpen;
+    }
+  },
+  computed: {
+    userRoleClass() {
+      // Retorna la clase correspondiente al rol del usuario
+      return this.userData.rol === 'paciente' ? 'navbar-paciente' :
+        this.userData.rol === 'medico' ? 'navbar-medico' :
+          this.userData.rol === 'admin' ? 'navbar-admin' :
+            '';
     }
   },
   mounted() {
