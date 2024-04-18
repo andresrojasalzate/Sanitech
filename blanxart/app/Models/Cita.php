@@ -47,7 +47,7 @@ class Cita extends Model
     {
         $citas = DB::table('citas')
             ->join('pruebas', 'citas.prueba_id', '=', 'pruebas.id')
-            ->select('citas.*', 'pruebas.*')
+            ->select('citas.*', 'pruebas.name', 'pruebas.video', 'pruebas.document')
             ->where('citas.paciente_id', $id)
             ->get();
 
