@@ -14,7 +14,6 @@ class MedicoSeeder extends Seeder
      */
     public function run(): void
     {
-        $cantidadMedicos = (int)$this->command->ask('¿Cuántos médicos deseas crear?', 10);
 
         User::factory()->has(Medico::factory([
             'collegiate_number' => '15662',
