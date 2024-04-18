@@ -14,7 +14,7 @@
         <form action="{{route('guardarCita')}}" id="formCrearCita" class="formularioCrearCita" method="POST">
             @csrf
 
-            <p class="medionegrita">Paciente: {{$paciente->name}} {{$paciente->lastName}}</p>
+            <p class="medionegrita">Paciente: {{$paciente->user->name}} {{$paciente->user->lastName}}</p>
           
             <seleccionPrueba-component :pruebas='@json($pruebas)' :errorTipo='@json($errors->first("citaPrueba"))'
                                        :errorPrueba='@json($errors->first("prueba_id"))' 
@@ -31,7 +31,7 @@
                     <label for="nivel{{ $i }}">{{ $i }}</label>
                 @endfor
             </div>
-            <input type="hidden" name="user_id" value="{{ $paciente->id}}">
+            <input type="hidden" name="paciente_id" value="{{ $paciente->id}}">
             <button>Crear Cita</button>
         </form>
 

@@ -31,7 +31,7 @@ class CitaRequest extends FormRequest
                 })
             ],
             'emergency_level' => 'required',
-            'user_id' => 'required'
+            'paciente_id' => 'required'
         ];
     }
 
@@ -41,7 +41,7 @@ class CitaRequest extends FormRequest
             'citaPrueba.required' => 'Indica si la cita tindrà prova o no.',
             'prueba_id.required' => 'Escull una proba per a la cita.',
             'emergency_level.required' => 'Escull el nivell de emergència de la cita.',
-            'user_id.required' => 'Fallo al seleccionar el pacinte.',
+            'paciente_id.required' => 'Fallo al seleccionar el pacinte.',
         ];
     }
 }
