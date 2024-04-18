@@ -6,10 +6,8 @@ use App\Http\Requests\CitaRequest;
 use App\Models\Cita;
 use App\Models\Prueba;
 use App\Models\User;
-
-
 use Illuminate\Http\Request;
-use Termwind\Components\Dd;
+
 
 class CrearCitaController extends Controller
 {
@@ -25,10 +23,15 @@ class CrearCitaController extends Controller
 
     public function store (CitaRequest $request)
     {
-        $data = $request->validated();
+        $data = $request->validated();   
+        $pruebaId = null;
+
+        if(isset($data['prueba_id'])){
+            $pruebaId = $data['prueba_id'];
+        }
 
         Cita::create([
-            'prueba_id' => $data['prueba_id'],
+            'prueba_id' => $pruebaId,
             'emergency_level' => $data['emergency_level'],
             'user_id' => $data['user_id'],
             'done' => false,

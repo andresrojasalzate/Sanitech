@@ -17,7 +17,7 @@ return new class extends Migration
             $table->integer('emergency_level');
             $table->boolean('accepted')->nullable();
             $table->boolean('done');
-            $table->foreignId('prueba_id')->references('id')->on('pruebas')->onDelete('cascade')
+            $table->foreignId('prueba_id')->nullable()->references('id')->on('pruebas')->onDelete('cascade')
             ->onUpdate('cascade');
             $table->foreignId('user_id')->references('id')->on('users')->onDelete('cascade')
             ->onUpdate('cascade');

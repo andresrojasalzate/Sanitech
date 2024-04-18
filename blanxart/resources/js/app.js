@@ -6,6 +6,7 @@ import informesClinicos from './components/InformeClinico.vue';
 import notificacionesComponent from './components/notificaciones.vue';
 import justificanteComponent from './components/Justificante.vue';
 import buscadorPaciente from './components/FiltradorPacientes.vue';
+import crearCita from './components/CrearCita.vue';
 
 const citas = createApp({});
 citas.component('citas-component', agenda);
@@ -28,3 +29,7 @@ justificante.component('justificante-component', justificanteComponent);
 justificante.mount('#justificante');
 
 createApp(buscadorPaciente).mount("#buscadorPacientes");
+
+const nuevaCita = createApp({});
+nuevaCita.component('seleccionprueba-component', crearCita);
+nuevaCita.mount('#formCrearCita');
