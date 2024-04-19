@@ -1,35 +1,56 @@
 <template>
-    <div class="formulario-titulo">
-        <h1>Cita amb el metge</h1>
-        <h4>Soliciti una cita amb el metge</h4>
-    </div>
-
-    <div class="formulario">
-        
-        <!-- Dia y hora de la cita -->
-        <div class="">
-            <label>1. Seleccioni el dia i l'hora de la cita</label>
-            <VueDatePicker v-model="date" :disabled-week-days="[6, 0]"></VueDatePicker>
-        </div>
-
-        <!-- Motivo de la visita -->
-        <div class="">
-            <label>2. Indiqui el motiu de la visita</label>
-            <textarea class="input" type="text"></textarea>
-        </div>
-    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>DL</th>
+                <th>DT</th>
+                <th>DC</th>
+                <th>DJ</th>
+                <th>DV</th>
+                <th>DS</th>
+                <th>DM</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr v-for="week in weeks" :key="week.id">
+                <td v-for="day in week.days" :key="day ? day.date : ''">
+                    {{ day ? day.date : '' }}
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </template>
 
 <script>
-    import VueDatePicker from '@vuepic/vue-datepicker';
-    import '@vuepic/vue-datepicker/dist/main.css'
-
-    export default {
-    components: { VueDatePicker },
+export default {
     data() {
         return {
-        date: null,
+            weeks: this.generateWeeksForMonth(new Date()),
         };
-    }
-    }
+    },
+    methods: {
+        generateWeeksForMonth(date) {
+            const year = date.getFullYear();
+            const month = date.getMonth();
+            const firstDayOfMonth = new Date(year, month, 1);
+            const lastDayOfMonth = new Date(year, month + 1, 0);
+            const weeks = [];
+
+            for (let day = firstDayOfMonth; day <= lastDayOfMonth; day.setDate(day.getDate() + 1)) {
+                const dayOfWeek = day.getDay();
+                const week = Math.floor((day.getDate() + firstDayOfMonth.getDay() - 1) / 7);
+
+                if (!weeks[week]) {
+                    weeks[week] = { id: week, days: Array(7).fill(null) };
+                }
+
+                // Ajusta el índice del día de la semana para que el lunes sea 0 y el domingo sea 6
+                const adjustedDayOfWeek = (dayOfWeek + 6) % 7;
+
+                weeks[week].days[adjustedDayOfWeek] = { date: day.getDate() };
+            }
+            return weeks;
+        },
+    },
+};
 </script>

@@ -1,6 +1,5 @@
 import { createApp } from 'vue';
 
-import HelloWorld from './components/HelloWorld.vue';
 import Navigation from './components/Navigation.vue';
 import agenda from './components/agenda.vue';
 import informesClinicos from './components/InformeClinico.vue';
@@ -32,7 +31,7 @@ justificante.mount('#justificante');
 
 const pedirCita = createApp({});
 pedirCita.component('pedircita-component', PedirCitaComponent);
-pedirCita.mount('#pedircita');
+pedirCita.mount('#formPedirCita');
 
 createApp(buscadorPaciente).mount("#buscadorPacientes");
 createApp(buscadorPaciente).mount("#buscadorPacientes");

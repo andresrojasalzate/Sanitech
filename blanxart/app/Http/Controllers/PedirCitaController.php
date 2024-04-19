@@ -2,12 +2,19 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Paciente;
 use Illuminate\Http\Request;
 
 class PedirCitaController extends Controller
 {
-    public function pedirCita() 
+    public function show(string $idUsuarioPaciente) 
     {
-        return view('pages.pedirCita');
+        $paciente = Paciente::find($idUsuarioPaciente);
+        return view('pages.pedirCita', ['paciente' => $paciente]);
+    }
+
+    public function store() 
+    {
+
     }
 }
