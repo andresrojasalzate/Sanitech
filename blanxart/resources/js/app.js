@@ -28,7 +28,11 @@ const justificante = createApp({});
 justificante.component('justificante-component', justificanteComponent);
 justificante.mount('#justificante');
 
-createApp(buscadorPaciente).mount("#buscadorPacientes");
+const buscador = createApp({});
+buscador.component('buscadorpaciente-component', buscadorPaciente);
+buscador.mount('#buscadorPacientes');
+
+// createApp(buscadorPaciente).mount("#buscadorPacientes");
 
 const nuevaCita = createApp({});
 nuevaCita.component('seleccionprueba-component', crearCita);

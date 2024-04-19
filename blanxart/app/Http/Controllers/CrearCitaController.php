@@ -22,12 +22,12 @@ class CrearCitaController extends Controller
         ]);
     }
 
-    public function store (CitaRequest $request)
+    public function store(CitaRequest $request)
     {
-        $data = $request->validated();   
+        $data = $request->validated();
         $pruebaId = null;
 
-        if(isset($data['prueba_id'])){
+        if (isset($data['prueba_id'])) {
             $pruebaId = $data['prueba_id'];
         }
 
@@ -44,19 +44,5 @@ class CrearCitaController extends Controller
         ]);
 
         return redirect()->route('home');
-    }
-
-    public function filtrarPaciente(string $texto)
-    {
-        $textoNoEspacios = trim($texto);
-        $resultados = User::where('rol', 'paciente')
-            ->with('paciente')
-            ->where(function ($query) use ($textoNoEspacios) {
-                $query->where('name', 'like', '%' . $textoNoEspacios . '%')
-                    ->orWhere('lastName', 'like', '%' . $textoNoEspacios . '%')
-                    ->orWhereRaw('CONCAT(name, \' \' ,"lastName") = ?', [$textoNoEspacios]);
-            })
-            ->get();
-        return $resultados;
     }
 }

@@ -53,7 +53,7 @@
 
         @elseif(auth()->user()->rol === 'medico')
         <section>
-            <a href="#">
+            <a href="{{route('buscadorPacientes')}}">
                 <div class="opciones-opcion">
                     <div class="opciones-opcion-card">
                         <i class="fa-solid fa-user"></i>
