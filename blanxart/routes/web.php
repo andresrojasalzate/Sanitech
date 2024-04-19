@@ -67,7 +67,7 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('/justificante', [JustificanteController::class, 'justificante'])->name('justificante');
         Route::get('/generarJustificante', [JustificanteController::class, 'generarJustificante'])->name('generarJustificante');
         //Pedir una cita
-        Route::get('/pedirCita/{idUsuarioPaciente}', [PedirCitaController::class, 'show'])->name('pedirCita');
+        Route::get('/pedirCita/{id}', [PedirCitaController::class, 'show'])->name('pedirCita');
         Route::post('/pedirCita/store', [PedirCitaController::class, 'store'])->name('guardarPedirCita');
     });
 });

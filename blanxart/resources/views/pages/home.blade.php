@@ -41,7 +41,7 @@
                 </div>
             </a>
 
-            <a href="#">
+            <a href="{{ route('notificaciones', ['id' => auth()->user()->id]) }}">
                 <div class="opciones-opcion">
                     <div class="opciones-opcion-card">
                         <i class="fa-solid fa-bell"></i>
