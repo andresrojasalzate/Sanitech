@@ -18,7 +18,7 @@ class AdministradorFactory extends Factory
     public function definition(): array
     {
         return [
-            'user_id' => User::factory()->create()->id
+            
         ];
     }
 }

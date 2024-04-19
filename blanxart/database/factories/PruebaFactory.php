@@ -18,7 +18,6 @@ class PruebaFactory extends Factory
     {
         return [
             'name' => fake()->sentence(3),
-            'description' => fake()->sentence(),
             'video' => fake()->url(),
             'document' => fake()->word(),
         ];

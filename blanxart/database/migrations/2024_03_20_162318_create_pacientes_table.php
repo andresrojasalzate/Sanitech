@@ -22,6 +22,8 @@ return new class extends Migration
             $table->string('familiar_contact');
             $table->foreignId('user_id')->references('id')->on('users')->onDelete('cascade')
             ->onUpdate('cascade');
+            $table->foreignId('medico_id')->references('id')->on('medicos')->onDelete('cascade')
+            ->onUpdate('cascade');
             $table->timestamps();
         });
     }
