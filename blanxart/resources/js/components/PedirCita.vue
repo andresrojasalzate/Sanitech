@@ -5,19 +5,17 @@
     </div>
 
     <div class="formulario">
+        
+        <!-- Dia y hora de la cita -->
         <div class="">
-            <p>1. Seleccioni el dia de la cita</p>
-            <VueDatePicker v-model="date"></VueDatePicker>
+            <label>1. Seleccioni el dia i l'hora de la cita</label>
+            <VueDatePicker v-model="date" :disabled-week-days="[6, 0]"></VueDatePicker>
         </div>
 
+        <!-- Motivo de la visita -->
         <div class="">
-            <p>2. Seleccioni una hora</p>
-            <input type="time">
-        </div>
-
-        <div class="">
-            <p>3. Indiqui el motiu de la visita</p>
-            <textarea></textarea>
+            <label>2. Indiqui el motiu de la visita</label>
+            <textarea class="input" type="text"></textarea>
         </div>
     </div>
 </template>
