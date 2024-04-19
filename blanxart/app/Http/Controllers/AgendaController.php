@@ -11,9 +11,6 @@ class AgendaController extends Controller
     {
 
         $citas = Cita::getAllCitasByUserId($id);
-        // dd($citas);
         return view('pages.agenda', compact('citas'));
     }
-
-    
 }

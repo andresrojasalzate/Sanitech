@@ -67,8 +67,8 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('/justificante', [JustificanteController::class, 'justificante'])->name('justificante');
         Route::get('/generarJustificante', [JustificanteController::class, 'generarJustificante'])->name('generarJustificante');
         //Pedir una cita
-        // Route::get('/pedirCita', [PedirCitaController::class, 'create'])->name('create');
-        // Route::post('/miscitas', [PedirCitaController::class, 'store'])->name('store');
+        Route::get('/pedirCita', [PedirCitaController::class, 'pedirCita'])->name('pedirCita');
+        Route::post('/miscitas', [PedirCitaController::class, 'store'])->name('store');
     });
 });
 
