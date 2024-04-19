@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\CrearCitaController;
+use App\Http\Controllers\BuscadorPacienteController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -19,4 +19,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/pacientes/{texto}', [CrearCitaController::class, 'filtrarPaciente'])->name('filtrarPaciente');
+Route::get('/pacientes/{texto}/{idMedico}', [BuscadorPacienteController::class, 'filtrarPaciente'])->name('filtrarPaciente');

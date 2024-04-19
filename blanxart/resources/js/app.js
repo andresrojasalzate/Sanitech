@@ -33,8 +33,11 @@ const pedirCita = createApp({});
 pedirCita.component('selecciondia-component', PedirCitaComponent);
 pedirCita.mount('#formPedirCita');
 
-createApp(buscadorPaciente).mount("#buscadorPacientes");
-createApp(buscadorPaciente).mount("#buscadorPacientes");
+const buscador = createApp({});
+buscador.component('buscadorpaciente-component', buscadorPaciente);
+buscador.mount('#buscadorPacientes');
+
+// createApp(buscadorPaciente).mount("#buscadorPacientes");
 
 const nuevaCita = createApp({});
 nuevaCita.component('seleccionprueba-component', crearCita);
