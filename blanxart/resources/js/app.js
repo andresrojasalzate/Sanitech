@@ -30,7 +30,7 @@ justificante.component('justificante-component', justificanteComponent);
 justificante.mount('#justificante');
 
 const pedirCita = createApp({});
-pedirCita.component('pedircita-component', PedirCitaComponent);
+pedirCita.component('selecciondia-component', PedirCitaComponent);
 pedirCita.mount('#formPedirCita');
 
 createApp(buscadorPaciente).mount("#buscadorPacientes");

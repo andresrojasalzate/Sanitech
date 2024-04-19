@@ -49,7 +49,7 @@
                 </div>
             </a>
 
-            <a href="{{ route('pedirCita') }}">
+            <a href="{{ route('pedirCita', ['id' => auth()->user()->id]) }}">
                 <div class="solicitudes-solicitud">
                     <div class="solicitudes-solicitud-icon">
                         <i class="fa-regular fa-calendar-check"></i>

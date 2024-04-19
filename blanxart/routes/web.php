@@ -61,12 +61,11 @@ Route::group(['middleware' => 'auth'], function () {
     Route::group(['middleware' => ['rol:paciente']], function () {
         Route::get('/notificaciones/{id}', [NotificacionesController::class, 'notificaciones'])->name('notificaciones');
         Route::get('/respuestaCita/{id}/{respuesta}', [NotificacionesController::class, 'respuestaCita'])->name('respuesta-cita');
-        Route::get('/solicitudes', [SolicitudesController::class, 'solicitudes'])->name('solicitudes');
+        Route::get('/solicitudes/{id}', [SolicitudesController::class, 'solicitudes'])->name('solicitudes');
         Route::get('/agenda/{id}', [AgendaController::class, 'agenda'])->name('agenda');
         Route::get('/informesClinicos/{id}', [InformeClinicosController::class, 'show'])->name('informesClinicos');
         Route::get('/justificante', [JustificanteController::class, 'justificante'])->name('justificante');
         Route::get('/generarJustificante', [JustificanteController::class, 'generarJustificante'])->name('generarJustificante');
-
         //Pedir una cita
         Route::get('/pedirCita/{idUsuarioPaciente}', [PedirCitaController::class, 'show'])->name('pedirCita');
         Route::post('/pedirCita/store', [PedirCitaController::class, 'store'])->name('guardarPedirCita');
@@ -78,7 +77,6 @@ Route::get('/prueba', function(){
 })->name('prueba');
 
 Route::get('/prueba/{id}',[JustificanteController::class,'generarJustificante'])->name('prueba1');
-
 
 //Ruta por defecto ----> muestra pagina error 404
 Route::fallback(function () {

@@ -32,7 +32,7 @@
                 </div>
             </a>
 
-            <a href="{{ route('solicitudes') }}">
+            <a href="{{ route('solicitudes', ['id' => auth()->user()->id]) }}">
                 <div class="opciones-opcion">
                     <div class="opciones-opcion-card">
                         <i class="fa-solid fa-question"></i>
