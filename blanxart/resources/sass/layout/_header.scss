@@ -25,7 +25,10 @@
 
     &-admin {
         background-color: $blanco;
-        color: $negro;
+        .nav-link {
+            color: $negro;
+        }
+        
         .navbar-brand {
             color: $negro;
         }

@@ -30,7 +30,7 @@
 
 
 <div id="pedircita">
-    <pedircita-component></pedircita-component>
+    <pedircita-component :dias-no-disponibles='{{$diasNoDisponibles}}'></pedircita-component>
 </div>
 
 @endsection

@@ -48,7 +48,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/logout', [AuthController::class, 'logout'])->name('logout')->middleware('auth');
     
     Route::group(['middleware' => ['rol:admin']], function () {
-        
+        Route::get('/asignarCita', [PedirCitaController::class, 'pedirCita'])->name('pedirCita');
     });
 
     Route::group(['middleware' => ['rol:medico']], function () {
