@@ -14,10 +14,10 @@ class ResultadoSeeder extends Seeder
      */
     public function run(): void
     {
-        $cantidadresultados = (int)$this->command->ask('¿Cuántas resultados deseas crear?', 10);
+    
 
-        Resultado::factory()->count($cantidadresultados)->create();
+        Resultado::factory()->count(30)->create();
         
-        $this->command->info('¡Se han creado ' . $cantidadresultados . ' resultados!');
+        $this->command->info('¡Se han creado ' . 30 . ' resultados!');
     }
 }

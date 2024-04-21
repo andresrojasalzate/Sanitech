@@ -14,7 +14,7 @@
                 <p>Telef: {{ user.phone_number }}</p>
             </div>
             <div class="pacienteBotones">
-                <a :href="'/crearCita/' + user.id">
+                <a :href="'/crearCita/' + user.paciente.id">
                     <button>Crear cita</button>
                 </a>
                 <a href="">
@@ -31,9 +31,10 @@
 
 <script>
 export default {
+    props:['pacientes', 'idmedico'],
     data() {
         return {
-            users: [],
+            users: this.pacientes,
             pacientesEncontrados: 0
         }
     },
@@ -41,7 +42,7 @@ export default {
         buscarPacientes() {
             const inputValue = document.querySelector('#input-id').value;
 
-            fetch(`http://127.0.0.1:8000/api/pacientes/${inputValue}`)
+            fetch(`http://127.0.0.1:8000/api/pacientes/${inputValue}/${this.idmedico}`)
                 .then(response => response.json())
                 .then(data => {
                     console.log(data);

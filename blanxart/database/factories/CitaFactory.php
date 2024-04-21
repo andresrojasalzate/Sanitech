@@ -29,13 +29,13 @@ class CitaFactory extends Factory
         $maxHourDeparture = '16:00:00'; // Hora máxima de salida
         $hourDeparture = fake()->dateTimeBetween($minHourDeparture, $maxHourDeparture)->format('H:i:s');
         return [
-            'date' => fake()->date(),
+            'date' => $date,
             'hour_entry' => $hourEntry,
             'hour_departure' => $hourDeparture,
             'emergency_level' => fake()->numberBetween(1, 5),
             'accepted' => fake()->boolean(),
             'done' => fake()->boolean(),
-            'prueba_id' => Prueba::factory()->create()->id,
+            'prueba_id' => $this->faker->numberBetween(1, 3),
             'paciente_id' => $this->faker->numberBetween(1, 10),
             'medico_id' => $this->faker->numberBetween(1, 10)
         ];

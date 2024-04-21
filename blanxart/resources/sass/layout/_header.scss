@@ -1,36 +1,48 @@
 .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+
     &-paciente {
         background-color: $azulOscuro;
+        color: $blanco;
+        .navbar-brand {
+            color: $blanco;
+        }
+        .nav-link {
+            color: $blanco;
+        }
     }
 
     &-medico {
         background-color: $verde;
+        color: $blanco;
+        .navbar-brand {
+            color: $blanco;
+        }
+        .nav-link {
+          color: $blanco;
+      }
     }
 
     &-admin {
         background-color: $blanco;
-        color: $negro;
+        .nav-link {
+            color: $negro;
+        }
+        
+        .navbar-brand {
+            color: $negro;
+        }
+        border-bottom: 2px solid black;
     }
-    .navbar-collapse {
-        width: 100%;
-    }
+
     .container {
-        display: flex;
-        flex-direction: row;
-        width: 100%;
-        align-items: center;
-        justify-content: space-between;
+        padding: 0;
     }
 
     .navbar-brand {
         display: flex;
         align-items: center;
         font-weight: bold;
-        color: white;
         font-size: 30px;
 
         .logo {
@@ -42,7 +54,6 @@
     }
 
     .nav-link {
-        color: #ffffff;
         font-size: 20px;
 
         &:hover {
@@ -52,9 +63,8 @@
 
     .navbar-nav {
         width: 100%;
-        display: flex;
         justify-content: space-evenly;
-        list-style-type: none;
+
         .nav-item:hover {
             background-color: #36369f;
             cursor: pointer;
@@ -62,36 +72,14 @@
     }
 
     .navbar-toggler {
-        background-color: transparent;
-        border: none;
-        cursor: pointer;
+        color: #ffffff;
     }
 
     .icon {
         font-size: 2rem;
-        color: $blanco;
     }
 
     @media (max-width: 991.98px) {
-        .container {
-            flex-direction: column;
-        }
-
-        .top-container {
-            display: flex;
-            justify-content: space-between;
-            width: 100%;
-        }
-
-        .navbar-collapse {
-            display: none;
-            /* Ocultar la lista de navegación en dispositivos móviles */
-        }
-
-        .show-mobile {
-            display: block !important;
-            /* Mostrar la lista de navegación en dispositivos móviles cuando está abierta */
-        }
         .navbar-nav {
             flex-direction: column;
 

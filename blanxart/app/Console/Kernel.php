@@ -20,12 +20,12 @@ class Kernel extends ConsoleKernel
 
             foreach ($correos as $result) {
                 $notificacion = new Notificacion();
-            $notificacion->title = 'Cita programada';
-            $notificacion->affair = 'Recordatorio de cita';
-            $notificacion->descripcion = 'Recuerda tu cita programada para el día ' . $result->date; //. ' a las ' . $result->hora
-            $notificacion->tipo = 'Recordatorio';
-            $notificacion->cita_id = $result->id; // Asignar el ID de la cita obtenido de la consulta
-            $notificacion->save();
+                $notificacion->title = 'Cita programada';
+                $notificacion->affair = 'Recordatorio de cita';
+                $notificacion->descripcion = 'Recuerda tu cita programada para el día ' . $result->date; //. ' a las ' . $result->hora
+                $notificacion->tipo = 'Recordatorio';
+                $notificacion->cita_id = $result->id; // Asignar el ID de la cita obtenido de la consulta
+                $notificacion->save();
             }
         })->everyMinute();
         

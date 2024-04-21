@@ -1,3 +1,6 @@
+/*bootstrap*/
+@import 'bootstrap/scss/bootstrap';
+
 /*abstracts*/
 @import 'abstracts/variables', 'abstracts/mixins';
 
@@ -8,11 +11,11 @@
 @import 'layout/master', 'layout/footer', 'layout/header';
 
 /*Components*/
-@import 'components/boton-atras', 'components/buttons', 'components/dialogs';
+@import 'components/buttons', 'components/dialogs';
 
 /*Pages*/
 @import 'pages/home', 'pages/agenda', 'pages/solicitudes', 'pages/informesClinicos','pages/login', 'pages/notificaciones',
-        'pages/404', 'pages/crearCita', 'pages/filtrarPacientes';
+        'pages/404', 'pages/crearCita', 'pages/filtrarPacientes', 'pages/pedirCita';
 
 /*templates*/
 @import 'templates/justificante'

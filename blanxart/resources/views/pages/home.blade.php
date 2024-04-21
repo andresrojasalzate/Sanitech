@@ -32,7 +32,7 @@
                 </div>
             </a>
 
-            <a href="{{ route('solicitudes') }}">
+            <a href="{{ route('solicitudes', ['id' => auth()->user()->id]) }}">
                 <div class="opciones-opcion">
                     <div class="opciones-opcion-card">
                         <i class="fa-solid fa-question"></i>
@@ -41,7 +41,7 @@
                 </div>
             </a>
 
-            <a href="#">
+            <a href="{{ route('notificaciones', ['id' => auth()->user()->id]) }}">
                 <div class="opciones-opcion">
                     <div class="opciones-opcion-card">
                         <i class="fa-solid fa-bell"></i>
@@ -53,7 +53,7 @@
 
         @elseif(auth()->user()->rol === 'medico')
         <section>
-            <a href="#">
+            <a href="{{route('buscadorPacientes')}}">
                 <div class="opciones-opcion">
                     <div class="opciones-opcion-card">
                         <i class="fa-solid fa-user"></i>
