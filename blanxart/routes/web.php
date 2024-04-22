@@ -54,8 +54,9 @@ Route::group(['middleware' => 'auth'], function () {
     Route::group(['middleware' => ['rol:medico']], function () {
         Route::get('/crearCita/{idUsuarioPaciente}', [CrearCitaController::class, 'show'])->name('crearCita');
         Route::get('/resultadosPaciente/{id}', [InformeClinicosController::class, 'show'])->name('informesClinicos');
-        Route::get('/buscadorPacientes', [BuscadorPacienteController::class, 'show'])->name('buscadorPacientes');
+        Route::get('/buscadorPacientes/{accion}', [BuscadorPacienteController::class, 'show'])->name('buscadorPacientes');
         Route::post('/crearCita/store', [CrearCitaController::class, 'store'])->name('guardarCita');
+        Route::get('/agendaPaciente/{id}', [AgendaController::class, 'agenda'])->name('agendaPaciente');
     });
 
     Route::group(['middleware' => ['rol:paciente']], function () {

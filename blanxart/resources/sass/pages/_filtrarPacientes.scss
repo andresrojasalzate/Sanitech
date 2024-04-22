@@ -29,6 +29,16 @@
     }
 }
 
+.pacientesNoDisponibles{
+    min-height: 70.5vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+    & > p{
+        color: red;
+    }
+}
 .pacientenesEncontrados{
     max-height: 70.5vh;
     overflow-y: auto;
