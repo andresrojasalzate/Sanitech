@@ -15,6 +15,4 @@ class AgendaController extends Controller
         // dd($citas);
         return view('pages.agenda', compact('citas'));
     }
-
-    
 }

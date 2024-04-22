@@ -32,24 +32,24 @@
             </div>
         </a>
 
-        <a href="{{ route('solicitudes') }}">
-            <div class="opciones-opcion">
-                <div class="opciones-opcion-card">
-                    <i class="fa-solid fa-question"></i>
+            <a href="{{ route('solicitudes', ['id' => auth()->user()->id]) }}">
+                <div class="opciones-opcion">
+                    <div class="opciones-opcion-card">
+                        <i class="fa-solid fa-question"></i>
+                    </div>
+                    <h4 class="medionegrita">Solicituts</h4>
                 </div>
-                <h4 class="medionegrita">Solicituts</h4>
-            </div>
-        </a>
+            </a>
 
-        <a href="#">
-            <div class="opciones-opcion">
-                <div class="opciones-opcion-card">
-                    <i class="fa-solid fa-bell"></i>
+            <a href="{{ route('notificaciones', ['id' => auth()->user()->id]) }}">
+                <div class="opciones-opcion">
+                    <div class="opciones-opcion-card">
+                        <i class="fa-solid fa-bell"></i>
+                    </div>
+                    <h4 class="medionegrita">Notificacions</h4>
                 </div>
-                <h4 class="medionegrita">Notificacions</h4>
-            </div>
-        </a>
-    </section>
+            </a>
+        </section>
 
     @elseif(auth()->user()->rol === 'medico')
     <section class="opciones">

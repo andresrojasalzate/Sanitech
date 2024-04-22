@@ -1,16 +1,23 @@
 import { createApp } from 'vue';
-import HelloWorld from './components/HelloWorld.vue';
+
 import Navigation from './components/Navigation.vue';
 import agenda from './components/agenda.vue';
 import informesClinicos from './components/InformeClinico.vue';
 import notificacionesComponent from './components/notificaciones.vue';
 import justificanteComponent from './components/Justificante.vue';
 import buscadorPaciente from './components/FiltradorPacientes.vue';
+import PedirCitaComponent from './components/PedirCita.vue';
 import crearCita from './components/CrearCita.vue';
+import citasSinAsignar from './components/citasSinAsignar.vue';
+
 
 const citas = createApp({});
 citas.component('citas-component', agenda);
 citas.mount("#agenda");
+
+const asignarCita = createApp({});
+asignarCita.component('asignar-citas-component', citasSinAsignar);
+asignarCita.mount("#asignarCita");
 
 const navegacion = createApp({});
 navegacion.component('navegacion-component', Navigation);
@@ -27,6 +34,10 @@ informes.mount('#informesClinicos');
 const justificante = createApp({});
 justificante.component('justificante-component', justificanteComponent);
 justificante.mount('#justificante');
+
+const pedirCita = createApp({});
+pedirCita.component('selecciondia-component', PedirCitaComponent);
+pedirCita.mount('#formPedirCita');
 
 const buscador = createApp({});
 buscador.component('buscadorpaciente-component', buscadorPaciente);
