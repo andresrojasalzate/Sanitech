@@ -17,4 +17,14 @@ class PedirCitaController extends Controller
             'paciente' => $paciente
         ]);
     }
+
+
+    public function asignarFechaCita() 
+    {
+
+        $citas = Cita::getCitasSinAsignar();
+        // dd($citas);
+
+        return view('pages.asignarFechaCita', ['citas' => $citas]);
+    }
 }
