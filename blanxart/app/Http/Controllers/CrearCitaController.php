@@ -6,9 +6,7 @@ use App\Http\Requests\CitaRequest;
 use App\Models\Cita;
 use App\Models\Paciente;
 use App\Models\Prueba;
-use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
 class CrearCitaController extends Controller
 {
@@ -31,16 +29,11 @@ class CrearCitaController extends Controller
             $pruebaId = $data['prueba_id'];
         }
 
-        $usuarioMedico = Auth::user();
-
-        $idMedico = $usuarioMedico->medico->id;
-
         Cita::create([
             'prueba_id' => $pruebaId,
             'emergency_level' => $data['emergency_level'],
             'paciente_id' => $data['paciente_id'],
             'done' => false,
-            'medico_id' => $idMedico
         ]);
 
         return redirect()->route('home');
