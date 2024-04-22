@@ -9,10 +9,16 @@ import justificanteComponent from './components/Justificante.vue';
 import buscadorPaciente from './components/FiltradorPacientes.vue';
 import PedirCitaComponent from './components/PedirCita.vue';
 import crearCita from './components/CrearCita.vue';
+import citasSinAsignar from './components/citasSinAsignar.vue';
+
 
 const citas = createApp({});
 citas.component('citas-component', agenda);
 citas.mount("#agenda");
+
+const asignarCita = createApp({});
+asignarCita.component('asignar-citas-component', citasSinAsignar);
+asignarCita.mount("#asignarCita");
 
 const navegacion = createApp({});
 navegacion.component('navegacion-component', Navigation);

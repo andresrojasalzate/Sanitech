@@ -14,4 +14,14 @@ class PedirCitaController extends Controller
 
         return view('pages.pedirCita', ['diasNoDisponibles' => $diasNoDisponibles]);
     }
+
+
+    public function asignarFechaCita() 
+    {
+
+        $citas = Cita::getCitasSinAsignar();
+        // dd($citas);
+
+        return view('pages.asignarFechaCita', ['citas' => $citas]);
+    }
 }
