@@ -1,4 +1,8 @@
 <template>
+
+  <div class="notificacion-title">
+    <h2>Notificacions</h2>
+  </div>
   <div class="notificaciones-container">
     <div v-for="item in notificaciones" :key="item.id" class="notificacion-card">
       <div class="notificacion-content">
@@ -6,10 +10,10 @@
           <h3>{{ item.title }}</h3>
         </div>
         <div class="notificacion-body">
-          <p>{{ item.affair }}</p>
           <p>{{ item.descripcion }}</p>
         </div>
       </div>
+      
       <div class="fecha">{{ formatCreatedAt(item.created_at) }}</div>
       <button v-if="item.accepted === null && item.tipo === 'Confirmacion'" @click="mostrarDialogo(item.cita_id)"
         class="confirmar-btn">Resposta</button>

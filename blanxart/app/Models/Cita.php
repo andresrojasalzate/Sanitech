@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Cita extends Model
@@ -15,10 +16,13 @@ class Cita extends Model
 
     protected $fillable = [
         'fecha',
-        'nivel_emergencia',
+        'emergency_level',
         'aceptada',
-        'realizada',
-        'prueba_id'
+        'done',
+        'prueba_id',
+        'user_id',
+        'paciente_id',
+        'medico_id'
     ];
 
     public function prueba(): BelongsTo
@@ -36,25 +40,49 @@ class Cita extends Model
         return $this->hasOne(Resultado::class);
     }
 
+    public function notificacion(): HasMany
+    {
+        return $this->hasMany(Notificacion::class);
+    }
 
     public static function getAllCitasByUserId($id)
     {
         $citas = DB::table('citas')
             ->join('pruebas', 'citas.prueba_id', '=', 'pruebas.id')
-            ->select('citas.*', 'pruebas.*')
-            ->where('citas.user_id', $id)
+            ->select('citas.*', 'pruebas.name', 'pruebas.video', 'pruebas.document')
+            ->where('citas.paciente_id', $id)
             ->get();
 
-            return $citas;
+        return $citas;
     }
 
-    public static function fillPDF(){
+    public static function fillPDF($id)
+    {
+        dd($id); //recibo id = 26, que es el id del usuario, pero tendria que recibir el id 1 (que es ahora como estoy logueado) de la cita que le pertenece al usuario 26
         $cita = DB::table('citas')
-        ->join('users','users.id','=','citas.user_id')
-        ->select('users.name','users.lastName','users.dni','citas.date')
-        ->where('citas.id','1')
-        ->get();
+            ->join('users', 'users.id', '=', 'citas.user_id')
+            ->select('users.name', 'users.lastName', 'users.dni', 'citas.date')
+            ->where('citas.id', $id)
+            ->get();
 
         return $cita;
+    }
+
+    public static function getDiasNoDisponibles($medico_id)
+    {
+        $diasNoDisponibles = DB::table('citas')
+            ->select('date')
+            ->where('date', '>=', now()->toDateString())
+            ->where('medico_id', $medico_id)
+            ->groupBy('date')
+            ->havingRaw('COUNT(*) >= 8')
+            ->orderBy('date')
+            ->get()
+            ->map(function ($cita) {
+                return date('Y-m-d', strtotime($cita->date));
+            })
+            ->toJson();
+
+        return $diasNoDisponibles;
     }
 }

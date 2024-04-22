@@ -14,7 +14,6 @@ return new class extends Migration
         Schema::create('notificacions', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->string('affair');
             $table->string('descripcion');
             $table->string('tipo');
             $table->foreignId('cita_id')->references('id')->on('citas')->onDelete('cascade')

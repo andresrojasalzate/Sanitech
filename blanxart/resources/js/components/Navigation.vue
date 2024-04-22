@@ -1,5 +1,5 @@
 <template>
-  <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+  <nav :class="['navbar navbar-expand-lg navbar-light fixed-top', userRoleClass]">
     <div class="container">
       <div class="navbar-brand" to="/">
         <div class="logo"></div>
@@ -11,19 +11,22 @@
       <div :class="['collapse', { 'show': isNavbarOpen }]" class="navbar-collapse">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <a class="nav-link" href="/">Inicio</a>
+            <a class="nav-link" href="/home">Inici</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" :href="'/agenda/' + userData.id.toString()">Agenda</a>
+          <li class="nav-item" v-if="userData.rol === 'paciente'">
+            <a class="nav-link" :href="'/agenda/' + userData.id">Agenda</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/citas">Citas</a>
+          <li class="nav-item" v-if="userData.rol === 'paciente'">
+            <a class="nav-link" :href="'/informesClinicos/' + userData.id">Resultats</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="">Solicitudes</a>
+          <li class="nav-item" v-if="userData.rol === 'paciente'">
+            <a class="nav-link" :href="'/solicitudes/' + userData.id">Solicituts</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/notificaciones">Notificaciones</a>
+          <li class="nav-item" v-if="userData.rol === 'paciente'">
+            <a class="nav-link" :href="'/notificaciones/' + userData.id">Notificacions</a>
+          </li>
+          <li class="nav-item" v-if="userData.rol === 'admin'">
+            <a class="nav-link" href="">Tareas</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="logout">Logout</a>
@@ -33,28 +36,33 @@
     </div>
   </nav>
 </template>
-  
-  <script>
-  export default {
-    props: ['userData'],
-    data() {
-      return {
-        isNavbarOpen: false
-      };
-    },
-    methods: {
-      toggleNavbar() {
-        this.isNavbarOpen = !this.isNavbarOpen;
-      }
-    },
-    mounted(){
-      console.log(this.userData);
+
+<script>
+export default {
+  props: ['userData'],
+  data() {
+    return {
+      isNavbarOpen: false
+    };
+  },
+  methods: {
+    toggleNavbar() {
+      this.isNavbarOpen = !this.isNavbarOpen;
     }
-  };
-  </script>
-  
-<style>
+  },
+  computed: {
+    userRoleClass() {
+      // Retorna la clase correspondiente al rol del usuario
+      return this.userData.rol === 'paciente' ? 'navbar-paciente' :
+        this.userData.rol === 'medico' ? 'navbar-medico' :
+          this.userData.rol === 'admin' ? 'navbar-admin' :
+            '';
+    }
+  },
+  mounted() {
+    console.log(this.userData);
+  }
+};
+</script>
 
-</style>
-
-  
+<style></style>

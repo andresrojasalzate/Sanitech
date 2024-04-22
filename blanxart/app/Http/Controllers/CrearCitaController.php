@@ -2,18 +2,47 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CitaRequest;
+use App\Models\Cita;
+use App\Models\Paciente;
+use App\Models\Prueba;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CrearCitaController extends Controller
 {
-    public function show()
+    public function show(string $idUsuarioPaciente)
     {
-        return view('pages.crearCita');
+        $paciente = Paciente::find($idUsuarioPaciente);
+        $pruebas = Prueba::all();
+        return view('pages.crearCita', [
+            'paciente' => $paciente,
+            'pruebas' => $pruebas
+        ]);
     }
 
-    public function filtrarPaciente(string $texto)
+    public function store(CitaRequest $request)
     {
-        User::where();
+        $data = $request->validated();
+        $pruebaId = null;
+
+        if (isset($data['prueba_id'])) {
+            $pruebaId = $data['prueba_id'];
+        }
+
+        $usuarioMedico = Auth::user();
+
+        $idMedico = $usuarioMedico->medico->id;
+
+        Cita::create([
+            'prueba_id' => $pruebaId,
+            'emergency_level' => $data['emergency_level'],
+            'paciente_id' => $data['paciente_id'],
+            'done' => false,
+            'medico_id' => $idMedico
+        ]);
+
+        return redirect()->route('home');
     }
 }

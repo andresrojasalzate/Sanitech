@@ -11,6 +11,7 @@
             <h2 class="regular">Benvingut al teu espai de salut digital.</h2>
         </section>
 
+        @if(auth()->user()->rol === 'paciente')
         <section class="opciones">
             <a href="{{ route('agenda' , ['id' => auth()->user()->id])  }}">
                 <div class="opciones-opcion">
@@ -31,7 +32,7 @@
                 </div>
             </a>
 
-            <a href="{{ route('solicitudes') }}">
+            <a href="{{ route('solicitudes', ['id' => auth()->user()->id]) }}">
                 <div class="opciones-opcion">
                     <div class="opciones-opcion-card">
                         <i class="fa-solid fa-question"></i>
@@ -40,7 +41,7 @@
                 </div>
             </a>
 
-            <a href="#">
+            <a href="{{ route('notificaciones', ['id' => auth()->user()->id]) }}">
                 <div class="opciones-opcion">
                     <div class="opciones-opcion-card">
                         <i class="fa-solid fa-bell"></i>
@@ -49,6 +50,28 @@
                 </div>
             </a>
         </section>
+
+        @elseif(auth()->user()->rol === 'medico')
+        <section>
+            <a href="{{route('buscadorPacientes')}}">
+                <div class="opciones-opcion">
+                    <div class="opciones-opcion-card">
+                        <i class="fa-solid fa-user"></i>
+                    </div>
+                    <h4 class="medionegrita">Pacientes</h4>
+                </div>
+            </a>
+        </section>
+        @elseif(auth()->user()->rol === 'admin')
+        <a href="#">
+            <div class="opciones-opcion">
+                <div class="opciones-opcion-card">
+                    <i class="fa-solid fa-tarp"></i>
+                </div>
+                <h4 class="medionegrita">Tareas</h4>
+            </div>
+        </a>
+        @endif
     </main>
 
 @endsection
