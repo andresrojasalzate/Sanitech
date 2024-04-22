@@ -8,7 +8,7 @@
 
     <x-boton-atras :url="route('home')" />
 
-    <section class="pedirCita-container-title">
+    <section>
         <h1>Cita amb el metge</h1>
         <h2>Soliciti una cita amb el metge</h2>
     </section>
@@ -17,25 +17,36 @@
         <div class="pedirCita-container-content-datos-personales">
             <h4>Les meves dades</h4>
             <div>
-                <p>Nom {{auth()->user()->name}}</p>
-                <p>CIP {{ $paciente->CIP }}</p>
-                <p>Codi postal {{ $paciente->post_code }}</p>
+                <div class="pedirCita-container-content-datos-personales-usuario">
+                    <p>Nom</p>
+                    <p>{{auth()->user()->name}}</p>
+                </div>
+                <div class="pedirCita-container-content-datos-personales-usuario">
+                    <p>CIP</p>
+                    <p>{{ $paciente->CIP }}</p>
+                </div>
+                <div class="pedirCita-container-content-datos-personales-usuario">
+                    <p>Nom</p>
+                    <p>{{ $paciente->post_code }}</p>
+                </div>
             </div>
         </div>
 
         <form action="{{ route('guardarPedirCita') }}" id="formPedirCita" class="pedirCita-container-content-formulario" method="POST">
             @csrf
-            <div class="pedirCita-container-content-formulario-apartado">
-                <h3>1. Seleccioni el dia de la cita</h3>
-                <selecciondia-component :dias-no-disponibles='{{$diasNoDisponibles}}'></selecciondia-component>
-            </div>
-
-            <div class="pedirCita-container-content-formulario-apartado">
-                <h3>2. Seleccioni la hora</h3>
-                <select>
-                    <option>09:30h</option>
-                    <option>10:30h</option>
-                </select>
+            <div class="formulario-2-columns">
+                <div class="pedirCita-container-content-formulario-apartado">
+                    <h3>1. Seleccioni el dia de la cita</h3>
+                    <selecciondia-component :dias-no-disponibles='{{$diasNoDisponibles}}'></selecciondia-component>
+                </div>
+    
+                <div class="pedirCita-container-content-formulario-apartado">
+                    <h3>2. Seleccioni la hora</h3>
+                    <select>
+                        <option>09:30h</option>
+                        <option>10:30h</option>
+                    </select>
+                </div>
             </div>
 
             <div class="pedirCita-container-content-formulario-apartado">
