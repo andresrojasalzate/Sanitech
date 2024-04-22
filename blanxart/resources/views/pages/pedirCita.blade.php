@@ -5,6 +5,9 @@
 
 @section('content')
 <main class="pedirCita-container">
+
+    <x-boton-atras :url="route('home')" />
+
     <section class="pedirCita-container-title">
         <h1>Cita amb el metge</h1>
         <h2>Soliciti una cita amb el metge</h2>
@@ -12,22 +15,22 @@
 
     <section class="pedirCita-container-content">
         <div class="pedirCita-container-content-datos-personales">
-            <p>Les meves dades</p>
+            <h4>Les meves dades</h4>
             <div>
-                <p>Nom</p>
-                <p>CIP</p>
-                <p>Codi postal</p>
+                <p>Nom {{auth()->user()->name}}</p>
+                <p>CIP {{ $paciente->CIP }}</p>
+                <p>Codi postal {{ $paciente->post_code }}</p>
             </div>
         </div>
 
-        <form action="{{ route('guardarPedirCita') }}" id="formPedirCita" class="formularioPedirCita" method="POST">
+        <form action="{{ route('guardarPedirCita') }}" id="formPedirCita" class="pedirCita-container-content-formulario" method="POST">
             @csrf
-            <div>
+            <div class="pedirCita-container-content-formulario-apartado">
                 <h3>1. Seleccioni el dia de la cita</h3>
                 <selecciondia-component :dias-no-disponibles='{{$diasNoDisponibles}}'></selecciondia-component>
             </div>
 
-            <div>
+            <div class="pedirCita-container-content-formulario-apartado">
                 <h3>2. Seleccioni la hora</h3>
                 <select>
                     <option>09:30h</option>
@@ -35,7 +38,7 @@
                 </select>
             </div>
 
-            <div>
+            <div class="pedirCita-container-content-formulario-apartado">
                 <h3>3. Motiu de la vistia</h3>
                 <textarea></textarea>
             </div>

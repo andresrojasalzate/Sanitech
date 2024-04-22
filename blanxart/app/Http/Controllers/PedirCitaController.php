@@ -11,10 +11,13 @@ class PedirCitaController extends Controller
     public function show(string $idUsuarioPaciente) 
     {
         $paciente = Paciente::find($idUsuarioPaciente);
+        // dd($paciente);
         $diasNoDisponibles = Cita::getDiasNoDisponibles(10);
         return view('pages.pedirCita', [
-            'diasNoDisponibles' => $diasNoDisponibles,
-            'paciente' => $paciente
+            'paciente' => $paciente,
+            'diasNoDisponibles' => $diasNoDisponibles
         ]);
     }
+
+    public function store () {}
 }
