@@ -56,13 +56,12 @@ class Cita extends Model
         return $citas;
     }
 
-    public static function fillPDF($id)
+    public static function fillPDF($idCita)
     {
-        dd($id); //recibo id = 26, que es el id del usuario, pero tendria que recibir el id 1 (que es ahora como estoy logueado) de la cita que le pertenece al usuario 26
         $cita = DB::table('citas')
-            ->join('users', 'users.id', '=', 'citas.user_id')
+            ->join('users', 'users.id', '=', 'citas.paciente_id')
             ->select('users.name', 'users.lastName', 'users.dni', 'citas.date')
-            ->where('citas.id', $id)
+            ->where('citas.id', $idCita)
             ->get();
 
         return $cita;
