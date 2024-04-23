@@ -73,6 +73,9 @@
 
     &Info {
         margin-left: 5vw;
+        & p:first-child{
+            padding-top: 2vh;
+        }
     }
 
     &Botones {
@@ -89,6 +92,10 @@
             padding-top: 0.5vh;
             padding-bottom: 0.5vh;
         }
+    }
+
+    &:hover{
+        background-color: #E3E5FA;
     }
 }
 
