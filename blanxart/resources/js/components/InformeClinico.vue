@@ -11,7 +11,7 @@
                 </div>   
         </div>
         <div class="cuerpo-informe" v-if="!clickado">
-            <p class="medionegrita cuerpo-informe-titulo">resultado</p>
+            <p class="medionegrita cuerpo-informe-titulo">Resultat</p>
             <p class="cuerpo-informe-texto">{{ resultado.resultado }}</p>
             <p class="medionegrita cuerpo-informe-titulo">Servei</p>
             <p class="cuerpo-informe-texto">{{ resultado.servicio }}</p>

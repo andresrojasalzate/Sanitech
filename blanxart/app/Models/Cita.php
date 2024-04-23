@@ -85,4 +85,27 @@ class Cita extends Model
 
         return $diasNoDisponibles;
     }
+
+    public static function getCitasSinAsignar()
+    {
+        $citas = DB::table('citas')
+            ->select(
+                'citas.emergency_level',
+                'users.name',
+                'users.lastName',
+                'pacientes.genre',
+                'pacientes.birth_date',
+                'users.dni',
+                'pacientes.CIP',
+                'pruebas.name as nombrePrueba'
+            )
+            ->join('pacientes', 'pacientes.id', '=', 'citas.paciente_id')
+            ->join('pruebas', 'pruebas.id', '=', 'citas.prueba_id')
+            ->join('users', 'users.id', '=', 'pacientes.user_id')
+            ->whereNull('citas.date')
+            ->orderBy('citas.emergency_level', 'desc')
+            ->get();
+
+            return $citas;
+    }
 }
