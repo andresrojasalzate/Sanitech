@@ -13,9 +13,9 @@ class InformeClinicosController extends Controller
     public function show($id)
     {
 
-        $paciente_id = Paciente::where('user_id', $id)->value('id');
+        //$paciente_id = Paciente::where('id', $id)->value('id');
         return view('pages.informesClinicos', [
-           'resultados' =>  Resultado::where('paciente_id', $paciente_id)->paginate(10),
+           'resultados' =>  Resultado::where('paciente_id', $id)->paginate(10),
         ]);
     }
 }
