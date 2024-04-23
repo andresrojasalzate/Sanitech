@@ -32,7 +32,8 @@
 .informe{
     display: grid;
     grid-template-columns: auto auto;
-
+    cursor: pointer;
+    background-color: white;
     
     &-parte1{
         grid-row: span 2; 
@@ -54,6 +55,10 @@
         justify-content: flex-end; 
         align-items: center; 
         padding-right: 6vw;
+    }
+
+    &:hover{
+        background-color: #E3E5FA;
     }
 }
 
