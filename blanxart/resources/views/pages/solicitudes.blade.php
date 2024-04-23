@@ -38,7 +38,7 @@
                 </div>
             </a>
 
-            <a href="{{ route('justificante') }}">
+            <a href="{{ route('justificante', ['id' => auth()->user()->paciente->id]) }}">
                 <div class="solicitudes-solicitud">
                     <div class="solicitudes-solicitud-icon">
                         <i class="fa-solid fa-file"></i>
@@ -49,7 +49,7 @@
                 </div>
             </a>
 
-            <a href="{{ route('pedirCita', ['id' => auth()->user()->id]) }}">
+            <a href="{{ route('pedirCita', ['id' => auth()->user()->paciente->id]) }}">
                 <div class="solicitudes-solicitud">
                     <div class="solicitudes-solicitud-icon">
                         <i class="fa-regular fa-calendar-check"></i>
