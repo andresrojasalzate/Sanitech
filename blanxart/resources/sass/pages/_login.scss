@@ -1,60 +1,22 @@
-@media (min-width: 1000px) {
-    .html-login {
-        height: 100vh;
-        // width: 100vw;
-        display: grid;
-        justify-content: center;
-        align-content: center;
-        background-image: url('/storage/images/login.jpg');
-        background-size: cover;
-        background-repeat: no-repeat;
-    }
-
-    .body-login {
-        background-color: transparent;
-    }
-
-    .login {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 40px;
-        border-radius: 20px;
-        color: $blanco;
-        justify-content: center;
-        align-content: center;
-        padding: 50px;
-        background-color: rgb(0, 0, 0, 0.5);
-        backdrop-filter: blur(10px);
-        &-img{
-            background-image: url('/storage/images/login.jpg');
-            background-size: cover;
-            border-radius: 10px;
-        }
-    }
+.html-login {
+    height: 100vh;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    // width: 100vw;
+    background-image: url('../../../public/storage/images/login.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
-
-@media (max-width: 999px) {
-    .html-login {
-        height: 100vh;
-        width: 100vw;
-        background-image: url('/storage/images/login.jpg');
-        background-size: cover;
-        background-repeat: no-repeat;
-    }
-
-    .body-login {
-        display: grid;
-        justify-content: center;
-        align-content: center;
-        margin: 0;
-        background-color: rgb(0, 0, 0, 0.5);
-        height: 100vh;
-        width: 100vw;
-    }
-    .login-img {
-        display: none;
-    }
+.body-login {
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    margin: 0;
+    background-color: rgb(0, 0, 0, 0.5);
+    height: 100vh;
+    width: 100vw;
 }
 
 .login-form {
@@ -99,7 +61,8 @@
         gap: 15px;
         justify-content: center;
         align-content: center;
-        &-name{
+
+        &-name {
             color: $blanco;
         }
     }
@@ -121,15 +84,48 @@
 
 .recover-password {
     text-align: center;
-    & a{
+
+    & a {
         color: $blanco;
     }
-} 
+}
 
-.msg-error{
+.msg-error {
     color: $rojo;
 }
 
-.error{
+.error {
     text-align: center;
+}
+
+@media (min-width: 971px) {
+
+    .body-login {
+        background-color: transparent;
+        display: grid;
+        justify-content: center;
+        align-content: center;
+        margin: 0;
+        height: 100vh;
+        width: 100vw;
+    }
+
+    .login {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 40px;
+        border-radius: 20px;
+        color: $blanco;
+        justify-content: center;
+        align-content: center;
+        padding: 50px;
+        background-color: rgb(0, 0, 0, 0.5);
+        backdrop-filter: blur(10px);
+
+        &-img {
+            background-image: url('../../../public/storage/images/login.jpg');
+            background-size: cover;
+            border-radius: 10px;
+        }
+    }
 }
