@@ -7,9 +7,8 @@ use Illuminate\Http\Request;
 
 class SolicitudesController extends Controller
 {
-    public function solicitudes(string $idUsuarioPaciente) 
+    public function solicitudes() 
     {
-        $paciente = Paciente::find($idUsuarioPaciente);
-        return view('pages.solicitudes', ['paciente' => $paciente]);
+        return view('pages.solicitudes');
     }
 }

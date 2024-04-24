@@ -19,4 +19,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/pacientes/{texto}/{idMedico}', [BuscadorPacienteController::class, 'filtrarPaciente'])->name('filtrarPaciente');
+Route::post('/filtradorPaciente', [BuscadorPacienteController::class, 'filtrarPaciente'])->name('filtrarPaciente');
