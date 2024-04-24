@@ -20,7 +20,8 @@
                     <tr v-for="item in citasRealizadasPaginadas" :key="item.id">
                         <td>{{ item.name }}</td>
                         <td>{{ item.date }}</td>
-                        <td><a @click="navegarAJustificante(item.document)"><i class="fa-solid fa-file-pdf icon icon-blue"></i></a></td>
+                        <td><a @click="navegarAJustificante(item.id)"><i
+                                    class="fa-solid fa-file-pdf icon icon-blue"></i></a></td>
                     </tr>
                 </tbody>
             </table>
@@ -28,13 +29,14 @@
                 <p class="no-citas">No has fet .</p>
             </div>
             <div class="paginacion">
-                <button @click="paginaActual -= 1" :disabled="paginaActual === 1"><i class='fas fa-chevron-left'></i></button>
+                <button @click="paginaActual -= 1" :disabled="paginaActual === 1"><i
+                        class='fas fa-chevron-left'></i></button>
                 <div class="paginas">
                     <button v-for="pagina in paginasMostradas" :key="pagina" @click="paginaActual = pagina"
                         :class="{ 'pagina-actual': pagina === paginaActual }">{{ pagina }}</button>
                 </div>
-                <button @click="paginaActual += 1" :disabled="paginaActual === totalPaginas"
-                    class="ant-sig"><i class='fas fa-chevron-right'></i></button>
+                <button @click="paginaActual += 1" :disabled="paginaActual === totalPaginas" class="ant-sig"><i
+                        class='fas fa-chevron-right'></i></button>
             </div>
 
         </div>
@@ -50,9 +52,9 @@ export default {
             paginaActual: 1
         };
     },
-    mounted(){
-            console.log(this.citas);
-        },
+    mounted() {
+        console.log(this.citas);
+    },
     computed: {
         citasRealizadas() {
             this.paginaActual = 1;
@@ -75,14 +77,14 @@ export default {
             }
             return paginas;
         },
-        
+
     },
 
     methods: {
-        navegarAJustificante(documento) {
-            window.location.href = `generarJustificante`;
+        navegarAJustificante(idCita) {
+            window.location.href = `/generarJustificante/${idCita}`;
         }
     }
-    
+
 }
 </script>

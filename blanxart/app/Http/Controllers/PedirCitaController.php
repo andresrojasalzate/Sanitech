@@ -13,11 +13,15 @@ class PedirCitaController extends Controller
         $paciente = Paciente::find($idUsuarioPaciente);
         $diasNoDisponibles = Cita::getDiasNoDisponibles(10);
         return view('pages.pedirCita', [
-            'diasNoDisponibles' => $diasNoDisponibles,
-            'paciente' => $paciente
+            'paciente' => $paciente,
+            'diasNoDisponibles' => $diasNoDisponibles
         ]);
     }
 
+    public function store (Request $request) 
+    {
+        
+    }
 
     public function asignarFechaCita() 
     {

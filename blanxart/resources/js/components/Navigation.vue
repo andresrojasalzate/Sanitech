@@ -11,7 +11,7 @@
       <div :class="['collapse', { 'show': isNavbarOpen }]" class="navbar-collapse">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <a class="nav-link" href="/home">Inici</a>
+            <a class="nav-link" href="/home/">Inici</a>
           </li>
           <li class="nav-item" v-if="userData.rol === 'paciente'">
             <a class="nav-link" :href="'/agenda/' + userData.id">Agenda</a>
@@ -29,7 +29,7 @@
             <a class="nav-link" href="">Tareas</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="logout">Logout</a>
+            <a class="nav-link" href="/logout/">Logout</a>
           </li>
         </ul>
       </div>

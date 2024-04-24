@@ -4,54 +4,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    {{-- @vite(['resources/sass/main.scss']) --}}
     <title>justificante</title>
     <style>
         html {
             font-family: Arial, Helvetica, sans-serif
         }
-
         .body-justificante {
             margin: 30px 50px;
         }
-
         .body-justificante div+ :not(div .justificante-subtitulo, div .justificante-motivo-tipo, .justificante-horaImpresion) {
             margin: 5px 0;
         }
-
         .body-justificante label {
             font-size: 16px;
             padding: 0 10px;
         }
-
         .justificante {
             display: grid;
         }
-
         .justificante-titulo {
             text-align: center;
             margin: 40px 0;
         }
-
         .justificante-subtitulo {
             border-bottom: 1px solid black;
             padding: 10px 0;
             margin: 20px 0;
             font-weight: bold;
         }
-
         .justificante-motivo-tipo {
             display: grid;
             margin: 40px;
             justify-content: center;
         }
-
         .justificante-motivo-tipo-und {
             /* display: flex; */
             display: grid;
             grid-template-columns: repeat(2, 1fr);
         }
-
         .justificante-horaImpresion {
             text-align: right;
             padding-top: 60px;
@@ -65,8 +55,8 @@
             <h3 class="medionegrita">JUSTIFICANT D' ASSISTÈNCIA</h3>
         </div>
         <div class="justificante-subtitulo medionegrita">Dades del pacient</div>
-        <div>Nom i cognoms: {{ $cita[0]->name }} {{ $cita[0]->lastName }}</div>
-        <div>DNI: {{ $cita[0]->dni }}</div>
+        <div>Nom i cognoms: {{ auth()->user()->name }} {{ auth()->user()->lastName }}</div>
+        <div>DNI: {{ auth()->user()->dni }}</div>
         <div class="justificante-subtitulo medionegrita">Data</div>
         <div>Data: {{ $cita[0]->date }}</div>
         <div>Hora inici d'atenció:</div>

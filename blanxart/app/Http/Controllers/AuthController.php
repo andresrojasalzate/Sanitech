@@ -3,12 +3,22 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
 
 class AuthController extends Controller
 {
+
+	public function lastConnectionUser()
+	{
+		$date = strval(now()->format('d/m/Y H:i'));
+		$user = User::findOrfail(Auth::user()->id);
+		$user->last_connection = $date;
+		$user->save();
+	}
+
 	public function login(Request $request)
 	{
 		// Comprobamos que el email y la contraseña llegan correctamente en el request
@@ -33,6 +43,7 @@ class AuthController extends Controller
 
 	public function logout()
 	{
+		self::lastConnectionUser();
 		Log::info('logout');
 		
 		session()->flush();

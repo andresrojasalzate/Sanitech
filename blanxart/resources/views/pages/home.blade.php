@@ -8,6 +8,7 @@
 <main class="homeContainer">
     <section class="info">
         <h1 class="regular">Hola {{auth()->user()->name}}</h1>
+        <span class="homeContainer-ultima-conexion"><strong>Ultima connexió:</strong> {{auth()->user()->last_connection}} </span>
         <h2 class="regular">Benvingut al teu espai de salut digital.</h2>
     </section>
 
@@ -22,8 +23,7 @@
             </div>
         </a>
 
-        <a href="{{ route('informesClinicos', ['id' => auth()->user()->id]) }}">
-
+        <a href="{{ route('informesClinicos', ['id' => auth()->user()->paciente->id]) }}">
             <div class="opciones-opcion">
                 <div class="opciones-opcion-card">
                     <i class="fa-solid fa-microscope"></i>
@@ -32,7 +32,7 @@
             </div>
         </a>
 
-            <a href="{{ route('solicitudes', ['id' => auth()->user()->id]) }}">
+            <a href="{{ route('solicitudes') }}">
                 <div class="opciones-opcion">
                     <div class="opciones-opcion-card">
                         <i class="fa-solid fa-question"></i>

@@ -14,10 +14,10 @@ return new class extends Migration
         Schema::create('citas', function (Blueprint $table) {
             $table->id();
             $table->date('date')->nullable();
-            $table->time('hour_entry')->nullable();
-            $table->time('hour_departure')->nullable();
+            $table->time('time')->nullable();
             $table->integer('emergency_level');
             $table->boolean('accepted')->nullable();
+            $table->text('reason')->nullable();
             $table->boolean('done');
             $table->foreignId('prueba_id')->nullable()->references('id')->on('pruebas')->onDelete('cascade')
             ->onUpdate('cascade');
