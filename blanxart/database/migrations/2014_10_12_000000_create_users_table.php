@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('phone_number');
             $table->string('password');
             $table->string('rol');
+            $table->string('last_connection')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
