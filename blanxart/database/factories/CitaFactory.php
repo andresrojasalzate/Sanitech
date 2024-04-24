@@ -34,6 +34,7 @@ class CitaFactory extends Factory
             'hour_departure' => $hourDeparture,
             'emergency_level' => fake()->numberBetween(1, 5),
             'accepted' => fake()->boolean(),
+            'reason' => fake()->text(),
             'done' => fake()->boolean(),
             'prueba_id' => $this->faker->numberBetween(1, 3),
             'paciente_id' => $this->faker->numberBetween(1, 10),

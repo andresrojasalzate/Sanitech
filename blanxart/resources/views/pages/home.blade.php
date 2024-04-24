@@ -22,8 +22,7 @@
             </div>
         </a>
 
-        <a href="{{ route('informesClinicos', ['id' => auth()->user()->id]) }}">
-
+        <a href="{{ route('informesClinicos', ['id' => auth()->user()->paciente->id]) }}">
             <div class="opciones-opcion">
                 <div class="opciones-opcion-card">
                     <i class="fa-solid fa-microscope"></i>
@@ -32,7 +31,7 @@
             </div>
         </a>
 
-            <a href="{{ route('solicitudes', ['id' => auth()->user()->id]) }}">
+            <a href="{{ route('solicitudes') }}">
                 <div class="opciones-opcion">
                     <div class="opciones-opcion-card">
                         <i class="fa-solid fa-question"></i>

@@ -31,7 +31,7 @@ class CrearCitaController extends Controller
 
         Cita::create([
             'prueba_id' => $pruebaId,
-            'emergency_level' => $data['emergency_level'],
+            'fecha' => $data['date'],
             'paciente_id' => $data['paciente_id'],
             'done' => false,
         ]);

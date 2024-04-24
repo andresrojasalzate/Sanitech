@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\PedirCitaRequest;
 use App\Models\Cita;
 use App\Models\Paciente;
 use Illuminate\Http\Request;
@@ -19,7 +20,21 @@ class PedirCitaController extends Controller
         ]);
     }
 
-    public function store () {}
+    public function store (PedirCitaRequest $request) 
+    {
+        $data = $request->validated();
+
+        Cita::create([
+            'date' => $data['fecha'],
+            'hour_entry' => $data['hour_entry'],
+            'hour_departure' => null,
+            'paciente_id' => $data['paciente_id'],
+            'done' => false,
+
+        ]);
+
+        return redirect()->route('home');
+    }
 
     public function asignarFechaCita() 
     {

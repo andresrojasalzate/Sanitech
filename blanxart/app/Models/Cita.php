@@ -19,6 +19,8 @@ class Cita extends Model
         'emergency_level',
         'aceptada',
         'done',
+        'hour_entry',
+        'hour_departure',
         'prueba_id',
         'user_id',
         'paciente_id',
