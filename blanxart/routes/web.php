@@ -54,21 +54,25 @@ Route::group(['middleware' => 'auth'], function () {
     Route::group(['middleware' => ['rol:medico']], function () {
         Route::get('/crearCita/{idUsuarioPaciente}', [CrearCitaController::class, 'show'])->name('crearCita');
         Route::get('/resultadosPaciente/{id}', [InformeClinicosController::class, 'show'])->name('informesClinicos');
-        Route::get('/buscadorPacientes', [BuscadorPacienteController::class, 'show'])->name('buscadorPacientes');
+        Route::get('/buscadorPacientes/{accion}', [BuscadorPacienteController::class, 'show'])->name('buscadorPacientes');
         Route::post('/crearCita/store', [CrearCitaController::class, 'store'])->name('guardarCita');
+        Route::get('/agendaPaciente/{id}', [AgendaController::class, 'agenda'])->name('agendaPaciente');
     });
 
     Route::group(['middleware' => ['rol:paciente']], function () {
         Route::get('/notificaciones/{id}', [NotificacionesController::class, 'notificaciones'])->name('notificaciones');
         Route::get('/respuestaCita/{id}/{respuesta}', [NotificacionesController::class, 'respuestaCita'])->name('respuesta-cita');
-        Route::get('/solicitudes', [SolicitudesController::class, 'solicitudes'])->name('solicitudes');
+        Route::get('/solicitudes/', [SolicitudesController::class, 'solicitudes'])->name('solicitudes');
         Route::get('/agenda/{id}', [AgendaController::class, 'agenda'])->name('agenda');
         Route::get('/informesClinicos/{id}', [InformeClinicosController::class, 'show'])->name('informesClinicos');
-        Route::get('/justificante', [JustificanteController::class, 'justificante'])->name('justificante');
-        Route::get('/generarJustificante', [JustificanteController::class, 'generarJustificante'])->name('generarJustificante');
+
+        //Generar un justificante
+        Route::get('/justificante/{id}', [JustificanteController::class, 'justificante'])->name('justificante');
+        Route::get('/generarJustificante/{idCita}', [JustificanteController::class, 'generarJustificante'])->name('generarJustificante');
+        
         //Pedir una cita
-        Route::get('/pedirCita', [PedirCitaController::class, 'pedirCita'])->name('pedirCita');
-        Route::post('/miscitas', [PedirCitaController::class, 'store'])->name('store');
+        Route::get('/pedirCita/{id}', [PedirCitaController::class, 'show'])->name('pedirCita');
+        Route::post('/pedirCita/store', [PedirCitaController::class, 'store'])->name('guardarPedirCita');
     });
 });
 
@@ -77,7 +81,6 @@ Route::get('/prueba', function(){
 })->name('prueba');
 
 Route::get('/prueba/{id}',[JustificanteController::class,'generarJustificante'])->name('prueba1');
-
 
 //Ruta por defecto ----> muestra pagina error 404
 Route::fallback(function () {

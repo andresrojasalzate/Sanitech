@@ -11,25 +11,25 @@
       <div :class="['collapse', { 'show': isNavbarOpen }]" class="navbar-collapse">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <a class="nav-link" href="/home">Inicio</a>
+            <a class="nav-link" href="/home/">Inici</a>
           </li>
           <li class="nav-item" v-if="userData.rol === 'paciente'">
             <a class="nav-link" :href="'/agenda/' + userData.id">Agenda</a>
           </li>
           <li class="nav-item" v-if="userData.rol === 'paciente'">
-            <a class="nav-link" href="/citas">Citas</a>
+            <a class="nav-link" :href="'/informesClinicos/' + userData.id">Resultats</a>
           </li>
           <li class="nav-item" v-if="userData.rol === 'paciente'">
-            <a class="nav-link" href="">Solicitudes</a>
+            <a class="nav-link" :href="'/solicitudes/' + userData.id">Solicituts</a>
           </li>
           <li class="nav-item" v-if="userData.rol === 'paciente'">
-            <a class="nav-link" :href="'/notificaciones/' + userData.id">Notificaciones</a>
+            <a class="nav-link" :href="'/notificaciones/' + userData.id">Notificacions</a>
           </li>
           <li class="nav-item" v-if="userData.rol === 'admin'">
             <a class="nav-link" href="">Tareas</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="logout">Logout</a>
+            <a class="nav-link" href="/logout/">Logout</a>
           </li>
         </ul>
       </div>

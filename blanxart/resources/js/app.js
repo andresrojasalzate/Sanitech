@@ -1,6 +1,5 @@
 import { createApp } from 'vue';
 
-import HelloWorld from './components/HelloWorld.vue';
 import Navigation from './components/Navigation.vue';
 import agenda from './components/agenda.vue';
 import informesClinicos from './components/InformeClinico.vue';
@@ -37,11 +36,14 @@ justificante.component('justificante-component', justificanteComponent);
 justificante.mount('#justificante');
 
 const pedirCita = createApp({});
-pedirCita.component('pedircita-component', PedirCitaComponent);
-pedirCita.mount('#pedircita');
+pedirCita.component('selecciondia-component', PedirCitaComponent);
+pedirCita.mount('#formPedirCita');
 
-createApp(buscadorPaciente).mount("#buscadorPacientes");
-createApp(buscadorPaciente).mount("#buscadorPacientes");
+const buscador = createApp({});
+buscador.component('buscadorpaciente-component', buscadorPaciente);
+buscador.mount('#buscadorPacientes');
+
+// createApp(buscadorPaciente).mount("#buscadorPacientes");
 
 const nuevaCita = createApp({});
 nuevaCita.component('seleccionprueba-component', crearCita);
