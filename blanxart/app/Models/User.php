@@ -28,6 +28,7 @@ class User extends Authenticatable
         'dni',
         'rol',
         'dni',
+        'last_connection',
     ];
 
     /**
