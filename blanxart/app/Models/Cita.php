@@ -90,6 +90,7 @@ class Cita extends Model
     {
         $citas = DB::table('citas')
             ->select(
+                'citas.id',
                 'citas.emergency_level',
                 'users.name',
                 'users.lastName',
