@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 
 class PedirCitaController extends Controller
 {
-    public function show(string $idUsuarioPaciente) 
+    public function show(string $idUsuarioPaciente)
     {
         $paciente = Paciente::find($idUsuarioPaciente);
         $diasNoDisponibles = Cita::getDiasNoDisponibles(10);
@@ -18,17 +18,21 @@ class PedirCitaController extends Controller
         ]);
     }
 
-    public function store (Request $request) 
+    public function store(Request $request)
     {
-        
     }
 
-    public function asignarFechaCita() 
+    public function asignarFechaCita()
     {
 
         $citas = Cita::getCitasSinAsignar();
         // dd($citas);
 
         return view('pages.asignarFechaCita', ['citas' => $citas]);
+    }
+
+    public function agendarCita($id)
+    {
+        return view('pages.agendarCita');
     }
 }

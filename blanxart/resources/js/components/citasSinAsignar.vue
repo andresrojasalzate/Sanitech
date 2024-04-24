@@ -90,7 +90,8 @@ export default {
       return age;
     },
     navigateToDetailPage(cita) {
-      console.log(cita);
+      const citaId = cita.id; // Asegúrate de que cada cita tenga un atributo "id"
+      window.location.href = `/asignarFechaCita/cita/${citaId}`;
     }
   }
 };
