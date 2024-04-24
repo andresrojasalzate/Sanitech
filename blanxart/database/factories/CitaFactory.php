@@ -21,16 +21,21 @@ class CitaFactory extends Factory
 
         $date = fake()->dateTimeBetween('now', '+30 days');
 
-        // Genera una hora de entrada aleatoria entre las 8:00 y las 15:30
-        $hourEntry = fake()->dateTimeBetween('08:00:00', '15:30:00')->format('H:i:s');
+        $horasDisponibles = [
+            '08:00', '09:00', '10:00', '11:00',
+            '12:00', '13:00', '14:00', '15:00', '16:00'
+        ];
 
-        // Calcula una hora de salida aleatoria asegurando al menos 30 minutos de diferencia
-        $minHourDeparture = date('H:i:s', strtotime($hourEntry) + 1800); // Añade 30 minutos
-        $maxHourDeparture = '16:00:00'; // Hora máxima de salida
-        $time = fake()->dateTimeBetween($minHourDeparture, $maxHourDeparture)->format('H:i:s');
+        $horaAleatoria = fake()->randomElement($horasDisponibles);
+
+        $key = array_search($horaAleatoria, $horasDisponibles);
+        if ($key !== false) {
+            unset($horasDisponibles[$key]);
+        }
+
         return [
             'date' => $date,
-            'time' => fake()->datetime(),
+            'time' => $horaAleatoria,
             'emergency_level' => fake()->numberBetween(1, 5),
             'accepted' => fake()->boolean(),
             'reason' => fake()->text(),

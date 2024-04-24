@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('citas', function (Blueprint $table) {
             $table->id();
             $table->date('date')->nullable();
-            $table->time('time')->nullable();
+            $table->string('time')->nullable();
             $table->integer('emergency_level');
             $table->boolean('accepted')->nullable();
             $table->text('reason')->nullable();

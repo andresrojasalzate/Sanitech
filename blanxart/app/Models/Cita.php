@@ -77,7 +77,7 @@ class Cita extends Model
             ->where('date', '>=', now()->toDateString())
             ->where('medico_id', $medico_id)
             ->groupBy('date')
-            ->havingRaw('COUNT(*) >= 8')
+            ->havingRaw('COUNT(*) >= 1')
             ->orderBy('date')
             ->get()
             ->map(function ($cita) {
