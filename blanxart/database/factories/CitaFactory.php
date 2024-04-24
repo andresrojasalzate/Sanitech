@@ -27,11 +27,10 @@ class CitaFactory extends Factory
         // Calcula una hora de salida aleatoria asegurando al menos 30 minutos de diferencia
         $minHourDeparture = date('H:i:s', strtotime($hourEntry) + 1800); // Añade 30 minutos
         $maxHourDeparture = '16:00:00'; // Hora máxima de salida
-        $hourDeparture = fake()->dateTimeBetween($minHourDeparture, $maxHourDeparture)->format('H:i:s');
+        $time = fake()->dateTimeBetween($minHourDeparture, $maxHourDeparture)->format('H:i:s');
         return [
             'date' => $date,
-            'hour_entry' => $hourEntry,
-            'hour_departure' => $hourDeparture,
+            'time' => fake()->datetime(),
             'emergency_level' => fake()->numberBetween(1, 5),
             'accepted' => fake()->boolean(),
             'reason' => fake()->text(),

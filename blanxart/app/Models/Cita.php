@@ -18,6 +18,7 @@ class Cita extends Model
         'fecha',
         'emergency_level',
         'aceptada',
+        'reason',
         'done',
         'hour_entry',
         'hour_departure',
