@@ -17,7 +17,7 @@ class PacienteFactory extends Factory
      */
     public function definition(): array
     {
-        $genre = $this->faker->randomElement(['hombre', 'mujer']);
+        $genre = $this->faker->randomElement(['Home', 'Dona']);
         $birth_date = $this->faker->dateTimeBetween('-80 years', '-18 years')->format('d/m/Y');
 
         return [
