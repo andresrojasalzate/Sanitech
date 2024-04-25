@@ -4,7 +4,7 @@
 @section('descripcion_pagina', 'Demanar una cita al CAP')
 
 @section('content')
-    <main class="pedirCita-container">
+    <main class="allform-container">
 
         <x-boton-atras :url="route('solicitudes', ['id' => auth()->user()->id])" />
 
@@ -32,33 +32,11 @@
                 </div>
             </div>
 
-            <form action="{{ route('guardarPedirCita') }}" id="formPedirCita" class="pedirCita-container-content-formulario"
-                method="POST">
+            <form action="{{ route('guardarPedirCita') }}" method="POST" class="form-container">
                 @csrf
-                <div class="formulario-2-columns">
-                    <div class="pedirCita-container-content-formulario-apartado">
-                        <h3>1. Seleccioni el dia de la cita</h3>
-                        <selecciondia-component :dias-no-disponibles='{{ $diasNoDisponibles }}'></selecciondia-component>
-                        
-                    </div>
-
-                    <div class="pedirCita-container-content-formulario-apartado">
-                        <h3>2. Seleccioni la hora</h3>
-                        <div class="select-wrapper">
-                            <select>
-                                @foreach($horasDisponibles as $hora)
-                                    <option>{{ $hora }}</option>
-                                @endforeach 
-                            </select>
-                        </div>
-                    </div>
+                <div id="formPedirCita">
+                    <selecciondia-component :dias-no-disponibles='{{ $diasNoDisponibles }}'></selecciondia-component>
                 </div>
-
-                <div class="pedirCita-container-content-formulario-apartado">
-                    <h3>3. Motiu de la visita</h3>
-                    <textarea></textarea>
-                </div>
-
                 <button class="confirmar-btn">Demanar Cita</button>
             </form>
         </section>

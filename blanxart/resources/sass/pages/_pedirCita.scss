@@ -1,4 +1,4 @@
-.pedirCita-container {
+.allform-container {
     &-content {
         &-datos-personales {
             border: 1px solid $gris;
@@ -20,31 +20,32 @@
                 }
             }
         }
-
-        &-formulario {
-            display: grid;
-            justify-content: center;
-            padding: 40px;
-            &-apartado {
-                border: 1px solid $gris;
-                border-radius: 8px;
-                box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-                padding: 20px;
-                margin-bottom: 40px;
-                h3 {
-                    margin-bottom: 20px;
-                }
-
-                select, textarea {
-                    width: 100%;
-                }
-
-                textarea {
-                    height: 400px;
-                }
-            }
-        }
     }
+}
+
+.form-group {
+    border: 1px solid $gris;
+    border-radius: 8px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-bottom: 40px;
+    h3 {
+        margin-bottom: 20px;
+    }
+
+    select, textarea {
+        width: 100%;
+    }
+
+    textarea {
+        height: 400px;
+    }
+}
+
+.form-container {
+    display: grid;
+    justify-content: center;
+    padding: 40px;
 }
 
 .formulario-2-columns {
