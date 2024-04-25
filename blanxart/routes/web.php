@@ -1,15 +1,16 @@
 <?php
-use App\Http\Controllers\AgendaController;
-use App\Http\Controllers\PedirCitaController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
-use App\Http\Controllers\BuscadorPacienteController;
-use App\Http\Controllers\CrearCitaController;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\InformeClinicosController;
-use App\Http\Controllers\NotificacionesController;
+use App\Http\Controllers\AgendaController;
+use App\Http\Controllers\CrearCitaController;
+use App\Http\Controllers\PedirCitaController;
 use App\Http\Controllers\SolicitudesController;
+use App\Http\Controllers\DescargarPDFController;
 use App\Http\Controllers\JustificanteController;
+use App\Http\Controllers\NotificacionesController;
+use App\Http\Controllers\InformeClinicosController;
+use App\Http\Controllers\BuscadorPacienteController;
 
 
 /*
@@ -69,6 +70,7 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('/solicitudes/', [SolicitudesController::class, 'solicitudes'])->name('solicitudes');
         Route::get('/agenda/{id}', [AgendaController::class, 'agenda'])->name('agenda');
         Route::get('/informesClinicos/{id}', [InformeClinicosController::class, 'show'])->name('informesClinicos');
+        Route::get('/descargar-pdf/{nombreArchivo}', [DescargarPDFController::class, 'descargar']);
 
         //Generar un justificante
         Route::get('/justificante/{id}', [JustificanteController::class, 'justificante'])->name('justificante');
