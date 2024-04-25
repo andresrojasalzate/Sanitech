@@ -7,7 +7,7 @@
             </div>
 
             <div class="form-group">
-                <label>2. Seleccioni la hora</label>
+                <label for="timepicker">2. Seleccioni la hora</label>
                 <select>
                     <option value="">Seleccioni l'hora de la cita</option>
                     <option></option>

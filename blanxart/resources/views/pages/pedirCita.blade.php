@@ -13,20 +13,20 @@
             <h2>Soliciti una cita amb el metge</h2>
         </section>
 
-        <section class="pedirCita-container-content">
-            <div class="pedirCita-container-content-datos-personales">
+        <section class="allform-container-content">
+            <div class="allform-container-content-datos-personales">
                 <h4>Les meves dades</h4>
-                <div class="pedirCita-container-content-datos-personales-usuario">
+                <div class="allform-container-content-datos-personales-usuario">
                     <p class="negrita">Nom</p>
                     <p>{{ auth()->user()->name }} {{ auth()->user()->lastName }}</p>
                 </div>
                 <hr>
-                <div class="pedirCita-container-content-datos-personales-usuario">
+                <div class="allform-container-content-datos-personales-usuario">
                     <p class="negrita">CIP</p>
                     <p>{{ $paciente->CIP }}</p>
                 </div>
                 <hr>
-                <div class="pedirCita-container-content-datos-personales-usuario">
+                <div class="allform-container-content-datos-personales-usuario">
                     <p class="negrita">Codi</p>
                     <p>{{ $paciente->post_code }}</p>
                 </div>
