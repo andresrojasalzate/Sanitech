@@ -39,21 +39,23 @@
                     <div class="pedirCita-container-content-formulario-apartado">
                         <h3>1. Seleccioni el dia de la cita</h3>
                         <selecciondia-component :dias-no-disponibles='{{ $diasNoDisponibles }}'></selecciondia-component>
+                        
                     </div>
 
                     <div class="pedirCita-container-content-formulario-apartado">
                         <h3>2. Seleccioni la hora</h3>
                         <div class="select-wrapper">
                             <select>
-                                <option>09:30h</option>
-                                <option>10:30h</option>
+                                @foreach($horasDisponibles as $hora)
+                                    <option>{{ $hora }}</option>
+                                @endforeach 
                             </select>
                         </div>
                     </div>
                 </div>
 
                 <div class="pedirCita-container-content-formulario-apartado">
-                    <h3>3. Motiu de la vistia</h3>
+                    <h3>3. Motiu de la visita</h3>
                     <textarea></textarea>
                 </div>
 

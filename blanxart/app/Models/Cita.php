@@ -88,6 +88,26 @@ class Cita extends Model
         return $diasNoDisponibles;
     }
 
+    public static function getHorasDisponibles($medico_id, $fecha) 
+    {
+        $horasNoDisponibles = DB::table('citas')
+            ->select('time')
+            ->where('medico_id', $medico_id)
+            ->whereDate('date', $fecha)
+            ->groupBy('time')
+            ->get();
+
+            $horasPosibles = [
+                '08:00', '09:00', '10:00', '11:00',
+                '12:00', '13:00', '14:00', '15:00', '16:00'
+            ];
+
+            $horasDisponibles = array_diff($horasPosibles, $horasNoDisponibles->pluck('time')->toArray());
+
+            // return json_encode($horasDisponibles);
+            return $horasDisponibles;
+    }
+
     public static function getCitasSinAsignar()
     {
         $citas = DB::table('citas')

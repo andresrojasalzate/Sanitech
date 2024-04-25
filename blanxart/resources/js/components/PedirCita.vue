@@ -1,5 +1,5 @@
 <template>
-    <VueDatePicker v-model="date" :disabled-dates="diasNoDisponibles" :time-picker="false"></VueDatePicker>
+    <!-- <VueDatePicker v-model="date" :disabled-dates="diasNoDisponibles" :enable-time-picker="false"></VueDatePicker> -->
 </template>
 
 <script>
@@ -12,7 +12,10 @@ export default {
     data() {
         return {
             date: null,
+            horasDisponibles: [],
+            horaSeleccionada: null
         };
     },
+    
 }
 </script>

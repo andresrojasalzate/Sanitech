@@ -22,6 +22,9 @@
         }
 
         &-formulario {
+            display: grid;
+            justify-content: center;
+            padding: 40px;
             &-apartado {
                 border: 1px solid $gris;
                 border-radius: 8px;
