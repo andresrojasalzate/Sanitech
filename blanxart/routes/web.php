@@ -49,7 +49,9 @@ Route::group(['middleware' => 'auth'], function () {
     
     Route::group(['middleware' => ['rol:admin']], function () {
         Route::get('/asignarFechaCita', [PedirCitaController::class, 'asignarFechaCita'])->name('asignarFechaCita');
-        Route::get('/asignarFechaCita/cita/{id}', [PedirCitaController::class, 'agendarCita'])->name('asignarFechaCita');
+        Route::get('/asignarFechaCita/cita/{id}', [PedirCitaController::class, 'agendarCita'])->name('agendarCita');
+        Route::post('/actualizar-cita/{id}', [PedirCitaController::class, 'actualizarCita'])->name('cita.actualizar');
+
         
     });
 
