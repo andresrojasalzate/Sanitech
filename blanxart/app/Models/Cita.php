@@ -123,7 +123,7 @@ class Cita extends Model
                 'pruebas.name as nombrePrueba'
             )
             ->join('pacientes', 'pacientes.id', '=', 'citas.paciente_id')
-            ->join('pruebas', 'pruebas.id', '=', 'citas.prueba_id')
+            ->leftJoin('pruebas', 'pruebas.id', '=', 'citas.prueba_id')
             ->join('users', 'users.id', '=', 'pacientes.user_id')
             ->whereNull('citas.date')
             ->orderBy('citas.emergency_level', 'desc')
