@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
 
 class BuscadorPacienteController extends Controller
 {
@@ -26,8 +28,21 @@ class BuscadorPacienteController extends Controller
         ]);
     }
 
-    public function filtrarPaciente(string $texto, string $idMedico)
+    public function filtrarPaciente(Request $request)
     {
+        $validator = Validator::make($request->all(), [
+            'idMedico' => 'required', 
+            'textoIntroducido' => 'nullable'
+        ]);
+
+        if ($validator->fails()) {
+           
+            return response()->json(['errors' => $validator->errors()], 422);
+        }
+        
+        $texto = $request->textoIntroducido;
+        $idMedico =  $request->idMedico;
+
         $textoNoEspacios = trim($texto);
         $resultados = User::where('rol', 'paciente')
             ->with('paciente')
