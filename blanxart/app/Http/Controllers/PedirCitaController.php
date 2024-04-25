@@ -16,9 +16,12 @@ class PedirCitaController extends Controller
         $paciente = Paciente::find($idUsuarioPaciente);
         // dd($paciente);
         $diasNoDisponibles = Cita::getDiasNoDisponibles(8);
+        $horasDisponibles = Cita::getHorasDisponibles(8, '2024-05-14');
+
         return view('pages.pedirCita', [
             'paciente' => $paciente,
-            'diasNoDisponibles' => $diasNoDisponibles
+            'diasNoDisponibles' => $diasNoDisponibles,
+            'horasDisponibles' => $horasDisponibles
         ]);
     }
 

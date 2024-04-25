@@ -17,17 +17,19 @@
       </select>
     </div>
 
-    <div class="form-group">
-      <label for="datepicker">Data de cita:</label>
-      <input type="date" v-model="selectedDate" class="datepicker" name="fecha" required>
-    </div>
+    <div class="formulario-2-columns">
+      <div class="form-group">
+        <label for="datepicker">Data de cita:</label>
+        <input type="date" v-model="selectedDate" class="datepicker" name="fecha" required>
+      </div>
 
-    <div class="form-group">
-      <label for="timepicker">Hora de cita:</label>
-      <select v-model="selectedTime" class="select" name="hora" required>
-        <option value="">Selecciona una hora</option>
-        <option v-for="hour in availableHours" :value="hour">{{ hour }}</option>
-      </select>
+      <div class="form-group">
+        <label for="timepicker">Hora de cita:</label>
+        <select v-model="selectedTime" class="select" name="hora" required>
+          <option value="">Selecciona una hora</option>
+          <option v-for="hour in availableHours" :value="hour">{{ hour }}</option>
+        </select>
+      </div>
     </div>
 
     <div class="form-group">
