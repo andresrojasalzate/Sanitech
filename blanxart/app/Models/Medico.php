@@ -2,10 +2,12 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Support\Facades\Log;
 
 class Medico extends Model
 {
@@ -27,4 +29,42 @@ class Medico extends Model
         return $this->hasMany(Paciente::class);  
     }
     
+    public static function getAllDoctors()
+    {
+        $medicos = DB::table('users')
+                    ->join('medicos','users.id','=','medicos.user_id')
+                    ->get();
+        
+        return $medicos;
+    }
+
+    public static function getDoctorByName($doctorName)
+    {
+
+        Log::info('modelo usuarios');
+        $resultados = DB::table('users')
+                    ->join('medicos','medicos.user_id','=','users.id')
+                    ->where('name','ilike','%'.$doctorName.'%')
+                    ->orWhere('lastName', 'ilike', '%'.$doctorName.'%')
+                    ->get();
+        
+        return $resultados;
+    }
+
+    public static function getAllMedicalAppointment($id)
+    {
+        $citasXMedico = DB::table('citas')
+                        ->join('medicos','medicos.id','=','citas.medico_id')
+                        ->join('pacientes','pacientes.id','=','citas.paciente_id')
+                        ->join('users','users.id','=','pacientes.user_id')
+                        ->where('medicos.id','=',$id)
+                        ->where('citas.done','=',false)
+                        ->where('citas.date','>=',date('Y-m-d'))
+                        ->select('users.name','users.lastName','citas.date','citas.hour_entry')
+                        ->orderBy('citas.date')
+                        ->orderBy('citas.hour_entry')
+                        ->paginate(10);
+        
+        return $citasXMedico;
+    }
 }

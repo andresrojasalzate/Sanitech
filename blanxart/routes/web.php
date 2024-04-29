@@ -1,15 +1,16 @@
 <?php
-use App\Http\Controllers\AgendaController;
-use App\Http\Controllers\PedirCitaController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
-use App\Http\Controllers\BuscadorPacienteController;
-use App\Http\Controllers\CrearCitaController;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\InformeClinicosController;
-use App\Http\Controllers\NotificacionesController;
+use App\Http\Controllers\AgendaController;
+use App\Http\Controllers\CrearCitaController;
+use App\Http\Controllers\PedirCitaController;
 use App\Http\Controllers\SolicitudesController;
 use App\Http\Controllers\JustificanteController;
+use App\Http\Controllers\BuscadorMedicoController;
+use App\Http\Controllers\NotificacionesController;
+use App\Http\Controllers\InformeClinicosController;
+use App\Http\Controllers\BuscadorPacienteController;
 
 
 /*
@@ -49,6 +50,8 @@ Route::group(['middleware' => 'auth'], function () {
     
     Route::group(['middleware' => ['rol:admin']], function () {
         Route::get('/asignarFechaCita', [PedirCitaController::class, 'asignarFechaCita'])->name('asignarFechaCita');
+        Route::get('/buscadorMedico/{accion}', [BuscadorMedicoController::class, 'show'])->name('buscadorMedicos'); //
+        Route::get('/agendaMedico/{id}',[BuscadorMedicoController::class, 'agendaMedico'])->name('agendaMedico');//
     });
 
     Route::group(['middleware' => ['rol:medico']], function () {

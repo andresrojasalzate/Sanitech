@@ -81,14 +81,24 @@
         </a>
     </section>
     @elseif(auth()->user()->rol === 'admin')
-    <a href="#">
-        <div class="opciones-opcion">
-            <div class="opciones-opcion-card">
-                <i class="fa-solid fa-tarp"></i>
+    <section class="opciones">
+        <a href="#">
+            <div class="opciones-opcion">
+                <div class="opciones-opcion-card">
+                    <i class="fa-solid fa-tarp"></i>
+                </div>
+                <h4 class="medionegrita">Tareas</h4>
             </div>
-            <h4 class="medionegrita">Tareas</h4>
-        </div>
-    </a>
+        </a>
+        <a href="{{route('buscadorMedicos' , ['accion' => 'agendaMedico'])}}">
+            <div class="opciones-opcion">
+                <div class="opciones-opcion-card">
+                <i class="fa-solid fa-address-book"></i>
+                </div>
+                <h4 class="medionegrita">Agenda dels metges</h4>
+            </div>
+        </a>
+    </section>
     @endif
 </main>
 
