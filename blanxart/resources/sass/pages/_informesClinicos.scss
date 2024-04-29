@@ -3,6 +3,7 @@
     grid-template-columns: 1fr;
     grid-template-rows: auto auto 1fr;
     width: 100%;
+    min-height: 90vh;
 }
 
 .listaInformes{
@@ -91,6 +92,15 @@
 
 #informesClinicos{
     margin-bottom: 10vh;
+}
+
+.noResultados{
+    display: flex;
+    justify-content: center;
+
+    & p {
+        color: red;
+    }
 }
 
 .menu-paginacion{
