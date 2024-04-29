@@ -5,7 +5,7 @@
     </div>
     <div class="pacientesNoDisponibles"
         v-if="users.length === 0 || (pacientesEncontrados === 0 && busquedaRealizada === true)">
-        <p class="medionegrita">No se encontraron pacientes.</p>
+        <p class="medionegrita">No hi ha pacients disponibles.</p>
     </div>
     <div class="pacientenesEncontrados" :style="{ 'margin-top': busquedaRealizada ? '0' : '11vh' }">
         <a v-for="user in users" :key="user.id" :href="'/' + this.accion + '/' + user.paciente.id">
@@ -25,7 +25,7 @@
 
 <script>
 export default {
-    props: ['pacientes', 'idmedico', 'accion'],
+    props: ['pacientes', 'idmedico', 'accion', 'apikey'],
     data() {
         return {
             users: this.pacientes,
@@ -42,7 +42,8 @@ export default {
                 headers: {
                     'Content-Type': 'application/x-www-form-urlencoded',
                     'X-CSRF-TOKEN': '{{ csrf_token() }}',
-                    'Accept': 'application/json'
+                    'Accept': 'application/json',
+                    'Authorization': `Bearer ${this.apikey}` 
                 },
                 body: new URLSearchParams({
                     'idMedico': this.idmedico,

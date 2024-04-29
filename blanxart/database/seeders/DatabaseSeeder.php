@@ -26,5 +26,8 @@ class DatabaseSeeder extends Seeder
         $this->call(CitaSeeder::class);
         $this->call(ResultadoSeeder::class);
         $this->call(NotificacionSeeder::class);
+
+        $token = \App\Models\User::factory()->create()->createToken('api-token')->plainTextToken;
+        $this->command->info('Token: '.  $token);
     }
 }
