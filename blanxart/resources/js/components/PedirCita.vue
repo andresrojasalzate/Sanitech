@@ -1,5 +1,25 @@
 <template>
-    <VueDatePicker v-model="date" :disabled-dates="diasNoDisponibles" :time-picker="false"></VueDatePicker>
+    <div>
+        <div class="formulario-2-columns">
+            <div class="form-group">
+                <label for="datepicker">1. Seleccioni el dia de la cita</label>
+                <input type="date" v-model="selectedDate" class="datepicker" name="fecha" required>
+            </div>
+
+            <div class="form-group">
+                <label for="timepicker">2. Seleccioni la hora</label>
+                <select>
+                    <option value="">Seleccioni l'hora de la cita</option>
+                    <option></option>
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>3. Motiu de la visita</label>
+            <textarea></textarea>
+        </div>
+    </div>
 </template>
 
 <script>
@@ -12,7 +32,10 @@ export default {
     data() {
         return {
             date: null,
+            horasDisponibles: [],
+            horaSeleccionada: null
         };
     },
+
 }
 </script>

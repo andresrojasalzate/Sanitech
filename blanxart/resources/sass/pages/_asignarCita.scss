@@ -1,0 +1,31 @@
+.flex-center {
+    @include flex-column-center;
+    padding: 2rem;
+}
+
+.citas-sin-asignar {
+    width: 100%;
+    border-collapse: collapse;
+
+    th,
+    td {
+        border: 1px solid #ddd;
+        padding: 8px;
+    }
+
+    th {
+        background-color: #f2f2f2;
+        font-weight: bold;
+    }
+
+    tr {
+        &:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        &:hover {
+            background-color: #ddd;
+            cursor: pointer;
+        }
+    }
+}
