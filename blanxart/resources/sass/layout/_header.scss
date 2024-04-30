@@ -10,6 +10,9 @@
         .nav-link {
             color: $blanco;
         }
+        .navbar-toggler {
+            color: #ffffff;
+        }
     }
 
     &-medico {
@@ -19,8 +22,12 @@
             color: $blanco;
         }
         .nav-link {
-          color: $blanco;
+          color:
+           $blanco;
       }
+      .navbar-toggler {
+        color: #ffffff;
+    }
     }
 
     &-admin {
@@ -33,6 +40,9 @@
             color: $negro;
         }
         border-bottom: 2px solid black;
+        .navbar-toggler {
+            color: $negro;
+        }
     }
 
     .container {
@@ -71,9 +81,7 @@
         }
     }
 
-    .navbar-toggler {
-        color: #ffffff;
-    }
+    
 
     .icon {
         font-size: 2rem;
@@ -93,9 +101,6 @@
             padding: 1rem;
         }
 
-        .nav-link {
-            color: #ffffff;
-            padding: 1rem;
-        }
+
     }
 }

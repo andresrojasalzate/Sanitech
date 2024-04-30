@@ -15,8 +15,6 @@ class AdministradorSeeder extends Seeder
      */
     public function run(): void
     {
-        
-
         User::factory()->has(Administrador::factory())->create([
             'dni' => '98464132L',
             'name' => 'Alejandro',
@@ -24,9 +22,6 @@ class AdministradorSeeder extends Seeder
             'email' => 'admin.alejandro.soto@sanitech.cat',
             'rol'=>'admin'
         ]);
-        
-
-        
         User::factory()->count(6)->has(Administrador::factory())->create(['rol'=>'admin']);
         $this->command->info('¡Se han creado ' . 7 . ' administradores!');
     

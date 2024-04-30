@@ -12,9 +12,9 @@
         </div>
         <div class="cuerpo-informe" v-if="!clickado">
             <p class="medionegrita cuerpo-informe-titulo">Hora</p>
-            <p class="cuerpo-informe-texto">{{ cita.hour_entry }}</p>
+            <p class="cuerpo-informe-texto">{{ cita.time }}</p>
             <p class="medionegrita cuerpo-informe-titulo">Motiu</p>
-            <p class="cuerpo-informe-texto">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat atque facere saepe laboriosam? Est ex impedit optio sed, molestias illo doloribus repudiandae, facilis excepturi explicabo possimus corporis porro necessitatibus! Officia!</p>
+            <p class="cuerpo-informe-texto">{{ cita.reason }}</p>
             <!-- <p class="medionegrita cuerpo-informe-titulo">Centre</p> 
             <p class="cuerpo-informe-texto">{{ cita.name }}</p> -->
         </div>

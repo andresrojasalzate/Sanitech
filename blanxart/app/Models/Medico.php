@@ -63,9 +63,9 @@ class Medico extends Model
             ->where('citas.accepted', '=', true)
             ->where('citas.done', '=', false)
             ->where('citas.date', '>=', date('Y-m-d'))
-            ->select('users.name', 'users.lastName', 'citas.date', 'citas.hour_entry')
+            ->select('users.name', 'users.lastName', 'citas.date', 'citas.time','citas.reason')
             ->orderBy('citas.date')
-            ->orderBy('citas.hour_entry')
+            ->orderBy('citas.time')
             ->paginate(10);
 
         foreach ($citasXMedico as $appointment) {

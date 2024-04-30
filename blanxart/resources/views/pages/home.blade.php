@@ -8,8 +8,8 @@
 <main class="homeContainer">
     <section class="info">
         <h1 class="regular">Hola {{auth()->user()->name}}</h1>
-        <span class="homeContainer-ultima-conexion"><strong>Ultima connexió:</strong> {{auth()->user()->last_connection}} </span>
         <h2 class="regular">Benvingut al teu espai de salut digital.</h2>
+        <span class="homeContainer-ultima-conexion"><strong>Ultima connexió:</strong> {{auth()->user()->last_connection}} </span>
     </section>
 
     @if(auth()->user()->rol === 'paciente')

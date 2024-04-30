@@ -11,7 +11,7 @@ import crearCita from './components/CrearCita.vue';
 import citasSinAsignar from './components/citasSinAsignar.vue';
 import BuscadorMedico from './components/BuscadorMedico.vue';
 import AgendaMedico from './components/AgendaMedico.vue';
-
+import agendarCita from './components/agendarCita.vue';
 
 const citas = createApp({});
 citas.component('citas-component', agenda);
@@ -20,6 +20,10 @@ citas.mount("#agenda");
 const asignarCita = createApp({});
 asignarCita.component('asignar-citas-component', citasSinAsignar);
 asignarCita.mount("#asignarCita");
+
+const agendarCitaPaciente = createApp({});
+agendarCitaPaciente.component('agendar-citas-component', agendarCita);
+agendarCitaPaciente.mount("#agendarCita");
 
 const navegacion = createApp({});
 navegacion.component('navegacion-component', Navigation);

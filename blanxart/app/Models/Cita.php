@@ -88,10 +88,31 @@ class Cita extends Model
         return $diasNoDisponibles;
     }
 
+    public static function getHorasDisponibles($medico_id, $fecha) 
+    {
+        $horasNoDisponibles = DB::table('citas')
+            ->select('time')
+            ->where('medico_id', $medico_id)
+            ->whereDate('date', $fecha)
+            ->groupBy('time')
+            ->get();
+
+            $horasPosibles = [
+                '08:00', '09:00', '10:00', '11:00',
+                '12:00', '13:00', '14:00', '15:00', '16:00'
+            ];
+
+            $horasDisponibles = array_diff($horasPosibles, $horasNoDisponibles->pluck('time')->toArray());
+
+            // return json_encode($horasDisponibles);
+            return $horasDisponibles;
+    }
+
     public static function getCitasSinAsignar()
     {
         $citas = DB::table('citas')
             ->select(
+                'citas.id',
                 'citas.emergency_level',
                 'users.name',
                 'users.lastName',
@@ -102,7 +123,7 @@ class Cita extends Model
                 'pruebas.name as nombrePrueba'
             )
             ->join('pacientes', 'pacientes.id', '=', 'citas.paciente_id')
-            ->join('pruebas', 'pruebas.id', '=', 'citas.prueba_id')
+            ->leftJoin('pruebas', 'pruebas.id', '=', 'citas.prueba_id')
             ->join('users', 'users.id', '=', 'pacientes.user_id')
             ->whereNull('citas.date')
             ->orderBy('citas.emergency_level', 'desc')
