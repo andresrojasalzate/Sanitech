@@ -8,7 +8,8 @@
 {{-- {{dd($citasXMedico)}} --}}
 <main class="informesContainer">
     <section class="tituloInformes">
-        <h1 class="medionegrita">Agenda del metge</h1>
+        <h1 class="medionegrita">Agenda</h1>
+        <h1 class="medionegrita" ></h1>
     </section>
 
     <section class="listaInformes"> 

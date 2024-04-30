@@ -2,8 +2,8 @@
     <div class="contenedor-informe">
         <div class="informe"  ref="informe" @click="seleccionado">
                 <div class="informe-parte1">
-                    <p class="medionegrita titulo-informe" ref="primerParrafo">{{cita.name}}</p>
-                    <!-- <p>{{ formatCreatedAt(cita.lastName) }}</p> -->
+                    <p class="medionegrita titulo-informe" ref="primerParrafo">{{cita.name}} {{ cita.lastName }}</p>
+                    <p>{{ cita.date }}</p>
                 </div>
                 <div class="informe-parte2">
                     <i class="fa-solid fa-chevron-right fa-2xl" v-if="clickado"></i>
@@ -11,12 +11,12 @@
                 </div>   
         </div>
         <div class="cuerpo-informe" v-if="!clickado">
-            <p class="medionegrita cuerpo-informe-titulo">Resultat</p>
-            <p class="cuerpo-informe-texto">{{ cita.name }}</p>
-            <p class="medionegrita cuerpo-informe-titulo">Servei</p>
-            <p class="cuerpo-informe-texto">{{ cita.name }}</p>
-            <p class="medionegrita cuerpo-informe-titulo">Centre</p> 
-            <p class="cuerpo-informe-texto">{{ cita.name }}</p>
+            <p class="medionegrita cuerpo-informe-titulo">Hora</p>
+            <p class="cuerpo-informe-texto">{{ cita.hour_entry }}</p>
+            <p class="medionegrita cuerpo-informe-titulo">Motiu</p>
+            <p class="cuerpo-informe-texto">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat atque facere saepe laboriosam? Est ex impedit optio sed, molestias illo doloribus repudiandae, facilis excepturi explicabo possimus corporis porro necessitatibus! Officia!</p>
+            <!-- <p class="medionegrita cuerpo-informe-titulo">Centre</p> 
+            <p class="cuerpo-informe-texto">{{ cita.name }}</p> -->
         </div>
     </div>
 </template>
@@ -45,24 +45,6 @@ export default {
                 this.$refs.primerParrafo.style.marginTop = '3vh';  
             }
         },
-    //     formatCreatedAt(createdAt) {
-    //   const currentDate = new Date();
-    //   const createdDate = new Date(createdAt);
-    //   const options = { month: 'long', day: 'numeric', year: 'numeric', hour: 'numeric', minute: 'numeric' };
-
-    //   if (currentDate.getFullYear() === createdDate.getFullYear()) {
-    //     if (currentDate.getMonth() === createdDate.getMonth() && currentDate.getDate() === createdDate.getDate()) {
-    //       // Mismo día
-    //       return createdDate.toLocaleTimeString('ca-ES', { hour: 'numeric', minute: 'numeric' });
-    //     } else {
-    //       // Mismo año, pero diferente día
-    //       return createdDate.toLocaleDateString('ca-ES', { month: 'long', day: 'numeric' });
-    //     }
-    //   } else {
-    //     // Diferente año
-    //     return createdDate.toLocaleDateString('ca-ES', { year: 'numeric', month: 'long', day: 'numeric' });
-    //   }
-    // },
     }
 }
 </script>
