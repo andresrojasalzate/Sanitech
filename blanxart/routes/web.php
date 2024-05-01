@@ -1,9 +1,12 @@
 <?php
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
 use App\Http\Controllers\AgendaController;
 use App\Http\Controllers\CitasController;
 =======
 >>>>>>> f2ad083afe88afa7dfe4c663d14baced8687580f
+>>>>>>> 582840153c41ae49ea548a09d5854f2298e09354
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
