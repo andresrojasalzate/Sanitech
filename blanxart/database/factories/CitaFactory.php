@@ -18,13 +18,31 @@ class CitaFactory extends Factory
      */
     public function definition(): array
     {
+
+        $date = fake()->dateTimeBetween('now', '+30 days');
+
+        $horasDisponibles = [
+            '08:00', '09:00', '10:00', '11:00',
+            '12:00', '13:00', '14:00', '15:00', '16:00'
+        ];
+
+        $horaAleatoria = fake()->randomElement($horasDisponibles);
+
+        $key = array_search($horaAleatoria, $horasDisponibles);
+        if ($key !== false) {
+            unset($horasDisponibles[$key]);
+        }
+
         return [
-            'date' => fake()->date(),
+            'date' => $date,
+            'time' => $horaAleatoria,
             'emergency_level' => fake()->numberBetween(1, 5),
             'accepted' => fake()->boolean(),
+            'reason' => fake()->text(),
             'done' => fake()->boolean(),
-            'prueba_id' => Prueba::factory(),
-            'user_id' => User::factory(),
+            'prueba_id' => $this->faker->numberBetween(1, 3),
+            'paciente_id' => $this->faker->numberBetween(1, 10),
+            'medico_id' => $this->faker->numberBetween(1, 10)
         ];
     }
 }

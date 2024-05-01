@@ -1,38 +1,52 @@
-#notificaciones{
+#notificaciones {
     width: 100%;
     display: flex;
     justify-content: center;
+    flex-direction: column;
+    align-items: center;
 }
 
 .notificaciones-container {
     width: 100%;
     display: grid;
     gap: 10px; /* Espacio entre las notificaciones */
-  }
-  
-  .notificacion-card {
+    background-color: $grisClaro;
+    padding: 15px;
+    border-radius: 5px;
+    margin: 20px;
+}
+
+.notificacion-card {
     background-color: #ffffff;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra suave */
     padding: 15px;
     display: grid;
     grid-template-columns: auto max-content; /* Columna automática y columna de fecha */
-  }
-  
-  .notificacion-content {
+}
+
+.notificacion-content {
     grid-column: 1; /* Contenido de la notificación ocupa la primera columna */
-  }
-  
-  .fecha {
+}
+
+.fecha {
     grid-column: 2; /* Fecha ocupa la segunda columna */
     text-align: right; /* Alinea la fecha a la derecha */
-  }
-  
-  .notificacion-header h3 {
+}
+
+.notificacion-header h3 {
     font-weight: bold;
-  }
-  
-  @media screen and (min-width: 768px) {
+}
+
+.rechazado {
+    color: $rojo;
+}
+
+.aceptado {
+    color: $verde;
+}
+
+@media screen and (min-width: 768px) {
     .notificaciones-container {
         width: 80%;
     }

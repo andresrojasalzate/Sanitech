@@ -12,10 +12,15 @@ class Paciente extends Model
     use HasFactory;
 
     protected $fillable = [
-        'telefono',
-        'correo',
-        'tarjeta_sanitaria',
-        'user_id'
+        'genre',
+        'birth_date',
+        'CIP',
+        'adress',
+        'city',
+        'post_code',
+        'familiar_contact',
+        'user_id',
+        'medico_id'
     ];
 
     public function user(): BelongsTo

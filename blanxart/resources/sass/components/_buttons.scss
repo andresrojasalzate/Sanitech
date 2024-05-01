@@ -1,60 +1,111 @@
-.icon{
-    &-blue{
+.icon {
+    &-blue {
         font-size: 30px;
         color: $azulOscuro;
+        cursor: pointer;
     }
-    
+}
+
+.select-wrapper {
+    cursor: pointer;
+}
+
+select {
+    display: block;
+    font-size: 16px;
+    padding: 10px;
+    width: 100%;
+    box-sizing: border-box;
+    margin: 0;
+    border: 1px solid #ccc;
+    appearance: none;
+    background-color: #fff;
+    color: #000;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14"><path d="M4.4,5.6l2.6,2.6c0.2,0.2,0.5,0.2,0.7,0l2.6-2.6c0.2-0.2,0.2-0.5,0-0.7s-0.5-0.2-0.7,0L7,7.2L5.1,4.9c-0.2-0.2-0.5-0.2-0.7,0S4.2,5.4,4.4,5.6z"></path></svg>');
+    background-repeat: no-repeat;
+    background-position: right 10px top 50%, 0 0;
+    background-size: 24px auto, 100%;
+}
+
+select:hover {
+    border-color: #888;
+    transition: border-color 0.6s ease;
 }
 
 .confirmar-btn {
-    background-color: $azulClaro; 
-    color: $blanco; 
-    padding: 10px 20px; 
-    font-size: 16px; 
-    border: none; 
-    border-radius: 5px; 
+    background-color: $azulClaro;
+    color: $blanco;
+    padding: 20px 60px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
     outline: none;
-    grid-column: 1 / 3;
 
     &:hover {
         background-color: $azulOscuro;
-      }
-  }
+    }
+}
 
-  .dialog-button{
+.dialog-button {
     width: 5rem;
     padding: 10px 20px;
-    
+
     border: none;
     border-radius: 5px;
     grid-row: 2;
-    
-    &-confirmar{
+
+    &-confirmar {
         background-color: #2ecc71;
         color: $blanco;
 
-        &:hover{
-            background-color: #27ae60;            ;
+        &:hover {
+            background-color: #27ae60;
         }
     }
 
-    &-rechazar{
+    &-rechazar {
         background-color: #e74c3c;
         color: $blanco;
 
-        &:hover{
+        &:hover {
             background-color: #c0392b;
         }
     }
+}
 
-  }
-
-  .cerrar-btn {
+.cerrar-btn {
     width: 8rem;
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
     margin-top: 1rem;
+}
+
+//Botón atrás
+.back {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+
+    i {
+        margin-bottom: 10px;
+    }
+}
+
+.btn-submit {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
   }
   
-  
+  .btn-submit:hover {
+    background-color: #0056b3;
+  }

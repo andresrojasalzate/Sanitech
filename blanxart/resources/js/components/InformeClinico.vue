@@ -1,17 +1,17 @@
 <template>
     <div class="contenedor-informe">
-        <div class="informe"  ref="informe":style="{ backgroundColor: informeColor }">
+        <div class="informe"  ref="informe" @click="seleccionado">
                 <div class="informe-parte1">
                     <p class="medionegrita titulo-informe" ref="primerParrafo">{{resultado.prueba}}</p>
                     <p>{{ formatCreatedAt(resultado.created_at) }}</p>
                 </div>
-                <div class="informe-parte2" @click="seleccionado">
+                <div class="informe-parte2">
                     <i class="fa-solid fa-chevron-right fa-2xl" v-if="clickado"></i>
                     <i class="fa-solid fa-angle-down fa-2xl" v-else=""></i>
                 </div>   
         </div>
         <div class="cuerpo-informe" v-if="!clickado">
-            <p class="medionegrita cuerpo-informe-titulo">resultado</p>
+            <p class="medionegrita cuerpo-informe-titulo">Resultat</p>
             <p class="cuerpo-informe-texto">{{ resultado.resultado }}</p>
             <p class="medionegrita cuerpo-informe-titulo">Servei</p>
             <p class="cuerpo-informe-texto">{{ resultado.servicio }}</p>
@@ -35,12 +35,12 @@ export default {
             this.clickado = !this.clickado;
 
             if (this.clickado) {
-                this.informeColor = 'white';
+                this.$refs.informe.style.backgroundColor = '';
                 this.$refs.primerParrafo.style.marginBottom = '3vh';
                 this.$refs.primerParrafo.style.marginTop = '0'; 
                
             } else {
-                this.informeColor = '#E3E5FA'; 
+                this.$refs.informe.style.backgroundColor = '#E3E5FA';
                 this.$refs.primerParrafo.style.marginBottom = '6vh'; 
                 this.$refs.primerParrafo.style.marginTop = '3vh';  
             }

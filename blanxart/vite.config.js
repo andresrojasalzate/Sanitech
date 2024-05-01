@@ -2,11 +2,10 @@ import { defineConfig } from 'vite';
 import laravel from 'laravel-vite-plugin';
 import vue from '@vitejs/plugin-vue';
 import vueJsx from '@vitejs/plugin-vue-jsx';
-import sass from 'vite-plugin-sass';
 
 export default defineConfig({
     plugins: [
-        vueJsx(), sass(),
+        vueJsx(),
         laravel({
             input: [
                 'resources/css/app.css',

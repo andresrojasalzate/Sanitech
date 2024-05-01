@@ -28,6 +28,7 @@ class User extends Authenticatable
         'dni',
         'rol',
         'dni',
+        'last_connection',
     ];
 
     /**
@@ -68,4 +69,5 @@ class User extends Authenticatable
     {
         return $this->hasMany(Cita::class);
     }
+
 }

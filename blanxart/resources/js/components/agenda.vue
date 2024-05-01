@@ -5,7 +5,7 @@
             <p>Aquí podràs visualitzar totes les teves cites</p>
         </div>
         <div class="citas-type">
-            <label>tipo de cita</label>
+            <label>tipus de cita</label>
             <select v-model="opcionSeleccionada">
                 <option value="realizadas">Citas realizadas</option>
                 <option value="no_realizadas">Citas no realizadas</option>
@@ -15,54 +15,77 @@
 
         <div class="citas-table">
             <p v-if="citasFiltradas.length > 0">
-                Citas encontradas: {{ citasFiltradas.length }}
+                Cites trobades: {{ citasFiltradas.length }}
             </p>
             <table v-if="citasFiltradasPaginadas.length > 0">
                 <thead>
                     <tr>
-                        <th>Nombre</th>
-                        <th>Adjuntos</th>
-                        <th>Fecha</th>
+                        <th>Nom de la prova</th>
+                        <th colspan="2">Adjunts</th>
+                        <th>Data</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr v-for="item in citasFiltradasPaginadas" :key="item.id">
                         <td>{{ item.name }}</td>
-                        <td><a :href="item.document"><i class="fa-solid fa-file-pdf icon icon-blue"></i></a></td>
+                        <td><a :href="documentoUrl(item.document)"><i class="fa-solid fa-file-pdf icon icon-blue"></i></a></td>
+                        <td><a @click="openModal(), video=item.video"><i class="fa-solid fa-video icon icon-blue"></i></a></td>
                         <td>{{ item.date }}</td>
                     </tr>
                 </tbody>
             </table>
             <div v-else>
-                <p class="no-citas">No hay citas disponibles.</p>
+                <p class="no-citas">No hi ha cites disponibles.</p>
             </div>
             <div class="paginacion">
-                <button @click="paginaActual -= 1" :disabled="paginaActual === 1"><i class='fas fa-chevron-left'></i></button>
+                <button @click="paginaActual -= 1" :disabled="paginaActual === 1"><i
+                        class='fas fa-chevron-left'></i></button>
                 <div class="paginas">
                     <button v-for="pagina in paginasMostradas" :key="pagina" @click="paginaActual = pagina"
                         :class="{ 'pagina-actual': pagina === paginaActual }">{{ pagina }}</button>
                 </div>
-                <button @click="paginaActual += 1" :disabled="paginaActual === totalPaginas"
-                    class="ant-sig"><i class='fas fa-chevron-right'></i></button>
+                <button @click="paginaActual += 1" :disabled="paginaActual === totalPaginas" class="ant-sig"><i
+                        class='fas fa-chevron-right'></i></button>
             </div>
 
         </div>
     </div>
+    <Transition name="fade">
+        <VideoVue v-if="isOpen" @cerrar="closeModal()" :nombreVideo="video"/>
+    </Transition>
 </template>
 
 <script>
+import VideoVue from './VideoVue.vue';
+
 export default {
     props: ['citas'],
+    components:{VideoVue},
     data() {
         return {
             opcionSeleccionada: 'realizadas',
             elementosPorPagina: 4,
-            paginaActual: 1
+            paginaActual: 1,
+            isOpen: false,
+            video : ''
         };
     },
-    mounted(){
-            console.log(this.citas);
+    methods:{
+        closeModal() {
+            this.isOpen = false;
         },
+
+        openModal() {
+            this.isOpen = true;
+        },
+        documentoUrl(documento) {
+            return `/descargar-pdf/${documento}`;
+        }
+
+    },
+    mounted() {
+        console.log(this.citas);
+    },
     computed: {
         citasFiltradas() {
             this.paginaActual = 1;
@@ -92,7 +115,6 @@ export default {
             }
             return paginas;
         },
-        
     }
 }
 </script>

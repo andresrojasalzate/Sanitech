@@ -1,46 +1,74 @@
-.crearCitaContainer{
+.crearCitaContainer {
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: auto auto 1fr;
     width: 100%;
 }
 
-.tituloCrearCita{
+.tituloCrearCita {
     padding-top: 5%;
     padding-bottom: 5%;
 
-    & h1{
+    & h1 {
         text-align: center;
         font-size: 2rem;
     }
 }
 
-.formularioCrearCita{
+.formularioCrearCita {
     display: flex;
     flex-direction: column;
     padding-left: 10vw;
     padding-right: 10vw;
+    margin-bottom: 10vw;
 
-    & label{
+    & label {
         margin-bottom: 1vh;
     }
 
-    & input[type="text"]{
+    & input[type="text"] {
         border: 1px solid black;
         border-radius: 3px;
         margin-bottom: 5vh;
-        
     }
 
-    & select{
+    & input[type="radio"] {
+        grid-row: 2;
+    }
+
+    & select {
         border-radius: 3px;
+    }
+
+    & p{
         margin-bottom: 5vh;
     }
-
 }
 
-.nivelEmergencia{
-    display: flex;
-    justify-content: space-evenly;
+.selecionTipoCita {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    grid-template-rows: repeat(2, auto);
+    justify-items: center;
+    margin-right: 48vw;
     margin-bottom: 5vh;
+    
+}
+
+.selectorPrueba {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 5vh;
+}
+
+.nivelEmergencia {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    justify-items: center;
+    margin-bottom: 5vh;
+}
+
+.errorCrearCita {
+    color: $rojo;
 }

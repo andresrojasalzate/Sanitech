@@ -17,8 +17,8 @@ class PacienteFactory extends Factory
      */
     public function definition(): array
     {
-        $genre = $this->faker->randomElement(['hombre', 'mujer']);
-        $birth_date = $this->faker->dateTimeBetween('-80 years', '-18 years')->format('Y-m-d');
+        $genre = $this->faker->randomElement(['Home', 'Dona']);
+        $birth_date = $this->faker->dateTimeBetween('-80 years', '-18 years')->format('d/m/Y');
 
         return [
             'genre' => $genre,
@@ -28,7 +28,7 @@ class PacienteFactory extends Factory
             'city' => fake()->city(),
             'post_code' => fake()->postcode(),
             'familiar_contact' => fake()->tollFreeNumber(),
-            'user_id' => User::factory()->create()->id
+            'medico_id' => $this->faker->numberBetween(1, 10)
         ];
     }
 }

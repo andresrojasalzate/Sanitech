@@ -10,39 +10,33 @@
     </section>
 
     <section class="contenidoCrearCita">
-        <form action="" class="formularioCrearCita">
-            <label for="nombrePaciente">Nom i cognoms del pacient:</label>
-            <input type="text" name="nombrePaciente" list="pacientes">
-            <datalist id="pacientes">
-                <option>Volvo</option>
-                <option>Saab</option>
-                <option>Mercedes</option>
-                <option>Audi</option>
-            </datalist>
-            <label for="nombrePaciente">Selecciona la prova per a la cita:</label>
-            <select name="tipoPrueba" id="">
-                <option value="opcion1">Opcion1</option>
-                <option value="opcion1">Opcion2</option>
-                <option value="opcion1">Opcion2</option>
-            </select>
-            <label for="nombrePaciente">Selecciona el nivel de emergencia:</label> 
+       
+        <form action="{{route('guardarCita')}}" id="formCrearCita" class="formularioCrearCita" method="POST">
+            @csrf
+
+            <p class="medionegrita">Paciente: {{$paciente->user->name}} {{$paciente->user->lastName}}</p>
+          
+            <seleccionPrueba-component :pruebas='@json($pruebas)' :errorTipo='@json($errors->first("citaPrueba"))'
+                                       :errorPrueba='@json($errors->first("prueba_id"))' 
+                                       :valorTipo='@json(old("citaPrueba"))' :valorPrueba='@json(old("prueba_id"))'>
+            </seleccionPrueba-component>
+
+            <label for="nombrePaciente">Selecciona el nivel de emergencia:</label>
+            @error('emergency_level')
+            <p class="medionegrita errorCrearCita">{{ $message }}</p>
+            @enderror
             <div class="nivelEmergencia">
-                <input type="radio" name="emergency_level" id="nivel1">
-                <label for="nivel1">1</label>
-                <input type="radio" name="emergency_level" id="nivel2">
-                <label for="nivel2">2</label>
-                <input type="radio" name="emergency_level" id="nivel3">
-                <label for="nivel3">3</label>
-                <input type="radio" name="emergency_level" id="nivel4">
-                <label for="nivel4">4</label>
-                <input type="radio" name="emergency_level" id="nivel5">
-                <label for="nivel5">5</label>
+                @for($i = 1; $i <= 5; $i++) 
+                    <input type="radio" name="emergency_level" id="nivel{{ $i }}" value="{{ $i }}" {{ old('emergency_level') == $i ? 'checked' : '' }}>
+                    <label for="nivel{{ $i }}">{{ $i }}</label>
+                @endfor
             </div>
-           <button>Crear Cita</button>
-        </form> 
-        
-        
+            <input type="hidden" name="paciente_id" value="{{ $paciente->id}}">
+            <button>Crear Cita</button>
+        </form>
+
+
     </section>
-    
+
 </main>
 @endsection
