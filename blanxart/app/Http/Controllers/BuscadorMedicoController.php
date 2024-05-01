@@ -19,8 +19,8 @@ class BuscadorMedicoController extends Controller
 
         return view('pages.buscadorMedico', [
             'medicos' => $medicos,
-            // 'idMedico' => $idMedico,
-            'accion' => $accion
+            'accion' => $accion,
+            'apiKey' =>  env('API_KEY')
         ]);
 
     }

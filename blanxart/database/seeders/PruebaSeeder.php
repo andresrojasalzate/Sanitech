@@ -29,7 +29,13 @@ class PruebaSeeder extends Seeder
             'video' => 'Preparacion_tac_abdominal.mp4',
             'document' => 'Tac_abdominal.pdf',
         ]);
+
+        Prueba::factory()->create([
+            'name' => 'Broncoscopia',
+            'video' => 'Preparacion_broncoscopia.mp4',
+            'document' => 'Broncoscopia.pdf',
+        ]);
         
-        $this->command->info('¡Se han creado ' . 3 . ' pruebas!');
+        $this->command->info('¡Se han creado ' . 4 . ' pruebas!');
     }
 }

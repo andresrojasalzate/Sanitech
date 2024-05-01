@@ -25,7 +25,7 @@
 
 <script>
 export default {
-    props: ['medicos', 'accion'],
+    props: ['medicos', 'accion','apikey'],
     data() {
         return {
             users: this.medicos,
@@ -76,7 +76,8 @@ export default {
                     headers: {
                         'Content-Type': 'application/x-www-form-urlencoded',
                         'X-CSRF-TOKEN': '{{ csrf_token() }}',
-                        'Accept': 'application/json'
+                        'Accept': 'application/json',
+                        'Authorization': `Bearer ${this.apikey}`
                     },
                     body: new URLSearchParams({
                         'textoIntroducido': this.parametroBusqueda
