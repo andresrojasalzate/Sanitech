@@ -28,6 +28,9 @@
           <li class="nav-item" v-if="userData.rol === 'admin'">
             <a class="nav-link" href="">Tareas</a>
           </li>
+          <li class="nav-item" v-if="userData.rol === 'admin'">
+            <a class="nav-link" href="">Agenda dels metges</a>
+          </li>
           <li class="nav-item">
             <a class="nav-link" href="/logout/">Logout</a>
           </li>
