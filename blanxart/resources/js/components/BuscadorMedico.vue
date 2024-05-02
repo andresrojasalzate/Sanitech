@@ -32,7 +32,7 @@ export default {
             MedicosEncontrados: 0,
             busquedaRealizada: false,
             parametroBusqueda : '',
-            url:'/api/filtradorMedico/'
+            url:'/api/filtradorMedico'
         }
     },
 //     watch: {
