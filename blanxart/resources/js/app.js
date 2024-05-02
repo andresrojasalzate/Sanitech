@@ -9,6 +9,8 @@ import buscadorPaciente from './components/FiltradorPacientes.vue';
 import PedirCitaComponent from './components/PedirCita.vue';
 import crearCita from './components/CrearCita.vue';
 import citasSinAsignar from './components/citasSinAsignar.vue';
+import BuscadorMedico from './components/BuscadorMedico.vue';
+import AgendaMedico from './components/AgendaMedico.vue';
 import agendarCita from './components/agendarCita.vue';
 import reprogramarCitas from './components/reprogramarCitas.vue';
 
@@ -57,3 +59,15 @@ buscador.mount('#buscadorPacientes');
 const nuevaCita = createApp({});
 nuevaCita.component('seleccionprueba-component', crearCita);
 nuevaCita.mount('#formCrearCita');
+
+
+//componente buscador de medicos de los administrativos
+
+const buscadorMedico = createApp({});
+buscadorMedico.component('buscadormedico', BuscadorMedico);
+buscadorMedico.mount('#buscadorMedicos');
+
+//componente para mostrar las citas de la agenda del medico siendo admin
+const agendaMedico = createApp({});
+agendaMedico.component('agendamedico', AgendaMedico);
+agendaMedico.mount('#agendaMedico');

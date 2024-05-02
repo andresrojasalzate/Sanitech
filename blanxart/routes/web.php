@@ -1,4 +1,5 @@
 <?php
+use App\Http\Controllers\CitasController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
@@ -8,6 +9,7 @@ use App\Http\Controllers\PedirCitaController;
 use App\Http\Controllers\SolicitudesController;
 use App\Http\Controllers\DescargarPDFController;
 use App\Http\Controllers\JustificanteController;
+use App\Http\Controllers\BuscadorMedicoController;
 use App\Http\Controllers\NotificacionesController;
 use App\Http\Controllers\InformeClinicosController;
 use App\Http\Controllers\BuscadorPacienteController;
@@ -51,6 +53,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::group(['middleware' => ['rol:admin']], function () {
         Route::get('/asignarFechaCita', [PedirCitaController::class, 'asignarFechaCita'])->name('asignarFechaCita');
         Route::get('/reprogramarCita', [PedirCitaController::class, 'reprogramarCita'])->name('reprogramarCita');
+        Route::get('/buscadorMedico/{accion}', [BuscadorMedicoController::class, 'show'])->name('buscadorMedicos'); //
+        Route::get('/agendaMedico/{id}',[BuscadorMedicoController::class, 'agendaMedico'])->name('agendaMedico');//
         Route::get('/asignarFechaCita/cita/{id}', [PedirCitaController::class, 'agendarCita'])->name('agendarCita');
         Route::post('/actualizar-cita/{id}', [PedirCitaController::class, 'actualizarCita'])->name('cita.actualizar');
 

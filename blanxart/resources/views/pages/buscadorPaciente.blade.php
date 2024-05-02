@@ -12,7 +12,7 @@
 
     <section class="filtradorPaciente">
         <div id="buscadorPacientes">
-            <buscadorPaciente-component :pacientes='@json($pacientes)' :idMedico='@json($idMedico)' :accion='@json($accion)'></buscadorPaciente-component>
+            <buscadorPaciente-component :pacientes='@json($pacientes)' :idMedico='@json($idMedico)' :accion='@json($accion)' :apiKey='@json($apiKey)'></buscadorPaciente-component>
         </div>
     </section>
 </main>
