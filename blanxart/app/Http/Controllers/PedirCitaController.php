@@ -38,11 +38,11 @@ class PedirCitaController extends Controller
         return view('pages.asignarFechaCita', ['citas' => $citas]);
     }
 
-    public function agendarCita($id)
+    public function agendarCita($id, $ruta)
     {
         $medicos = Medico::with('user')->get()->toJson();
 
-        return view('pages.agendarCita', ['cita_id' => $id, 'medicos' => $medicos]);
+        return view('pages.agendarCita', ['cita_id' => $id, 'medicos' => $medicos, 'ruta'=>$ruta]);
     }
 
     public function reprogramarCita(){
@@ -52,7 +52,7 @@ class PedirCitaController extends Controller
         return view('pages.reprogramarCita', ['citas' => $citas]);
     }
 
-    public function actualizarCita(Request $request, $id)
+    public function actualizarCita(Request $request, $id, $ruta)
     {
 
         $medicoId = $request->input('medico');
@@ -87,6 +87,6 @@ class PedirCitaController extends Controller
         $notificacion->cita_id = $id; 
         $notificacion->save();
 
-        return redirect()->route('asignarFechaCita');
+        return redirect()->route($ruta);
     }
 }
