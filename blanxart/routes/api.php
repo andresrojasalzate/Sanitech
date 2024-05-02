@@ -23,6 +23,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::middleware('auth:sanctum')->post('/filtradorPaciente', [BuscadorPacienteController::class, 'filtrarPaciente'])->name('filtrarPaciente');
 // Route::post('/filtradorMedico/',[BuscadorMedicoController::class, 'filtrarMedico']);
-Route::middleware('auth:sanctum')->post('/filtradorMedico/',[BuscadorMedicoController::class, 'filtrarMedico']);
+Route::middleware('auth:sanctum')->post('/filtradorMedico',[BuscadorMedicoController::class, 'filtrarMedico']);
 
 
