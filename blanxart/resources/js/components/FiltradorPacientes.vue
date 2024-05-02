@@ -39,7 +39,7 @@ export default {
             const minimoLetras = 2; 
 
             if (inputValue.length >= minimoLetras || inputValue.length === 0) {
-                fetch('http://127.0.0.1:8000/api/filtradorPaciente', {
+                fetch('/api/filtradorPaciente', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/x-www-form-urlencoded',
