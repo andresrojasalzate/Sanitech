@@ -45,6 +45,13 @@ class PedirCitaController extends Controller
         return view('pages.agendarCita', ['cita_id' => $id, 'medicos' => $medicos]);
     }
 
+    public function reprogramarCita(){
+
+        $citas = Cita::getCitasRechazadas();
+
+        return view('pages.reprogramarCita', ['citas' => $citas]);
+    }
+
     public function actualizarCita(Request $request, $id)
     {
 

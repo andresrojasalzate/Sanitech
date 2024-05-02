@@ -10,6 +10,7 @@ import PedirCitaComponent from './components/PedirCita.vue';
 import crearCita from './components/CrearCita.vue';
 import citasSinAsignar from './components/citasSinAsignar.vue';
 import agendarCita from './components/agendarCita.vue';
+import reprogramarCitas from './components/reprogramarCitas.vue';
 
 const citas = createApp({});
 citas.component('citas-component', agenda);
@@ -18,6 +19,10 @@ citas.mount("#agenda");
 const asignarCita = createApp({});
 asignarCita.component('asignar-citas-component', citasSinAsignar);
 asignarCita.mount("#asignarCita");
+
+const reprogramarCita = createApp({});
+reprogramarCita.component('reprogramar-citas-component', reprogramarCitas);
+reprogramarCita.mount("#reprogramarCita");
 
 const agendarCitaPaciente = createApp({});
 agendarCitaPaciente.component('agendar-citas-component', agendarCita);
