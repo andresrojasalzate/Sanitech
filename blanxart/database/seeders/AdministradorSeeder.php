@@ -16,7 +16,7 @@ class AdministradorSeeder extends Seeder
     public function run(): void
     {
         User::factory()->has(Administrador::factory())->create([
-            'dni' => '98464132L',
+            'dni' => '12345678D',
             'name' => 'Alejandro',
             'lastName' => 'Soto Quintero',
             'email' => 'admin.alejandro.soto@sanitech.cat',
