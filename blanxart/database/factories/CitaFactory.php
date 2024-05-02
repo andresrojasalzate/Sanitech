@@ -40,7 +40,7 @@ class CitaFactory extends Factory
             'accepted' => fake()->boolean(),
             'reason' => fake()->text(),
             'done' => fake()->boolean(),
-            'prueba_id' => $this->faker->numberBetween(1, 3),
+            'prueba_id' => $this->faker->numberBetween(1, 4),
             'paciente_id' => $this->faker->numberBetween(1, 10),
             'medico_id' => $this->faker->numberBetween(1, 10)
         ];
