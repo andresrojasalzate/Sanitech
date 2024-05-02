@@ -1,6 +1,6 @@
 <template>
     <div class="contenedorFiltro">
-        <input type="text" name="" id="input-id" placeholder="Buscar paciente..." @keyup.enter="buscarPacientes">
+        <input type="text" name="" id="input-id" placeholder="Buscar paciente..." @input="buscarPacientes">
         <p class="medionegrita" v-if="pacientesEncontrados > 0">Pacientes encontrados: {{ pacientesEncontrados }}</p>
     </div>
     <div class="pacientesNoDisponibles"
@@ -36,40 +36,42 @@ export default {
     methods: {
         buscarPacientes() {
             const inputValue = document.querySelector('#input-id').value;
+            const minimoLetras = 2; 
 
-            fetch('http://127.0.0.1:8000/api/filtradorPaciente', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded',
-                    'X-CSRF-TOKEN': '{{ csrf_token() }}',
-                    'Accept': 'application/json',
-                    'Authorization': `Bearer ${this.apikey}` 
-                },
-                body: new URLSearchParams({
-                    'idMedico': this.idmedico,
-                    'textoIntroducido': inputValue
+            if (inputValue.length >= minimoLetras || inputValue.length === 0) {
+                fetch('http://127.0.0.1:8000/api/filtradorPaciente', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                        'X-CSRF-TOKEN': '{{ csrf_token() }}',
+                        'Accept': 'application/json',
+                        'Authorization': `Bearer ${this.apikey}`
+                    },
+                    body: new URLSearchParams({
+                        'idMedico': this.idmedico,
+                        'textoIntroducido': inputValue
+                    })
                 })
-            })
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error('Network response was not ok');
-                    }
-                    return response.json();
-                })
-                .then(data => {
-                    console.log(data);
-                    this.users = data;
-                    this.pacientesEncontrados = data.length;
-                    this.busquedaRealizada = true;
-                })
-                .catch(error => {
-                    console.error('There was a problem with the fetch operation:', error);
-                });
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('Network response was not ok');
+                        }
+                        return response.json();
+                    })
+                    .then(data => {
+                        console.log(data);
+                        this.users = data;
+                        this.pacientesEncontrados = data.length;
+                        this.busquedaRealizada = true;
+                    })
+                    .catch(error => {
+                        console.error('There was a problem with the fetch operation:', error);
+                    });
+            } else {
+                // Si no se cumple el mínimo de letras, puedes hacer algo como limpiar los resultados o mostrar un mensaje al usuario
+            }
         },
 
-        redireccionar(user) {
-            this.$router.push(`/${this.accion}/${user.paciente.id}`);
-        }
     }
 
 }
