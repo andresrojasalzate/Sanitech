@@ -37,7 +37,7 @@ export default {
         buscarPacientes() {
             const inputValue = document.querySelector('#input-id').value;
 
-            fetch('http://127.0.0.1:8000/api/filtradorPaciente', {
+            fetch('/api/filtradorPaciente', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/x-www-form-urlencoded',
