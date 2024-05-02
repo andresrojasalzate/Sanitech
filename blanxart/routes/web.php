@@ -1,12 +1,5 @@
 <?php
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-use App\Http\Controllers\AgendaController;
 use App\Http\Controllers\CitasController;
-=======
->>>>>>> f2ad083afe88afa7dfe4c663d14baced8687580f
->>>>>>> 582840153c41ae49ea548a09d5854f2298e09354
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
@@ -59,6 +52,7 @@ Route::group(['middleware' => 'auth'], function () {
     
     Route::group(['middleware' => ['rol:admin']], function () {
         Route::get('/asignarFechaCita', [PedirCitaController::class, 'asignarFechaCita'])->name('asignarFechaCita');
+        Route::get('/reprogramarCita', [PedirCitaController::class, 'reprogramarCita'])->name('reprogramarCita');
         Route::get('/buscadorMedico/{accion}', [BuscadorMedicoController::class, 'show'])->name('buscadorMedicos'); //
         Route::get('/agendaMedico/{id}',[BuscadorMedicoController::class, 'agendaMedico'])->name('agendaMedico');//
         Route::get('/asignarFechaCita/cita/{id}', [PedirCitaController::class, 'agendarCita'])->name('agendarCita');
