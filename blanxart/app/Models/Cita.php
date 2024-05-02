@@ -131,4 +131,30 @@ class Cita extends Model
 
             return $citas;
     }
+
+    public static function getCitasRechazadas()
+    {
+        $citas = DB::table('citas')
+            ->select(
+                'citas.id',
+                'citas.emergency_level',
+                'citas.date',
+                'citas.time',
+                'users.name',
+                'users.lastName',
+                'pacientes.genre',
+                'pacientes.birth_date',
+                'users.dni',
+                'pacientes.CIP',
+                'pruebas.name as nombrePrueba'
+            )
+            ->join('pacientes', 'pacientes.id', '=', 'citas.paciente_id')
+            ->leftJoin('pruebas', 'pruebas.id', '=', 'citas.prueba_id')
+            ->join('users', 'users.id', '=', 'pacientes.user_id')
+            ->where('citas.accepted', '=', false)
+            ->orderBy('citas.emergency_level', 'desc')
+            ->get();
+
+            return $citas;
+    }
 }

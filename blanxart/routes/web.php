@@ -53,6 +53,7 @@ Route::group(['middleware' => 'auth'], function () {
     
     Route::group(['middleware' => ['rol:admin']], function () {
         Route::get('/asignarFechaCita', [PedirCitaController::class, 'asignarFechaCita'])->name('asignarFechaCita');
+        Route::get('/reprogramarCita', [PedirCitaController::class, 'reprogramarCita'])->name('reprogramarCita');
         Route::get('/buscadorMedico/{accion}', [BuscadorMedicoController::class, 'show'])->name('buscadorMedicos'); //
         Route::get('/agendaMedico/{id}',[BuscadorMedicoController::class, 'agendaMedico'])->name('agendaMedico');//
         Route::get('/asignarFechaCita/cita/{id}', [PedirCitaController::class, 'agendarCita'])->name('agendarCita');
