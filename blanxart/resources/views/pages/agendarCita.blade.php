@@ -6,7 +6,7 @@
 @section('content')
 
     <main class="allform-container">
-        {{-- @dd($medicos) --}}
+        {{-- @dd($ruta) --}}
         <x-boton-atras :url="route('solicitudes', ['id' => auth()->user()->id])" />
 
         <section>
@@ -14,7 +14,7 @@
             <h2>Soliciti una cita amb el metge</h2>
         </section>
 
-        <form action="{{ route('cita.actualizar', $cita_id) }}" method="POST" class="form-container">
+        <form action="{{ route('cita.actualizar', ['id' => $cita_id, 'ruta' => $ruta]) }}" method="POST" class="form-container">
             @csrf
             <div id="agendarCita">
                 <agendar-citas-component :cita_id='{{ $cita_id }}'
