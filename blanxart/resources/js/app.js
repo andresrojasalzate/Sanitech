@@ -9,7 +9,10 @@ import buscadorPaciente from './components/FiltradorPacientes.vue';
 import PedirCitaComponent from './components/PedirCita.vue';
 import crearCita from './components/CrearCita.vue';
 import citasSinAsignar from './components/citasSinAsignar.vue';
-
+import BuscadorMedico from './components/BuscadorMedico.vue';
+import AgendaMedico from './components/AgendaMedico.vue';
+import agendarCita from './components/agendarCita.vue';
+import reprogramarCitas from './components/reprogramarCitas.vue';
 
 const citas = createApp({});
 citas.component('citas-component', agenda);
@@ -18,6 +21,14 @@ citas.mount("#agenda");
 const asignarCita = createApp({});
 asignarCita.component('asignar-citas-component', citasSinAsignar);
 asignarCita.mount("#asignarCita");
+
+const reprogramarCita = createApp({});
+reprogramarCita.component('reprogramar-citas-component', reprogramarCitas);
+reprogramarCita.mount("#reprogramarCita");
+
+const agendarCitaPaciente = createApp({});
+agendarCitaPaciente.component('agendar-citas-component', agendarCita);
+agendarCitaPaciente.mount("#agendarCita");
 
 const navegacion = createApp({});
 navegacion.component('navegacion-component', Navigation);
@@ -48,3 +59,15 @@ buscador.mount('#buscadorPacientes');
 const nuevaCita = createApp({});
 nuevaCita.component('seleccionprueba-component', crearCita);
 nuevaCita.mount('#formCrearCita');
+
+
+//componente buscador de medicos de los administrativos
+
+const buscadorMedico = createApp({});
+buscadorMedico.component('buscadormedico', BuscadorMedico);
+buscadorMedico.mount('#buscadorMedicos');
+
+//componente para mostrar las citas de la agenda del medico siendo admin
+const agendaMedico = createApp({});
+agendaMedico.component('agendamedico', AgendaMedico);
+agendaMedico.mount('#agendaMedico');

@@ -1,15 +1,19 @@
 <?php
-use App\Http\Controllers\AgendaController;
-use App\Http\Controllers\PedirCitaController;
+use App\Http\Controllers\CitasController;
+
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
-use App\Http\Controllers\BuscadorPacienteController;
-use App\Http\Controllers\CrearCitaController;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\InformeClinicosController;
-use App\Http\Controllers\NotificacionesController;
+use App\Http\Controllers\AgendaController;
+use App\Http\Controllers\CrearCitaController;
+use App\Http\Controllers\PedirCitaController;
 use App\Http\Controllers\SolicitudesController;
+use App\Http\Controllers\DescargarPDFController;
 use App\Http\Controllers\JustificanteController;
+use App\Http\Controllers\BuscadorMedicoController;
+use App\Http\Controllers\NotificacionesController;
+use App\Http\Controllers\InformeClinicosController;
+use App\Http\Controllers\BuscadorPacienteController;
 
 
 /*
@@ -49,6 +53,13 @@ Route::group(['middleware' => 'auth'], function () {
     
     Route::group(['middleware' => ['rol:admin']], function () {
         Route::get('/asignarFechaCita', [PedirCitaController::class, 'asignarFechaCita'])->name('asignarFechaCita');
+        Route::get('/reprogramarCita', [PedirCitaController::class, 'reprogramarCita'])->name('reprogramarCita');
+        Route::get('/buscadorMedico/{accion}', [BuscadorMedicoController::class, 'show'])->name('buscadorMedicos'); //
+        Route::get('/agendaMedico/{id}',[BuscadorMedicoController::class, 'agendaMedico'])->name('agendaMedico');//
+        Route::get('/asignarFechaCita/cita/{id}', [PedirCitaController::class, 'agendarCita'])->name('agendarCita');
+        Route::post('/actualizar-cita/{id}', [PedirCitaController::class, 'actualizarCita'])->name('cita.actualizar');
+
+        
     });
 
     Route::group(['middleware' => ['rol:medico']], function () {
@@ -62,11 +73,15 @@ Route::group(['middleware' => 'auth'], function () {
     Route::group(['middleware' => ['rol:paciente']], function () {
         Route::get('/notificaciones/{id}', [NotificacionesController::class, 'notificaciones'])->name('notificaciones');
         Route::get('/respuestaCita/{id}/{respuesta}', [NotificacionesController::class, 'respuestaCita'])->name('respuesta-cita');
-        Route::get('/solicitudes/{id}', [SolicitudesController::class, 'solicitudes'])->name('solicitudes');
+        Route::get('/solicitudes/', [SolicitudesController::class, 'solicitudes'])->name('solicitudes');
         Route::get('/agenda/{id}', [AgendaController::class, 'agenda'])->name('agenda');
         Route::get('/informesClinicos/{id}', [InformeClinicosController::class, 'show'])->name('informesClinicos');
-        Route::get('/justificante', [JustificanteController::class, 'justificante'])->name('justificante');
-        Route::get('/generarJustificante', [JustificanteController::class, 'generarJustificante'])->name('generarJustificante');
+        Route::get('/descargar-pdf/{nombreArchivo}', [DescargarPDFController::class, 'descargar']);
+
+        //Generar un justificante
+        Route::get('/justificante/{id}', [JustificanteController::class, 'justificante'])->name('justificante');
+        Route::get('/generarJustificante/{idCita}', [JustificanteController::class, 'generarJustificante'])->name('generarJustificante');
+        
         //Pedir una cita
         Route::get('/pedirCita/{id}', [PedirCitaController::class, 'show'])->name('pedirCita');
         Route::post('/pedirCita/store', [PedirCitaController::class, 'store'])->name('guardarPedirCita');

@@ -9,6 +9,7 @@
     <section class="info">
         <h1 class="regular">Hola {{auth()->user()->name}}</h1>
         <h2 class="regular">Benvingut al teu espai de salut digital.</h2>
+        <span class="homeContainer-ultima-conexion"><strong>Ultima connexió:</strong> {{auth()->user()->last_connection}} </span>
     </section>
 
     @if(auth()->user()->rol === 'paciente')
@@ -22,8 +23,7 @@
             </div>
         </a>
 
-        <a href="{{ route('informesClinicos', ['id' => auth()->user()->id]) }}">
-
+        <a href="{{ route('informesClinicos', ['id' => auth()->user()->paciente->id]) }}">
             <div class="opciones-opcion">
                 <div class="opciones-opcion-card">
                     <i class="fa-solid fa-microscope"></i>
@@ -32,7 +32,7 @@
             </div>
         </a>
 
-            <a href="{{ route('solicitudes', ['id' => auth()->user()->id]) }}">
+            <a href="{{ route('solicitudes') }}">
                 <div class="opciones-opcion">
                     <div class="opciones-opcion-card">
                         <i class="fa-solid fa-question"></i>
@@ -81,14 +81,24 @@
         </a>
     </section>
     @elseif(auth()->user()->rol === 'admin')
-    <a href="#">
-        <div class="opciones-opcion">
-            <div class="opciones-opcion-card">
-                <i class="fa-solid fa-tarp"></i>
+    <section class="opciones">
+        <a href="#">
+            <div class="opciones-opcion">
+                <div class="opciones-opcion-card">
+                    <i class="fa-solid fa-tarp"></i>
+                </div>
+                <h4 class="medionegrita">Tareas</h4>
             </div>
-            <h4 class="medionegrita">Tareas</h4>
-        </div>
-    </a>
+        </a>
+        <a href="{{route('buscadorMedicos' , ['accion' => 'agendaMedico'])}}">
+            <div class="opciones-opcion">
+                <div class="opciones-opcion-card">
+                <i class="fa-solid fa-address-book"></i>
+                </div>
+                <h4 class="medionegrita">Agenda dels metges</h4>
+            </div>
+        </a>
+    </section>
     @endif
 </main>
 
