@@ -67,7 +67,7 @@
                 <div class="opciones-opcion-card">
                     <i class="fa-solid fa-square-poll-vertical"></i>
                 </div>
-                <h4 class="medionegrita">Resultats</h4>
+                <h4 class="medionegrita">Resultats dels pacients</h4>
             </div>
         </a>
 
