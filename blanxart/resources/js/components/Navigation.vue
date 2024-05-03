@@ -20,7 +20,7 @@
             <a class="nav-link" :href="'/informesClinicos/' + userData.id">Resultats</a>
           </li>
           <li class="nav-item" v-if="userData.rol === 'paciente'">
-            <a class="nav-link" :href="'/solicitudes/' + userData.id">Solicituts</a>
+            <a class="nav-link" :href="'/solicitudes/'">Solicituts</a>
           </li>
           <li class="nav-item" v-if="userData.rol === 'paciente'">
             <a class="nav-link" :href="'/notificaciones/' + userData.id">Notificacions</a>
