@@ -23,6 +23,6 @@ class JustificanteController extends Controller
         $paciente_id = Paciente::find($id)->value('id');
         $cita = Cita::fillPDF($paciente_id);
         $pdf = Pdf::loadView('templates.justificante',compact('cita'));
-        return $pdf->stream('justificant.pdf');
+        return $pdf->download('justificant.pdf');
     }
 }
