@@ -82,7 +82,7 @@
     </section>
     @elseif(auth()->user()->rol === 'admin')
     <section class="opciones">
-        <a href="#">
+        <a href="/tareas">
             <div class="opciones-opcion">
                 <div class="opciones-opcion-card">
                     <i class="fa-solid fa-tarp"></i>

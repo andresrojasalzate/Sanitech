@@ -89,4 +89,8 @@ class PedirCitaController extends Controller
 
         return redirect()->route($ruta);
     }
+
+    public function tareas() {
+        return view ('pages.tareas');
+    }
 }
