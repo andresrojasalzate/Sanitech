@@ -1,10 +1,10 @@
 <template>
   <nav :class="['navbar navbar-expand-lg navbar-light fixed-top', userRoleClass]">
     <div class="container">
-      <div class="navbar-brand" to="/">
+      <a class="navbar-brand" href="/home/">
         <div class="logo"></div>
         Sanitech
-      </div>
+      </a>
       <button class="navbar-toggler icon" type="button" @click="toggleNavbar">
         <i class="fas fa-bars"></i>
       </button>
@@ -20,7 +20,7 @@
             <a class="nav-link" :href="'/informesClinicos/' + userData.id">Resultats</a>
           </li>
           <li class="nav-item" v-if="userData.rol === 'paciente'">
-            <a class="nav-link" :href="'/solicitudes/' + userData.id">Solicituts</a>
+            <a class="nav-link" :href="'/solicitudes/'">Solicituts</a>
           </li>
           <li class="nav-item" v-if="userData.rol === 'paciente'">
             <a class="nav-link" :href="'/notificaciones/' + userData.id">Notificacions</a>
