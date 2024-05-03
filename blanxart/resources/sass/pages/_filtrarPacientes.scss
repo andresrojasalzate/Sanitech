@@ -57,7 +57,7 @@
     }
 }
 .pacientenesEncontrados {
-    max-height: 63vh;
+    max-height: 47vh;
     overflow-y: auto;
 
     & > a:last-child .paciente {
@@ -109,6 +109,10 @@
 @media screen and (min-width: 768px) {
     .filtrarPacientesContainer {
         width: 80%;
+    }
+
+    .pacientenesEncontrados {
+        max-height: 44.5vh;
     }
 
     .paciente {
