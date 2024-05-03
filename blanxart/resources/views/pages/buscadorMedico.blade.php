@@ -4,16 +4,19 @@
 @section('descripcion_pagina', 'Busca el metge que desitges')
 
 @section('content')
-<main class="filtrarPacientesContainer">
+    <main class="filtrarPacientesContainer">
 
-<section class="tituloBuscadorPaiente">
-        <h1 class="medionegrita">Cercador metges</h1>
-    </section>
+        <x-boton-atras :url="route('home')" />
 
-    <section class="filtradorPaciente">
-        <div id="buscadorMedicos">
-            <buscadorMedico :medicos='@json($medicos)' :accion='@json($accion)' :apiKey='@json($apiKey)'></buscadorMedico>
-        </div>
-    </section>
-</main>
+        <section class="tituloBuscadorPaiente">
+            <h1 class="medionegrita">Cercador metges</h1>
+        </section>
+
+        <section class="filtradorPaciente">
+            <div id="buscadorMedicos">
+                <buscadorMedico :medicos='@json($medicos)' :accion='@json($accion)'
+                    :apiKey='@json($apiKey)'></buscadorMedico>
+            </div>
+        </section>
+    </main>
 @endsection
