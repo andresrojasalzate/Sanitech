@@ -1,9 +1,4 @@
-img {
-    width: 7rem;
-    height: 7rem;
-}
-
-#picassoFooter {
+#sanitechFooter {
     background-color: $grisOscuro;
     color: $blanco;
     padding: 20px;
@@ -11,97 +6,28 @@ img {
     flex-wrap: wrap;
     justify-content: space-around;
     align-items: center;
-}
 
-.footer-navigation, .footer-contact, .footer-social {
-    margin: 10px;
-}
-
-.footer-navigation h3, .footer-contact h3, .footer-social h3 {
-    color: #f0f0f0;
-    margin-bottom: 15px;
-}
-
-.footer-navigation ul, .footer-social .social-icons {
-    list-style: none;
-    padding: 0;
-}
-
-.footer-navigation ul li, .social-icon {
-    margin-bottom: 10px;
-    transition: transform 0.2s ease-in-out;
-}
-
-.footer-navigation ul li a, .social-icon {
-    color: #ffffff;
-    text-decoration: none;
-}
-
-.social-icon {
-    display: inline-block;
-    padding: 8px;
-    background-color: #333;
-    margin-right: 5px;
-}
-
-.social-icon:hover, .footer-navigation ul li a:hover {
-    transform: scale(1.1);
-}
-
-.footer-art canvas {
-    max-width: 100px;
-    height: auto;
-    margin-top: 20px;
-}
-
-@media (max-width: 600px) {
-    #picassoFooter {
-        flex-direction: column;
-        align-items: center;
+    img {
+        width: 7rem;
+        height: 7rem;
     }
 
-    .footer-art canvas {
-        max-width: 100%;
+    .footer-information,
+    .footer-images {
+        margin: 10px;
+    }
+
+    .footer-information h3 {
+        color: $blanco;
+        margin-bottom: 15px;
+    }
+
+    .footer-information ul li {
+        list-style: none;
+        padding: 0;
+        margin-bottom: 10px;
+        transition: transform 0.2s ease-in-out;
+        color: $blanco;
+        text-decoration: none;
     }
 }
-
-
-
-
-// .footer {
-//     display: flex;
-//     flex-direction: column;
-//     justify-content: center;
-//     align-items: center;
-//     background-color: $azulOscuro;
-//     padding: 10px 0;
-//     text-align: center;
-//     bottom: 0; 
-//     left: 0; 
-//     width: 100%;
-//     p {
-//         color: $blanco
-//     }
-
-//     &-logo {
-//         display: flex;
-//         justify-content: center;
-//         gap: 100px;
-//         width: 100%;
-        
-//         img {
-//             width: 7rem;
-//             height: 7rem;
-//         }
-//     }
-
-//     &-copyright {
-//         display: flex;
-//         justify-content: center;
-//         align-items: center;
-        
-//         i {
-//             margin-right: 5px;
-//         }
-//     }
-// }

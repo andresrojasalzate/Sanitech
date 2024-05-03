@@ -23,7 +23,7 @@
             @error('error')
                 <div class="alert alert-danger">{{ $message }}</div>
             @enderror
-            <button type="submit" class="btn-submit">Enviar</button>
+            <button type="submit" class="confirmar-btn">Enviar</button>
         </form>
     </main>
 @endsection

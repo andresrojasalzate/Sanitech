@@ -10,8 +10,7 @@
     <div class="pacientenesEncontrados" :style="{ 'margin-top': busquedaRealizada ? '0' : '11vh' }">
         <a v-for="user in users" :key="user.id" :href="'/' + this.accion + '/' + user.id">
             <div class="paciente" @click="redireccionar(user)">
-                <img src="https://toppng.com/public/uploads/preview/user-account-management-logo-user-icon-11562867145a56rus2zwu.png"
-                    alt="" srcset="">
+                <i class="fa-solid fa-user"></i>
                 <div class="pacienteInfo">
                     <p class="medionegrita">{{ user.name }} {{ user.lastName }}</p>
                     <p>Especialitat : {{ user.speciality }}</p>
