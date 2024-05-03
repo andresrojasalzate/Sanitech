@@ -32,7 +32,7 @@
                 @endfor
             </div>
             <input type="hidden" name="paciente_id" value="{{ $paciente->id}}">
-            <button>Crear Cita</button>
+            <button class="confirmar-btn">Crear Cita</button>
         </form>
 
 

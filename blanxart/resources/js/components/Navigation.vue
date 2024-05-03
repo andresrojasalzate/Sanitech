@@ -26,10 +26,10 @@
             <a class="nav-link" :href="'/notificaciones/' + userData.id">Notificacions</a>
           </li>
           <li class="nav-item" v-if="userData.rol === 'admin'">
-            <a class="nav-link" href="">Tareas</a>
+            <a class="nav-link" :href="'/tareas/'">Tasques</a>
           </li>
           <li class="nav-item" v-if="userData.rol === 'admin'">
-            <a class="nav-link" href="">Agenda dels metges</a>
+            <a class="nav-link" :href="'/buscadorMedico/agendaMedico/'">Agenda dels metges</a>
           </li>
           <li class="nav-item" v-if="userData.rol === 'medico'">
             <a class="nav-link" href="/buscadorPacientes/crearCita">Crear cita</a>
