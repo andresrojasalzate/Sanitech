@@ -17,44 +17,44 @@
 
         <section class="solicitudes">
             <a>
-                <div class="solicitudes-solicitud">
-                    <div class="solicitudes-solicitud-icon">
+                <div class="solicitudes-card_type_2">
+                    <div class="solicitudes-card_type_2-icon">
                         <i class="fa-solid fa-arrows-to-eye"></i>
                     </div>
-                    <div class="solicitudes-solicitud-info">
+                    <div class="solicitudes-card_type_2-info">
                         <h4 class="medionegrita">Valoracions</h4>
                     </div>
                 </div>
             </a>
 
             <a>
-                <div class="solicitudes-solicitud">
-                    <div class="solicitudes-solicitud-icon">
+                <div class="solicitudes-card_type_2">
+                    <div class="solicitudes-card_type_2-icon">
                         <i class="fa-solid fa-user-doctor"></i>
                     </div>
-                    <div class="solicitudes-solicitud-info">
+                    <div class="solicitudes-card_type_2-info">
                         <h4 class="medionegrita">Canviar metge</h4>
                     </div>
                 </div>
             </a>
 
             <a href="{{ route('justificante', ['id' => auth()->user()->paciente->id]) }}">
-                <div class="solicitudes-solicitud">
-                    <div class="solicitudes-solicitud-icon">
+                <div class="solicitudes-card_type_2">
+                    <div class="solicitudes-card_type_2-icon">
                         <i class="fa-solid fa-file"></i>
                     </div>
-                    <div class="solicitudes-solicitud-info">
+                    <div class="solicitudes-card_type_2-info">
                         <h4 class="medionegrita">Justificant</h4>
                     </div>
                 </div>
             </a>
 
             <a href="{{ route('pedirCita', ['id' => auth()->user()->paciente->id]) }}">
-                <div class="solicitudes-solicitud">
-                    <div class="solicitudes-solicitud-icon">
+                <div class="solicitudes-card_type_2">
+                    <div class="solicitudes-card_type_2-icon">
                         <i class="fa-regular fa-calendar-check"></i>
                     </div>
-                    <div class="solicitudes-solicitud-info">
+                    <div class="solicitudes-card_type_2-info">
                         <h4 class="medionegrita">Demanar cita</h4>
                     </div>
                 </div>
@@ -62,10 +62,10 @@
 
             <a>
                 <div class="solicitudes-solicitud">
-                    <div class="solicitudes-solicitud-icon">
+                    <div class="solicitudes-card_type_2-icon">
                         <i class="fa-solid fa-heart-circle-exclamation"></i>
                     </div>
-                    <div class="solicitudes-solicitud-info">
+                    <div class="solicitudes-card_type_2-info">
                         <h4 class="medionegrita">Reclamacions</h4>
                     </div>
                 </div>

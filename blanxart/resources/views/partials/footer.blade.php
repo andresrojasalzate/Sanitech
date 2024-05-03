@@ -1,6 +1,6 @@
 <footer class="footer">
-    <div class="footer-logos-instituto">
-        <img src="{{asset('storage/images/blanxart-logo.png')}}">
+    <div class="footer-logo">
+        <img src="{{asset('storage/images/logo_sanitech.png')}}">
         <img src="{{asset('storage/images/nicolau-copernic-logo.png')}}">
     </div>
     <p>Catalunya</p>
