@@ -59,17 +59,6 @@
                     </div>
                 </div>
             </a>
-
-            <a>
-                <div class="solicitudes-solicitud">
-                    <div class="solicitudes-card_type_2-icon">
-                        <i class="fa-solid fa-heart-circle-exclamation"></i>
-                    </div>
-                    <div class="solicitudes-card_type_2-info">
-                        <h4 class="medionegrita">Reclamacions</h4>
-                    </div>
-                </div>
-            </a>
         </section>
     </main>
 

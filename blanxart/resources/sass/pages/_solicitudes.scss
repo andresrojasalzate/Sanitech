@@ -9,6 +9,7 @@
     .solicitudes {
         @include card-grid-columns(2);
         gap: 100px; 
+        padding: 40px;
         &-card_type_2 {
             display: flex;
             border: 1px solid $gris;

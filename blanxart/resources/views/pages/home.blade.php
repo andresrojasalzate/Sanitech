@@ -7,9 +7,9 @@
 
 <main class="homeContainer">
     <section class="info">
-        <h1 class="regular">Hola {{auth()->user()->name}}</h1>
+        <h1 class="regular">Hola {{auth()->user()->name}},</h1>
         <h2 class="regular">Benvingut al teu espai de salut digital.</h2>
-        <span class="homeContainer-ultima-conexion"><strong>Ultima connexió:</strong> {{auth()->user()->last_connection}} </span>
+        <span class="homeContainer-ultima-conexion"><strong>Última connexió:</strong> {{auth()->user()->last_connection}} </span>
     </section>
 
     @if(auth()->user()->rol === 'paciente')
@@ -23,7 +23,7 @@
             </div>
         </a>
 
-        <a href="{{ route('informesClinicos', ['id' => auth()->user()->paciente->id]) }}">
+        <a href="{{ route('informesClinicos', ['id' => auth()->user()->id]) }}">
             <div class="opciones-opcion">
                 <div class="opciones-opcion-card">
                     <i class="fa-solid fa-microscope"></i>
