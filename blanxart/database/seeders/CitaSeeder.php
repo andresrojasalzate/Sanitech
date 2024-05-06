@@ -25,7 +25,7 @@ class CitaSeeder extends Seeder
             'emergency_level' => 1,
             'accepted' => true,
             'reason' => 'Varios dias enfermo en casa',
-            'done' => false,
+            'done' => true,
             'prueba_id' => null,
             'paciente_id' => 1,
             'medico_id' => 1
@@ -69,7 +69,7 @@ class CitaSeeder extends Seeder
             'emergency_level' => 2,
             'accepted' => true,
             'reason' => 'Diversos dies malalt a casa',
-            'done' => false,
+            'done' => true,
             'prueba_id' => null,
             'paciente_id' => 2,
             'medico_id' => 1
