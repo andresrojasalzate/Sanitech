@@ -7,14 +7,16 @@ use App\Models\Medico;
 use App\Models\Paciente;
 use App\Models\Notificacion;
 use Illuminate\Http\Request;
+use App\Http\Requests\CitaRequest;
 use Illuminate\Support\Facades\Redirect;
 
 class PedirCitaController extends Controller
 {
-    public function show(string $idUsuarioPaciente)
+
+    //Función que devuelve la vista del formulario para pedir cita del paciente
+    public function pedirCita(string $idUsuarioPaciente)
     {
         $paciente = Paciente::find($idUsuarioPaciente);
-        // dd($paciente);
         $diasNoDisponibles = Cita::getDiasNoDisponibles(8);
         $horasDisponibles = Cita::getHorasDisponibles(8, '2024-05-14');
 
@@ -25,41 +27,60 @@ class PedirCitaController extends Controller
         ]);
     }
 
-    public function store(Request $request)
+    //Función store para crear una petición de una cita
+    public function publicarPeticionCita(CitaRequest $request) 
     {
+        $data = $request->validated();
+        $pruebaId = null;
+
+        if (isset($data['prueba_id'])) {
+            $pruebaId = $data['prueba_id'];
+        }
+
+        Cita::create([
+            'prueba_id' => $pruebaId,
+            'fecha' => $data['date'],
+            'hora' => $data['time'],
+            'paciente_id' => $data['paciente_id'],
+            'done' => false,
+        ]);
+        
     }
 
+    //Función que devuelve la vista para asignar una fecha a una cita del médico
     public function asignarFechaCita()
     {
-
         $citas = Cita::getCitasSinAsignar();
-        // dd($citas);
-
         return view('pages.asignarFechaCita', ['citas' => $citas]);
     }
 
+    //Función que devuelve la vista para agendar una cita del administrador
     public function agendarCita($id, $ruta)
     {
         $medicos = Medico::with('user')->get()->toJson();
-
         return view('pages.agendarCita', ['cita_id' => $id, 'medicos' => $medicos, 'ruta'=>$ruta]);
     }
 
-    public function reprogramarCita(){
-
+    //Función que devuelve la vista para reprogramar una cita del administrador
+    public function reprogramarCita()
+    {
         $citas = Cita::getCitasRechazadas();
-
         return view('pages.reprogramarCita', ['citas' => $citas]);
     }
 
+    //Función que devuelve la vista de tareas de un administrador
+    public function tareas() 
+    {
+        return view ('pages.tareas');
+    }
+
+    //Función update que actualiza una cita ya creada
     public function actualizarCita(Request $request, $id, $ruta)
     {
-
         $medicoId = $request->input('medico');
         $fecha = $request->input('fecha');
         $hora = $request->input('hora');
         $descripcion = $request->input('descripcion');
-        // dd($medicoId);
 
         $citaExistente = Cita::where('medico_id', $medicoId)
             ->where('date', $fecha)
@@ -77,7 +98,6 @@ class PedirCitaController extends Controller
         $cita->time = $hora;
         $cita->save();
 
-
         $fechaFormateada = date('d F Y', strtotime($fecha));
 
         $notificacion = new Notificacion();
@@ -88,9 +108,5 @@ class PedirCitaController extends Controller
         $notificacion->save();
 
         return redirect()->route($ruta);
-    }
-
-    public function tareas() {
-        return view ('pages.tareas');
     }
 }
