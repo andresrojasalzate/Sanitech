@@ -46,6 +46,17 @@ class CitaSeeder extends Seeder
             'medico_id' => 2
         ]);
 
+        Cita::factory()->create([
+            'date' => null,
+            'time' => null,
+            'emergency_level' => 2,
+            'accepted' => null,
+            'reason' => 'Necesita realizar prueba espirometria',
+            'done' => false,
+            'prueba_id' => 1,
+            'paciente_id' => 1,
+            'medico_id' => null
+        ]);
 
 
         Cita::factory()->has(Notificacion::factory([
@@ -77,6 +88,18 @@ class CitaSeeder extends Seeder
             'prueba_id' => 3,
             'paciente_id' => 2,
             'medico_id' => 2
+        ]);
+
+        Cita::factory()->create([
+            'date' => null,
+            'time' => null,
+            'emergency_level' => 2,
+            'accepted' => null,
+            'reason' => 'Necessita fer un tac abdominal',
+            'done' => false,
+            'prueba_id' => 3,
+            'paciente_id' => 2,
+            'medico_id' => null
         ]);
         for ($i = 3; $i <= 10; $i++) {
             Cita::factory()->has(Notificacion::factory([]))->count(30)->create([
