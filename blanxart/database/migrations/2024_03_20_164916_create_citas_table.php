@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->date('date')->nullable();
             $table->string('time')->nullable();
-            $table->integer('emergency_level');
+            $table->integer('emergency_level')->nullable();
             $table->boolean('accepted')->nullable();
             $table->text('reason')->nullable();
             $table->boolean('done');

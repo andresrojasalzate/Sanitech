@@ -50,6 +50,8 @@ Route::group(['middleware' => 'auth'], function () {
 
     //ruta 'logout'
     Route::get('/logout', [AuthController::class, 'logout'])->name('logout')->middleware('auth');
+
+    Route::get('/descargar-pdf/{nombreArchivo}', [DescargarPDFController::class, 'descargar']);
     
     Route::group(['middleware' => ['rol:admin']], function () {
         Route::get('/tareas', [PedirCitaController::class, 'tareas'])->name('tareas');
@@ -76,7 +78,6 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('/solicitudes/', [SolicitudesController::class, 'solicitudes'])->name('solicitudes');
         Route::get('/agenda/{id}', [AgendaController::class, 'agenda'])->name('agenda');
         Route::get('/informesClinicos/{id}', [InformeClinicosController::class, 'show'])->name('informesClinicos');
-        Route::get('/descargar-pdf/{nombreArchivo}', [DescargarPDFController::class, 'descargar']);
 
         //Generar un justificante
         Route::get('/justificante/{id}', [JustificanteController::class, 'justificante'])->name('justificante');
@@ -84,7 +85,7 @@ Route::group(['middleware' => 'auth'], function () {
         
         //Pedir una cita
         Route::get('/pedirCita/{id}', [PedirCitaController::class, 'pedirCita'])->name('pedirCita');
-        Route::post('/pedirCita/store', [PedirCitaController::class, 'store'])->name('guardarPedirCita');
+        Route::post('/pedirCita/publicarPeticionCita', [PedirCitaController::class, 'publicarPeticionCita'])->name('publicarPeticionCita');
     });
 });
 
