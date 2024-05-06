@@ -59,9 +59,7 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('/agendaMedico/{id}',[BuscadorMedicoController::class, 'agendaMedico'])->name('agendaMedico');
         Route::get('/asignarFechaCita/cita/{id}/{ruta}', [PedirCitaController::class, 'agendarCita'])->name('agendarCita');
         Route::get('/reprogramarCita/cita/{id}/{ruta}', [PedirCitaController::class, 'agendarCita'])->name('agendarCitaRechazada');
-        Route::post('/actualizar-cita/{id}/{ruta}', [PedirCitaController::class, 'actualizarCita'])->name('cita.actualizar');
-
-        
+        Route::post('/actualizar-cita/{id}/{ruta}', [PedirCitaController::class, 'actualizarCita'])->name('cita.actualizar');        
     });
 
     Route::group(['middleware' => ['rol:medico']], function () {
@@ -85,7 +83,7 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('/generarJustificante/{idCita}', [JustificanteController::class, 'generarJustificante'])->name('generarJustificante');
         
         //Pedir una cita
-        Route::get('/pedirCita/{id}', [PedirCitaController::class, 'show'])->name('pedirCita');
+        Route::get('/pedirCita/{id}', [PedirCitaController::class, 'pedirCita'])->name('pedirCita');
         Route::post('/pedirCita/store', [PedirCitaController::class, 'store'])->name('guardarPedirCita');
     });
 });
