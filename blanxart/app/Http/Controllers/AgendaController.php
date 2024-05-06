@@ -10,8 +10,8 @@ class AgendaController extends Controller
 {
     public function agenda($id) 
     {
-        $paciente_id = Paciente::where('user_id', $id)->value('id');
-        $citas = Cita::getAllCitasByUserId($paciente_id);
+        //$paciente_id = Paciente::where('user_id', $id)->value('id');
+        $citas = Cita::getAllCitasByUserId($id);
         // dd($citas);
         return view('pages.agenda', compact('citas'));
     }
