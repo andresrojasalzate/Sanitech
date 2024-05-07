@@ -30,29 +30,10 @@ export default {
   props: ['medicos', 'cita_id'],
   data() {
     return {
-      selectedSpeciality: '',
-      selectedDoctor: '',
       selectedDate: '',
       selectedTime: '',
-      uniqueSpecialities: [],
       availableHours: ['08:00', '09:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00'],
-      citaId: this.cita_id
     };
-  },
-  computed: {
-    filteredDoctors() {
-      if (!this.selectedSpeciality) return [];
-      return this.medicos.filter(medico => medico.speciality === this.selectedSpeciality);
-    }
-  },
-  methods: {
-    filterDoctors() {
-      this.selectedDoctor = ''; // Reset selected doctor when changing speciality
-    },
-  },
-  mounted() {
-    // Obtener lista de especialidades únicas
-    this.uniqueSpecialities = [...new Set(this.medicos.map(medico => medico.speciality))];
   }
 };
 </script>

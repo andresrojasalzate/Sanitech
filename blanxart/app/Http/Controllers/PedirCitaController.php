@@ -57,18 +57,15 @@ class PedirCitaController extends Controller
     //Función store para crear una petición de una cita del paciente
     public function publicarPeticionCita(Request $request)
     {
-        $fecha = $request->input('fecha');
-        $hora = $request->input('hora');
-        $descripcion = $request->input('descripcion');
-
         Cita::create([
             'prueba_id' => null,
             'date' => $request->input('fecha'),
             'time' => $request->input('hora'),
+            'reason' => $request->input('descripcion'),
             'emergency_level' => null,
-            'descripcion' => $request->input('descripcion'),
-            'paciente_id' => $request->input('paciente_id'),
             'done' => false,
+            'accepted' => true,
+            'paciente_id' => $request->input('paciente_id')
         ]);
 
         return redirect()->route('home');
