@@ -10,9 +10,10 @@ use Illuminate\Http\Request;
 
 class CrearCitaController extends Controller
 {
-    public function show(string $idUsuarioPaciente)
+    public function show(string $idUsuario)
     {
-        $paciente = Paciente::find($idUsuarioPaciente);
+        $idPaciente = Paciente::getPacientIdByUserId($idUsuario);
+        $paciente = Paciente::find($idPaciente[0]->id);
         $pruebas = Prueba::all();
         return view('pages.crearCita', [
             'paciente' => $paciente,
