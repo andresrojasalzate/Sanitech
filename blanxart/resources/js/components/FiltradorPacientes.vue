@@ -66,7 +66,9 @@ export default {
                     .catch(error => {
                         console.error('There was a problem with the fetch operation:', error);
                     });
-            } 
+            } else {
+                // Si no se cumple el mínimo de letras, puedes hacer algo como limpiar los resultados o mostrar un mensaje al usuario
+            }
         },
 
     }

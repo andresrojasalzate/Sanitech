@@ -40,6 +40,15 @@
           <li class="nav-item" v-if="userData.rol === 'medico'">
             <a class="nav-link" href="/buscadorPacientes/agendaPaciente">Agenda pacients</a>
           </li>
+          <li class="nav-item" v-if="userData.rol === 'medico'">
+            <a class="nav-link" href="/buscadorPacientes/crearCita">Crear cita</a>
+          </li>
+          <li class="nav-item" v-if="userData.rol === 'medico'">
+            <a class="nav-link" href="/buscadorPacientes/resultadosPaciente">Resultats pacients</a>
+          </li>
+          <li class="nav-item" v-if="userData.rol === 'medico'">
+            <a class="nav-link" href="/buscadorPacientes/agendaPaciente">Agenda pacients</a>
+          </li>
           <li class="nav-item">
             <a class="nav-link" href="/logout/">Logout</a>
           </li>

@@ -13,6 +13,7 @@ import BuscadorMedico from './components/BuscadorMedico.vue';
 import AgendaMedico from './components/AgendaMedico.vue';
 import agendarCita from './components/agendarCita.vue';
 import reprogramarCitas from './components/reprogramarCitas.vue';
+import AlertaExito from './components/AlertaExito.vue';
 
 const citas = createApp({});
 citas.component('citas-component', agenda);
@@ -54,8 +55,6 @@ const buscador = createApp({});
 buscador.component('buscadorpaciente-component', buscadorPaciente);
 buscador.mount('#buscadorPacientes');
 
-// createApp(buscadorPaciente).mount("#buscadorPacientes");
-
 const nuevaCita = createApp({});
 nuevaCita.component('seleccionprueba-component', crearCita);
 nuevaCita.mount('#formCrearCita');
@@ -71,3 +70,10 @@ buscadorMedico.mount('#buscadorMedicos');
 const agendaMedico = createApp({});
 agendaMedico.component('agendamedico', AgendaMedico);
 agendaMedico.mount('#agendaMedico');
+
+//componente para mostrar aletra de exito
+
+const aletraExito = createApp({});
+aletraExito.component('aletraexito', AlertaExito);
+aletraExito.mount('#alertaExito');
+
