@@ -48,6 +48,30 @@ class PedirCitaController extends Controller
         return view('pages.reprogramarCita', ['citas' => $citas]);
     }
 
+    //Función que devuelve la vista de tareas de un administrador.
+    public function tareas()
+    {
+        return view('pages.tareas');
+    }
+
+    //Función store para crear una petición de una cita del paciente
+    public function publicarPeticionCita(Request $request)
+    {
+        Cita::create([
+            'prueba_id' => null,
+            'date' => $request->input('fecha'),
+            'time' => $request->input('hora'),
+            'reason' => $request->input('descripcion'),
+            'emergency_level' => null,
+            'done' => false,
+            'accepted' => true,
+            'paciente_id' => $request->input('paciente_id')
+        ]);
+
+        return redirect()->route('home');
+    }
+
+    //Función update que actualiza una cita ya creada
     public function actualizarCita(Request $request, $id, $ruta)
     {
         $medicoId = $request->input('medico');
