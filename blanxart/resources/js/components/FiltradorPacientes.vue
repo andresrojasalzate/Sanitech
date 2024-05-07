@@ -8,7 +8,7 @@
         <p class="medionegrita">No hi ha pacients disponibles.</p>
     </div>
     <div class="pacientenesEncontrados" :style="{ 'margin-top': busquedaRealizada ? '0' : '11vh' }">
-        <a v-for="user in users" :key="user.id" :href="'/' + this.accion + '/' + user.id">
+        <a v-for="user in users" :key="user.id" :href="'/' + this.accion + '/' + user.paciente.id">
             <div class="paciente" @click="redireccionar(user)">
                 <i class="fa-solid fa-user"></i>    
                 <div class="pacienteInfo">
