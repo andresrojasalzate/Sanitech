@@ -1,4 +1,4 @@
 <a class="back" href="{{ $url }}">
     <i class="fa-solid fa-arrow-left"></i>
-    <h5>Volver</h4>
+    <h5>Tornar</h4>
 </a>

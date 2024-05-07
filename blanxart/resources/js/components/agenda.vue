@@ -7,9 +7,9 @@
         <div class="citas-type">
             <label>tipus de cita</label>
             <select v-model="opcionSeleccionada">
-                <option value="realizadas">Citas realizadas</option>
-                <option value="no_realizadas">Citas no realizadas</option>
-                <option value="pendientes_citar">Citas pendientes por citar</option>
+                <option value="realizadas">Cites realitzades</option>
+                <option value="no_realizadas">Cites no realitzades</option>
+                <option value="pendientes_citar">Cites pendents per assignar</option>
             </select>
         </div>
 
