@@ -27,26 +27,6 @@ class PedirCitaController extends Controller
         ]);
     }
 
-    //Función store para crear una petición de una cita
-    public function publicarPeticionCita(CitaRequest $request) 
-    {
-        $data = $request->validated();
-        $pruebaId = null;
-
-        if (isset($data['prueba_id'])) {
-            $pruebaId = $data['prueba_id'];
-        }
-
-        Cita::create([
-            'prueba_id' => $pruebaId,
-            'fecha' => $data['date'],
-            'hora' => $data['time'],
-            'paciente_id' => $data['paciente_id'],
-            'done' => false,
-        ]);
-        
-    }
-
     //Función que devuelve la vista para asignar una fecha a una cita del médico
     public function asignarFechaCita()
     {
@@ -54,10 +34,10 @@ class PedirCitaController extends Controller
         return view('pages.asignarFechaCita', ['citas' => $citas]);
     }
 
-    //Función que devuelve la vista para agendar una cita del administrador
     public function agendarCita($id, $ruta)
     {
         $medicos = Medico::with('user')->get()->toJson();
+
         return view('pages.agendarCita', ['cita_id' => $id, 'medicos' => $medicos, 'ruta'=>$ruta]);
     }
 
@@ -68,10 +48,27 @@ class PedirCitaController extends Controller
         return view('pages.reprogramarCita', ['citas' => $citas]);
     }
 
-    //Función que devuelve la vista de tareas de un administrador
-    public function tareas() 
+    //Función que devuelve la vista de tareas de un administrador.
+    public function tareas()
     {
-        return view ('pages.tareas');
+        return view('pages.tareas');
+    }
+
+    //Función store para crear una petición de una cita del paciente
+    public function publicarPeticionCita(Request $request)
+    {
+        Cita::create([
+            'prueba_id' => null,
+            'date' => $request->input('fecha'),
+            'time' => $request->input('hora'),
+            'reason' => $request->input('descripcion'),
+            'emergency_level' => null,
+            'done' => false,
+            'accepted' => true,
+            'paciente_id' => $request->input('paciente_id')
+        ]);
+
+        return redirect()->route('home');
     }
 
     //Función update que actualiza una cita ya creada
@@ -101,10 +98,10 @@ class PedirCitaController extends Controller
         $fechaFormateada = date('d F Y', strtotime($fecha));
 
         $notificacion = new Notificacion();
-        $notificacion->title = 'Cita dia ' .$fechaFormateada;
-        $notificacion->descripcion = $descripcion; 
+        $notificacion->title = 'Cita dia ' . $fechaFormateada;
+        $notificacion->descripcion = $descripcion;
         $notificacion->tipo = 'Confirmacion';
-        $notificacion->cita_id = $id; 
+        $notificacion->cita_id = $id;
         $notificacion->save();
 
         return redirect()->route($ruta);

@@ -5,8 +5,10 @@
 
 @section('content')
 
-{{-- @dd($resultados); --}}
 <main class="informesContainer">
+
+    <x-boton-atras :url="route('home')" />
+    
     <section class="tituloInformes">
         <h1 class="medionegrita">Informes clínics</h1>
     </section>

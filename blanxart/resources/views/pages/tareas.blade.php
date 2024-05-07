@@ -38,6 +38,17 @@
                     </div>
                 </div>
             </a>
+
+            <a>
+                <div class="solicitudes-card_type_2">
+                    <div class="solicitudes-card_type_2-icon">
+                        <i class="fa-solid fa-user-doctor"></i>
+                    </div>
+                    <div class="solicitudes-card_type_2-info">
+                        <h4 class="medionegrita">Canviar metge</h4>
+                    </div>
+                </div>
+            </a>
         </section>
     </main>
 

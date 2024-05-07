@@ -1,6 +1,6 @@
 <template>
     <div class="contenedorFiltro">
-        <input type="text" name="" id="input-id" placeholder="Buscar metges..." @keyup.enter="buscarMedicos" v-model="parametroBusqueda">
+        <input type="text" name="" id="input-id" placeholder="Buscar metges..." v-model="parametroBusqueda">
         <p class="medionegrita" v-if="medicosEncontrados > 0">Metges trobats: {{ medicosEncontrados }}</p>
     </div>
     <div class="pacientesNoDisponibles"
@@ -24,7 +24,7 @@
 
 <script>
 export default {
-    props: ['medicos', 'accion','apikey'],
+    props: ['medicos', 'accion', 'apikey'],
     data() {
         return {
             users: this.medicos,
