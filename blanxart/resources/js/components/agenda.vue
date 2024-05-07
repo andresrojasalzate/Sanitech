@@ -27,9 +27,9 @@
                 </thead>
                 <tbody>
                     <tr v-for="item in citasFiltradasPaginadas" :key="item.id">
-                        <td>{{ item.name }}</td>
-                        <td><a :href="documentoUrl(item.document)"><i class="fa-solid fa-file-pdf icon icon-blue"></i></a></td>
-                        <td><a @click="openModal(), video=item.video"><i class="fa-solid fa-video icon icon-blue"></i></a></td>
+                        <td>{{ item.name ? item.name : 'Visita' }}</td>
+                        <td><a :href="item.document ? documentoUrl(item.document) : '#'" :disabled="!item.document"><i class="fa-solid fa-file-pdf icon icon-blue"></i></a></td>
+                        <td><a @click="item.video && openModal(), video=item.video" :disabled="!item.video"><i class="fa-solid fa-video icon icon-blue"></i></a></td>
                         <td>{{ item.date }}</td>
                     </tr>
                 </tbody>

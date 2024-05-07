@@ -3,7 +3,7 @@
     grid-template-columns: 1fr;
     grid-template-rows: auto auto 1fr;
     width: 100%;
-    min-height: 90vh;
+    min-height: 70vh;
 }
 
 .listaInformes{
@@ -20,7 +20,6 @@
 }
 
 .tituloInformes{
-    padding-top: 5%;
     padding-bottom: 5%;
 
     & h1{

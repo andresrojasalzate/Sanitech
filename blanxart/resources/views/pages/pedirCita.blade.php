@@ -32,12 +32,16 @@
                 </div>
             </div>
 
-            <form action="{{ route('guardarPedirCita') }}" method="POST" class="form-container">
+            <form action="{{ route('publicarPeticionCita') }}" method="POST" class="form-container">
                 @csrf
                 <div id="formPedirCita">
-                    <selecciondia-component :dias-no-disponibles='{{ $diasNoDisponibles }}'></selecciondia-component>
+                    <selecciondia-component></selecciondia-component>
                 </div>
-                <button class="confirmar-btn">Demanar Cita</button>
+                @error('error')
+                    <div class="alert alert-danger">{{ $message }}</div>
+                @enderror
+                <input type="hidden" name="paciente_id" value="{{ $paciente->id}}">
+                <button type="submit" class="confirmar-btn">Enviar</button>
             </form>
         </section>
     </main>

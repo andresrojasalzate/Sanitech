@@ -95,7 +95,8 @@ export default {
     },
     navigateToDetailPage(cita) {
       const citaId = cita.id; // Asegúrate de que cada cita tenga un atributo "id"
-      window.location.href = `/reprogramarCita/cita/${citaId}`;
+      const ruta = 'reprogramarCita';
+      window.location.href = `/reprogramarCita/cita/${citaId}/${ruta}`;
     }
   }
 };
