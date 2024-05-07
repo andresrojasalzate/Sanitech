@@ -5,8 +5,10 @@
 
 @section('content')
 
-<div id="agenda">
-    <citas-component :citas='@json($citas)'></citas-component>
-</div>
+    <x-boton-atras :url="route('home')" />
+
+    <div id="agenda">
+        <citas-component :citas='@json($citas)'></citas-component>
+    </div>
 
 @endsection

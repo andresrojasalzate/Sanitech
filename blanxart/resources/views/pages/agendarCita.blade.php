@@ -14,6 +14,24 @@
             <h2>Soliciti una cita amb el metge</h2>
         </section>
 
+        <div class="allform-container-content-datos-personales">
+            <h4>Dades de la cita</h4>
+            <div class="allform-container-content-datos-personales-usuario">
+                <p class="negrita">Nom</p>
+            </div>
+            <hr>
+            <div class="allform-container-content-datos-personales-usuario">
+                <p class="negrita">Nivell d'emergéncia</p>
+                <p></p>
+            </div>
+            <hr>
+            <div class="allform-container-content-datos-personales-usuario">
+                <p class="negrita">Nom de la prova</p>
+                <p></p>
+            </div>
+            <hr>
+        </div>
+
         <form action="{{ route('cita.actualizar', ['id' => $cita_id, 'ruta' => $ruta]) }}" method="POST" class="form-container">
             @csrf
             <div id="agendarCita">
