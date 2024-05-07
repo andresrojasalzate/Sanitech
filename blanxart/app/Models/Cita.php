@@ -15,12 +15,12 @@ class Cita extends Model
     use HasFactory;
 
     protected $fillable = [
-        'fecha',
+        'date',
         'emergency_level',
-        'aceptada',
+        'accepted',
         'reason',
         'done',
-        'hora',
+        'time',
         'prueba_id',
         'user_id',
         'paciente_id',
