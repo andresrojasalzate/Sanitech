@@ -1,6 +1,6 @@
 <template>
     <div class="contenedorFiltro">
-        <input type="text" name="" id="input-id" placeholder="Buscar metges..." @keyup.enter="buscarMedicos" v-model="parametroBusqueda">
+        <input type="text" name="" id="input-id" placeholder="Buscar metges..." v-model="parametroBusqueda">
         <p class="medionegrita" v-if="medicosEncontrados > 0">Metges trobats: {{ medicosEncontrados }}</p>
     </div>
     <div class="pacientesNoDisponibles"
@@ -24,86 +24,51 @@
 
 <script>
 export default {
-    props: ['medicos', 'accion','apikey'],
+    props: ['medicos', 'accion', 'apikey'],
     data() {
         return {
             users: this.medicos,
             MedicosEncontrados: 0,
             busquedaRealizada: false,
-            parametroBusqueda : '',
-            url:'/api/filtradorMedico'
+            parametroBusqueda: '',
+            url: '/api/filtradorMedico'
         }
     },
     watch: {
-    parametroBusqueda: {
-        handler: 'buscarMedicos',
-        immediate: true // Llama a buscarMedicos al inicio
-    }
-},
-    methods: {
-        async buscarMedicos(nuevaPara, oldPara) {
-        try {
-            const response = await fetch(this.url, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded',
-                    'X-CSRF-TOKEN': '{{ csrf_token() }}',
-                    'Accept': 'application/json',
-                    'Authorization': `Bearer ${this.apikey}`
-                },
-                body: new URLSearchParams({
-                    'textoIntroducido': this.parametroBusqueda
-                })
-            });
-
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
-            }
-
-            const data = await response.json();
-            console.log(data);
-            this.users = data;
-            this.medicosEncontrados = data.length;
-            this.busquedaRealizada = true;
-        } catch (error) {
-            console.error('There was a problem with the fetch operation:', error);
+        parametroBusqueda: {
+            handler: 'buscarMedicos',
+            immediate: true // Llama a buscarMedicos al inicio
         }
     },
-        // async buscarMedicos() {
-        //     try {
-        //         const response = await fetch(this.url, {
-        //             method: 'POST',
-        //             headers: {
-        //                 'Content-Type': 'application/x-www-form-urlencoded',
-        //                 'X-CSRF-TOKEN': '{{ csrf_token() }}',
-        //                 'Accept': 'application/json',
-        //                 'Authorization': `Bearer ${this.apikey}`
-        //             },
-        //             body: new URLSearchParams({
-        //                 'textoIntroducido': this.parametroBusqueda
-        //             })
-        //         });
+    methods: {
+        async buscarMedicos() {
+            try {
+                const response = await fetch(this.url, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                        'X-CSRF-TOKEN': '{{ csrf_token() }}',
+                        'Accept': 'application/json',
+                        'Authorization': `Bearer ${this.apikey}`
+                    },
+                    body: new URLSearchParams({
+                        'textoIntroducido': this.parametroBusqueda
+                    })
+                });
 
-        //         if (!response.ok) {
-        //             throw new Error('Network response was not ok');
-        //         }
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
 
-        //         const data = await response.json();
-        //         console.log(data);
-        //         this.users = data;
-        //         this.medicosEncontrados = data.length;
-        //         this.busquedaRealizada = true;
-        //     } catch (error) {
-        //         console.error('There was a problem with the fetch operation:', error);
-        //     }
-        // },
-
-        redireccionar(user) {
-            this.$router.push(`/${this.accion}/${user.paciente.id}`);
-        },
-    },
-    mounted(){
-        console.log(this.users);
+                const data = await response.json();
+                // console.log(data);
+                this.users = data;
+                this.medicosEncontrados = data.length;
+                this.busquedaRealizada = true;
+            } catch (error) {
+                console.error('There was a problem with the fetch operation:', error);
+            }
+        }
     }
 
 }
