@@ -54,7 +54,7 @@ class Cita extends Model
             ->select('citas.*', 'pruebas.name', 'pruebas.video', 'pruebas.document')
             ->where('citas.paciente_id', $id)
             ->get();
-
+        
         return $citas;
     }
 
@@ -62,10 +62,10 @@ class Cita extends Model
     {
         $cita = DB::table('citas')
             ->join('users', 'users.id', '=', 'citas.paciente_id')
-            ->select('users.name', 'users.lastName', 'users.dni', 'citas.date','citas.time')
+            ->select('users.name', 'users.lastName', 'users.dni', 'citas.date','citas.time','citas.prueba_id')
             ->where('citas.id', $idCita)
             ->get();
-
+        
         return $cita;
     }
 

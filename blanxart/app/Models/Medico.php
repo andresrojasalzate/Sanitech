@@ -82,7 +82,7 @@ class Medico extends Model
                 ->select('users.name', 'users.lastName', 'citas.date', 'citas.time', 'citas.reason')
                 ->orderBy('citas.date')
                 ->orderBy('citas.time')
-                ->paginate(6);
+                ->paginate(5);
 
             foreach ($citasXMedico as $appointment) {
                 $appointment->date = date('d/m/Y', strtotime($appointment->date));

@@ -1,12 +1,12 @@
 <template>
     <div class="agenda-container">
         <div class="citas-title">
-            <h2>Pedir justificante</h2>
+            <h2>Demanar justificant</h2>
         </div>
 
         <div class="citas-table">
             <p v-if="citasRealizadas.length > 0">
-                Citas encontradas: {{ citasRealizadas.length }}
+                Cites trobades: {{ citasRealizadas.length }}
             </p>
             <table v-if="citasRealizadasPaginadas.length > 0">
                 <thead>
