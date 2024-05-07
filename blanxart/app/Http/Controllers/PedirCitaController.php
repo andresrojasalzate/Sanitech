@@ -48,7 +48,7 @@ class PedirCitaController extends Controller
         return view('pages.reprogramarCita', ['citas' => $citas]);
     }
 
-    //Función que devuelve la vista de tareas de un administrador
+    //Función que devuelve la vista de tareas de un administrador.
     public function tareas()
     {
         return view('pages.tareas');
