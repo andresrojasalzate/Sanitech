@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Exception;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Database\Eloquent\Model;
@@ -23,14 +24,19 @@ class Resultado extends Model
 
     public static function getMedicalResults($id)
     {
-        Log::info('Llamada al metodo Resultado.getMedicalResults id = '. $id);
-        
-        $resultados = DB::table('resultados')
-                        ->join('pacientes','pacientes.id','=','resultados.paciente_id')
-                        ->join('users','users.id','=','pacientes.user_id')
-                        ->where('users.id','=',$id)
-                        ->paginate(10);
+        try {
+            Log::info('Llamada al metodo Resultado.getMedicalResults id = ' . $id);
 
-        return $resultados;
+            $resultados = DB::table('resultados')
+                ->join('pacientes', 'pacientes.id', '=', 'resultados.paciente_id')
+                ->join('users', 'users.id', '=', 'pacientes.user_id')
+                ->where('users.id', '=', $id)
+                ->paginate(10);
+
+            return $resultados;
+        } catch (Exception $e) {
+
+            Log::error($e->getMessage());
+        }
     }
 }

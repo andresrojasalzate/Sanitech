@@ -38,4 +38,11 @@ class Paciente extends Model
         return $this->hasMany(Resultado::class);  
     }
 
+    public static function getPacientIdByUserId($id)
+    {
+        $idPaciente = Paciente::where('user_id',$id)->get();
+        
+        return $idPaciente;
+    }
+
 }
