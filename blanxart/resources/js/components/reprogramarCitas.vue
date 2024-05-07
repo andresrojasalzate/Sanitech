@@ -2,7 +2,8 @@
   <div class="flex-center">
     <h2>Llistat de Cites</h2>
     <template v-if="citasPaginadas.length > 0">
-      <table class="citas-sin-asignar">
+      <div class="tabla">
+        <table class="citas-sin-asignar">
         <thead>
           <tr>
             <th>Nivell d'emergencia</th>
@@ -32,6 +33,8 @@
           </tr>
         </tbody>
       </table>
+      </div>
+      
       <div class="paginacion">
         <button @click="paginaActual -= 1" :disabled="paginaActual === 1"><i class='fas fa-chevron-left'></i></button>
         <div class="paginas">
