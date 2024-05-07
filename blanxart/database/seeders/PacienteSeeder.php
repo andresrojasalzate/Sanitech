@@ -23,8 +23,8 @@ class PacienteSeeder extends Seeder
             'city' => 'Sabadell',
             'post_code' => '08192',
             'familiar_contact' => '644 567 890',
-            'CIP' => 'LOGA  1  940315  00 3'
-
+            'CIP' => 'LOGA  1  940315  00 3',
+            'medico_id' => 1
         ]))->create([
             'dni' => '50321478X',
             'name' => 'Maria',
@@ -43,7 +43,8 @@ class PacienteSeeder extends Seeder
             'city' => 'Terrassa',
             'post_code' => '08221',
             'familiar_contact' => '633 210 987',
-            'CIP' => 'MAPE  0  790822  01 6'
+            'CIP' => 'MAPE  0  790822  01 6',
+            'medico_id' => 1
         ]))->create([
             'dni' => '71985632T',
             'name' => 'Juan',

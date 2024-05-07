@@ -20,8 +20,7 @@ class Cita extends Model
         'aceptada',
         'reason',
         'done',
-        'hour_entry',
-        'hour_departure',
+        'hora',
         'prueba_id',
         'user_id',
         'paciente_id',
@@ -51,7 +50,7 @@ class Cita extends Model
     public static function getAllCitasByUserId($id)
     {
         $citas = DB::table('citas')
-            ->join('pruebas', 'citas.prueba_id', '=', 'pruebas.id')
+            ->leftJoin('pruebas', 'citas.prueba_id', '=', 'pruebas.id')
             ->select('citas.*', 'pruebas.name', 'pruebas.video', 'pruebas.document')
             ->where('citas.paciente_id', $id)
             ->get();

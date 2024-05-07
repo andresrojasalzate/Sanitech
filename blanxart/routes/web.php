@@ -50,6 +50,8 @@ Route::group(['middleware' => 'auth'], function () {
 
     //ruta 'logout'
     Route::get('/logout', [AuthController::class, 'logout'])->name('logout')->middleware('auth');
+
+    Route::get('/descargar-pdf/{nombreArchivo}', [DescargarPDFController::class, 'descargar']);
     
     Route::group(['middleware' => ['rol:admin']], function () {
         Route::get('/tareas', [PedirCitaController::class, 'tareas'])->name('tareas');
@@ -59,9 +61,7 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('/agendaMedico/{id}',[BuscadorMedicoController::class, 'agendaMedico'])->name('agendaMedico');
         Route::get('/asignarFechaCita/cita/{id}/{ruta}', [PedirCitaController::class, 'agendarCita'])->name('agendarCita');
         Route::get('/reprogramarCita/cita/{id}/{ruta}', [PedirCitaController::class, 'agendarCita'])->name('agendarCitaRechazada');
-        Route::post('/actualizar-cita/{id}/{ruta}', [PedirCitaController::class, 'actualizarCita'])->name('cita.actualizar');
-
-        
+        Route::post('/actualizar-cita/{id}/{ruta}', [PedirCitaController::class, 'actualizarCita'])->name('cita.actualizar');        
     });
 
     Route::group(['middleware' => ['rol:medico']], function () {
@@ -78,15 +78,14 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('/solicitudes/', [SolicitudesController::class, 'solicitudes'])->name('solicitudes');
         Route::get('/agenda/{id}', [AgendaController::class, 'agenda'])->name('agenda');
         Route::get('/informesClinicos/{id}', [InformeClinicosController::class, 'show'])->name('informesClinicos');
-        Route::get('/descargar-pdf/{nombreArchivo}', [DescargarPDFController::class, 'descargar']);
 
         //Generar un justificante
         Route::get('/justificante/{id}', [JustificanteController::class, 'justificante'])->name('justificante');
         Route::get('/generarJustificante/{idCita}', [JustificanteController::class, 'generarJustificante'])->name('generarJustificante');
         
         //Pedir una cita
-        Route::get('/pedirCita/{id}', [PedirCitaController::class, 'show'])->name('pedirCita');
-        Route::post('/pedirCita/store', [PedirCitaController::class, 'store'])->name('guardarPedirCita');
+        Route::get('/pedirCita/{id}', [PedirCitaController::class, 'pedirCita'])->name('pedirCita');
+        Route::post('/pedirCita/publicarPeticionCita', [PedirCitaController::class, 'publicarPeticionCita'])->name('publicarPeticionCita');
     });
 });
 
