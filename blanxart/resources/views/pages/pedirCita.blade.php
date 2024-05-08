@@ -10,7 +10,7 @@
 
         <section>
             <h1>Cita amb el metge</h1>
-            <h2>Soliciti una cita amb el metge</h2>
+            <h2>Sol·liciti una cita amb el metge</h2>
         </section>
 
         <section class="allform-container-content">
