@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
-@section('title', 'Notificaciones')
-@section('descripcion_pagina', 'Bienvenido a las notificaciones')
+@section('title', 'Notificacions')
+@section('descripcion_pagina', 'Benvingut a les notificacions')
 
 @section('content')
 <x-boton-atras :url="route('home')" />

@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
-@section('title', 'Citas')
-@section('descripcion_pagina', 'Bienvenido a las citas')
+@section('title', 'Cites')
+@section('descripcion_pagina', 'Benvingut a les cites')
 
 @section('content')
 

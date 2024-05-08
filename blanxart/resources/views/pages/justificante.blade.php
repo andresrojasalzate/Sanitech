@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
-@section('title', 'Justificante')
-@section('descripcion_pagina', 'Página para generar justificantes de citas realizadas')
+@section('title', 'Justificant')
+@section('descripcion_pagina', 'Pàgina per generar justificants de cites realitzades')
 
 @section('content')
     <x-boton-atras :url="route('home')" />
