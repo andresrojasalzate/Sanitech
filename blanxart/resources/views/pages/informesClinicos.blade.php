@@ -7,7 +7,7 @@
 
 <main class="informesContainer">
 
-    <x-boton-atras :url="route('home')" />
+    <x-boton-atras :url="route('buscadorPacientes',['accion' => 'agendaPaciente'])" />
     
     <section class="tituloInformes">
         <h1 class="medionegrita">Informes clínics</h1>
