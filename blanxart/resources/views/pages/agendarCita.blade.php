@@ -6,9 +6,11 @@
 @section('content')
 
     <main class="allform-container">
-        {{-- @dd($ruta) --}}
-        <x-boton-atras :url="route('solicitudes', ['id' => auth()->user()->id])" />
-
+        @if ($ruta === 'reprogramarCita')
+            <x-boton-atras :url="route('reprogramarCita')" />
+        @elseif ($ruta === 'asignarFechaCita')
+            <x-boton-atras :url="route('asignarFechaCita')" />
+        @endif
         <section>
             <h1>Cita amb el metge</h1>
             <h2>Soliciti una cita amb el metge</h2>
@@ -18,22 +20,23 @@
             <h4>Dades de la cita</h4>
             <div class="allform-container-content-datos-personales-usuario">
                 <p class="negrita">Nom</p>
-                <p>{{$name}}</p>
+                <p>{{ $name }}</p>
             </div>
             <hr>
             <div class="allform-container-content-datos-personales-usuario">
                 <p class="negrita">Nivell d'emergéncia</p>
-                <p> {{$emergency_level}} </p>
+                <p> {{ $emergency_level }} </p>
             </div>
             <hr>
             <div class="allform-container-content-datos-personales-usuario">
                 <p class="negrita">Nom de la prova</p>
-                <p> {{$nombrePrueba}} </p>
+                <p> {{ $nombrePrueba }} </p>
             </div>
             <hr>
         </div>
 
-        <form action="{{ route('cita.actualizar', ['id' => $cita_id, 'ruta' => $ruta]) }}" method="POST" class="form-container">
+        <form action="{{ route('cita.actualizar', ['id' => $cita_id, 'ruta' => $ruta]) }}" method="POST"
+            class="form-container">
             @csrf
             <div id="agendarCita">
                 <agendar-citas-component :cita_id='{{ $cita_id }}'
