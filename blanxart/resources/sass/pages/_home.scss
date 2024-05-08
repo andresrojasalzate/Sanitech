@@ -29,6 +29,13 @@
         }
     }
 
+    #alertaExito{
+        display: flex;
+        margin-top: 2vh;
+        text-align: center;
+        justify-content: center;
+    }
+    
     @media (max-width: 768px) {
         .opciones {
             @include card-grid-columns(2);
@@ -47,6 +54,10 @@
                     }
                 }
             }
+        }
+
+        #alertaExito{
+            margin-top: 5vh;
         }
     }
 
