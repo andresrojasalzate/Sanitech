@@ -5,16 +5,13 @@
 
 @section('content')
 
-@if (session('status'))
-     <!-- <div class="alert alert-success">
-        {{ session('status') }}
-    </div> -->
-    <div id="alertaExito">
-        <aletraExito :mensaje='@json(session("status"))'></alertaExito>
-    </div>
-@endif
-
 <main class="homeContainer">
+    @if (session('status'))
+        <div id="alertaExito">
+            <aletraExito :mensaje='@json(session("status"))'></alertaExito>
+        </div>
+    @endif
+
     <section class="info">
         <h1 class="regular">Hola {{auth()->user()->name}},</h1>
         <h2 class="regular">Benvingut al teu espai de salut digital.</h2>
