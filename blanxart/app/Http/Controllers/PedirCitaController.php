@@ -34,11 +34,11 @@ class PedirCitaController extends Controller
         return view('pages.asignarFechaCita', ['citas' => $citas]);
     }
 
-    public function agendarCita($id, $ruta)
+    public function agendarCita($id, $ruta, $name, $emergency_level, $nombrePrueba)
     {
         $medicos = Medico::with('user')->get()->toJson();
 
-        return view('pages.agendarCita', ['cita_id' => $id, 'medicos' => $medicos, 'ruta'=>$ruta]);
+        return view('pages.agendarCita', ['cita_id' => $id, 'medicos' => $medicos, 'ruta'=>$ruta, 'name' => $name, 'emergency_level' => $emergency_level, 'nombrePrueba' => $nombrePrueba]);
     }
 
     //Función que devuelve la vista para reprogramar una cita del administrador

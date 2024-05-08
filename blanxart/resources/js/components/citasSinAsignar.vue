@@ -96,8 +96,11 @@ export default {
     },
     navigateToDetailPage(cita) {
       const citaId = cita.id;
+      const name = cita.name;
+      const emergency_level = cita.emergency_level;
+      const nombrePrueba = cita.nombrePrueba;
       const ruta = 'asignarFechaCita';
-      window.location.href = `/asignarFechaCita/cita/${citaId}/${ruta}`;
+      window.location.href = `/asignarFechaCita/cita/${citaId}/${ruta}/${name}/${emergency_level}/${nombrePrueba}`;
     }
   }
 };
