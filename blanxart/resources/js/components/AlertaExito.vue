@@ -14,7 +14,7 @@ export default {
     mounted() {
         setTimeout(() => {
             this.mostrarAlerta = false;
-        }, 3000); 
+        }, 1500); 
     }
 };
 </script>
