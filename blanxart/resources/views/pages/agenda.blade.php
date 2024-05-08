@@ -5,7 +5,7 @@
 
 @section('content')
 
-    <x-boton-atras :url="route('home')" />
+    <x-boton-atras :url="route('buscadorPacientes', ['accion' => 'agendaPaciente'])" />
 
     <div id="agenda">
         <citas-component :citas='@json($citas)'></citas-component>
