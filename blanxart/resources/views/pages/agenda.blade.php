@@ -5,8 +5,12 @@
 
 @section('content')
 
-    <x-boton-atras :url="route('buscadorPacientes', ['accion' => 'agendaPaciente'])" />
-
+    {{-- @dd(auth()->user()->rol); --}}
+    @if (auth()->user()->rol === 'medico')
+        <x-boton-atras :url="route('buscadorPacientes', ['accion' => 'agendaPaciente'])" />
+    @elseif (auth()->user()->rol === 'paciente')
+        <x-boton-atras :url="route('home')" />
+    @endif
     <div id="agenda">
         <citas-component :citas='@json($citas)'></citas-component>
     </div>
