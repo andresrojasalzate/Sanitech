@@ -5,16 +5,13 @@
 
 @section('content')
 
-@if (session('status'))
-     <!-- <div class="alert alert-success">
-        {{ session('status') }}
-    </div> -->
-    <div id="alertaExito">
-        <aletraExito :mensaje='@json(session("status"))'></alertaExito>
-    </div>
-@endif
-
 <main class="homeContainer">
+    @if (session('status'))
+        <div id="alertaExito">
+            <aletraExito :mensaje='@json(session("status"))'></alertaExito>
+        </div>
+    @endif
+
     <section class="info">
         <h1 class="regular">Hola {{auth()->user()->name}},</h1>
         <h2 class="regular">Benvingut al teu espai de salut digital.</h2>
@@ -91,7 +88,7 @@
     </section>
     @elseif(auth()->user()->rol === 'admin')
     <section class="opciones">
-        <a href="/tareas">
+        <a href="{{route('tareas')}}">
             <div class="opciones-opcion">
                 <div class="opciones-opcion-card">
                     <i class="fa-solid fa-tarp"></i>
@@ -99,7 +96,7 @@
                 <h4 class="medionegrita">Tasques</h4>
             </div>
         </a>
-        <a href="{{route('buscadorMedicos' , ['accion' => 'agendaMedico'])}}">
+        <a href="{{route('buscadorMedicos' , ['accion' => 'agendaMetge'])}}">
             <div class="opciones-opcion">
                 <div class="opciones-opcion-card">
                 <i class="fa-solid fa-address-book"></i>
