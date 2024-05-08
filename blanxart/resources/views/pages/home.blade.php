@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('title', 'Home')
-@section('descripcion_pagina', 'Bienvenido a Blanxart, tu espacio de salut digital.')
+@section('descripcion_pagina', 'Benvingut a Sanitech, el teu espai de salut digital.')
 
 @section('content')
 

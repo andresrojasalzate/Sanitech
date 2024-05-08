@@ -1,10 +1,10 @@
 @extends('layouts.master')
 
-@section('title', 'Crear citas')
+@section('title', 'Crear cites')
 @section('descripcion_pagina', 'Crear cita per a un pacient')
 
 @section('content')
-    <x-boton-atras :url="route('home')" />
+    <x-boton-atras :url="route('buscadorPacientes',['accion' => 'agendaPaciente'])" />
     
     <main class="crearCitaContainer">
 
@@ -17,14 +17,14 @@
             <form action="{{ route('guardarCita') }}" id="formCrearCita" class="formularioCrearCita" method="POST">
                 @csrf
 
-                <p class="medionegrita">Paciente: {{ $paciente->user->name }} {{ $paciente->user->lastName }}</p>
+                <p class="medionegrita">Pacient: {{ $paciente->user->name }} {{ $paciente->user->lastName }}</p>
 
                 <seleccionPrueba-component :pruebas='@json($pruebas)' :errorTipo='@json($errors->first('citaPrueba'))'
                     :errorPrueba='@json($errors->first('prueba_id'))' :valorTipo='@json(old('citaPrueba'))'
                     :valorPrueba='@json(old('prueba_id'))'>
                 </seleccionPrueba-component>
 
-                <label for="nombrePaciente">Selecciona el nivel de emergencia:</label>
+                <label for="nombrePaciente">Seleccioneu el nivell d'emergència:</label>
                 @error('emergency_level')
                     <p class="medionegrita errorCrearCita">{{ $message }}</p>
                 @enderror

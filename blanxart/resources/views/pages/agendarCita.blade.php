@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
-@section('title', 'Asignar Citas')
-@section('descripcion_pagina', 'Pantalla para asignar citas solicitadas por medicos')
+@section('title', 'Assignar Cites')
+@section('descripcion_pagina', 'Pantalla per assignar cites sol·licitades per metges')
 
 @section('content')
 
@@ -18,16 +18,17 @@
             <h4>Dades de la cita</h4>
             <div class="allform-container-content-datos-personales-usuario">
                 <p class="negrita">Nom</p>
+                <p>{{$name}}</p>
             </div>
             <hr>
             <div class="allform-container-content-datos-personales-usuario">
                 <p class="negrita">Nivell d'emergéncia</p>
-                <p></p>
+                <p> {{$emergency_level}} </p>
             </div>
             <hr>
             <div class="allform-container-content-datos-personales-usuario">
                 <p class="negrita">Nom de la prova</p>
-                <p></p>
+                <p> {{$nombrePrueba}} </p>
             </div>
             <hr>
         </div>

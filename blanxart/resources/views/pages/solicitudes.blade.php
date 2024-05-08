@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
-@section('title', 'Solicitudes')
-@section('descripcion_pagina', 'Solicitudes de los pacientes')
+@section('title', 'Sol·licituds')
+@section('descripcion_pagina', 'Sol·licituds dels pacients')
 
 @section('content')
 

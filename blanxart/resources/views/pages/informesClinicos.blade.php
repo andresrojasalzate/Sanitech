@@ -1,13 +1,13 @@
 @extends('layouts.master')
 
 @section('title', 'Informes clínics')
-@section('descripcion_pagina', 'Lista de tus Informes Clínicos')
+@section('descripcion_pagina', 'Llista dels teus informes clínics')
 
 @section('content')
 
 <main class="informesContainer">
 
-    <x-boton-atras :url="route('home')" />
+    <x-boton-atras :url="route('buscadorPacientes',['accion' => 'agendaPaciente'])" />
     
     <section class="tituloInformes">
         <h1 class="medionegrita">Informes clínics</h1>

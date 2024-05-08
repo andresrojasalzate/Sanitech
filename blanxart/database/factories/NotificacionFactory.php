@@ -22,15 +22,18 @@ class NotificacionFactory extends Factory
 
         $hourEntry = fake()->dateTimeBetween('08:00:00', '15:30:00')->format('H:i');
         $notificaciones = [
-            1 => ['title'=>'Recordatorio cita Espirometria',
-            'descripcion' => 'Recuerda que tiene una cita programada para el dia '.$date.' a las '.$hourEntry
+            1 => ['title'=>'Recordatori cita Espirometria',
+            'descripcion' => 'Recorda que té una cita programada pel dia '.$date.' a les '.$hourEntry
             ],
-            ['title'=>'Recordatorio cita Rectoscopia',
-            'descripcion' => 'Recuerda que tiene una cita programada para el dia '.$date.' a las '.$hourEntry
+            ['title'=>'Recordatori cita Rectoscòpia',
+            'descripcion' => 'Recorda que té una cita programada pel dia '.$date.' a les '.$hourEntry
             ],
-            ['title'=>'Recordatorio cita Tac abdominal',
-            'descripcion' => 'Recuerda que tiene una cita programada para el dia '.$date.' a las '.$hourEntry
+            ['title'=>'Recordatori cita Tac abdominal',
+            'descripcion' => 'Recorda que té una cita programada pel dia '.$date.' a les '.$hourEntry
             ],
+            ['title'=>'Recordatori cita broncoscòpia',
+            'descripcion' => 'Recorda que té una cita programada pel dia '.$date.' a les '.$hourEntry
+            ]
 
         ];
 

@@ -16,7 +16,7 @@ class CitaSeeder extends Seeder
     {
 
         Cita::factory()->has(Notificacion::factory([
-            'title' => 'Recordatorio cita Medica',
+            'title' => 'Recordatori cita Medica',
             'descripcion' => 'Recorda que tens una cita programada per el dia 16/5 a les 10:00',
             'tipo' => 'Recordatorio',
         ]))->create([
@@ -60,7 +60,7 @@ class CitaSeeder extends Seeder
 
 
         Cita::factory()->has(Notificacion::factory([
-            'title' => 'Recordatorio cita Medica',
+            'title' => 'Recordatori cita Medica',
             'descripcion' => 'Recorda que tens una cita programada per el dia 15/5 a les 14:00',
             'tipo' => 'Recordatorio',
         ]))->create([
