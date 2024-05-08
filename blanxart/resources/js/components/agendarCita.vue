@@ -3,7 +3,7 @@
     <div class="form-group">
       <label for="speciality">1. Seleccioni la especialitat:</label>
       <select v-model="selectedSpeciality" @change="filterDoctors" class="select" required>
-        <option value="">Selecciona una especialidad</option>
+        <option value="">Selecciona una especialitat</option>
         <option v-for="speciality in uniqueSpecialities" :value="speciality">{{ speciality }}</option>
       </select>
     </div>
@@ -11,7 +11,7 @@
     <div class="form-group">
       <label for="doctor">2. Seleccioni el metge:</label>
       <select v-model="selectedDoctor" class="select" name="medico" required>
-        <option value="">Selecciona un médico</option>
+        <option value="">Selecciona un metge</option>
         <option v-for="doctor in filteredDoctors" :value="doctor.id">{{ doctor.user.name }} {{ doctor.user.lastName }} -
           {{ doctor.collegiate_number }}</option>
       </select>
