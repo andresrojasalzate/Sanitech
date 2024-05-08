@@ -97,9 +97,12 @@ export default {
       return age;
     },
     navigateToDetailPage(cita) {
-      const citaId = cita.id; // Asegúrate de que cada cita tenga un atributo "id"
+      const citaId = cita.id; 
+      const name = cita.name;
+      const emergency_level = cita.emergency_level;
+      const nombrePrueba = cita.nombrePrueba;
       const ruta = 'reprogramarCita';
-      window.location.href = `/reprogramarCita/cita/${citaId}/${ruta}`;
+      window.location.href = `/reprogramarCita/cita/${citaId}/${ruta}/${name}/${emergency_level}/${nombrePrueba}`;
     }
   }
 };

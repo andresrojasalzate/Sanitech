@@ -18,16 +18,17 @@
             <h4>Dades de la cita</h4>
             <div class="allform-container-content-datos-personales-usuario">
                 <p class="negrita">Nom</p>
+                <p>{{$name}}</p>
             </div>
             <hr>
             <div class="allform-container-content-datos-personales-usuario">
                 <p class="negrita">Nivell d'emergéncia</p>
-                <p></p>
+                <p> {{$emergency_level}} </p>
             </div>
             <hr>
             <div class="allform-container-content-datos-personales-usuario">
                 <p class="negrita">Nom de la prova</p>
-                <p></p>
+                <p> {{$nombrePrueba}} </p>
             </div>
             <hr>
         </div>
