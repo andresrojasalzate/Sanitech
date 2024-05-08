@@ -4,7 +4,7 @@
 @section('descripcion_pagina', 'Crear cita per a un pacient')
 
 @section('content')
-    <x-boton-atras :url="route('home')" />
+    <x-boton-atras :url="route('buscadorPacientes',['accion' => 'agendaPaciente'])" />
     
     <main class="crearCitaContainer">
 
