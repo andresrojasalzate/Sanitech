@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('title', 'Informes clínics')
-@section('descripcion_pagina', 'Lista de tus Informes Clínicos')
+@section('descripcion_pagina', 'Llista dels teus informes clínics')
 
 @section('content')
 
