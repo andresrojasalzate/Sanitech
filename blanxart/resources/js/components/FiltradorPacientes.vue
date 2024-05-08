@@ -1,6 +1,6 @@
 <template>
     <div class="contenedorFiltro">
-        <input type="text" name="" id="input-id" placeholder="Buscar paciente..." @input="buscarPacientes">
+        <input type="text" name="" id="input-id" placeholder="Cercar pacients..." @input="buscarPacientes">
         <p class="medionegrita" v-if="pacientesEncontrados > 0">Pacientes encontrados: {{ pacientesEncontrados }}</p>
     </div>
     <div class="pacientesNoDisponibles"

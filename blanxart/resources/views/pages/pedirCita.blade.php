@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('title', 'Pedir cita')
+@section('title', 'Demanar cita')
 @section('descripcion_pagina', 'Demanar una cita al CAP')
 
 @section('content')
