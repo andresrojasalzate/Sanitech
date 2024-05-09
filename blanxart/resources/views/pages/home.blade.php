@@ -96,7 +96,7 @@
                 <h4 class="medionegrita">Tasques</h4>
             </div>
         </a>
-        <a href="{{route('buscadorMedicos' , ['accion' => 'agendaMetge'])}}">
+        <a href="{{route('buscadorMedicos' , ['accion' => 'agendaMedico'])}}">
             <div class="opciones-opcion">
                 <div class="opciones-opcion-card">
                 <i class="fa-solid fa-address-book"></i>

@@ -12,7 +12,7 @@
                 <thead>
                     <tr>
                         <th>Nom</th>
-                        <th>Fetxa</th>
+                        <th>Data</th>
                         <th>Generar justificant</th>
                     </tr>
                 </thead>

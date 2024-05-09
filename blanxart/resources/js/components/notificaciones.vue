@@ -23,7 +23,7 @@
       <div v-if="showDialog" class="dialog-overlay">
         <div class="dialog">
 
-          <p>Podrá asistir a aquesta cita?</p>
+          <p>Podrà assistir a aquesta cita?</p>
           <button class="dialog-button dialog-button-confirmar" @click="confirmar">Sí</button>
           <button class="dialog-button dialog-button-rechazar" @click="cancelar">No</button>
         </div>
