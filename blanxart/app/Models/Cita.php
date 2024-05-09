@@ -152,6 +152,7 @@ class Cita extends Model
             ->join('users', 'users.id', '=', 'pacientes.user_id')
             ->where('citas.accepted', '=', false)
             ->orderBy('citas.emergency_level', 'desc')
+            ->orderBy('citas.date')
             ->get();
 
         return $citas;
