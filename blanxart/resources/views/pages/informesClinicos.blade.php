@@ -7,7 +7,6 @@
 
     <main class="informesContainer">
 
-        {{-- @dd(auth()->user()->rol); --}}
         @if (auth()->user()->rol === 'medico')
             <x-boton-atras :url="route('buscadorPacientes', ['accion' => 'resultadosPaciente'])" />
         @elseif (auth()->user()->rol === 'paciente')
@@ -16,6 +15,7 @@
 
         <section class="tituloInformes">
             <h1 class="medionegrita">Informes clínics</h1>
+            <p>Aquí pots visualitzar tots els resultats</p>
         </section>
 
         <section class="listaInformes">

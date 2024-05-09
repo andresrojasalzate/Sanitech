@@ -9,11 +9,9 @@
 
         <x-boton-atras :url="route('home')" />
 
-        <section>
-            <section class="info">
-                <h1 class="regular">Tasques</h1>
-                <p>Aquí pots gestionar les cites programades pels metges.</p>
-            </section>
+        <section class="info">
+            <h1 class="regular">Tasques</h1>
+            <p>Aquí pots gestionar les cites programades pels metges.</p>
         </section>
 
         <section class="solicitudes">

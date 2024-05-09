@@ -20,7 +20,10 @@
 }
 
 .tituloInformes{
-    padding-bottom: 5%;
+    display: grid;
+    gap: 20px;
+    padding-bottom: 2%;
+    justify-content: center;
 
     & h1{
         text-align: center;
