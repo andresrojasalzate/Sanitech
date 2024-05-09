@@ -18,7 +18,7 @@
                 </thead>
                 <tbody>
                     <tr v-for="item in citasRealizadasPaginadas" :key="item.id">
-                        <td>{{ item.name }}</td>
+                        <td>{{ item.name ? item.name:'Visita' }}</td>
                         <td>{{ item.date }}</td>
                         <td><a @click="navegarAJustificante(item.id)"><i
                                     class="fa-solid fa-file-pdf icon icon-blue"></i></a></td>
