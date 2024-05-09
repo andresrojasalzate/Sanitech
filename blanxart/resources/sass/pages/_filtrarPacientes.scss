@@ -1,6 +1,5 @@
-.tituloBuscadorPaiente {
+.tituloBuscadorPaciente {
     padding-top: 2%;
-    padding-bottom: 5%;
 
     & > h1 {
         text-align: center;
@@ -11,9 +10,8 @@
 .filtradorPaciente {
     & h3 {
         white-space: initial;
-        margin-left: 5vw;
-        margin-right: 5vw;
-        margin-bottom: 5vh;
+        display: flex;
+        justify-content: center;
     }
 }
 
@@ -113,7 +111,7 @@
     }
 
     .pacientenesEncontrados {
-        max-height: 56.5vh;
+        max-height: 50vh;
     }
 
     .paciente {

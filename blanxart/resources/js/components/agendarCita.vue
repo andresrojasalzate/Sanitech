@@ -4,6 +4,7 @@
       <label for="speciality">1. Seleccioni la especialitat:</label>
       <select v-model="selectedSpeciality" @change="filterDoctors" class="select" required>
         <option value="">Selecciona una especialitat</option>
+        <option value="">Selecciona una especialitat</option>
         <option v-for="speciality in uniqueSpecialities" :value="speciality">{{ speciality }}</option>
       </select>
     </div>
