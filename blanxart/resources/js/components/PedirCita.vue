@@ -16,7 +16,7 @@
     </div>
 
     <div class="form-group">
-      <label for="descripcion">5. Missatge per al pacient:</label>
+      <label for="descripcion">5. Motiu de la visita:</label>
       <textarea name="descripcion" id="descripcion" class="form-control" rows="4" required></textarea>
     </div>
 

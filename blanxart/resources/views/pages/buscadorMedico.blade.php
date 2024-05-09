@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('title', 'Cercador metges')
-@section('descripcion_pagina', 'Busca el metge que desitges')
+@section('descripcion_pagina', 'Cerca el metge que desitges')
 
 @section('content')
     <main class="filtrarPacientesContainer">

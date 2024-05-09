@@ -1,24 +1,24 @@
 <template>
     <div class="agenda-container">
         <div class="citas-title">
-            <h2>Pedir justificante</h2>
+            <h2>Demanar justificant</h2>
         </div>
 
         <div class="citas-table">
             <p v-if="citasRealizadas.length > 0">
-                Citas encontradas: {{ citasRealizadas.length }}
+                Cites trobades: {{ citasRealizadas.length }}
             </p>
             <table v-if="citasRealizadasPaginadas.length > 0">
                 <thead>
                     <tr>
                         <th>Nom</th>
-                        <th>Fetxa</th>
+                        <th>Data</th>
                         <th>Generar justificant</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr v-for="item in citasRealizadasPaginadas" :key="item.id">
-                        <td>{{ item.name }}</td>
+                        <td>{{ item.name ? item.name:'Visita' }}</td>
                         <td>{{ item.date }}</td>
                         <td><a @click="navegarAJustificante(item.id)"><i
                                     class="fa-solid fa-file-pdf icon icon-blue"></i></a></td>

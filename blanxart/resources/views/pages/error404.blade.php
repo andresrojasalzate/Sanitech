@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     @vite(['resources/sass/main.scss'])
-    <title>Error 404 | Pagina no encontrada</title>
+    <title>Error 404 | Pagina no trobada</title>
 </head>
 
 <body>

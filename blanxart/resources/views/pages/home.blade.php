@@ -1,11 +1,17 @@
 @extends('layouts.master')
 
 @section('title', 'Home')
-@section('descripcion_pagina', 'Bienvenido a Blanxart, tu espacio de salut digital.')
+@section('descripcion_pagina', 'Benvingut a Sanitech, el teu espai de salut digital.')
 
 @section('content')
 
 <main class="homeContainer">
+    @if (session('status'))
+        <div id="alertaExito">
+            <aletraExito :mensaje='@json(session("status"))'></alertaExito>
+        </div>
+    @endif
+
     <section class="info">
         <h1 class="regular">Hola {{auth()->user()->name}},</h1>
         <h2 class="regular">Benvingut al teu espai de salut digital.</h2>
@@ -82,7 +88,7 @@
     </section>
     @elseif(auth()->user()->rol === 'admin')
     <section class="opciones">
-        <a href="/tareas">
+        <a href="{{route('tareas')}}">
             <div class="opciones-opcion">
                 <div class="opciones-opcion-card">
                     <i class="fa-solid fa-tarp"></i>

@@ -1,6 +1,6 @@
 <template>
     <div class="contenedorFiltro">
-        <input type="text" name="" id="input-id" placeholder="Buscar paciente..." @input="buscarPacientes">
+        <input type="text" name="" id="input-id" placeholder="Cercar pacients..." @input="buscarPacientes">
         <p class="medionegrita" v-if="pacientesEncontrados > 0">Pacientes encontrados: {{ pacientesEncontrados }}</p>
     </div>
     <div class="pacientesNoDisponibles"
@@ -8,7 +8,7 @@
         <p class="medionegrita">No hi ha pacients disponibles.</p>
     </div>
     <div class="pacientenesEncontrados" :style="{ 'margin-top': busquedaRealizada ? '0' : '11vh' }">
-        <a v-for="user in users" :key="user.id" :href="'/' + this.accion + '/' + user.paciente.id">
+        <a v-for="user in users" :key="user.id" :href="'/' + this.accion + '/' + user.id">
             <div class="paciente" @click="redireccionar(user)">
                 <i class="fa-solid fa-user"></i>    
                 <div class="pacienteInfo">

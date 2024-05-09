@@ -59,15 +59,15 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('/reprogramarCita', [PedirCitaController::class, 'reprogramarCita'])->name('reprogramarCita');
         Route::get('/buscadorMedico/{accion}', [BuscadorMedicoController::class, 'show'])->name('buscadorMedicos'); //
         Route::get('/agendaMedico/{id}',[BuscadorMedicoController::class, 'agendaMedico'])->name('agendaMedico');//
-        Route::get('/asignarFechaCita/cita/{id}/{ruta}', [PedirCitaController::class, 'agendarCita'])->name('agendarCita');
-        Route::get('/reprogramarCita/cita/{id}/{ruta}', [PedirCitaController::class, 'agendarCita'])->name('agendarCitaRechazada');
+        Route::get('/asignarFechaCita/cita/{id}/{ruta}/{name}/{emergency_level}/{nombrePrueba}', [PedirCitaController::class, 'agendarCita'])->name('agendarCita');
+        Route::get('/reprogramarCita/cita/{id}/{ruta}/{name}/{emergency_level}/{nombrePrueba}', [PedirCitaController::class, 'agendarCita'])->name('agendarCitaRechazada');
         Route::post('/actualizar-cita/{id}/{ruta}', [PedirCitaController::class, 'actualizarCita'])->name('cita.actualizar');
 
         
     });
 
     Route::group(['middleware' => ['rol:medico']], function () {
-        Route::get('/crearCita/{idUsuarioPaciente}', [CrearCitaController::class, 'show'])->name('crearCita');
+        Route::get('/crearCita/{idUsuario}', [CrearCitaController::class, 'show'])->name('crearCita');
         Route::get('/resultadosPaciente/{id}', [InformeClinicosController::class, 'show'])->name('informesClinicos');
         Route::get('/buscadorPacientes/{accion}', [BuscadorPacienteController::class, 'show'])->name('buscadorPacientes');
         Route::post('/crearCita/store', [CrearCitaController::class, 'store'])->name('guardarCita');

@@ -3,16 +3,17 @@
     <div class="form-group">
       <label for="speciality">1. Seleccioni la especialitat:</label>
       <select v-model="selectedSpeciality" @change="filterDoctors" class="select" required>
-        <option value="">Selecciona una especialidad</option>
+        <option value="">Selecciona una especialitat</option>
+        <option value="">Selecciona una especialitat</option>
         <option v-for="speciality in uniqueSpecialities" :value="speciality">{{ speciality }}</option>
       </select>
     </div>
 
     <div class="form-group">
       <label for="doctor">2. Seleccioni el metge:</label>
-      <select v-model="selectedDoctor" class="select" name="medico" required>
-        <option value="">Selecciona un médico</option>
-        <option v-for="doctor in filteredDoctors" :value="doctor.id">{{ doctor.user.name }} {{ doctor.user.lastName }} -
+      <select v-model="selectedDoctor" class="select" name="medico"  required>
+        <option value="">Selecciona un metge</option>
+        <option v-for="doctor in filteredDoctors" :value="doctor.id" >{{ doctor.user.name }} {{ doctor.user.lastName }} -
           {{ doctor.collegiate_number }}</option>
       </select>
     </div>
@@ -44,7 +45,7 @@
 
 <script>
 export default {
-  props: ['medicos', 'cita_id'],
+  props: ['medicos', 'cita_id', 'datos_cita'],
   data() {
     return {
       selectedSpeciality: '',
@@ -66,10 +67,19 @@ export default {
     filterDoctors() {
       this.selectedDoctor = ''; // Reset selected doctor when changing speciality
     },
+    formatDate(date) {
+    const [year, month, day] = date.split('-');
+    return `${day}/${month}/${year}`;
+  }
   },
   mounted() {
-    // Obtener lista de especialidades únicas
+
     this.uniqueSpecialities = [...new Set(this.medicos.map(medico => medico.speciality))];
+    this.selectedSpeciality = this.datos_cita[0].speciality ? this.datos_cita[0].speciality : '';
+    this.selectedDoctor = this.datos_cita[0].medico_id ? this.datos_cita[0].medico_id : '';
+    this.selectedDate = this.datos_cita[0].date ? this.datos_cita[0].date: '';
+    this.selectedTime = this.datos_cita[0].time ? this.datos_cita[0].time : '';
+    
   }
 };
 </script>
