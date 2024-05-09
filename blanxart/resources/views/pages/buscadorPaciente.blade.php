@@ -8,7 +8,7 @@
 
         <x-boton-atras :url="route('home')" />
         
-        <section class="tituloBuscadorPaiente">
+        <section class="tituloBuscadorPaciente">
             <h1 class="medionegrita">Cercador pacients</h1>
         </section>
 
