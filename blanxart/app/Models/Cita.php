@@ -54,7 +54,7 @@ class Cita extends Model
             ->select('citas.*', 'pruebas.name', 'pruebas.video', 'pruebas.document')
             ->where('citas.paciente_id', $id)
             ->get();
-        
+
         return $citas;
     }
 
@@ -62,10 +62,10 @@ class Cita extends Model
     {
         $cita = DB::table('citas')
             ->join('users', 'users.id', '=', 'citas.paciente_id')
-            ->select('users.name', 'users.lastName', 'users.dni', 'citas.date','citas.time','citas.prueba_id')
+            ->select('users.name', 'users.lastName', 'users.dni', 'citas.date', 'citas.time', 'citas.prueba_id')
             ->where('citas.id', $idCita)
             ->get();
-        
+
         return $cita;
     }
 
@@ -87,7 +87,7 @@ class Cita extends Model
         return $diasNoDisponibles;
     }
 
-    public static function getHorasDisponibles($medico_id, $fecha) 
+    public static function getHorasDisponibles($medico_id, $fecha)
     {
         $horasNoDisponibles = DB::table('citas')
             ->select('time')
@@ -96,15 +96,15 @@ class Cita extends Model
             ->groupBy('time')
             ->get();
 
-            $horasPosibles = [
-                '08:00', '09:00', '10:00', '11:00',
-                '12:00', '13:00', '14:00', '15:00', '16:00'
-            ];
+        $horasPosibles = [
+            '08:00', '09:00', '10:00', '11:00',
+            '12:00', '13:00', '14:00', '15:00', '16:00'
+        ];
 
-            $horasDisponibles = array_diff($horasPosibles, $horasNoDisponibles->pluck('time')->toArray());
+        $horasDisponibles = array_diff($horasPosibles, $horasNoDisponibles->pluck('time')->toArray());
 
-            // return json_encode($horasDisponibles);
-            return $horasDisponibles;
+        // return json_encode($horasDisponibles);
+        return $horasDisponibles;
     }
 
     public static function getCitasSinAsignar()
@@ -128,7 +128,7 @@ class Cita extends Model
             ->orderBy('citas.emergency_level', 'desc')
             ->get();
 
-            return $citas;
+        return $citas;
     }
 
     public static function getCitasRechazadas()
@@ -154,6 +154,18 @@ class Cita extends Model
             ->orderBy('citas.emergency_level', 'desc')
             ->get();
 
-            return $citas;
+        return $citas;
+    }
+
+    public static function getDatosCitas($id)
+    {
+        $cita = DB::table('citas')
+            ->select('medicos.speciality', 'medicos.id as medico_id', 'citas.date', 'citas.time')
+            ->leftJoin('medicos', 'medicos.id', '=', 'citas.medico_id')
+            ->where('citas.id', '=', $id)
+            ->get()
+            ->toJson();
+
+        return $cita;
     }
 }
