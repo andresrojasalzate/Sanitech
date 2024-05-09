@@ -40,7 +40,7 @@
             @csrf
             <div id="agendarCita">
                 <agendar-citas-component :cita_id='{{ $cita_id }}'
-                    :medicos='{{ $medicos }}'></agendar-citas-component>
+                    :medicos='{{ $medicos }}' :datos_cita='{{$datosCita}}'></agendar-citas-component>
             </div>
             @error('error')
                 <div class="alert alert-danger">{{ $message }}</div>
