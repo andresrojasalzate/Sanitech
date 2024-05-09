@@ -2,7 +2,8 @@
   <div class="flex-center">
     <h2>Llistat de Cites</h2>
     <template v-if="citasPaginadas.length > 0">
-      <table class="citas-sin-asignar">
+      <div class="tabla">
+        <table class="citas-sin-asignar">
         <thead>
           <tr>
             <th>Nivell d'emergencia</th>
@@ -32,6 +33,8 @@
           </tr>
         </tbody>
       </table>
+      </div>
+      
       <div class="paginacion">
         <button @click="paginaActual -= 1" :disabled="paginaActual === 1"><i class='fas fa-chevron-left'></i></button>
         <div class="paginas">
@@ -94,9 +97,12 @@ export default {
       return age;
     },
     navigateToDetailPage(cita) {
-      const citaId = cita.id; // Asegúrate de que cada cita tenga un atributo "id"
+      const citaId = cita.id; 
+      const name = cita.name;
+      const emergency_level = cita.emergency_level;
+      const nombrePrueba = cita.nombrePrueba;
       const ruta = 'reprogramarCita';
-      window.location.href = `/reprogramarCita/cita/${citaId}/${ruta}`;
+      window.location.href = `/reprogramarCita/cita/${citaId}/${ruta}/${name}/${emergency_level}/${nombrePrueba}`;
     }
   }
 };

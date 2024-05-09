@@ -17,13 +17,13 @@
       <div class="fecha">{{ formatCreatedAt(item.created_at) }}</div>
       <button v-if="item.accepted === null && item.tipo === 'Confirmacion'" @click="mostrarDialogo(item.cita_id)"
         class="confirmar-btn">Resposta</button>
-      <p v-else-if="item.accepted === false && item.tipo === 'Confirmacion'" class="rechazado">Cita rechazada</p>
-      <p v-else-if="item.accepted === true && item.tipo === 'Confirmacion'" class="aceptado">Cita aceptada</p>
+      <p v-else-if="item.accepted === false && item.tipo === 'Confirmacion'" class="rechazado">Cita rebutjada</p>
+      <p v-else-if="item.accepted === true && item.tipo === 'Confirmacion'" class="aceptado">Cita acceptada</p>
 
       <div v-if="showDialog" class="dialog-overlay">
         <div class="dialog">
 
-          <p>Podrá asistir a aquesta cita?</p>
+          <p>Podrà assistir a aquesta cita?</p>
           <button class="dialog-button dialog-button-confirmar" @click="confirmar">Sí</button>
           <button class="dialog-button dialog-button-rechazar" @click="cancelar">No</button>
         </div>

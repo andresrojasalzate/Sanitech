@@ -2,10 +2,12 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Exception;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Paciente extends Model
 {
@@ -28,14 +30,25 @@ class Paciente extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function medico() : BelongsTo
+    public function medico(): BelongsTo
     {
-        return $this->belongsTo(Medico::class);  
+        return $this->belongsTo(Medico::class);
     }
 
-    public function resultado() : HasMany 
+    public function resultado(): HasMany
     {
-        return $this->hasMany(Resultado::class);  
+        return $this->hasMany(Resultado::class);
     }
 
+    public static function getPacientIdByUserId($id)
+    {
+        try {
+            Log::info('Llamada al metodo Paciente.getPacienteIdByUserId id= ' . $id);
+            $idPaciente = Paciente::where('user_id', $id)->get();
+
+            return $idPaciente;
+        } catch (Exception $e) {
+            Log::error($e->getMessage());
+        }
+    }
 }

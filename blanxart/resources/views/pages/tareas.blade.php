@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
-@section('title', 'Solicitudes')
-@section('descripcion_pagina', 'Solicitudes de los pacientes')
+@section('title', 'Sol·licituds')
+@section('descripcion_pagina', 'Sol·licituds dels pacients')
 
 @section('content')
 
@@ -34,7 +34,7 @@
                         <i class="fa-regular fa-calendar-check"></i>
                     </div>
                     <div class="solicitudes-card_type_2-info">
-                        <h4 class="medionegrita">Asignar cita</h4>
+                        <h4 class="medionegrita">Assignar cita</h4>
                     </div>
                 </div>
             </a>

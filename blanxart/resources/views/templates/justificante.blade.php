@@ -60,14 +60,11 @@
         <div class="justificante-subtitulo medionegrita">Data</div>
         <div>Data: {{ $cita[0]->date }}</div>
         <div>Hora inici d'atenció: {{$cita[0]->time}}</div>
-        <div class="justificante-subtitulo medionegrita">Centre</div>
-        <div></div>
-        <div>*nom del centre*</div>
         <div class="justificante-subtitulo medionegrita">Motiu</div>
         <div class="justificante-motivo">
             <div>La persona mencionada ha estat present en aquest centre pel motiu següent:</div>
             <div class="justificante-motivo-tipo">
-                @if ($cita[0]->name !== null)
+                @if ($cita[0]->prueba_id === null)
                     <div class="justificante-motivo-tipo-und">
                         <input type="checkbox" id="visita" checked>
                         <label for="visita">Visita</label>

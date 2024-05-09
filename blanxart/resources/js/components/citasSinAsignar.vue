@@ -2,40 +2,45 @@
   <div class="flex-center">
     <h2>Llistat de Cites</h2>
     <template v-if="citasPaginadas.length > 0">
-      <table class="citas-sin-asignar">
-        <thead>
-          <tr>
-            <th>Nivell d'emergencia</th>
-            <th>Nom</th>
-            <th>Cognom</th>
-            <th>Génere</th>
-            <th>Edat</th> 
-            <th>DNI</th>
-            <th>CIP</th>
-            <th>Nom prova</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr class="table-row" v-for="(cita, index) in citasPaginadas" :key="index" @click="navigateToDetailPage(cita)">
-            <td>{{ cita.emergency_level }}</td>
-            <td>{{ cita.name }}</td>
-            <td>{{ cita.lastName }}</td>
-            <td>{{ cita.genre }}</td>
-            <td>{{ calculateAge(cita.birth_date) }}</td>
-            <td>{{ cita.dni }}</td>
-            <td>{{ cita.CIP }}</td>
-            <td>{{ cita.nombrePrueba }}</td>
-          </tr>
-        </tbody>
-      </table>
+      <div class="tabla">
+        <table class="citas-sin-asignar">
+          <thead>
+            <tr>
+              <th>Nivell d'emergencia</th>
+              <th>Nom</th>
+              <th>Cognom</th>
+              <th>Génere</th>
+              <th>Edat</th>
+              <th>DNI</th>
+              <th>CIP</th>
+              <th>Nom prova</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="table-row" v-for="(cita, index) in citasPaginadas" :key="index"
+              @click="navigateToDetailPage(cita)">
+              <td>{{ cita.emergency_level }}</td>
+              <td>{{ cita.name }}</td>
+              <td>{{ cita.lastName }}</td>
+              <td>{{ cita.genre }}</td>
+              <td>{{ calculateAge(cita.birth_date) }}</td>
+              <td>{{ cita.dni }}</td>
+              <td>{{ cita.CIP }}</td>
+              <td>{{ cita.nombrePrueba }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+
       <div class="paginacion">
         <button @click="paginaActual -= 1" :disabled="paginaActual === 1"><i class='fas fa-chevron-left'></i></button>
         <div class="paginas">
           <button v-for="pagina in paginasMostradas" :key="pagina" @click="paginaActual = pagina"
             :class="{ 'pagina-actual': pagina === paginaActual }">{{ pagina }}</button>
         </div>
-        <button @click="paginaActual += 1" :disabled="paginaActual === totalPaginas"
-          class="ant-sig"><i class='fas fa-chevron-right'></i></button>
+        <button @click="paginaActual += 1" :disabled="paginaActual === totalPaginas" class="ant-sig"><i
+            class='fas fa-chevron-right'></i></button>
       </div>
     </template>
     <template v-else>
@@ -90,11 +95,13 @@ export default {
       return age;
     },
     navigateToDetailPage(cita) {
-      const citaId = cita.id; 
+      const citaId = cita.id;
+      const name = cita.name;
+      const emergency_level = cita.emergency_level;
+      const nombrePrueba = cita.nombrePrueba;
       const ruta = 'asignarFechaCita';
-      window.location.href = `/asignarFechaCita/cita/${citaId}/${ruta}`;
+      window.location.href = `/asignarFechaCita/cita/${citaId}/${ruta}/${name}/${emergency_level}/${nombrePrueba}`;
     }
   }
 };
 </script>
-

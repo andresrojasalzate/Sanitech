@@ -1,14 +1,14 @@
 @extends('layouts.master')
 
 @section('title', 'Cercador pacient')
-@section('descripcion_pagina', 'Busca el pacient que desitges')
+@section('descripcion_pagina', 'Cerca el pacient que desitges')
 
 @section('content')
     <main class="filtrarPacientesContainer">
 
         <x-boton-atras :url="route('home')" />
         
-        <section class="tituloBuscadorPaiente">
+        <section class="tituloBuscadorPaciente">
             <h1 class="medionegrita">Cercador pacients</h1>
         </section>
 
