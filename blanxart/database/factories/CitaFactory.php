@@ -33,13 +33,16 @@ class CitaFactory extends Factory
             unset($horasDisponibles[$key]);
         }
 
+        $accepted = fake()->boolean();
+        $done = $accepted ? fake()->boolean() : false;
+
         return [
             'date' => $date,
             'time' => $horaAleatoria,
             'emergency_level' => fake()->numberBetween(1, 5),
-            'accepted' => fake()->boolean(),
+            'accepted' => $accepted,
             'reason' => fake()->text(),
-            'done' => fake()->boolean(),
+            'done' => $done,
             'prueba_id' => $this->faker->numberBetween(1, 4),
             'paciente_id' => $this->faker->numberBetween(1, 10),
             'medico_id' => $this->faker->numberBetween(1, 10)

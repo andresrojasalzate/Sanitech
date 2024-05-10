@@ -8,7 +8,7 @@
 
         <x-boton-atras :url="route('solicitudes', ['id' => auth()->user()->id])" />
 
-        <section>
+        <section class="allform-container-title">
             <h1>Cita amb el metge</h1>
             <h2>Sol·liciti una cita amb el metge</h2>
         </section>

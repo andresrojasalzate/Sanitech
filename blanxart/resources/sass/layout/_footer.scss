@@ -12,6 +12,13 @@
         height: 7rem;
     }
 
+    @media (max-width: 957px) {
+        img {
+            width: 4rem;
+            height: 4rem;
+        }
+    }
+
     .footer-information,
     .footer-images {
         margin: 10px;
@@ -29,5 +36,9 @@
         transition: transform 0.2s ease-in-out;
         color: $blanco;
         text-decoration: none;
+    }
+
+    #blanxart {
+        background-color: rgb(255, 255, 255);
     }
 }

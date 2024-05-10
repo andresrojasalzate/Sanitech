@@ -12,8 +12,13 @@
             <x-boton-atras :url="route('asignarFechaCita')" />
         @endif
         <section>
-            <h1>Cita amb el metge</h1>
-            <h2>Soliciti una cita amb el metge</h2>
+            @if ($ruta === 'reprogramarCita')
+                <h1>Reprogramar cita</h1>
+                <h2>Reprogrami la cita </h2>
+            @elseif ($ruta === 'asignarFechaCita')
+                <h1>Asignar data</h1>
+                <h2>Soliciti una cita amb el metge</h2>
+            @endif
         </section>
 
         <div class="allform-container-content-datos-personales">

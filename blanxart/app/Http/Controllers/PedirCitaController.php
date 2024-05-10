@@ -98,6 +98,7 @@ class PedirCitaController extends Controller
         $cita->medico_id = $medicoId;
         $cita->date = $fecha;
         $cita->time = $hora;
+        $cita->accepted = null;
         $cita->save();
 
         $fechaFormateada = date('d F Y', strtotime($fecha));

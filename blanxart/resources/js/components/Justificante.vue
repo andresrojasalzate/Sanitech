@@ -2,6 +2,7 @@
     <div class="agenda-container">
         <div class="citas-title">
             <h2>Demanar justificant</h2>
+            <p>Genera un justificant de les teves cites realitzades.</p>
         </div>
 
         <div class="citas-table">

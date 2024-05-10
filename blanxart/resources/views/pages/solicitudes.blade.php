@@ -9,10 +9,9 @@
 
         <x-boton-atras :url="route('home')" />
 
-        <section>
-            <section class="info">
-                <h1 class="regular">Solicituts</h1>
-            </section>
+        <section class="info">
+            <h1 class="regular">Solicituts</h1>
+            <p>Fes consultes, gestions o demana una cita.</p>
         </section>
 
         <section class="solicitudes">
