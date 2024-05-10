@@ -8,20 +8,17 @@
         <div class="citas-table">
             <p v-if="citasRealizadas.length > 0">
                 Cites trobades: {{ citasRealizadas.length }}
-                Cites trobades: {{ citasRealizadas.length }}
             </p>
             <table v-if="citasRealizadasPaginadas.length > 0">
                 <thead>
                     <tr>
                         <th>Nom</th>
                         <th>Data</th>
-                        <th>Data</th>
                         <th>Generar justificant</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr v-for="item in citasRealizadasPaginadas" :key="item.id">
-                        <td>{{ item.name ? item.name:'Visita' }}</td>
                         <td>{{ item.name ? item.name:'Visita' }}</td>
                         <td>{{ item.date }}</td>
                         <td><a @click="navegarAJustificante(item.id)"><i
