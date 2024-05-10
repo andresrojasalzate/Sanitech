@@ -2,9 +2,11 @@
 
 @section('title', 'Informes clínics')
 @section('descripcion_pagina', 'Llista dels teus informes clínics')
+@section('descripcion_pagina', 'Llista dels teus informes clínics')
 
 @section('content')
 
+    <main class="informesContainer">
     <main class="informesContainer">
 
         @if (auth()->user()->rol === 'medico')
@@ -23,6 +25,11 @@
                 <div id="informesClinicos">
 
                     @foreach ($resultados as $resultado)
+        <section class="listaInformes">
+            @if ($resultados->count())
+                <div id="informesClinicos">
+
+                    @foreach ($resultados as $resultado)
                         <informes-component :resultado='@json($resultado)'></informes-component>
                     @endforeach
                     <nav class="menu-paginacion">
@@ -35,6 +42,15 @@
                 </div>
             @endif
         </section>
+                </div>
+            @else
+                <div class="noResultados">
+                    <p class="medionegrita">No hi ha informes disponibles en aquest moment.</p>
+                </div>
+            @endif
+        </section>
 
     </main>
+    </main>
 @endsection
+
