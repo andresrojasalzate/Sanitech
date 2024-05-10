@@ -15,7 +15,9 @@
     <section class="info">
         <h1 class="regular">Hola {{auth()->user()->name}},</h1>
         <h2 class="regular">Benvingut al teu espai de salut digital.</h2>
-        <span class="homeContainer-ultima-conexion"><strong>Última connexió:</strong> {{auth()->user()->last_connection}} </span>
+        @if (auth()->user()->last_connection !== null)
+            <span class="homeContainer-ultima-conexion"><strong>Última connexió:</strong> {{auth()->user()->last_connection}} </span>
+        @endif
     </section>
 
     @if(auth()->user()->rol === 'paciente')
