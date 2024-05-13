@@ -1,0 +1,999 @@
+= Sanitech
+Albert Mateos - Andres Rojas - Diego Amador - Samuel Garcia 
+
+:toc-title: Tabla de contenido
+:icons: font
+:doctype: book
+:encoding: utf-8
+:lang: es
+:toc: left
+:numbered:
+
+==  Introducción
+Os presentamos la memoria del tercer proyecto del curso 2023-2024 de 2o de Desarrollo de Aplicaciones Web del instituto Nicolau Copèrnic. Este proyecto consta del desarrollo de una página web de gestión de pruebas de un centro medico, desarrollado para el las estudiantes del instituto Blanxart de Terrassa. 
+
+En este documento presentaremos el equipo de trabajo, las especificaciones y requerimientos del proyecto, el manual de instalación de la aplicación y diversas consideraciones para el futuro.
+
+=== Miembros del equipo
+* Albert Mateos, estudiante de 2o de DAW en instituto Nicolau Copèrnic.
+* Andres Rojas, estudiante de 2o de DAW en instituto Nicolau Copèrnic.
+* Diego Amador, estudiante de 2o de DAW en instituto Nicolau Copèrnic. 
+* Samuel Garcia, estudiante de 2o de DAW en instituto Nicolau Còpernic.
+
+=== Objetivos de la aplicación.
+Esta aplicación tiene como objetivo la creación de una aplicación para la gestión de citas y pruebas de un centro medico.
+
+=== Necesidades.
+Las necesidades a las que esta aplicación trata de dar respuesta son las siguientes:
+
+1. Preparación de pruebas medicas. Permitirá a los pacientes tener acceso a diversas herramientas audiovisuales para la preparacion de sus pruebas medicas agendadas.
+
+2. Asignación de citas y pruebas medicas. Ofrecerá un sistema de gestión para la creación y asignación de citas y pruebas medicas para los pacientes por parte de estos mismos, tambien por parte de los medicos y los administradores.
+
+3. Recordatorios y confirmación de citas medicas. La aplicación contará con un sistemas de notificaciones, donde los pacientes podrán aceptar o cancelar sus citas medicas, una vez estas les han sido asignadas y tambien con recordatorios de las citas que ya fueron aceptadas.
+
+4. Interfaces de usuario diferentes. La aplicación contará con interfaces de usuario diferentes para cada uno de los roles que existiran dentro de la misma.
+
+5. Acceso a los justificantes medicos. Desde la aplicación, los pacientes podrán descargar los justificantes medicos de sus citas o pruebas previamente realizadas.
+
+
+=== Público objetivo.
+Esta aplicación está diseñada considerando dos _targets_ diferentes. 
+
+Por un lado, tenemos al personal medico que necesitan gestionar las pruebas y citas medicas de los pacientes de un centro medico, podrán crear y asignar citas y pruebas medicas a sus pacientes, tambien ver los resultados de las pruebas e historial de citas de los pacientes y la agenda de cada uno de los medicos del centro.
+Se trata de un público profesional, que lo que necesita es realizar su trabajo de la forma más cómoda, eficiente y familiar.
+
+En el otro lado, encontramos a los pacientes, pacientes con un amplio rango de edades, que necesitan crear, consultar, aceptar y cancelar sus citas y pruebas medicas, tambien generar de forma sencilla e intuitiva los justificantes de sus asistencias medicas realizadas, tambien recibir recordatorios de sus citas medicas a realizar, ademas de tener acceso a material audio visual para la preparación de sus pruebas medicas .  
+
+=== Tecnologías con las que hemos trabajado
+
+Para la realización de este proyecto hemos tenido que trabajar con tecnologías muy diversas, algunas de estas eran nuevas para nosotros.
+
+Se trata de un proyecto Laravel, un framework de PHP con estructuración MVC del código de back-end. Este proyecto abarca el desarrollo de una aplicación web principal, que sería el sitio web de gestión de las citas y pruebas medicas y dos APIs internas que se encarguan de la busqueda asincrona de los medicos y pacientes registrados en el sitio web.
+Para la parte cliente, hemos trabajado con blade en html para la estructuración de las vistas y la comunicación entre el front-end y el back-end, la parte logica se ha hecho mediante el uso de componentes del framework vue 3.
+En cuanto a la persistencia de datos hemos usado una base de datos Postgres.
+
+==  Diseño de base de datos y diagramas de clases.
+
+image::images/mer.png[Esquema MER de la base de datos]
+
+Para acceder al esquema MER de la base de datos puede dirigirse al siguiente enlace:
+https://drive.google.com/file/d/1jDNZInTPw_NM7lHp22TpuoQtsD87uHpR/view?usp=sharing[Esquema MER]
+
+Para acceder al diagrama de clases de modelos de la aplicación puede dirigirse al siguiente enlace:
+https://drive.google.com/file/d/1QzYtGKZtJKUy0lgzKIumWgC2MAplmrnS/view?usp=sharing[Diagrama de clases de modelos]
+
+== Diseño y guía de estilos
+
+Tanto para el diseño de los mockups de las diferentes vistas como para la guía de estilos hemos usado FIGMA, encontraréis los enlaces en cada uno de los apartados.
+
+=== Sketching y Mockups de interfaces de usuario.
+.Consejo:
+
+Para ver los detalles de los Sketching y Mockups, puede dirigirse al siguiente enlace https://www.figma.com/file/G7xuxLOy4gweEnP707FblA/Pantallas?type=design&node-id=1-2&mode=design&t=tg5zNp1C8DL9uB9d-0[Sketching y Mockups]
+
+=== Guia de estilos.
+
+En este apartado explicaremos brevemente la toma de decisiones a la hora de definir cada punto de la guía de estilos. Para poder acceder a la guía de estilos en FIGMA bastará con hacer click en el enlace que dejamos justo al terminar de explicar estos puntos.
+
+1. **Paleta de colores.**
+Entendemos que una aplicación así está orientada a un público sobre todo joven o de mediana edad y que necesitamos colores que llamen a la acción, así que nos hemos decidido por usar un tono rojo/rosado como color de marca sobre un fondo oscuro (gris casi negro), así como un color blanco para que los elementos tengan contraste sobre el fondo.
+
+2. **Tipografía.**
+Hemos buscado tres fuentes que nos parezcan adecuadas con la temática, sean agradables a la vista, se lean bien en pantallas pequeñas y combinen bien entre sí. Una, sin serifa, será para la mayoría de textos y botones. La segunda, para los títulos y textos destacados. Y la tercera, con serifa y más estilizada, para citas destacadas y títulos artísticos.
+
+3. **Iconografía.**
+En cuanto a iconos hemos decidido optar por usar los de la librería font-awesome 5, que nos parecen quedan mejor con nuestro estilo y es gratis.
+
+4. **Espacios y formas.**
+Hemos decidido usar medidas a partir del tamaño de la fuente (rem), ya que al cambiar de pantalla, cambiamos de tamaño de fuente y en teoría todo debería de quedar proporcionado.
+Buscamos cual era el espacio estándar entre el contenido y los bordes en pantallas móviles y a partir de ahí lo escalamos según la pantalla. 
+También decidimos darle a la mayoría elementos de nuestro sitio web, botones, cards, contenedores... un aspecto rectangular con los bordes recortados en las esquinas.
+
+5. Botones.
+Los botones hemos decidido que usarían la misma fuente que el texto normal del sitio web. Tendrán un borde del color de la 'marca' de la web y un fondo transparente que se rellenará al hacer hover con el mismo color que el borde.
+
+En el siguiente enlace, puede encontrar toda la información a detalle de la guia de estilos de la aplicación https://www.figma.com/file/cOq2a3i65rwIY4i7gC5tbq/gr01-Gu%C3%ADa-de-estilos?type=design&node-id=0-1&mode=design&t=RbeKfi6LfndwQ6Wj-0[Guia de estilos]
+
+== Manual de instalación, distribución y configuración. 
+
+En esta sección se explicarán detalladamente los pasos a seguir para realizar el despliegue de la aplicación y extensiones necesarias para su funcionamiento. En primer lugar explicaremos como hacer el despliegue en local, y después en servidor, en este caso usaremos una máquina virtual ubuntu en un servidor de Isard.
+
+CAUTION: Atención, ambos manuales explican el despliegue en una máquina con un sistema que utilice el shell _bash_. Para el despliegue en una máquina con Windows los pasos a seguir son los mismos pero la manera de instalar los diferentes _softwares_ que necesitaremos es disinta.
+
+=== Despliegue en local
+
+Para realizar el despliegue del proyecto en un entorno local no necesitamos ningun servidor puesto que usaremos el que lleva "built-in" artisan para servir nuestro sitio web. 
+
+Suponiendo que la máquina en la que hagamos la instalación tiene lo básico instalado, los pasos a seguir son los siguientes:
+
+==== Preparación del entorno
+
+Primero de todo nos aseguraremos que cualquier dependencia que vayamos a instalar este al día.
+
+[source,sh]
+----
+sudo apt update
+----
+
+Una vez hecho esto, procederemos a instalar todo el software que necesitaremos en nuestro entorno para servir el proyecto.
+
+[source,sh]
+----
+sudo apt install php php-cli php-mbstring php-xml php-zip php-gd
+----
+
+[NOTE]
+====
+Explicación de cada una de las dependencias instaladas:
+
+  - `php`: Instala PHP.
+    - `php-cli`: Instala la interfaz de línea de comandos de PHP, necesaria para ejecutar comandos de PHP en la terminal.
+    - `php-mbstring`: Instala la extensión de manejo de cadenas multibyte para PHP, necesaria para manipular texto multibyte.
+    - `php-gd`: Instala la extensión GD para PHP, necesaria para manipular imágenes.
+    - `unzip`: Instala la herramienta de descompresión de archivos zip. Muchas de las dependencias de Laravel vienen comprimidas así que necesitaremos un software descompresor si no lo tenemos ya.
+====
+
+Por último, hemos de instalar composer, una herramienta de gestión de dependencias de PHP, y por extensión de Laravel.
+
+[source,sh]
+----
+sudo apt install composer
+----
+
+
+==== Clonar el Repositorio GIT
+
+El siguiente paso es descargar todo el proyecto desde el repositorio de GIT. Para hacer esto, basta con ir al directorio de la máquina en el que se quiera instalar el proyecto y ejecutar el siguiente comando.
+
+[source,sh]
+----
+git clone https://git.copernic.cat/alopera/gr01-mateos-lopera-amador.git .
+----
+
+TIP: El punto del final del comando significa en la ruta actual. Es decir en el directorio en el que nos encontremos en el momento de ejecutarlo. Si se quiere se puede cambiar por una ruta física o por una relativa. 
+
+==== Copiar y configurar el archivo `.env` del proyecto
+
+Pese a que hemos dedicado un apartado entero más adelante para la explicación del archivo `.env`, en este apartado hablaremos de él y explicaremos brevemente qué se ha de hacer para que funcione la aplicación.
+
+El siguiente paso consiste en localizar el archivo `.env` de la aplicación web, para ello nos hemos de ubicar en la carpeta raíz del repositorio, es decir allá donde lo hayamos clonado.
+
+[NOTE]
+====
+El archivo `.env` en Laravel es un archivo de configuración que contiene variables de entorno para ajustar la configuración del proyecto. Debes configurar debidamente este archivo para que tu aplicación funcione correctamente.
+====
+
+[source,sh]
+----
+cd /ruta/a/tu/proyecto
+----
+
+Desde este punto hemos de entrar en la siguiente ruta: `fairy_tickets/`, que sería la carpeta raíz del proyecto Laravel y allá localizar el archivo `.env.example` y copiarlo en el mismo lugar pero con el nombre `.env`, de esta manera crearemos el archivo de variables de entorno de nuestra aplicación a partir de una plantilla preconfigurada guardada en el repositorio GIT.
+
+[source,sh]
+----
+cd fairy_tickets
+cp .env.example .env
+----
+
+Una vez hecho esto hemos de abrir el nuevo archivo `.env` con el editor de texto en línea de comandos nano.
+
+[source,sh]
+----
+sudo nano .env
+----
+
+Una vez abierto el archivo buscamos hasta encontrar estas líneas:
+
+[source]
+----
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=laravel
+DB_USERNAME=root
+DB_PASSWORD=
+----
+
+Y las cambiamos a:
+
+[source]
+----
+DB_CONNECTION=pgsql
+DB_HOST=127.0.0.1
+DB_PORT=5432
+DB_DATABASE=fairy_tickets
+DB_USERNAME=postgres
+DB_PASSWORD=root
+----
+
+Guardamos los cambios y cerramos nano:
+
+1. Presiona `Ctrl + O` para escribir los cambios en el archivo.
+
+2. Presiona `Enter` para confirmar el nombre del archivo (si se te solicita).
+
+3. Presiona `Ctrl + X` para salir de `nano`.
+
+Con esto habremos configurado lo necesario para que al levantar el contenedor de docker donde está nuestra base de datos, la aplicación conecte con ésta.
+
+==== Instalación de dependencias del proyecto Laravel
+
+Una vez configurado el archivo `.env`, el siguiente paso es instalar todas las dependencias necesarias para el proyecto mediante el gestor Composer.
+
+Ubicándonos de nuevo en la carpeta fairy_tickets/, la carpeta raíz del proyecto Laravel, en la que deberíamos de encontrarnos, si se ha seguido la guía hasta este punto, lanzamos el siguiente comando:
+
+[source,sh]
+----
+composer install
+----
+
+Este comando instalará todas las dependencias especificadas en el archivo `composer.json`, que son las que necesita nuestro proyecto.
+
+Llegados aquí, en cuanto a la parte web del proyecto sólo nos quedaría generar una `APP_KEY` de Laravel para poder funcionar (a falta de base de datos y la API encargada de las imágenes). Para esto, seguimos en la carpeta raíz del proyecto Laravel `fairy_tickets/` y lanzamos el siguiente comando:
+
+[source,sh]
+----
+sudo php artisan key:generate
+----
+
+==== Configuración del docker y la base de datos
+
+En el siguiente paso, explicaremos cómo crear la imágen de docker necesaria, donde montaremos nuestra base de datos PostgreSql y posteriormente levantar el contenedor docker para que nuestra aplicación se pueda conectar a la base de datos. 
+
+La base de datos será creada desde un script, en el momento de crear el contenedor y lanzarlo por primera vez, para poder modificar el _locale_ y la colación de la misma. 
+
+Así, Lo primero que hemos de hacer es localizar la carpeta docker_config en el proyecto. Desde la raíz del repositorio GIT, la ruta es `~/docker-config/`. Dentro encontraremos tres ficheros: `compose.yml`, `dockerfile` y `initdb-script.sql`. 
+
+Nos colocamos en línea de comandos en esa carpeta y montamos la imagen del dockerfile con el comando de docker: build:
+
+[source,docker]
+----
+cd docker-config
+docker compose build
+----
+
+Una vez creada la imagen tendremos que lanzar el comando up para lanzar los contenedores indicados en el archivo `compose.yml`:
+
+[source,docker]
+----
+docker compose up -d
+----
+
+De esta manera, ya tendremos el contenedor docker de nuestra base de datos postgres en funcionamiento.
+
+CAUTION: Atención, el archivo `compose.yml` está configurado para levantar el contenedor de Postgres y conectarlo al puerto 5432 del host, si este ya está en uso se tendra que cambiar el numero de la izquierda de la siguiente linea:
+
+[source,yml]
+----
+ports:
+      - 5432:5432
+----
+
+Para terminar este paso, hemos de rellenar la base de datos con algunos datos iniciales y generar las tablas que necesitará nuestra aplicación. Para ello nos colocamos, de nuevo, en la carpeta raíz del proyecto Laravel: `~/fairy_tickets` y lanzamos el comando:
+
+[source,sh]
+----
+sudo php artisan db:seed
+----
+
+==== Configuración de la API
+
+El siguiente y último paso para desplegar la aplicación en local es la configuración de la API que procesa y guarda las imágenes de la aplicación.
+
+La API se encuentra en la carpeta `~/api` de la raíz del repositorio GIT y está todo preparado para lanzarla en un contenedor docker y que la página web se conecte a la API ahí.
+
+Este proceso es muy parecido a lo que hemos hecho con el proyecto Laravel de la aplicación principal. Salvo que los directorios son distintos.
+
+1. **Configuración `.env`:** Copiar el archivo .`example.env` a `.env` en la siguiente ruta desde la raíz del repositorio GIT: `~/api/ImgAda`. En este caso no hay que cambiar ninguna línea, ya está todo preparado.
+
+2. **Composer install:** En la misma ruta que el paso anterior lanzar el comando `composer install`.
+
+3. **Creación de clave `APP_KEY`**: En la misma ruta que los dos pasos anteriores lanzar el comando `sudo php artisan key:generate`.
+
+4. **Creación de imágen Docker y lanzamiento de contenedores**: nos ubicamos en la carpeta `~/api/api-docker` desde la raíz del repositorio GIT. Hay deberían de haber dos archivos, el archivo `dockerfile` con lo necesario para crear la imagen que se usará en el contenedor y las instrucciones para el levantamiento en el archivo `docker-compose.yml`. Una vez ubicados aquí lanzamos los comandos `docker compose build` y cuando termine de generar la imagen `docker compose up -d`.
+
+CAUTION: En este caso, la API se conecta al puerto 8088 del host, si estuviera ocupado hay que cambiarlo de la misma manera que en el paso levantamiento del docker de la base de datos.
+
+Ahora deberíamos tanto la base de datos como la API corriendo en sendos contenedores docker y en principio debería de estar todo listo para el uso de la aplicación
+
+==== Puesta en marcha de la web
+
+Para comprobar que todo funciona bien y empezar a usar la web en local puedes iniciar el servidor de desarrollo de Laravel utilizando el comando `php artisan serve`:
+
+[source,sh]
+----
+php artisan serve
+----
+
+Esto iniciará un servidor de desarrollo en `http://localhost:8000`, donde podrás acceder a la aplicación.
+
+=== Isard
+
+En esta sección explicaremos cómo instalar la aplicación en servidor, en este caso usaremos una máquina en el servicio Isard que nos concede el centro. En cualquier caso el proceso debería de ser muy similar en cualquier máquina con ubuntu, debian...
+
+Primero deberíamos de instalar Apache2 y PHP en el servidor Debian ejecutando los siguientes comandos:
+
+[source,sh]
+----
+sudo apt update
+sudo apt install apache2 php php-cli php-mbstring unzip
+----
+
+==== Configuración de Apache2
+
+El siguiente paso es configurar el servicio Apache. Para ello edita el archivo de configuración de Apache2 `.htaccess` para permitir el uso de archivos y habilitar el módulo `rewrite`:
+
+[source,sh]
+----
+sudo nano /etc/apache2/sites-available/000-default.conf
+----
+
+Agrega las siguientes líneas dentro de la sección `<VirtualHost>`:
+
+[source,apache]
+----
+<Directory /var/www/html>
+    AllowOverride All
+</Directory>
+----
+
+Guarda los cambios y reinicia Apache:
+
+[source,sh]
+----
+sudo service apache2 restart
+----
+
+En este punto ya deberíamos de tener el servicio Apache configurado y corriendo en nuestra máquina servidor.
+
+==== Despliegue del Proyecto desde Git
+
+Ahora procederemos a descargar el proyecto desde el repositorio GIT. Para comenzar con el despliegue accederemos a la url de nuestro proyecto: https://git.copernic.cat/alopera/gr01-mateos-lopera-amador.
+
+Buscaremos un boton que ponga code y copiaremos la url que se indica que en este caso es la siguiente: https://git.copernic.cat/alopera/gr01-mateos-lopera-amador.git
+
+Para clonar el proyecto dentro del directorio `/var/www/html`, primero nos ubicamos en esta misma carpeta.
+
+[source,sh]
+----
+cd /var/www/html
+----
+
+ y lanzamos el comando siguiente:
+
+[source,sh]
+----
+sudo git clone https://git.copernic.cat/alopera/gr01-mateos-lopera-amador.git /var/www/html
+----
+
+Accede al directorio del proyecto y ejecuta la instalación de dependencias de Laravel, para hacerlo tiene que ser dentro de la carpeta del proyecto laravel, en este caso es la carpeta fairy_tickets:
+
+[source,sh]
+----
+cd /var/www/html/gr01-mateos-lopera-amador/fairy_tickets
+sudo composer install
+----
+
+==== Configuración del archivo .env en Laravel
+
+Como sucedía en el caso del despliegue en local, aquí también explicaremos de forma breve y concisa cómo configurar debidamente el archivo `.env` para que funcione correctamente tu proyecto Laravel, en este caso en el servidor. Para ello se han de seguir los pasos descritos a continuación:
+
+1. **Copiar el archivo .env.example**: Antes de comenzar, asegúrate de copiar el archivo `.env.example` que se proporciona en el proyecto Laravel y renombrarlo como `.env`.
+
+2. **Configuración de la conexión a la base de datos**:
+
+    ```
+    DB_CONNECTION=pgsql
+    DB_HOST=127.0.0.1
+    DB_PORT=5432
+    DB_DATABASE=fairy_tickets
+    DB_USERNAME=postgres
+    DB_PASSWORD=root
+    ```
+
+    Como hemos explicado en el despliegue en local, estas son las líneas que deberías tener en tu `env`.
+
+3. **Configuración de conexión a la API**:
+    Para configurar la conexión a la API, en la carpeta raíz del proyecto Laravel, es decir desde la raíz del repositorio GIT: `~/fairy_tickets`.
+    , basta con cambiar la URL del parámetro `IMAGE_API_URL` del archivo `.env` de la siguiente manera:
+
+     ```
+    IMAGE_API_URL= "http://192.168.60.60:8088/api/v1/images"
+    ```
+
+==== Configuración y despliegue de la API que procesa las imágenes en servidor
+
+Una vez llegados a este punto, el siguiente paso será configurar la API y servirla en un contenedor docker para que nuestra aplicación web pueda hacer uso de ella.
+
+Para comenzar tendremos que tener el proyecto desplegado dentro del servidor isard, en nuestro caso la API ya esta dentro del proyecto tickets, tendremos que acceder a la siguiente ruta:
+
+[source,sh]
+----
+cd /var/www/html/gr01-mateos-lopera-amador/api/ImgAda
+----
+
+Una vez dentro de la ruta copiaremos el fichero `.env.example` creando el `.env` necesario y generaremos la key:
+
+[source,sh]
+----
+sudo cp .env.example .env
+sudo php artisan key:generate
+----
+
+Una vez hayamos generado la clave accederemos a la ruta `/var/www/html/gr01-mateos-lopera-amador/api/api-docker` que es donde tenemos los archivos de confuguración del docker
+
+[source,sh]
+----
+cd /var/www/html/gr01-mateos-lopera-amador/api/api-docker
+----
+
+ Y, acto seguido, ejecutaremos los siguientes comandos para generar el contenedor docker:
+
+[source,sh]
+----
+sudo docker compose build
+sudo docker compose up -d
+----
+
+CAUTION: De nuevo, la API se conecta al puerto 8088 del host, si estuviera ocupado hay que cambiarlo de la misma manera que en el paso levantamiento del docker de la base de datos. También tendríamos que cambiar la línea `IMG_API_URL` del archivo `.env` del proyecto Laravel de la aplicación principal.
+
+Hecho esto, deberíamos de tener la API funcionando en servidor en un docker a la espera de peticiones.
+
+==== Últimos pasos
+
+Para que funcione la aplicación deberemos generar una clave `APP_KEY`. Para ello nos colocamos en la carpeta raíz del proyecto Laravel, `~/fairy_tickets` desde la raíz del repositorio GIT.
+Y generamos la clave de aplicación de Laravel con el siguiente comando:
+
+[source,sh]
+----
+sudo php artisan key:generate
+----
+
+Deberemos, también, establecer los permisos adecuados para los directorios de almacenamiento y de caché:
+
+[source,sh]
+----
+sudo chmod -R 775 storage bootstrap/cache
+sudo chown -R www-data:www-data storage bootstrap/cache
+----
+
+==== Configuración final
+
+Antes de terminar, deberemos de asegurarnos que al entrar en nuestra ip el servicio apache redirija al usuario al proyecto de forma adecuada, para ello configuraremos el host virtual de Apache2 para apuntar al directorio del proyecto Laravel. Esto lo conseguiremos editando el archivo `/etc/apache2/sites-available/000-default.conf`.
+
+[source,sh]
+----
+sudo nano /etc/apache2/sites-available/000-default.conf
+----
+
+En el editor nano buscaremos las siguientes líneas y procuraremos que queden de esta forma:
+
+[source,apache]
+----
+<VirtualHost *:80>
+    ServerAdmin webmaster@localhost
+    DocumentRoot /var/www/html/gr01-mateos-lopera-amador/public
+
+    <Directory /var/www/html/gr01-mateos-lopera-amador/public>
+        Options Indexes FollowSymLinks
+        AllowOverride All
+        Require all granted
+    </Directory>
+
+    ErrorLog ${APACHE_LOG_DIR}/error.log
+    CustomLog ${APACHE_LOG_DIR}/access.log combined
+</VirtualHost>
+----
+
+Cuando tengamos estas líneas así guardaremos los cambios los cambios y reiniciamos Apache:
+
+[source,sh]
+----
+sudo service apache2 restart
+----    
+
+=== Configuración del archivo `.env`
+
+El archivo `.env` en Laravel es un archivo de configuración que contiene variables de entorno para ajustar la configuración del proyecto, incluyendo la conexión a la base de datos, la configuración de correo electrónico, entre otros.
+
+En los apartado anteriores hemos explicado lo justo y necesario para el funcionamiento básico de la aplicación, en esta sección os explicaremos todas aquellas variables útiles para el proyecto y que se pueden encontrar y modificar en el archivo `.env`.
+
+Además de la conexión a la base de datos o a la API, puedes configurar otras variables de entorno en el archivo `.env` según sea necesario. Las variables más importantes son las siguientes.
+
+Configuración general de la aplicación:
+[source]
+----
+APP_NAME=Nombre_de_la_aplicación
+APP_KEY=Clave_secreta_generada_por_Artisan
+----
+
+Configuración del sistema de envío de correos electrónicos.
+[source]
+----
+MAIL_MAILER=smtp
+MAIL_HOST=smtp.mailtrap.io
+MAIL_PORT=2525
+MAIL_USERNAME=tu_nombre_de_usuario
+MAIL_PASSWORD=tu_contraseña
+MAIL_ENCRYPTION=tls
+MAIL_FROM_ADDRESS=tu_email@ejemplo.com
+MAIL_FROM_NAME=nombre_del_remitente
+----
+
+Configuración de la app principal:
+
+[source]
+----    
+#numero de eventos a mostrar en el home por categoría
+EVENTSBYCATEGORY = 4
+
+#URL de la conexión a la pasarela de pagos
+URL_CONNECTION = https://sis-t.redsys.es:25443/sis/realizarPago 
+
+#URL de los errores de la pasarela
+URL_DESCRIPTION_ERROR = https://pagosonline.redsys.es codigosRespuesta.html 
+----
+    
+Líneas de configuración de la pasarela de pagos:
+[source]
+----
+DS_MERCHANT_CURRENCY = 978
+DS_MERCHANT_MERCHANTCODE = 999008881
+DS_MERCHANT_TERMINAL = 001
+DS_MERCHANT_TRANSACTIONTYPE = 0
+Ds_SignatureVersion = HMAC_SHA256_V1
+claveSHA256 = sq7HjrUOBfKmC576ILgskD5srU870gJ7
+ACTIVEREDSYS = true
+----
+
+Líneas de configuración de la conexión a la API
+[source]
+----
+# Tamaños deseados para las diferentes versiones de las imágenes, en píxeles (puede variar la cantidad de tamaños)
+IMAGE_SIZES = [300,700,1600]
+
+# URL de la conexión a la API
+IMAGE_API_URL= "http://127.0.0.1:8088/api/v1/images"
+
+# Contraseña para los endpoints protegidos de la API
+IMAGE_API_KEY= "CxSJj7WKdWYy90hX4vJjaS6JK2"
+----
+
+Asegúrate de ajustar estos valores según tus necesidades.
+
+== Documentación de la API de almacenamiento y procesamiento de imágenes
+
+Dentro del repositorio, en la carpeta `~/api`, encontramos un proyecto paralelo independiente que se llama ImgAda. Se trata de una _API Restful_ que permite el almacenamiento de imágenes para su optimización en el uso web. Recibe una imagen y una serie de tamaños en formato _array_ numérico, reescala la imagen a cada uno de esos tamaños y devuelve un _array_ con las _URLs_.
+
+La aplicación recibe una imagen, verifica que se pueda tratar como imagen y la procesa, reescalándola a los tamaños designados. Por cada tamaño guarda un archivo de imagen diferente. Una vez guardados estos archivos, como respuesta a la petición POST, devolverá una url por cada imagen creada. Esta url contendrá el nombre de archivo encriptado y se podrá usar para acceder a la versión de la imagen guardada que se necesite.
+
+En la actual versión (v1), solo trabaja con tres _endpoints_ aunque nuestra aplicación solo hace uso de dos, el GET y el POST:
+
+
+- GET api/v1/images/{filename}: Este endpoint se utiliza para recuperar una imagen específica. Toma como parámetro el nombre de archivo encriptado y devuelve la imagen correspondiente si existe.
+
+- POST api/v1/images: Este endpoint se utiliza para subir y guardar una imagen. Recibe por parámetros, en el cuerpo de la request, el archivo de la imagen que se quiere procesar y un array numérico con cada uno de los tamaños que se necesitan. Una vez verificados la imagen y el array numérico, la procesa y devuelve un array de tantas URLs como tamaños distintos se hayan requerido. Esta respuesta se enviará en formato JSON y en orden ascendente, es decir de más pequeño a más grande.
+
+- DELETE api/v1/images: Este endpoint se utiliza para eliminar una imagen previamente guardada. Recibe por parámetros, en el cuerpo de la request, un array con las URLs de las imágenes que se quieren eliminar. Una vez verificadas las URLs se procede a la eliminación de las imágenes correspondientes. Si todo va bien se devuelve un json con el array del nombre de los ficheros eliminados. 
+
+=== Seguridad
+
+La API lleva implementada un sistema de seguridad por clave para que algunos de los endpoints, en nuestro caso, el POST, solo pueda ser usado desde la aplicación principal.
+El sistema es muy sencillo, hay una clave guardada tanto en el `.env` de la aplicación principal como en el de la API, al llegarle un POST la API comprueba que lleve la contraseña y la compara con el código guardado en su `env`. Si es la contraseña correcta procede con la lógica del _endpoint_, en caso contrario devuelve un error 401.
+
+=== GET: Recuperar una imagen
+
+Recupera la imagen indicada a través del parámetro.
+
+[cols="2,8",options="header"]
+|===
+| Parámetros de la petición | Descripción
+| filename | Código de la imagen a recuperar.
+|===
+
+
+.Ejemplo de solicitud:
+
+[source]
+----
+GET http/localhost:8088/api/v1/images/{filename} HTTP/1.1
+Host: example.com
+----
+
+[cols="2,8",options="header"]
+|===
+| Código de estado | Descripción
+| 200 | OK - Devuelve un archivo de imagen.
+| 400 | El parámetro es erróneo.
+| 404 | No encontrado - Archivo no encontrado.
+| 500 | Error de servidor - Ha ocurrido un error inesperado.
+|===
+
+=== POST: Subir una imagen
+
+Sube una imagen y devuelve un array de tres URLs en formato JSON.
+
+[options="header"]
+|===
+| Cuerpo de la petición
+| Content-Type: multipart/form-data
+|===
+
+[cols="2,3,6",options="header"]
+|===
+| Nombre del parámetro | Tipo de valor | Descripción
+| image | Archivo de imágen (jpg, jpeg...) | El archivo de imagen que se va a cargar.
+| sizes | Array numérico ([250,600,1600]) | El array de tamaños a los que se requiere reescalar la imagen.
+| pwd | string | El string que debería contener la contraseña del sistema de seguridad de la API.
+|===
+
+.Ejemplo de solicitud:
+
+[source]
+----
+POST http/localhost:8088/api/v1/images HTTP/1.1
+Host: example.com
+Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
+
+----WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="image"; filename="example.jpg"
+Content-Type: image/jpeg
+
+<contenido binario de la imagen>
+----WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="sizes"
+[250, 700, 1800]
+----WebKitFormBoundary7MA4YWxkTrZu0gW--
+Content-Disposition: form-data; name="pwd"
+"7MA4YWxkTrZu0g"
+----WebKitFormBoundary7MA4YWxkTrZu0gW--
+----
+
+[[post-example-response-200]]
+.Ejemplo de respuesta exitosa (200)
+
+[source,json]
+----
+[
+"codigo1",
+"codigo2",
+"codigo3"
+]
+----
+
+Este ejemplo devuelve tres URLs correspondientes a los diferentes tamaños de la imagen subida en orden ascendente.
+
+Estas URLs pueden utilizarse para acceder a las imágenes optimizadas después de la carga.
+
+[cols="2,8",options="header"]
+|===
+| Código de estado | Descripción
+| 200 | OK - Devuelve un array con tres urls.
+| 400 | El archivo subido no tiene un formato de imagen válido.
+| 401 | La credencial enviada no es correcta.
+| 413 | El tamaño del archivo de imagen excede el límite.
+| 500 | Error de servidor - Error inesperado: No se ha podido procesar la imagen.
+|===
+
+=== DELETE: Eliminar imágenes
+
+Elimina imágenes basadas en las URLs proporcionadas mediante un array y devuelve otro array con el nombre de los ficheros eliminados.
+
+[cols="2,8",options="header"]
+|===
+| Parámetros de la petición | Descripción
+| urls | Array de URLs de las imágenes a eliminar.
+|===
+
+.Ejemplo de solicitud:
+
+[source]
+----
+DELETE http://localhost:8088/api/v1/images HTTP/1.1
+Content-Type: application/json
+Host: example.com
+
+{
+    "urls": [
+        "http://example.com/url1",
+        "http://example.com/url2"
+   ]
+}
+----
+
+[[delete-example-response-200]]
+.Ejemplo de respuesta exitosa (200)
+
+[source,json]
+----
+{
+   "archivos_eliminados": [
+      "url1",
+      "url2",
+   ]
+}
+----
+Este ejemplo devuelve el código del final de las dos URLs correspondientes a los nombres de las dos imágenes que se ha pedido que se eliminaran.
+
+
+[cols="2,8",options="header"]
+|===
+| Código de estado | Descripción
+| 200 | Imágenes eliminadas correctamente.
+| 400 | Petición incorrecta - No se proporcionaron URLs válidas o el tamaño del archivo excede el límite.
+| 404 | Archivo no encontrado - Archivo no encontrado para alguna de las URLs proporcionadas.
+| 500 | Error de servidor - No se pudo eliminar alguna de las imágenes.
+|===
+
+
+== Documentación de la API de verificación de tickets
+
+Esta Api te permite verificar si el ticket de una sesion es valido o no.
+Primero se loguea mediante el codigo de la sesión y una vez logueado mediante el lector qr se verifica el id del ticket y comprueba si existe y si es de la sesión que pertoca, una vez este eso comprobado mira si ese ticket ya ha sido verificado o no, si no esta verificado lo da por valido y lo verifica, y si ya lo esta manda un error.
+
+En la versión actual (v1), trabaja con 3 endpoints:
+
+GET /verify-ticket/{ticket_id}: Este endpoint se utiliza para comprobar si un ticket es valido dentro de la sessión iniciada. Toma como parámetro el id del ticket y devuelve si es valido o no y porque.
+
+POST /login: Este endpoint utiliza un codigo de sesion con el que se realizara el inicio de sesion. Si es valido se creara un token para identificar la sesión.
+
+POST /logout: Este endpoint utiliza un token almacenado en una cookie al iniciar sesión. Al ejecutarse este elimina la cookie y el token de la base de datos.
+
+=== Login
+Introduces el codigo y te devuelve un token en formato JSON.
+
+[options="header"]
+|===
+| Cuerpo de la petición
+| Content-Type: application/form-data
+|===
+[cols="2,8",options="header"]
+|===
+| Nombre del parámetro | Descripción
+| code | codigo de la sesion con la que haremos login.
+|===
+
+.Ejemplo de solicitud:
+
+[source]
+----
+POST /login HTTP/1.1
+Host: example.com
+Content-Type: text/plain
+
+code=your_code_here
+----
+
+.Ejemplo de respuesta exitosa (200)
+
+[source,json]
+----
+[
+"token": "bepNyKZHiiwXl1X",
+"session_id": 1
+]
+----
+Este ejemplo devuelve un token y el id de la sesion a la que se esta accediendo.
+
+Estos datos se utilizaran para comprobar los tickets que se esten verificando si pertenecen a la sesion y si son validos
+
+[cols="2,8",options="header"]
+|===
+| Código de estado | Descripción
+| 200 | OK - Devuelve un token y el id de la sesión.
+| 401 | Error de autenticación - El codigo no es valido.
+| 500 | Error de servidor - Ha ocurrido un error inesperado.
+|===
+
+=== Logout
+
+Al darle a logout elimina el token de la base de datos y la cookie donde estaba almacenado.
+
+[options="header"]
+|===
+| Cuerpo de la petición
+| Content-Type: application/form-data
+|===
+[cols="2,8",options="header"]
+|===
+| Nombre del parámetro | Descripción
+| token | token creado del inicio de sessión.
+|===
+
+.Ejemplo de solicitud:
+
+[source]
+----
+POST logout HTTP/1.1
+Host: example.com
+Content-Type: application/form-data
+
+token=your_token_here
+----
+
+[cols="2,8",options="header"]
+|===
+| Código de estado | Descripción
+| 200 | OK - Devuelve un mensaje indicando que el logout fue exitoso.
+| 500 | Error de servidor - Ha ocurrido un error inesperado.
+|===
+
+=== Verificar ticket
+Mediante un codigo qr se identifica el id del ticket y se verifica si es valido.
+
+[options="header"]
+|===
+| Cuerpo de la petición
+| Content-Type: application/form-data
+|===
+[cols="2,8",options="header"]
+|===
+| Nombre del parámetro | Descripción
+| id | id del ticket que se esta comprobando.
+|===
+
+.Ejemplo de solicitud:
+
+[source]
+----
+GET /verify-ticket/7 HTTP/1.1
+Host: example.com
+----
+
+
+[cols="2,8",options="header"]
+|===
+| Código de estado | Descripción
+| 200 | OK - Devuelve un mensaje indicando que el ticket es valido, y si es nominal también te añade los datos del cliente.
+| 400 | El parámetro es erróneo.
+| 401 | Error de autenticación - El codigo no es valido.
+| 404 | No encontrado - Ticket no encontrado.
+| 500 | Error de servidor - Ha ocurrido un error inesperado.
+|===
+
+== Configuración del docker y la base de datos
+
+En este apartado se explica cómo crear la imágen de docker necesaria, donde montaremos nuestra base de datos PostgreSql. 
+
+La base de datos será creada desde un script, en el momento de crear el contenedor y lanzarlo por primera vez, para poder modificar el _locale_ y la colación de la misma. 
+
+
+Así, Lo primero que hemos de hacer es localizar la carpeta docker_config en el proyecto. Dentro encontraremos tres ficheros: `compose.yml`, `dockerfile` y `initdb-script.sql`. 
+
+Nos colocamos en línea de comandos en esa carpeta y montamos la imagen del dockerfile con el comando de docker: build:
+
+[source,docker]
+----
+docker compose build
+----
+
+Una vez creada la imagen tendremos que lanzar el comando up para construir los contenedores indicados en el archivo `compose.yml`:
+
+[source,docker]
+----
+docker compose up -d
+----
+
+De esta manera, ya tendremos el contenedor docker de nuestra base de datos postgres en funcionamiento.
+
+== Datos de prueba para testear la pasarela de pagos
+
+Para poder hacer pruebas con la pasarela de pagos y simular la compra de las entradas en nuestra aplicación dejaremos varios datos que se pueden usar proporcionados por la app web que usamos, llamada Redsys. 
+
+[cols="3,2,1,1",options="header"]
+|===
+| Descripción | Numeración | Caducidad | CVV
+| Autenticación Frictionless · EMV3DS 2.1 con threeDSMethodURL | 4918019160034602 | 12/34 | 123
+| Autenticación Challenge · EMV3DS 2.1 con threeDSMethodURL. | 	4918019199883839 | 12/34 | 123
+|===
+
+Si se necesita probar con otros datos, la página web de Redsys nos ofrece muchas variantes distintas, se puede encontrar en este enlace: https://pagosonline.redsys.es/entornosPruebas.html[Entorno de pruebas de Redsys]
+
+== Lineas futuras.
+
+Después de la entrega del proyecto, somos conscientes de que no hemos cumplido todos los requerimientos que se nos han planteado, además, hay varios puntos que creemos se pueden mejorar, pulir e incluso nuevas funcionalidades que se podrían añadir.
+
+Reconocemos que el apartado de diseño del proyecto se ha quedado un poco rezagado respecto a lo demás, por lo que debería ser a lo que le demos más cariño con el objetivo de mejorar el producto final.
+
+=== Pulir el estado actual del proyecto
+
+El primer paso sería pulir el estado actual, todo aquello que no acaba de funcionar como debería y el aspecto visual de muchas de las vistas.
+
+1. Revisión de diseño de formularios. Habría que darle una vuelta al layout y la disposición de muchos de los formularios, sobre todo los de evento y sesión.
+
+2. Refactor completo del formulario de direcciones. Este formulario al principio pensamos que era buena idea dejarlo como modal, pero en seguida nos dimos cuenta de que no lo era, dar feedback de esta manera desde servidor es muy complicado. Por temas de tiempo no lo hemos podido cambiar pero es algo que se debería de hacer.
+
+3. Pulir los estilos de muchas vistas. Hay vistas en las que no hemos podido colocar los elementos como queríamos y cuadrar todo para que quede bien en los diferentes tamaños de pantalla, por ejemplo las tarjetas del home, o la vista que muestra un evento y sus sesiones
+
+4. Acabar funcionalidades que no se han terminado de implementar pero la aplicación está preparada para hacerlo:
+  ** Borrado de eventos, sesiones e imágenes.
+  ** Habilitar el cambio de la imagen principal de un evento.
+
+5. Revisar y arreglar errores en el funcionamiento de la página.
+
+
+=== Cumplir los requerimientos actuales del proyecto
+
+Una vez tengamos nuestra página funcionando y en un estado potable, el siguiente estadio sería terminar  todo aquello que el cliente, en este caso nuestros profesores, nos han pedido.
+
+* Añadir un calendario en los detalles de los eventos para poder seleccionar las sesiones.
+* Habilitar el uso de HTTPS en todos los servicios del proyecto, web y APIs.
+* Guardar las imágenes en caché.
+* Crear una aplicación móvil para verificar las entradas.
+* Añadir botones con links de las redes sociales.
+
+=== Posibles mejoras
+
+Después de terminar todo lo pendiente del proyecto, hemos pensado alguna posible funcionalidad que se podría añadir al proyecto.
+
+* Un servicio de petición de usuario de promotor. Es decir, que los usuarios tuvieran que pasar una selección basada en si realmente se dedican a ello o no y si la pasan se les crea un usuario de promotor para que pudieran usar esa parte de la aplicación.
+
+* Una función de _tags_, en el que los promotores adjudiquen ciertas ediquetas semánticas a sus eventos y los usuarios pudieran buscar o filtrar mediante esas _tags_.
+
+== Conclusiones
+
+Después de estos meses de trabajo, hemos de reconocer que no estamos del todo contentos con el resultado, nos hubiera gustado entregar un resultado del que pudiéramos estar orgullosos pero no ha sido así. En cualquier caso, pensamos que lo importante realmente es el aprendizaje que nos llevamos, más que el producto final. 
+
+Desde luego ahora que estamos familiarizados con todas estas tecnologías, que al principio nos eran desconocidas, si volviéramos a empezar un proyecto así haríamos muchas cosas de forma diferente y el proceso sería mucho más fluído sin encallarnos tantas veces como nos ha ocurrido.
+
+=== Desviaciones en la Planificación
+
+En este apartado expondremos los puntos que nos han trastocado el planteamiento inicial, ya sea por que nos ha tomado más tiempo del inicialmente pensado o por que nos ha supuesto problemas o cambios grandes en la aplicación que no teníamos previstos.
+
+En primer lugar, aquellos puntos que nos han tomado más tiempo del previsto han sido:
+
+* Búsqueda en base de datos por colación. Es un punto en el que hemos gastado entre dos miembros del equipo dos semanas, y que al final no hemos sabido solventar, lo hemos solucionado usando una extensión de postgres llamada unaccent y el comando `ilike`.
+
+* Creación del formulario del evento. Un punto en el que hemos estado hasta cuatro semanas, entre el diseño de la base de datos y la lógica interna, cambios en la base de datos por haber entendido mal la lógica de _business_, fallos en la validación, etc... Además se trata de un formulario con varias capas, y ahora pensamos que no lo hemos planteado de la forma más eficiente desde un inicio, sobre todo la adición de nuevas direcciones.
+
+* Redsys. La conexión con la pasarela de pago y el tratado de datos y errores entre la API de redsys y nuestra aplicación ha sido un quebradero de cabeza, que al final hemos logrado dominar, pero ha supuesto el tener una persona constantemente en ello durante unas tres semanas.
+
+Luego, hay puntos en los que hemos tenido que tomar decisión de no hacer algo o dejarlo de forma diferente a la requerida por falta de tiempo y para centranos en puntos más importantes.
+Estos son:
+
+* El calendario en la vista de detalles del evento con las sesiones.
+* Los tickets son nominales según la sesión, no según el tipo de ticket.
+
+
+=== Aportaciones del Proyecto a los Conocimientos del Alumno
+
+Al final, después de todo, creemos que a parte del conocimiento específico de cada nueva tecnología con la que hemos tratado en este proyecto, lo más importante que nos llevamos es el darnos cuenta de lo importante que es saber organizarse bien el tiempo.
+
+Saber tomar las decisiones adecuadas, qué sacar adelante y qué dejar atrás, ir a lo más práctico siempre y de ahí construir si se puede permitir el tiempo. En un proyecto el tiempo es el recurso más valioso, y en nuestro caso, quizás no hemos sabido gestionarlo de la mejor manera, pero el aprender esto ya es mucho.
+
+En cuanto a conocimientos específicos, ahora nos vemos capaces de enfrentarnos a proyectos de este calibre, con frameworks que no hemos tocado e incluso mediante arquitecturas MVC. Hemos aprendido lo necesario para servir una página web o una API en un servidor. Cómo funciona una API, a desarrollar una y cómo conectar con ella y lanzarle _requests_. 
+
+
+== Webgrafía
+En esta sección os presentaremos aquellos recursos web a los que hemos accedido para documentarnos en la programación en varios lenguajes o el uso de algunas APIs. 
+
+https://developer.mozilla.org/es/[Mozilla Develop Network]: 
+ Css, JavaScript.
+
+https://laracasts.com/[Laracasts], y https://laravel.com/[Página oficial de Laravel]: Laravel y extensiones como gd.
+
+https://pagosonline.redsys.es/desarrolladores.html[Redsys para desarrolladores]: todo lo relacionado con la pasarela de pagos.
+
+https://www.w3schools.com/[w3schools]: Css, JavaScript.
+
+https://www.postgresql.org/docs/[Documentación oficial de Postgres]: consultas sobre postgres y sobretodo colación, _locale_, acentuación y mayúsculas.
+
+https://hub.docker.com/_/postgres[Documentación de docker]: sobretodo de cómo montar un contenedor con Postgres y cómo asignarle un _locale_ y colación al crearlo.
+
+https://github.com/KittyGiraudel/sass-boilerplate/tree/master/stylesheets[Repositorio GIT sass-boilerplate, de KittyGiraudel]: sass usando paradigma de estructuración 7:1. 
+
+https://stackoverflow.blog/[StackOverflow]: todo tipo de consultas generales sobre todas las tecnologías usadas.
+
+https://chat.openai.com/[ChatGPT]: consultas generales y ayuda de corrección sintáctica.
+
+https://fontawesome.com/[Font Awesome]: fuente de iconografía.
+
+https://fonts.google.com/[Google Fonts]: fuente de tipografía.
+
+https://coolors.co/[Coolors]: pruebas de paletas de colores.
+
+http://colormind.io/[Colormind.io]: pruebas de paletas de colores.
+
+https://colorable.jxnblk.com/[Colorable.jxnblk]: pruebas de contraste de colores entre texto y fondo.
