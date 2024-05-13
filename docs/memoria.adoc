@@ -148,7 +148,7 @@ El siguiente paso es descargar todo el proyecto desde el repositorio de GIT. Par
 
 [source,sh]
 ----
-git clone https://git.copernic.cat/alopera/gr01-mateos-lopera-amador.git .
+git clone https://git.copernic.cat/garcia.dominguez.samuel/blanxart-m12-amador-garcia-rojas-mateos.git .
 ----
 
 TIP: El punto del final del comando significa en la ruta actual. Es decir en el directorio en el que nos encontremos en el momento de ejecutarlo. Si se quiere se puede cambiar por una ruta física o por una relativa. 
@@ -169,7 +169,7 @@ El archivo `.env` en Laravel es un archivo de configuración que contiene variab
 cd /ruta/a/tu/proyecto
 ----
 
-Desde este punto hemos de entrar en la siguiente ruta: `fairy_tickets/`, que sería la carpeta raíz del proyecto Laravel y allá localizar el archivo `.env.example` y copiarlo en el mismo lugar pero con el nombre `.env`, de esta manera crearemos el archivo de variables de entorno de nuestra aplicación a partir de una plantilla preconfigurada guardada en el repositorio GIT.
+Desde este punto hemos de entrar en la siguiente ruta: `blanxart/`, que sería la carpeta raíz del proyecto Laravel y allá localizar el archivo `.env.example` y copiarlo en el mismo lugar pero con el nombre `.env`, de esta manera crearemos el archivo de variables de entorno de nuestra aplicación a partir de una plantilla preconfigurada guardada en el repositorio GIT.
 
 [source,sh]
 ----
@@ -222,7 +222,7 @@ Con esto habremos configurado lo necesario para que al levantar el contenedor de
 
 Una vez configurado el archivo `.env`, el siguiente paso es instalar todas las dependencias necesarias para el proyecto mediante el gestor Composer.
 
-Ubicándonos de nuevo en la carpeta fairy_tickets/, la carpeta raíz del proyecto Laravel, en la que deberíamos de encontrarnos, si se ha seguido la guía hasta este punto, lanzamos el siguiente comando:
+Ubicándonos de nuevo en la carpeta blanxart/, la carpeta raíz del proyecto Laravel, en la que deberíamos de encontrarnos, si se ha seguido la guía hasta este punto, lanzamos el siguiente comando:
 
 [source,sh]
 ----
@@ -231,7 +231,7 @@ composer install
 
 Este comando instalará todas las dependencias especificadas en el archivo `composer.json`, que son las que necesita nuestro proyecto.
 
-Llegados aquí, en cuanto a la parte web del proyecto sólo nos quedaría generar una `APP_KEY` de Laravel para poder funcionar (a falta de base de datos y la API encargada de las imágenes). Para esto, seguimos en la carpeta raíz del proyecto Laravel `fairy_tickets/` y lanzamos el siguiente comando:
+Llegados aquí, en cuanto a la parte web del proyecto sólo nos quedaría generar una `APP_KEY` de Laravel para poder funcionar (a falta de base de datos y la API encargada de las imágenes). Para esto, seguimos en la carpeta raíz del proyecto Laravel `blanxart/` y lanzamos el siguiente comando:
 
 [source,sh]
 ----
@@ -369,11 +369,11 @@ cd /var/www/html
 sudo git clone https://git.copernic.cat/alopera/gr01-mateos-lopera-amador.git /var/www/html
 ----
 
-Accede al directorio del proyecto y ejecuta la instalación de dependencias de Laravel, para hacerlo tiene que ser dentro de la carpeta del proyecto laravel, en este caso es la carpeta fairy_tickets:
+Accede al directorio del proyecto y ejecuta la instalación de dependencias de Laravel, para hacerlo tiene que ser dentro de la carpeta del proyecto laravel, en este caso es la carpeta blanxart:
 
 [source,sh]
 ----
-cd /var/www/html/gr01-mateos-lopera-amador/fairy_tickets
+cd /var/www/html/blanxart-m12-amador-garcia-rojas-mateos/blanxart
 sudo composer install
 ----
 
@@ -389,7 +389,7 @@ Como sucedía en el caso del despliegue en local, aquí también explicaremos de
     DB_CONNECTION=pgsql
     DB_HOST=127.0.0.1
     DB_PORT=5432
-    DB_DATABASE=fairy_tickets
+    DB_DATABASE=blanxart
     DB_USERNAME=postgres
     DB_PASSWORD=root
     ```
@@ -397,7 +397,7 @@ Como sucedía en el caso del despliegue en local, aquí también explicaremos de
     Como hemos explicado en el despliegue en local, estas son las líneas que deberías tener en tu `env`.
 
 3. **Configuración de conexión a la API**:
-    Para configurar la conexión a la API, en la carpeta raíz del proyecto Laravel, es decir desde la raíz del repositorio GIT: `~/fairy_tickets`.
+    Para configurar la conexión a la API, en la carpeta raíz del proyecto Laravel, es decir desde la raíz del repositorio GIT: `~/blanxart`.
     , basta con cambiar la URL del parámetro `IMAGE_API_URL` del archivo `.env` de la siguiente manera:
 
      ```
@@ -444,7 +444,7 @@ Hecho esto, deberíamos de tener la API funcionando en servidor en un docker a l
 
 ==== Últimos pasos
 
-Para que funcione la aplicación deberemos generar una clave `APP_KEY`. Para ello nos colocamos en la carpeta raíz del proyecto Laravel, `~/fairy_tickets` desde la raíz del repositorio GIT.
+Para que funcione la aplicación deberemos generar una clave `APP_KEY`. Para ello nos colocamos en la carpeta raíz del proyecto Laravel, `~/blanxart` desde la raíz del repositorio GIT.
 Y generamos la clave de aplicación de Laravel con el siguiente comando:
 
 [source,sh]
