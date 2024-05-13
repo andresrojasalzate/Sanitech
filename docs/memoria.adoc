@@ -173,7 +173,7 @@ Desde este punto hemos de entrar en la siguiente ruta: `fairy_tickets/`, que ser
 
 [source,sh]
 ----
-cd fairy_tickets
+cd blanxart
 cp .env.example .env
 ----
 
@@ -203,9 +203,9 @@ Y las cambiamos a:
 DB_CONNECTION=pgsql
 DB_HOST=127.0.0.1
 DB_PORT=5432
-DB_DATABASE=fairy_tickets
-DB_USERNAME=postgres
-DB_PASSWORD=root
+DB_DATABASE=blanxart
+DB_USERNAME=uuario
+DB_PASSWORD=1234
 ----
 
 Guardamos los cambios y cerramos nano:
@@ -271,10 +271,11 @@ ports:
       - 5432:5432
 ----
 
-Para terminar este paso, hemos de rellenar la base de datos con algunos datos iniciales y generar las tablas que necesitará nuestra aplicación. Para ello nos colocamos, de nuevo, en la carpeta raíz del proyecto Laravel: `~/fairy_tickets` y lanzamos el comando:
+Para terminar este paso, hemos de rellenar la base de datos con algunos datos iniciales y generar las tablas que necesitará nuestra aplicación. Para ello nos colocamos, de nuevo, en la carpeta raíz del proyecto Laravel: `~/blanxart` y lanzamos el comando:
 
 [source,sh]
 ----
+sudo php artisan migrate:fresh
 sudo php artisan db:seed
 ----
 
