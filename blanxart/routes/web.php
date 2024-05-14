@@ -44,9 +44,7 @@ Route::post('/sanitech', [AuthController::class, 'login'])->name('custom-login')
 Route::group(['middleware' => 'auth'], function () {
 
     //Ruta 'home'
-    Route::get('/home', function () {
-        return view('pages.home');
-    })->name('home');
+    Route::get('/home', [HomeController::class, 'home'])->name('home');
 
     //ruta 'logout'
     Route::get('/logout', [AuthController::class, 'logout'])->name('logout')->middleware('auth');
