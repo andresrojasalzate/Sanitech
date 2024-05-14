@@ -244,13 +244,13 @@ En el siguiente paso, explicaremos cómo crear la imágen de docker necesaria, d
 
 La base de datos será creada desde un script, en el momento de crear el contenedor y lanzarlo por primera vez, para poder modificar el _locale_ y la colación de la misma. 
 
-Así, Lo primero que hemos de hacer es localizar la carpeta docker_config en el proyecto. Desde la raíz del repositorio GIT, la ruta es `~/docker-config/`. Dentro encontraremos tres ficheros: `compose.yml`, `dockerfile` y `initdb-script.sql`. 
+Así, Lo primero que hemos de hacer es localizar la carpeta docker_config en el proyecto. Desde la raíz del repositorio GIT, la ruta es `~/docker/`. Dentro encontraremos el fichero: `docker-compose.yml`. 
 
 Nos colocamos en línea de comandos en esa carpeta y montamos la imagen del dockerfile con el comando de docker: build:
 
 [source,docker]
 ----
-cd docker-config
+cd /docker
 docker compose build
 ----
 
