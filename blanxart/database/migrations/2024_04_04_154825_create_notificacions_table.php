@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('title');
             $table->string('descripcion');
             $table->string('tipo');
+            $table->boolean('vista');
             $table->foreignId('cita_id')->references('id')->on('citas')->onDelete('cascade')
             ->onUpdate('cascade');
             $table->timestamps();
