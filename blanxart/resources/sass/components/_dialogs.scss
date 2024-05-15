@@ -1,3 +1,5 @@
+@import "https://unpkg.com/open-props";
+
 .dialog-overlay {
     position: fixed;
     top: 0;
@@ -15,14 +17,18 @@
     background-color: white;
     padding: 20px;
     border-radius: 5px;
+    font-size: 25px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
     display: grid;
     justify-items: center;
-
+    transition: opacity .5s;
+    animation: var(--animation-scale-down) forwards;
+    animation-timing-function: var(--ease-squish-3);
     p{
         grid-column: 1 / 3;
+        font-size: 25px;
     }
   }
-  
+
 
   
