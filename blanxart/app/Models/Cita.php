@@ -58,15 +58,16 @@ class Cita extends Model
         return $citas;
     }
 
-    public static function fillPDF($idCita)
+    public static function fillPDF($paciente_id, $cita_id)
     {
-        $cita = DB::table('citas')
-            ->join('users', 'users.id', '=', 'citas.paciente_id')
-            ->select('users.name', 'users.lastName', 'users.dni', 'citas.date', 'citas.time', 'citas.prueba_id')
-            ->where('citas.id', $idCita)
-            ->get();
+        $citas = DB::table('citas')
+            ->leftJoin('pruebas', 'citas.prueba_id', '=', 'pruebas.id')
+            ->select('citas.*', 'pruebas.name', 'pruebas.video', 'pruebas.document')
+            ->where('citas.id', $cita_id)
+            ->where('citas.paciente_id', $paciente_id)
+            ->first();
 
-        return $cita;
+        return $citas;
     }
 
     public static function getDiasNoDisponibles($medico_id)

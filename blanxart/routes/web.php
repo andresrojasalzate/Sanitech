@@ -81,7 +81,7 @@ Route::group(['middleware' => 'auth'], function () {
 
         //Generar un justificante
         Route::get('/justificante/{id}', [JustificanteController::class, 'justificante'])->name('justificante');
-        Route::get('/generarJustificante/{idCita}', [JustificanteController::class, 'generarJustificante'])->name('generarJustificante');
+        Route::get('/generarJustificante/{id}', [JustificanteController::class, 'generarJustificante'])->name('generarJustificante');
         
         //Pedir una cita
         Route::get('/pedirCita/{id}', [PedirCitaController::class, 'pedirCita'])->name('pedirCita');
