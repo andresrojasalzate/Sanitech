@@ -4,10 +4,9 @@
 @section('descripcion_pagina', 'Crear cita per a un pacient')
 
 @section('content')
-    
     <main class="allform-container">
 
-        <x-boton-atras :url="route('buscadorPacientes',['accion' => 'agendaPaciente'])" />
+        <x-boton-atras :url="route('buscadorPacientes', ['accion' => 'crearCita'])" />
 
         <section class="tituloCrearCita">
             <h1 class="medionegrita">Crear cita</h1>
@@ -55,7 +54,6 @@
                 <input type="hidden" name="paciente_id" value="{{ $paciente->id }}">
                 <button class="confirmar-btn">Crear Cita</button>
             </form>
-
 
         </section>
 
