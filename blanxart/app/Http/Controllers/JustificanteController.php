@@ -13,15 +13,18 @@ class JustificanteController extends Controller
 {
     public function justificante($id): View 
     {
-        $paciente_id = Paciente::find($id)->value('id');
+        $paciente_id = Paciente::where('user_id', $id)->value('id');
         $citas = Cita::getAllCitasByUserId($paciente_id);
+        // dd($citas);
         return view ('pages.justificante', compact('citas'));
     }
 
-    public function generarJustificante($id) 
+    public function generarJustificante($idCita) 
     {
-        $paciente_id = Paciente::find($id)->value('id');
-        $cita = Cita::fillPDF($paciente_id);
+        $user = Auth::user();
+        $paciente_id = Paciente::where('user_id', $user->id)->value('id');
+        $cita = Cita::fillPDF($paciente_id, $idCita);
+        // dd($cita);
         $pdf = Pdf::loadView('templates.justificante',compact('cita'));
         return $pdf->download('justificant.pdf');
     }

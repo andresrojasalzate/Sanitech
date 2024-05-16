@@ -28,7 +28,7 @@
                 </div>
             </a>
 
-            <a href="{{ route('justificante', ['id' => auth()->user()->paciente->id]) }}">
+            <a href="{{ route('justificante', ['id' => auth()->user()->id]) }}">
                 <div class="solicitudes-card_type_2">
                     <div class="solicitudes-card_type_2-icon">
                         <i class="fa-solid fa-file"></i>
