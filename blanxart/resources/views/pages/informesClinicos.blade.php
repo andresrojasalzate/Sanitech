@@ -17,7 +17,6 @@
             <h1 class="medionegrita">Informes clínics</h1>
             <p>Aquí pots visualitzar tots els resultats.</p>
         </section>
-
         <section class="listaInformes">
             @if ($resultados->count())
                 <div id="informesClinicos">
@@ -35,6 +34,5 @@
                 </div>
             @endif
         </section>
-
     </main>
 @endsection
