@@ -9,6 +9,12 @@
 
         <x-boton-atras :url="route('home')" />
 
+        @if (session('status'))
+            <div id="alertaExito">
+                <aletraExito :mensaje='@json(session("status"))'></alertaExito>
+            </div>
+        @endif
+        
         <section class="info">
             <h1 class="regular">Solicituts</h1>
             <p>Fes consultes, gestions o demana una cita.</p>
@@ -26,7 +32,7 @@
                 </div>
             </a>
 
-            <a>
+            <a href="{{ route('cambioMedico') }}">
                 <div class="solicitudes-card_type_2">
                     <div class="solicitudes-card_type_2-icon">
                         <i class="fa-solid fa-user-doctor"></i>

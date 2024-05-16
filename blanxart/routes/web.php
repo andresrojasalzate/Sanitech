@@ -14,7 +14,7 @@ use App\Http\Controllers\BuscadorMedicoController;
 use App\Http\Controllers\NotificacionesController;
 use App\Http\Controllers\InformeClinicosController;
 use App\Http\Controllers\BuscadorPacienteController;
-
+use App\Http\Controllers\CambiarMedicoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -88,6 +88,10 @@ Route::group(['middleware' => 'auth'], function () {
         //Pedir una cita
         Route::get('/pedirCita/{id}', [PedirCitaController::class, 'pedirCita'])->name('pedirCita');
         Route::post('/pedirCita/publicarPeticionCita', [PedirCitaController::class, 'publicarPeticionCita'])->name('publicarPeticionCita');
+
+        //Pedir cambio de medico
+        Route::get('/cambioMedico', [CambiarMedicoController::class, 'show'])->name('cambioMedico');
+        Route::post('cambiarMedico/store', [CambiarMedicoController::class, 'store'])->name('cambiarMedico.store');
     });
 });
 
