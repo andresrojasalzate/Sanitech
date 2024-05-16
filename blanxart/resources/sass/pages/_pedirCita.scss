@@ -6,7 +6,6 @@
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
             padding: 20px;
             margin-top: 40px;
-            margin-bottom: 40px;
             h4 {
                 text-align: center;
             }
@@ -24,6 +23,7 @@
 }
 
 .form-group {
+    @include flex-column-center;
     border: 1px solid $gris;
     border-radius: 8px;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
@@ -45,7 +45,7 @@
 .form-container {
     display: grid;
     justify-content: center;
-    padding: 40px;
+    padding: 40px 0;
 }
 
 .formulario-2-columns {

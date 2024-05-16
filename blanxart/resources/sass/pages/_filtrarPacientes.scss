@@ -1,6 +1,4 @@
 .tituloBuscadorPaciente {
-    padding-top: 2%;
-
     & > h1 {
         text-align: center;
         font-size: 2rem;
@@ -106,12 +104,13 @@
 }
 
 @media screen and (min-width: 768px) {
+
     .filtrarPacientesContainer {
         width: 80%;
     }
 
     .pacientenesEncontrados {
-        max-height: 50vh;
+        max-height: 51vh;
     }
 
     .paciente {

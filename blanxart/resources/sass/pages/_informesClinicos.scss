@@ -76,9 +76,9 @@
     grid-template-columns: 1fr 1fr; 
     grid-template-rows: repeat(3, auto);
     gap: 5%;
-    padding-top: 5%;
-    padding-bottom: 10%;
     background-color: #eeee;
+    transition: max-height 0.5s ease 0s;
+    overflow: hidden;
 
     &-titulo{
         align-self: center; 
