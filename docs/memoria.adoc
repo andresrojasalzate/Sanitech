@@ -1,13 +1,18 @@
-= Sanitech
-Albert Mateos - Andres Rojas - Diego Amador - Samuel Garcia 
-
-:toc-title: Tabla de contenido
+:toc-title: Índice de contenido
+:table-caption: Tabla
+:figure-caption: Imagen
 :icons: font
 :doctype: book
 :encoding: utf-8
 :lang: es
 :toc: left
 :numbered:
+
+
+= Sanitech
+Albert Mateos - Andres Rojas - Diego Amador - Samuel Garcia 
+
+
 
 ==  Introducción
 Os presentamos la memoria del tercer proyecto del curso 2023-2024 de 2o de Desarrollo de Aplicaciones Web del instituto Nicolau Copèrnic. Este proyecto consta del desarrollo de una página web de gestión de pruebas de un centro medico, desarrollado para el las estudiantes del instituto Blanxart de Terrassa. 
@@ -55,13 +60,15 @@ En cuanto a la persistencia de datos hemos usado una base de datos Postgres.
 
 ==  Diseño de base de datos y diagramas de clases.
 
-image::images/mer.png[Esquema MER de la base de datos]
+
+.Modelo MER base de datos
+image::images/mer_sanitech.png[Esquema MER de la base de datos]
 
 Para acceder al esquema MER de la base de datos puede dirigirse al siguiente enlace:
 https://drive.google.com/file/d/1jDNZInTPw_NM7lHp22TpuoQtsD87uHpR/view?usp=sharing[Esquema MER]
 
-Para acceder al diagrama de clases de modelos de la aplicación puede dirigirse al siguiente enlace:
-https://drive.google.com/file/d/1QzYtGKZtJKUy0lgzKIumWgC2MAplmrnS/view?usp=sharing[Diagrama de clases de modelos]
+El diagrama de clases de modelos de la aplicación puede dirigirse al siguiente enlace:
+https://drive.google.com/file/d/17l4RAqEUcrX0T7nJrxFmpgHbfhi7Fx9v/view?usp=sharing[Diagrama de clases de modelos]
 
 == Diseño y guía de estilos
 
@@ -90,57 +97,31 @@ Hemos decidido usar medidas a partir del tamaño de la fuente (rem), ya que al c
 Buscamos cual era el espacio estándar entre el contenido y los bordes en pantallas móviles y a partir de ahí lo escalamos según la pantalla. 
 También decidimos darle a la mayoría elementos de nuestro sitio web, botones, cards, contenedores... un aspecto rectangular con los bordes recortados en las esquinas.
 
-5. Botones.
+5. **Botones.**
 Los botones hemos decidido que usarían la misma fuente que el texto normal del sitio web. Tendrán un borde del color de la 'marca' de la web y un fondo transparente que se rellenará al hacer hover con el mismo color que el borde.
 
 En el siguiente enlace, puede encontrar toda la información a detalle de la guia de estilos de la aplicación https://www.figma.com/file/cOq2a3i65rwIY4i7gC5tbq/gr01-Gu%C3%ADa-de-estilos?type=design&node-id=0-1&mode=design&t=RbeKfi6LfndwQ6Wj-0[Guia de estilos]
 
 == Manual de instalación, distribución y configuración. 
 
-En esta sección se explicarán detalladamente los pasos a seguir para realizar el despliegue de la aplicación y extensiones necesarias para su funcionamiento. En primer lugar explicaremos como hacer el despliegue en local, y después en servidor, en este caso usaremos una máquina virtual ubuntu en un servidor de Isard.
+En esta sección se explicarán detalladamente los pasos a seguir para realizar el despliegue de la aplicación y extensiones necesarias para su funcionamiento. En primer lugar explicaremos como hacer el despliegue en local, y después en servidor, en este caso usaremos una *instancia EC2 de AWS (Amazon Web Services)* que hará la función de servidor.
 
-CAUTION: Atención, ambos manuales explican el despliegue en una máquina con un sistema que utilice el shell _bash_. Para el despliegue en una máquina con Windows los pasos a seguir son los mismos pero la manera de instalar los diferentes _softwares_ que necesitaremos es disinta.
+CAUTION: Atención, ambos manuales explican el despliegue en una máquina con un sistema que utilice el shell _bash_. Para el despliegue en una máquina con Windows los pasos a seguir son los mismos pero la manera de instalar los diferentes _softwares_ que necesitaremos es distinta.
 
 === Despliegue en local
 
 Para realizar el despliegue del proyecto en un entorno local no necesitamos ningun servidor puesto que usaremos el que lleva "built-in" artisan para servir nuestro sitio web. 
 
-Suponiendo que la máquina en la que hagamos la instalación tiene lo básico instalado, los pasos a seguir son los siguientes:
+Suponiendo que la máquina en la que hagamos la instalación tiene lo básico instalado y configurado como el php, composer, nodeJS, npm y algún editor de código fuente como _Visual Studio Code (VSCode)_ , los pasos a seguir son los siguientes para un sistema opertaivo windows:
 
 ==== Preparación del entorno
 
-Primero de todo nos aseguraremos que cualquier dependencia que vayamos a instalar este al día.
+Crearemos un nuevo directorio en donde alojaremos la aplicación; Abrimos el _Visual Studio Code_ y nos dirigimos al directorio creado anteriormente para clonar el repositorio donde se encuentra la aplicación.
 
-[source,sh]
+Abrimos una nueva terminal en el _VSCode_, para
 ----
-sudo apt update
+Ctrl + ñ
 ----
-
-Una vez hecho esto, procederemos a instalar todo el software que necesitaremos en nuestro entorno para servir el proyecto.
-
-[source,sh]
-----
-sudo apt install php php-cli php-mbstring php-xml php-zip php-gd
-----
-
-[NOTE]
-====
-Explicación de cada una de las dependencias instaladas:
-
-  - `php`: Instala PHP.
-    - `php-cli`: Instala la interfaz de línea de comandos de PHP, necesaria para ejecutar comandos de PHP en la terminal.
-    - `php-mbstring`: Instala la extensión de manejo de cadenas multibyte para PHP, necesaria para manipular texto multibyte.
-    - `php-gd`: Instala la extensión GD para PHP, necesaria para manipular imágenes.
-    - `unzip`: Instala la herramienta de descompresión de archivos zip. Muchas de las dependencias de Laravel vienen comprimidas así que necesitaremos un software descompresor si no lo tenemos ya.
-====
-
-Por último, hemos de instalar composer, una herramienta de gestión de dependencias de PHP, y por extensión de Laravel.
-
-[source,sh]
-----
-sudo apt install composer
-----
-
 
 ==== Clonar el Repositorio GIT
 
@@ -155,7 +136,7 @@ TIP: El punto del final del comando significa en la ruta actual. Es decir en el 
 
 ==== Copiar y configurar el archivo `.env` del proyecto
 
-Pese a que hemos dedicado un apartado entero más adelante para la explicación del archivo `.env`, en este apartado hablaremos de él y explicaremos brevemente qué se ha de hacer para que funcione la aplicación.
+Despues de realizar el cloando de la aplicación desde el repositorio a nuestra maquina local, empezaremos con la configuración local. Pese a que hemos dedicado un apartado entero más adelante para la explicación del archivo `.env`, en este apartado hablaremos de él y explicaremos brevemente qué se ha de hacer para que funcione la aplicación.
 
 El siguiente paso consiste en localizar el archivo `.env` de la aplicación web, para ello nos hemos de ubicar en la carpeta raíz del repositorio, es decir allá donde lo hayamos clonado.
 
@@ -169,20 +150,15 @@ El archivo `.env` en Laravel es un archivo de configuración que contiene variab
 cd /ruta/a/tu/proyecto
 ----
 
-Desde este punto hemos de entrar en la siguiente ruta: `blanxart/`, que sería la carpeta raíz del proyecto Laravel y allá localizar el archivo `.env.example` y copiarlo en el mismo lugar pero con el nombre `.env`, de esta manera crearemos el archivo de variables de entorno de nuestra aplicación a partir de una plantilla preconfigurada guardada en el repositorio GIT.
+Desde este punto hemos de entrar en la siguiente ruta: `blanxart/`, que sería la carpeta raíz del proyecto Laravel y allí localizar el archivo `.env.example` y copiarlo en el mismo lugar pero con el nombre `.env`, de esta manera crearemos el archivo de variables de entorno de nuestra aplicación a partir de una plantilla preconfigurada guardada en el repositorio GIT.
 
 [source,sh]
 ----
 cd blanxart
-cp .env.example .env
+copy .env.example .env
 ----
 
-Una vez hecho esto hemos de abrir el nuevo archivo `.env` con el editor de texto en línea de comandos nano.
-
-[source,sh]
-----
-sudo nano .env
-----
+Una vez hecho esto hemos de abrir el nuevo archivo `.env` desde el _VSCode_, dando doble click al archivo recien creado.
 
 Una vez abierto el archivo buscamos hasta encontrar estas líneas:
 
@@ -204,17 +180,11 @@ DB_CONNECTION=pgsql
 DB_HOST=127.0.0.1
 DB_PORT=5432
 DB_DATABASE=blanxart
-DB_USERNAME=uuario
+DB_USERNAME=usuario
 DB_PASSWORD=1234
 ----
 
-Guardamos los cambios y cerramos nano:
-
-1. Presiona `Ctrl + O` para escribir los cambios en el archivo.
-
-2. Presiona `Enter` para confirmar el nombre del archivo (si se te solicita).
-
-3. Presiona `Ctrl + X` para salir de `nano`.
+Guardamos los cambios con "Ctrl + s" y cerramos nano.
 
 Con esto habremos configurado lo necesario para que al levantar el contenedor de docker donde está nuestra base de datos, la aplicación conecte con ésta.
 
@@ -222,35 +192,50 @@ Con esto habremos configurado lo necesario para que al levantar el contenedor de
 
 Una vez configurado el archivo `.env`, el siguiente paso es instalar todas las dependencias necesarias para el proyecto mediante el gestor Composer.
 
-Ubicándonos de nuevo en la carpeta blanxart/, la carpeta raíz del proyecto Laravel, en la que deberíamos de encontrarnos, si se ha seguido la guía hasta este punto, lanzamos el siguiente comando:
+Ubicándonos de nuevo en la carpeta fairy_tickets/, la carpeta raíz del proyecto Laravel, en la que deberíamos de encontrarnos, si se ha seguido la guía hasta este punto, lanzamos el siguiente comando:
 
 [source,sh]
 ----
-composer install
+composer update
 ----
 
-Este comando instalará todas las dependencias especificadas en el archivo `composer.json`, que son las que necesita nuestro proyecto.
+Este comando instalará y/o actualizarán todas las dependencias especificadas en el archivo `composer.json`, que son las que necesita nuestro proyecto.
 
-Llegados aquí, en cuanto a la parte web del proyecto sólo nos quedaría generar una `APP_KEY` de Laravel para poder funcionar (a falta de base de datos y la API encargada de las imágenes). Para esto, seguimos en la carpeta raíz del proyecto Laravel `blanxart/` y lanzamos el siguiente comando:
+Llegados aquí, en cuanto a la parte web del proyecto sólo nos quedaría generar una `APP_KEY` de Laravel para poder funcionar, Para esto, seguimos en la carpeta raíz del proyecto Laravel `blanxart/` y lanzamos el siguiente comando:
 
 [source,sh]
 ----
-sudo php artisan key:generate
+php artisan key:generate
 ----
+
+==== Configuración de nodeJS 
+Ubicados en el directorio de la aplicación, debemos instalar el gestor de paquetes de node (npm) dentro del proyecto, para ello ejecutamos el comando:
+
+[source,sh]
+----
+npm install
+----
+Por último debemos construir los componentes vue en el servidor, esto con el fin de optimizar el código JS para ser usado en el ambiente de producción, para ello ejecutamos el comando:
+
+[source,sh]
+----
+npm run build
+----
+
 
 ==== Configuración del docker y la base de datos
 
 En el siguiente paso, explicaremos cómo crear la imágen de docker necesaria, donde montaremos nuestra base de datos PostgreSql y posteriormente levantar el contenedor docker para que nuestra aplicación se pueda conectar a la base de datos. 
 
-La base de datos será creada desde un script, en el momento de crear el contenedor y lanzarlo por primera vez, para poder modificar el _locale_ y la colación de la misma. 
+La base de datos será creada desde un script, en el momento de crear el contenedor y lanzarlo por primera vez. 
 
-Así, Lo primero que hemos de hacer es localizar la carpeta docker_config en el proyecto. Desde la raíz del repositorio GIT, la ruta es `~/docker/`. Dentro encontraremos el fichero: `docker-compose.yml`. 
+Así, Lo primero que hemos de hacer es localizar la carpeta _docker_ en el proyecto. Desde la raíz del repositorio GIT, la ruta es `~/docker-config/`. Dentro encontraremos el fichero: `compose.yml`. 
 
 Nos colocamos en línea de comandos en esa carpeta y montamos la imagen del dockerfile con el comando de docker: build:
 
 [source,docker]
 ----
-cd /docker
+cd docker
 docker compose build
 ----
 
@@ -271,33 +256,31 @@ ports:
       - 5432:5432
 ----
 
-Para terminar este paso, hemos de rellenar la base de datos con algunos datos iniciales y generar las tablas que necesitará nuestra aplicación. Para ello nos colocamos, de nuevo, en la carpeta raíz del proyecto Laravel: `~/blanxart` y lanzamos el comando:
+Para terminar este paso, hemos de rellenar la base de datos con algunos datos iniciales y generar las tablas que necesitará nuestra aplicación. Para ello nos colocamos, de nuevo, en la carpeta raíz del proyecto Laravel: `~/blanxart` y lanzamos los comandos:
 
 [source,sh]
 ----
-sudo php artisan migrate:fresh
-sudo php artisan db:seed
+php artisan migrate:fresh
+php artisan db:seed
 ----
 
-==== Configuración de la API
+Al finalizar la ejecución de los _seeders_ y poblarse las tablas de la base de datos, se generará un token, este token debe ingresarse en la variable de configuración **"API_KEY"** del fichero _.env_ de la aplicación
 
-El siguiente y último paso para desplegar la aplicación en local es la configuración de la API que procesa y guarda las imágenes de la aplicación.
+[source,sh]
+----
+Token: 1|VD8x2HAiBTUx7ltZRI9TYJW3S5D3LKHsbbAWvhDp1f112b49
+----
 
-La API se encuentra en la carpeta `~/api` de la raíz del repositorio GIT y está todo preparado para lanzarla en un contenedor docker y que la página web se conecte a la API ahí.
+[source,sh]
+----
+VITE_PUSHER_APP_KEY="${PUSHER_APP_KEY}"
+VITE_PUSHER_HOST="${PUSHER_HOST}"
+VITE_PUSHER_PORT="${PUSHER_PORT}"
+VITE_PUSHER_SCHEME="${PUSHER_SCHEME}"
+VITE_PUSHER_APP_CLUSTER="${PUSHER_APP_CLUSTER}"
 
-Este proceso es muy parecido a lo que hemos hecho con el proyecto Laravel de la aplicación principal. Salvo que los directorios son distintos.
-
-1. **Configuración `.env`:** Copiar el archivo .`example.env` a `.env` en la siguiente ruta desde la raíz del repositorio GIT: `~/api/ImgAda`. En este caso no hay que cambiar ninguna línea, ya está todo preparado.
-
-2. **Composer install:** En la misma ruta que el paso anterior lanzar el comando `composer install`.
-
-3. **Creación de clave `APP_KEY`**: En la misma ruta que los dos pasos anteriores lanzar el comando `sudo php artisan key:generate`.
-
-4. **Creación de imágen Docker y lanzamiento de contenedores**: nos ubicamos en la carpeta `~/api/api-docker` desde la raíz del repositorio GIT. Hay deberían de haber dos archivos, el archivo `dockerfile` con lo necesario para crear la imagen que se usará en el contenedor y las instrucciones para el levantamiento en el archivo `docker-compose.yml`. Una vez ubicados aquí lanzamos los comandos `docker compose build` y cuando termine de generar la imagen `docker compose up -d`.
-
-CAUTION: En este caso, la API se conecta al puerto 8088 del host, si estuviera ocupado hay que cambiarlo de la misma manera que en el paso levantamiento del docker de la base de datos.
-
-Ahora deberíamos tanto la base de datos como la API corriendo en sendos contenedores docker y en principio debería de estar todo listo para el uso de la aplicación
+API_KEY = VD8x2HAiBTUx7ltZRI9TYJW3S5D3LKHsbbAWvhDp1f112b49
+----
 
 ==== Puesta en marcha de la web
 
@@ -310,259 +293,344 @@ php artisan serve
 
 Esto iniciará un servidor de desarrollo en `http://localhost:8000`, donde podrás acceder a la aplicación.
 
-=== Isard
+CAUTION: Atención, debemos asegurarnos de haber ejecutado el comando "npm run build" antes de lanzar el servidor de laravel con el comando anteriormente visto.
 
-En esta sección explicaremos cómo instalar la aplicación en servidor, en este caso usaremos una máquina en el servicio Isard que nos concede el centro. En cualquier caso el proceso debería de ser muy similar en cualquier máquina con ubuntu, debian...
+=== Instancia EC2 AWS (Amazon Web Services)
+
+En esta sección explicaremos cómo instalar la aplicación en servidor, en este caso usaremos una instancia EC2 de AWS, generalmente estos servicios son de cobro, sin embargo se usa un laboratorio de pruebas, concedido por el centro, con un saldo para realizar pruebas de $100 USD. Esta instancia contará con un sistema operativo **Ubuntu Server 22.04 **, disponible para la capa gratuita del AWS. en cualquier caso el proceso será similar en cualquier máquina de la familia Linux.
 
 Primero deberíamos de instalar Apache2 y PHP en el servidor Debian ejecutando los siguientes comandos:
 
 [source,sh]
 ----
 sudo apt update
-sudo apt install apache2 php php-cli php-mbstring unzip
+
+sudo apt install apache2 postgresql postgresql-contrib php php-curl php-bcmath php-json php-pgsql php-mbstring php-xml php-tokenizer php-zip composer git
 ----
+Solicitará confirmación, escribimos "Y" y pulsamos la tecla "enter".
 
-==== Configuración de Apache2
-
-El siguiente paso es configurar el servicio Apache. Para ello edita el archivo de configuración de Apache2 `.htaccess` para permitir el uso de archivos y habilitar el módulo `rewrite`:
+Una vez finalizada la instalación anterior, comprobamos la versión y el estado del servicio del servidor web (apache2):
 
 [source,sh]
 ----
-sudo nano /etc/apache2/sites-available/000-default.conf
+sudo systemctl is-enabled apache2
+sudo systemctl status apache2
 ----
 
-Agrega las siguientes líneas dentro de la sección `<VirtualHost>`:
-
-[source,apache]
-----
-<Directory /var/www/html>
-    AllowOverride All
-</Directory>
-----
-
-Guarda los cambios y reinicia Apache:
+Igualmente con el servicio de la base de datos (postgresql):
 
 [source,sh]
 ----
-sudo service apache2 restart
+sudo systemctl is-enabled postgresql
+sudo systemctl status postgresql
 ----
 
-En este punto ya deberíamos de tener el servicio Apache configurado y corriendo en nuestra máquina servidor.
-
-==== Despliegue del Proyecto desde Git
-
-Ahora procederemos a descargar el proyecto desde el repositorio GIT. Para comenzar con el despliegue accederemos a la url de nuestro proyecto: https://git.copernic.cat/alopera/gr01-mateos-lopera-amador.
-
-Buscaremos un boton que ponga code y copiaremos la url que se indica que en este caso es la siguiente: https://git.copernic.cat/alopera/gr01-mateos-lopera-amador.git
-
-Para clonar el proyecto dentro del directorio `/var/www/html`, primero nos ubicamos en esta misma carpeta.
+Tambien verificamos la versión de PHP y Composer:
 
 [source,sh]
 ----
-cd /var/www/html
+php -v
+sudo -u www-data composer -v
 ----
 
- y lanzamos el comando siguiente:
+==== Instalación de NodeJS y NPM
+Ya que la aplicación cuenta con componentes de interfaces de usuario, desarrollados en con Vue, se requiere realizar su debida instalación. Dicha instalación se realizará con NVM (Node Version Manager), este software nos permite instalar cualquier versión de NodeJS que se necesite para el proyecto.
+
+instalamos NVM en el sistema:
 
 [source,sh]
 ----
-sudo git clone https://git.copernic.cat/alopera/gr01-mateos-lopera-amador.git /var/www/html
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
 ----
 
-Accede al directorio del proyecto y ejecuta la instalación de dependencias de Laravel, para hacerlo tiene que ser dentro de la carpeta del proyecto laravel, en este caso es la carpeta blanxart:
+Debemos cerrar la terminal actual y volver a abrir una nueva para que los cambios sean tomados; Una vez realizado esto, descargamos e instalamos NodeJS:
 
 [source,sh]
 ----
-cd /var/www/html/blanxart-m12-amador-garcia-rojas-mateos/blanxart
-sudo composer install
+nvm install 20
 ----
 
-==== Configuración del archivo .env en Laravel
-
-Como sucedía en el caso del despliegue en local, aquí también explicaremos de forma breve y concisa cómo configurar debidamente el archivo `.env` para que funcione correctamente tu proyecto Laravel, en este caso en el servidor. Para ello se han de seguir los pasos descritos a continuación:
-
-1. **Copiar el archivo .env.example**: Antes de comenzar, asegúrate de copiar el archivo `.env.example` que se proporciona en el proyecto Laravel y renombrarlo como `.env`.
-
-2. **Configuración de la conexión a la base de datos**:
-
-    ```
-    DB_CONNECTION=pgsql
-    DB_HOST=127.0.0.1
-    DB_PORT=5432
-    DB_DATABASE=blanxart
-    DB_USERNAME=postgres
-    DB_PASSWORD=root
-    ```
-
-    Como hemos explicado en el despliegue en local, estas son las líneas que deberías tener en tu `env`.
-
-3. **Configuración de conexión a la API**:
-    Para configurar la conexión a la API, en la carpeta raíz del proyecto Laravel, es decir desde la raíz del repositorio GIT: `~/blanxart`.
-    , basta con cambiar la URL del parámetro `IMAGE_API_URL` del archivo `.env` de la siguiente manera:
-
-     ```
-    IMAGE_API_URL= "http://192.168.60.60:8088/api/v1/images"
-    ```
-
-==== Configuración y despliegue de la API que procesa las imágenes en servidor
-
-Una vez llegados a este punto, el siguiente paso será configurar la API y servirla en un contenedor docker para que nuestra aplicación web pueda hacer uso de ella.
-
-Para comenzar tendremos que tener el proyecto desplegado dentro del servidor isard, en nuestro caso la API ya esta dentro del proyecto tickets, tendremos que acceder a la siguiente ruta:
+Verificamos las versiones de Node y de NPM instaladas en el sistema:
 
 [source,sh]
 ----
-cd /var/www/html/gr01-mateos-lopera-amador/api/ImgAda
+node -v
+npm -v
 ----
 
-Una vez dentro de la ruta copiaremos el fichero `.env.example` creando el `.env` necesario y generaremos la key:
+==== Configuración de PHP
+Antes de ejecutar Laravel en el sistema, debemos habilitar algunas extensiones de PHP para que funcione correctamente.
+
+Usando el editor nano, ejecutamos la siguiente orden:
+
+[source,sh]
+----
+sudo nano /etc/php/8.3/apache2/php.ini
+----
+
+Dentro del fichero _php.ini_ descomentamos las siguientes extensiones:
+
+[source,sh]
+----
+extension=fileinfo
+extension=mbstring
+extension=openssl
+extension=pdo_pgsql
+extension=pgsql
+----
+
+guardamos los cambios realizados en el fichero "Ctrl+o", presionamos "enter" para sobre escribir el nombre del fichero y salimos de este "Ctrl+x".
+
+==== Configuración de postgresql
+Crearemos el usuario y le asignaremos una contraseña con la cual la aplicación se conectará a la base de datos, para ello ejecutaremos el siguiente comando:
+
+[source,sh]
+----
+sudo -u postgres createuser --interactive
+----
+El sistema nos solicitará el nombre del nuevo usuario y una confirmación de sí este usuario será superusuario a lo cual diremos que si.
+
+[source,sh]
+----
+Enter name of role to add: usuario
+Shall the new role be a superuser? (y/n): y
+----
+
+[source,sh]
+----
+ALTER USER usuario PASSWORD '1234';
+----
+Por último, crearemos la base de datos sobre la cual trabajará la aplicación, primero debemos cambiar a la cuenta de postgres dentro del servidor.
+
+[source,sh]
+----
+sudo -i -u postgres
+----
+Estando ya en la cuenta de postges creamos la base de datos, ejecuntando el siguiente comando:
+
+[source,sh]
+----
+postgres@server:~$ createdb blanxart
+----
+Por ultimo para verificar que la base de datos se haya creado correctamente, ingresamos al indicador de postgres y listamos las base de datos existentes.
+
+[source,sh]
+----
+$ psql
+postgres=# \l
+----
+para volver al usuario del servidor usamos el comando "exit".
+
+==== Clonar repositorio GIT
+Realizamos un cambio de directorio en donde generalmente se almacenan los proyectos en el servidor. 
+
+Ejecutamos el siguiente comando:
+
+[source,sh]
+----
+cd /var/www/
+----
+
+clonamos el proyecto desde el repositorio en donde se encuentra el proyecto guardado, por lo general se clona la rama _main_.
+
+[source,sh]
+----
+sudo git clone https://git.copernic.cat/garcia.dominguez.samuel/blanxart-m12-amador-garcia-rojas-mateos.git
+----
+a continuación GIT solicitará las credenciales para validar la acción sobre el repositorio, se deben ingresar para que se realice correctamente el proceso de clonado. Se creará una carpeta con el nombre del repositorio.
+
+validamos que se haya creado con el siguiente comando:
+
+[source,sh]
+----
+ls -l
+----
+
+nos ubicamos dentro del directorio del proyecto, esta se encuentra dentro del directorio del repositorio clonado.
+
+[source,sh]
+----
+cd blanxart-m12-amador-garcia-rojas-mateos/blanxart/
+----
+Una vez dentro del directorio del proyecto, ejecutamos el siguiente comando:
+
+[source,sh]
+----
+sudo composer update
+----
+
+Despues de actualizar y descargar las dependencias necesarias para la ejecución del proyecto, creamos el fichero .env a partir del fichero .env.example e ingresamos a este con el editor nano.
 
 [source,sh]
 ----
 sudo cp .env.example .env
-sudo php artisan key:generate
+sudo nano .env
 ----
-
-Una vez hayamos generado la clave accederemos a la ruta `/var/www/html/gr01-mateos-lopera-amador/api/api-docker` que es donde tenemos los archivos de confuguración del docker
+Dentro del fichero .env, verificamos que las variables de conexión a la base de datos sean las correctas.
 
 [source,sh]
 ----
-cd /var/www/html/gr01-mateos-lopera-amador/api/api-docker
+DB_CONNECTION=pgsql
+DB_HOST=127.0.0.1
+DB_PORT=5432
+DB_DATABASE=blanxart
+DB_USERNAME=usuario
+DB_PASSWORD=1234
 ----
 
- Y, acto seguido, ejecutaremos los siguientes comandos para generar el contenedor docker:
-
-[source,sh]
-----
-sudo docker compose build
-sudo docker compose up -d
-----
-
-CAUTION: De nuevo, la API se conecta al puerto 8088 del host, si estuviera ocupado hay que cambiarlo de la misma manera que en el paso levantamiento del docker de la base de datos. También tendríamos que cambiar la línea `IMG_API_URL` del archivo `.env` del proyecto Laravel de la aplicación principal.
-
-Hecho esto, deberíamos de tener la API funcionando en servidor en un docker a la espera de peticiones.
-
-==== Últimos pasos
-
-Para que funcione la aplicación deberemos generar una clave `APP_KEY`. Para ello nos colocamos en la carpeta raíz del proyecto Laravel, `~/blanxart` desde la raíz del repositorio GIT.
-Y generamos la clave de aplicación de Laravel con el siguiente comando:
+Despues generamos la clave de la aplicación.
 
 [source,sh]
 ----
 sudo php artisan key:generate
 ----
-
-Deberemos, también, establecer los permisos adecuados para los directorios de almacenamiento y de caché:
-
-[source,sh]
-----
-sudo chmod -R 775 storage bootstrap/cache
-sudo chown -R www-data:www-data storage bootstrap/cache
-----
-
-==== Configuración final
-
-Antes de terminar, deberemos de asegurarnos que al entrar en nuestra ip el servicio apache redirija al usuario al proyecto de forma adecuada, para ello configuraremos el host virtual de Apache2 para apuntar al directorio del proyecto Laravel. Esto lo conseguiremos editando el archivo `/etc/apache2/sites-available/000-default.conf`.
+En este punto, podemos probar la conexión entre la base de datos y la aplicación clonada siguiendo dentro del directorio del proyecto, ejecutamos el siguiente comando:
 
 [source,sh]
 ----
-sudo nano /etc/apache2/sites-available/000-default.conf
+php artisan migrate:fresh
+----
+Sí todo se ha ejecutado con normalidad, se crearan las bases de datos según las migraciones existentes en la aplicación.
+
+==== Configuración de nodeJS 
+Ubicados en el directorio de la aplicación, debemos instalar el gestor de paquetes de node (npm) dentro del proyecto, para ello ejecutamos el comando:
+
+[source,sh]
+----
+npm install
+----
+Por último debemos construir los componentes vue en el servidor, esto con el fin de optimizar el código JS para ser usado en el ambiente de producción, para ello ejecutamos el comando:
+
+[source,sh]
+----
+npm run build
 ----
 
-En el editor nano buscaremos las siguientes líneas y procuraremos que queden de esta forma:
+==== Configuración de Apache2
+En esta sección configuraremos el servicio del servidor web Apache2 y crearemos el virtual host de nuestra aplicación.
 
-[source,apache]
+Habilitamos el modulo _rewrite_ de apache.
+
+[source,sh]
+----
+sudo a2enmod rewrite
+----
+Creamos el nuevo virtual host para nuestra aplicación en la ruta **'/etc/apache2/sites-available/blanxart.conf'**, con ayuda del editor nano.
+
+[source,sh]
+----
+sudo nano /etc/apache2/sites-available/blanxart.conf
+----
+dentro del nuevo fichero creado, agregamos la siguiente configuración, cambiado el campos **ServerName** con el dominio de la aplicación, en este caso con la ip publica proporcionada por AWS.
+Tambien cambiamos la ruta de la eqtiqueta **"Directory"**, con la ruta donde se encuentra alojado la aplicación **"/var/www/blanxart-m12-amador-garcia-rojas-mateos"**.
+
+Tambien la etiqueta **"DocumentRoot"** con la ruta del directorio _public_ de la aplicación **"/var/www/blanxart-m12-amador-garcia-rojas-mateos/blanxart/public"**.
+
+[source,sh]
 ----
 <VirtualHost *:80>
-    ServerAdmin webmaster@localhost
-    DocumentRoot /var/www/html/gr01-mateos-lopera-amador/public
 
-    <Directory /var/www/html/gr01-mateos-lopera-amador/public>
-        Options Indexes FollowSymLinks
-        AllowOverride All
-        Require all granted
+    ServerAdmin admin@hwdomain.io
+    ServerName 52.23.235.5
+    DocumentRoot /var/www/blanxart-m12-amador-garcia-rojas-mateos/blanxart/public
+
+    <Directory />
+    Options FollowSymLinks
+    AllowOverride None
+    </Directory>
+    <Directory /var/www/blanxart-m12-amador-garcia-rojas-mateos>
+    AllowOverride All
     </Directory>
 
     ErrorLog ${APACHE_LOG_DIR}/error.log
     CustomLog ${APACHE_LOG_DIR}/access.log combined
+
 </VirtualHost>
 ----
+Guardamos los cambios con "Ctrl+o", presionamos "enter" para sobrescribir el nombre del fichero y salimos del edito nano con "Ctrl+x".
 
-Cuando tengamos estas líneas así guardaremos los cambios los cambios y reiniciamos Apache:
+Ahora activamos la configuración del virtual host creado y verificamos que la sintaxis de apache, sí no existen errores la terminal nos muestra el mensaje **"Sintax OK"**, ejecuntando los siguientes comandos:
 
 [source,sh]
 ----
-sudo service apache2 restart
-----    
-
-=== Configuración del archivo `.env`
-
-El archivo `.env` en Laravel es un archivo de configuración que contiene variables de entorno para ajustar la configuración del proyecto, incluyendo la conexión a la base de datos, la configuración de correo electrónico, entre otros.
-
-En los apartado anteriores hemos explicado lo justo y necesario para el funcionamiento básico de la aplicación, en esta sección os explicaremos todas aquellas variables útiles para el proyecto y que se pueden encontrar y modificar en el archivo `.env`.
-
-Además de la conexión a la base de datos o a la API, puedes configurar otras variables de entorno en el archivo `.env` según sea necesario. Las variables más importantes son las siguientes.
-
-Configuración general de la aplicación:
-[source]
+sudo a2ensite blanxart.conf
+sudo apachectl configtest
 ----
-APP_NAME=Nombre_de_la_aplicación
-APP_KEY=Clave_secreta_generada_por_Artisan
+Por último reiniciamos el servicio del servidor web Apache para aplicar los cambios y configuraciones realizadas.
+
+[source,sh]
+----
+sudo systemctl restart apache2
 ----
 
-Configuración de la app principal:
+==== Configuración final
 
-[source]
-----    
-#numero de eventos a mostrar en el home por categoría
-EVENTSBYCATEGORY = 4
+En este punto la instalación de la aplicación esta realizada y podremos acceder a la aplicación mediante el fichero **"hosts"**, para ello modificaremos el fichero de la ruta **"/etc/hosts"** con privilegios root.
 
-#URL de la conexión a la pasarela de pagos
-URL_CONNECTION = https://sis-t.redsys.es:25443/sis/realizarPago 
+[source,sh]
+----
+sudo nano /etc/hosts
+----
+agregamos la ip pública proporcionada por AWS seguido del dominio de nuestra aplicación, sí no se cuenta con un dominio, ingresamos únicamente la ip.
 
-#URL de los errores de la pasarela
-URL_DESCRIPTION_ERROR = https://pagosonline.redsys.es codigosRespuesta.html 
+[source,sh]
+----
+{ip publica} dominio
+----
+Guardamos cambios con "Ctrl+o", presionamos "enter" para sobrescribir el nombre del fichero y salimos del editor nano con "Ctrl+x".
+
+Tambien debemos cambiar el propietario del directorio de la aplicación, esto con el fin de que la aplicación sea accesible desde internet.
+
+[source,sh]
+----
+sudo chown -R www-data:www-data /var/www/blanxart-m12-amador-garcia-rojas-mateos/blanxart/
+----
+Por último, estando ubicados en el directorio de la aplicación ejecutamos los _seeders_ y asi poder realizar un smoke test de nuestra aplicación y comprobar que funcione correctamente.
+
+[source,sh]
+----
+php artisan db:seed
 ----
 
-Líneas de configuración de la conexión a la API
-[source]
+Al finalizar la ejecución de los _seeders_ y poblarse las tablas de la base de datos, se generará un token, este token debe ingresarse en la variable de configuración **"API_KEY"** del fichero _.env_ de la aplicación
+
+[source,sh]
 ----
-# Tamaños deseados para las diferentes versiones de las imágenes, en píxeles (puede variar la cantidad de tamaños)
-IMAGE_SIZES = [300,700,1600]
-
-# URL de la conexión a la API
-IMAGE_API_URL= "http://127.0.0.1:8088/api/v1/images"
-
-# Contraseña para los endpoints protegidos de la API
-IMAGE_API_KEY= "CxSJj7WKdWYy90hX4vJjaS6JK2"
+Token: 1|VD8x2HAiBTUx7ltZRI9TYJW3S5D3LKHsbbAWvhDp1f112b49
 ----
 
-Asegúrate de ajustar estos valores según tus necesidades.
-
-== Configuración del docker y la base de datos
-
-En este apartado se explica cómo crear la imágen de docker necesaria, donde montaremos nuestra base de datos PostgreSql. 
-
-La base de datos será creada desde un script, en el momento de crear el contenedor y lanzarlo por primera vez, para poder modificar el _locale_ y la colación de la misma. 
-
-
-Así, Lo primero que hemos de hacer es localizar la carpeta docker_config en el proyecto. Dentro encontraremos tres ficheros: `compose.yml`, `dockerfile` y `initdb-script.sql`. 
-
-Nos colocamos en línea de comandos en esa carpeta y montamos la imagen del dockerfile con el comando de docker: build:
-
-[source,docker]
+[source,sh]
 ----
-docker compose build
+sudo nano .env
 ----
 
-Una vez creada la imagen tendremos que lanzar el comando up para construir los contenedores indicados en el archivo `compose.yml`:
-
-[source,docker]
+[source,sh]
 ----
-docker compose up -d
-----
+VITE_PUSHER_APP_KEY="${PUSHER_APP_KEY}"
+VITE_PUSHER_HOST="${PUSHER_HOST}"
+VITE_PUSHER_PORT="${PUSHER_PORT}"
+VITE_PUSHER_SCHEME="${PUSHER_SCHEME}"
+VITE_PUSHER_APP_CLUSTER="${PUSHER_APP_CLUSTER}"
 
-De esta manera, ya tendremos el contenedor docker de nuestra base de datos postgres en funcionamiento.
+API_KEY = VD8x2HAiBTUx7ltZRI9TYJW3S5D3LKHsbbAWvhDp1f112b49
+----
+Guardamos cambios con "Ctrl+o", presionamos "enter" para sobrescribir el nombre del fichero y salimos del editor nano con "Ctrl+x".
+
+== Datos de prueba para testear la aplicación
+
+Para poder hacer pruebas dentro de la aplicación y simular los flujos de funcionamiento desarrollados, dejamos a disposición las credenciales de acceso de un usuario por cada rol contemplado durante la planificación con el cliente. 
+
+.Tabla de pruebas
+[width="100%",options="header"]
+|===
+| Rol | Nombre | DNI | Contraseña
+| Administratiu | Alejandro Soto Quientero | 12345678D | sanitech
+| Metge | Xavier Pelayo López | 48523671K | sanitech
+| Pacient 1 | Maria López Garcia | 50321478X | sanitech
+| Pacient 2 | Juan Martínez Pérez | 71985632T | sanitech
+|===
+
+Sí se necesita probar con otros datos, o surge alguna duda con el funcionamiento, por favor comuniquese con el equipo de desarrollo.
 
 == Lineas futuras.
 
