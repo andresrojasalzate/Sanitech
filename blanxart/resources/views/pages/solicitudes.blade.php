@@ -6,14 +6,13 @@
 @section('content')
 
     <main class="solicitudesContainer">
-
-        <x-boton-atras :url="route('home')" />
-
-        @if (session('status'))
+    @if (session('status'))
             <div id="alertaExito">
                 <aletraExito :mensaje='@json(session("status"))'></alertaExito>
             </div>
         @endif
+
+        <x-boton-atras :url="route('home')" />
         
         <section class="info">
             <h1 class="regular">Solicituts</h1>

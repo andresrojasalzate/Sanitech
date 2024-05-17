@@ -24,7 +24,7 @@
                 @enderror
                 <textarea name="reason" placeholder="Motiu del canvi de metge..."></textarea>
                 <input type="hidden" name="paciente_id" value="{{ $idPaciente }}">
-                <button type="submit">Enviar sol·licitud</button>
+                <button class="confirmar-btn" type="submit">Enviar sol·licitud</button>
             </form>
         </section>
     </main>
