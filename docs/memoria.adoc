@@ -15,7 +15,7 @@ Albert Mateos - Andres Rojas - Diego Amador - Samuel Garcia
 
 
 ==  Introducción
-Os presentamos la memoria del tercer proyecto del curso 2023-2024 de 2o de Desarrollo de Aplicaciones Web del instituto Nicolau Copèrnic. Este proyecto consta del desarrollo de una página web de gestión de pruebas de un centro medico, desarrollado para el las estudiantes del instituto Blanxart de Terrassa. 
+Os presentamos la memoria del tercer proyecto del curso 2023-2024 de 2o de Desarrollo de Aplicaciones Web del instituto Nicolau Copèrnic. Este proyecto consta del desarrollo de una página web de gestión de pruebas de un centro médico, desarrollado para el las estudiantes del instituto Blanxart de Terrassa. 
 
 En este documento presentaremos el equipo de trabajo, las especificaciones y requerimientos del proyecto, el manual de instalación de la aplicación y diversas consideraciones para el futuro.
 
@@ -26,26 +26,26 @@ En este documento presentaremos el equipo de trabajo, las especificaciones y req
 * Samuel Garcia, estudiante de 2o de DAW en instituto Nicolau Còpernic.
 
 === Objetivos de la aplicación.
-Esta aplicación tiene como objetivo la creación de una aplicación para la gestión de citas y pruebas de un centro medico.
+Esta aplicación tiene como objetivo la creación de una aplicación para la gestión de citas y pruebas de un centro médico.
 
 === Necesidades.
 Las necesidades a las que esta aplicación trata de dar respuesta son las siguientes:
 
 1. Preparación de pruebas medicas. Permitirá a los pacientes tener acceso a diversas herramientas audiovisuales para la preparacion de sus pruebas medicas agendadas.
 
-2. Asignación de citas y pruebas medicas. Ofrecerá un sistema de gestión para la creación y asignación de citas y pruebas medicas para los pacientes por parte de estos mismos, tambien por parte de los medicos y los administradores.
+2. Asignación de citas y pruebas medicas. Ofrecerá un sistema de gestión para la creación y asignación de citas y pruebas medicas para los pacientes por parte de estos mismos, tambien por parte de los médicos y los administradores.
 
 3. Recordatorios y confirmación de citas medicas. La aplicación contará con un sistemas de notificaciones, donde los pacientes podrán aceptar o cancelar sus citas medicas, una vez estas les han sido asignadas y tambien con recordatorios de las citas que ya fueron aceptadas.
 
 4. Interfaces de usuario diferentes. La aplicación contará con interfaces de usuario diferentes para cada uno de los roles que existiran dentro de la misma.
 
-5. Acceso a los justificantes medicos. Desde la aplicación, los pacientes podrán descargar los justificantes medicos de sus citas o pruebas previamente realizadas.
+5. Acceso a los justificantes médicos. Desde la aplicación, los pacientes podrán descargar los justificantes médicos de sus citas o pruebas previamente realizadas.
 
 
 === Público objetivo.
 Esta aplicación está diseñada considerando dos _targets_ diferentes. 
 
-Por un lado, tenemos al personal medico que necesitan gestionar las pruebas y citas medicas de los pacientes de un centro medico, podrán crear y asignar citas y pruebas medicas a sus pacientes, tambien ver los resultados de las pruebas e historial de citas de los pacientes y la agenda de cada uno de los medicos del centro.
+Por un lado, tenemos al personal médico que necesitan gestionar las pruebas y citas medicas de los pacientes de un centro médico, podrán crear y asignar citas y pruebas medicas a sus pacientes, tambien ver los resultados de las pruebas e historial de citas de los pacientes y la agenda de cada uno de los médicos del centro.
 Se trata de un público profesional, que lo que necesita es realizar su trabajo de la forma más cómoda, eficiente y familiar.
 
 En el otro lado, encontramos a los pacientes, pacientes con un amplio rango de edades, que necesitan crear, consultar, aceptar y cancelar sus citas y pruebas medicas, tambien generar de forma sencilla e intuitiva los justificantes de sus asistencias medicas realizadas, tambien recibir recordatorios de sus citas medicas a realizar, ademas de tener acceso a material audio visual para la preparación de sus pruebas medicas .  
@@ -54,7 +54,7 @@ En el otro lado, encontramos a los pacientes, pacientes con un amplio rango de e
 
 Para la realización de este proyecto hemos tenido que trabajar con tecnologías muy diversas, algunas de estas eran nuevas para nosotros.
 
-Se trata de un proyecto Laravel, un framework de PHP con estructuración MVC del código de back-end. Este proyecto abarca el desarrollo de una aplicación web principal, que sería el sitio web de gestión de las citas y pruebas medicas y dos APIs internas que se encarguan de la busqueda asincrona de los medicos y pacientes registrados en el sitio web.
+Se trata de un proyecto Laravel, un framework de PHP con estructuración MVC del código de back-end. Este proyecto abarca el desarrollo de una aplicación web principal, que sería el sitio web de gestión de las citas y pruebas medicas y dos APIs internas que se encarguan de la busqueda asincrona de los médicos y pacientes registrados en el sitio web.
 Para la parte cliente, hemos trabajado con blade en html para la estructuración de las vistas y la comunicación entre el front-end y el back-end, la parte logica se ha hecho mediante el uso de componentes del framework vue 3.
 En cuanto a la persistencia de datos hemos usado una base de datos Postgres.
 
@@ -624,87 +624,71 @@ Para poder hacer pruebas dentro de la aplicación y simular los flujos de funcio
 [width="100%",options="header"]
 |===
 | Rol | Nombre | DNI | Contraseña
-| Administratiu | Alejandro Soto Quientero | 12345678D | sanitech
-| Metge | Xavier Pelayo López | 48523671K | sanitech
-| Pacient 1 | Maria López Garcia | 50321478X | sanitech
-| Pacient 2 | Juan Martínez Pérez | 71985632T | sanitech
+| Administrativo | Alejandro Soto Quientero | 12345678D | sanitech
+| Médico | Xavier Pelayo López | 48523671K | sanitech
+| Paciente 1 | Maria López Garcia | 50321478X | sanitech
+| Paciente 2 | Juan Martínez Pérez | 71985632T | sanitech
 |===
 
 Sí se necesita probar con otros datos, o surge alguna duda con el funcionamiento, por favor comuniquese con el equipo de desarrollo.
 
 == Lineas futuras.
 
-Después de la entrega del proyecto, somos conscientes de que no hemos cumplido todos los requerimientos que se nos han planteado, además, hay varios puntos que creemos se pueden mejorar, pulir e incluso nuevas funcionalidades que se podrían añadir.
+Después de la entrega del proyecto, somos conscientes de que no hemos cumplido todos los requerimientos que se plantearon en un principio, estos serian las primeras lineas en desarrollar.
 
-Reconocemos que el apartado de diseño del proyecto se ha quedado un poco rezagado respecto a lo demás, por lo que debería ser a lo que le demos más cariño con el objetivo de mejorar el producto final.
+=== Requerimientos pendientes
 
-=== Pulir el estado actual del proyecto
-
-El primer paso sería pulir el estado actual, todo aquello que no acaba de funcionar como debería y el aspecto visual de muchas de las vistas.
-
-1. Revisión de diseño de formularios. Habría que darle una vuelta al layout y la disposición de muchos de los formularios, sobre todo los de evento y sesión.
-
-2. Refactor completo del formulario de direcciones. Este formulario al principio pensamos que era buena idea dejarlo como modal, pero en seguida nos dimos cuenta de que no lo era, dar feedback de esta manera desde servidor es muy complicado. Por temas de tiempo no lo hemos podido cambiar pero es algo que se debería de hacer.
-
-3. Pulir los estilos de muchas vistas. Hay vistas en las que no hemos podido colocar los elementos como queríamos y cuadrar todo para que quede bien en los diferentes tamaños de pantalla, por ejemplo las tarjetas del home, o la vista que muestra un evento y sus sesiones
-
-4. Acabar funcionalidades que no se han terminado de implementar pero la aplicación está preparada para hacerlo:
-  ** Borrado de eventos, sesiones e imágenes.
-  ** Habilitar el cambio de la imagen principal de un evento.
-
-5. Revisar y arreglar errores en el funcionamiento de la página.
-
-
-=== Cumplir los requerimientos actuales del proyecto
-
-Una vez tengamos nuestra página funcionando y en un estado potable, el siguiente estadio sería terminar  todo aquello que el cliente, en este caso nuestros profesores, nos han pedido.
-
-* Añadir un calendario en los detalles de los eventos para poder seleccionar las sesiones.
-* Habilitar el uso de HTTPS en todos los servicios del proyecto, web y APIs.
-* Guardar las imágenes en caché.
-* Crear una aplicación móvil para verificar las entradas.
-* Añadir botones con links de las redes sociales.
+ * Funcionalidad para realizar reclamaciones por parte de los pacientes sobre sus citas realizadas.
+ * Funcionalidad para realizar valoraciones por parte de los pacientes sobre sus citas realizadas.
+ * Historial de acciones realizadas por los usuarios dentro de la aplicación. 
 
 === Posibles mejoras
 
 Después de terminar todo lo pendiente del proyecto, hemos pensado alguna posible funcionalidad que se podría añadir al proyecto.
 
-* Un servicio de petición de usuario de promotor. Es decir, que los usuarios tuvieran que pasar una selección basada en si realmente se dedican a ello o no y si la pasan se les crea un usuario de promotor para que pudieran usar esa parte de la aplicación.
+* Una funcionalidad que permita cargar dentro del sistema, el resultado de las pruebas realizadas a los pacientes, ya sea por parte del mismo médico de cabecera o por el administrativo, se ha pensado en un formulario para dicho fin.
 
-* Una función de _tags_, en el que los promotores adjudiquen ciertas ediquetas semánticas a sus eventos y los usuarios pudieran buscar o filtrar mediante esas _tags_.
+* Conectividad entre la aplicación desarrollada y el correo electronico de los usuarios de la aplciación, para tener un respaldo para recibir y contestar notificaciones sobre eventos y acciones realizadas dentro de la aplicación.
+
+* Envio de notificaciones via SMS a los pacientes, inicialmente fue un requerimiento solicitado por el cliente, sin embargo se descartó ya que los servicios de SMS son de cobro.
 
 == Conclusiones
 
-Después de estos meses de trabajo, hemos de reconocer que no estamos del todo contentos con el resultado, nos hubiera gustado entregar un resultado del que pudiéramos estar orgullosos pero no ha sido así. En cualquier caso, pensamos que lo importante realmente es el aprendizaje que nos llevamos, más que el producto final. 
+Después de estos meses de trabajo, hemos de reconocer que estamos contentos con el resultado, tambien somos concientes que  el estilo es un aspecto demasiado dinamico y contraversial, que siempre puede ser mejor, nos hubiera gustado tener más tiempo para analizar con mas detenimiento, sin embargo tenemos un resultado del que podemos sentirnos orgullosos. En cualquier caso, pensamos que lo importante realmente es el aprendizaje que nos llevamos, más que el producto final. 
 
-Desde luego ahora que estamos familiarizados con todas estas tecnologías, que al principio nos eran desconocidas, si volviéramos a empezar un proyecto así haríamos muchas cosas de forma diferente y el proceso sería mucho más fluído sin encallarnos tantas veces como nos ha ocurrido.
+Desde luego ahora que estamos más familiarizados con todas estas tecnologías, las cuales hemos ido reforzando desde el proyecto anterior, se ha mejorado la logica y la estructura de un proyecto _laravel_ junto con un framework para el front-end como lo es _Vue_.
+
+Durante los desarrollos realizados, nos enfrentamos a una serie de errores tanto del lado del servidor y del lado del cliente, los cuales fueron solucionados y corregidos y que tambien hacen parte del aprendizaje continuo, ya que refuerzan nuestros conocimientos y quedan como experiencia para nuestro futuro como desarrolladores web.
 
 === Desviaciones en la Planificación
 
-En este apartado expondremos los puntos que nos han trastocado el planteamiento inicial, ya sea por que nos ha tomado más tiempo del inicialmente pensado o por que nos ha supuesto problemas o cambios grandes en la aplicación que no teníamos previstos.
+En este apartado expondremos los puntos que inicialmente se plantearon en la reunión inicial y que no fueron entregados en la entrega formal al cliente y los que no fueron entregados en la entrega final al equipo docente del instituto.
 
-En primer lugar, aquellos puntos que nos han tomado más tiempo del previsto han sido:
+==== Entrega al cliente
+ * Funcionalidad para solicitar el cambio de médico de cabecera por parte del paciente.
+ * Funcionalidad para realizar reclamaciones por parte de los pacientes sobre sus citas realizadas.
+ * Funcionalidad para realizar valoraciones por parte de los pacientes sobre sus citas realizadas.
+ * Historial de acciones realizadas por los usuarios dentro de la aplicación.
 
-* Búsqueda en base de datos por colación. Es un punto en el que hemos gastado entre dos miembros del equipo dos semanas, y que al final no hemos sabido solventar, lo hemos solucionado usando una extensión de postgres llamada unaccent y el comando `ilike`.
+==== Entrega al equipo docente
 
-* Creación del formulario del evento. Un punto en el que hemos estado hasta cuatro semanas, entre el diseño de la base de datos y la lógica interna, cambios en la base de datos por haber entendido mal la lógica de _business_, fallos en la validación, etc... Además se trata de un formulario con varias capas, y ahora pensamos que no lo hemos planteado de la forma más eficiente desde un inicio, sobre todo la adición de nuevas direcciones.
-
-* Redsys. La conexión con la pasarela de pago y el tratado de datos y errores entre la API de redsys y nuestra aplicación ha sido un quebradero de cabeza, que al final hemos logrado dominar, pero ha supuesto el tener una persona constantemente en ello durante unas tres semanas.
-
-Luego, hay puntos en los que hemos tenido que tomar decisión de no hacer algo o dejarlo de forma diferente a la requerida por falta de tiempo y para centranos en puntos más importantes.
-Estos son:
-
-* El calendario en la vista de detalles del evento con las sesiones.
-* Los tickets son nominales según la sesión, no según el tipo de ticket.
-
+ * Funcionalidad para realizar reclamaciones por parte de los pacientes sobre sus citas realizadas.
+ * Funcionalidad para realizar valoraciones por parte de los pacientes sobre sus citas realizadas.
+ * Historial de acciones realizadas por los usuarios dentro de la aplicación.
 
 === Aportaciones del Proyecto a los Conocimientos del Alumno
 
 Al final, después de todo, creemos que a parte del conocimiento específico de cada nueva tecnología con la que hemos tratado en este proyecto, lo más importante que nos llevamos es el darnos cuenta de lo importante que es saber organizarse bien el tiempo.
 
-Saber tomar las decisiones adecuadas, qué sacar adelante y qué dejar atrás, ir a lo más práctico siempre y de ahí construir si se puede permitir el tiempo. En un proyecto el tiempo es el recurso más valioso, y en nuestro caso, quizás no hemos sabido gestionarlo de la mejor manera, pero el aprender esto ya es mucho.
+Tratar con un cliente real, fue un nuevo reto que afrontar, donde estos nos expresaban sus necesidades pricinpales, requerimientos y lo que esperaban de la aplicación a desarrollar y nosotros como equipo organizabamos las posibles soluciones tanto de logica y de diseño.
 
-En cuanto a conocimientos específicos, ahora nos vemos capaces de enfrentarnos a proyectos de este calibre, con frameworks que no hemos tocado e incluso mediante arquitecturas MVC. Hemos aprendido lo necesario para servir una página web o una API en un servidor. Cómo funciona una API, a desarrollar una y cómo conectar con ella y lanzarle _requests_. 
+Saber tomar las decisiones adecuadas, qué sacar adelante y qué dejar atrás, ir a lo más práctico siempre y de ahí construir si se puede permitir el tiempo. En un proyecto el tiempo es el recurso más valioso, por fortuna supimos priorizar los desarrollos y funcionalidades de la aplicación y asi cumplir los requerimientos de nuestros clientes.
+
+En cuanto a conocimientos específicos, ahora nos vemos capaces de enfrentarnos a proyectos de este calibre, con frameworks que no hemos tocado e incluso mediante arquitecturas MVC. Hemos aprendido lo necesario para servir una página web o una API en un servidor. Cómo funciona una API, a desarrollar una y cómo conectar con ella y lanzarle _requests_.
+
+Tambien dimos grandes pasos en un nuevo paradigma de programación, la programación reactiva, mediante el framework Vue y toda su versartilidad, componentes, variables reactivas, _props_ y _emits_ entre componentes padre e hijos, observadores, etc.
+
+
 
 
 == Webgrafía
