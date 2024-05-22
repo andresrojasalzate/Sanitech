@@ -14,10 +14,15 @@ import AgendaMedico from './components/AgendaMedico.vue';
 import agendarCita from './components/agendarCita.vue';
 import reprogramarCitas from './components/reprogramarCitas.vue';
 import AlertaExito from './components/AlertaExito.vue';
+import listaCambioMedico from './components/listaCambioMedico.vue';
 
 const citas = createApp({});
 citas.component('citas-component', agenda);
 citas.mount("#agenda");
+
+const listadoCambioMedico = createApp({});
+listadoCambioMedico.component('listado-component', listaCambioMedico);
+listadoCambioMedico.mount('#listadoCambioMedico')
 
 const asignarCita = createApp({});
 asignarCita.component('asignar-citas-component', citasSinAsignar);
