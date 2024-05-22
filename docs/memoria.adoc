@@ -64,9 +64,6 @@ En cuanto a la persistencia de datos hemos usado una base de datos Postgres.
 .Modelo MER base de datos
 image::images/mer_sanitech.png[Esquema MER de la base de datos]
 
-Para acceder al esquema MER de la base de datos puede dirigirse al siguiente enlace:
-https://drive.google.com/file/d/1jDNZInTPw_NM7lHp22TpuoQtsD87uHpR/view?usp=sharing[Esquema MER]
-
 El diagrama de clases de modelos de la aplicación puede dirigirse al siguiente enlace:
 https://drive.google.com/file/d/17l4RAqEUcrX0T7nJrxFmpgHbfhi7Fx9v/view?usp=sharing[Diagrama de clases de modelos]
 
