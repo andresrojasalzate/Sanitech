@@ -14,7 +14,7 @@ use App\Http\Controllers\BuscadorMedicoController;
 use App\Http\Controllers\NotificacionesController;
 use App\Http\Controllers\InformeClinicosController;
 use App\Http\Controllers\BuscadorPacienteController;
-
+use App\Http\Controllers\CambiarMedicoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -44,9 +44,7 @@ Route::post('/sanitech', [AuthController::class, 'login'])->name('custom-login')
 Route::group(['middleware' => 'auth'], function () {
 
     //Ruta 'home'
-    Route::get('/home', function () {
-        return view('pages.home');
-    })->name('home');
+    Route::get('/home', [HomeController::class, 'home'])->name('home');
 
     //ruta 'logout'
     Route::get('/logout', [AuthController::class, 'logout'])->name('logout')->middleware('auth');
@@ -83,11 +81,15 @@ Route::group(['middleware' => 'auth'], function () {
 
         //Generar un justificante
         Route::get('/justificante/{id}', [JustificanteController::class, 'justificante'])->name('justificante');
-        Route::get('/generarJustificante/{idCita}', [JustificanteController::class, 'generarJustificante'])->name('generarJustificante');
+        Route::get('/generarJustificante/{id}', [JustificanteController::class, 'generarJustificante'])->name('generarJustificante');
         
         //Pedir una cita
         Route::get('/pedirCita/{id}', [PedirCitaController::class, 'pedirCita'])->name('pedirCita');
         Route::post('/pedirCita/publicarPeticionCita', [PedirCitaController::class, 'publicarPeticionCita'])->name('publicarPeticionCita');
+
+        //Pedir cambio de medico
+        Route::get('/cambioMedico', [CambiarMedicoController::class, 'show'])->name('cambioMedico');
+        Route::post('cambiarMedico/store', [CambiarMedicoController::class, 'store'])->name('cambiarMedico.store');
     });
 });
 

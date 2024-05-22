@@ -11,17 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('notificacions', function (Blueprint $table) {
+        Schema::create('cambio_medicos', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->string('descripcion');
-            $table->string('tipo');
-            $table->boolean('vista');
-            $table->foreignId('cita_id')->references('id')->on('citas')->onDelete('cascade')
+            $table->string('reason');
+            $table->foreignId('paciente_id')->references('id')->on('pacientes')->onDelete('cascade')
             ->onUpdate('cascade');
             $table->timestamps();
-            
-            
         });
     }
 
@@ -30,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('notificacions');
+        Schema::dropIfExists('cambio_medicos');
     }
 };

@@ -35,7 +35,6 @@
         .nav-link {
             color: $negro;
         }
-        
         .navbar-brand {
             color: $negro;
         }
@@ -81,8 +80,6 @@
         }
     }
 
-    
-
     .icon {
         font-size: 2rem;
     }
@@ -92,7 +89,7 @@
             flex-direction: column;
 
             .nav-item {
-                margin-bottom: 5px;
+                padding: 10px 45px;
             }
         }
 
@@ -100,7 +97,5 @@
             font-weight: bold;
             padding: 1rem;
         }
-
-
     }
 }

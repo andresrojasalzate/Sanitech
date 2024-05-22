@@ -43,6 +43,7 @@ class NotificacionFactory extends Factory
             'title' => $notificaciones[$num]['title'],
             'descripcion' => $notificaciones[$num]['descripcion'],
             'tipo' => $this->faker->randomElement(['Recordatorio', 'Confirmacion']),
+            'vista' => false,
         ];
     }
 }
