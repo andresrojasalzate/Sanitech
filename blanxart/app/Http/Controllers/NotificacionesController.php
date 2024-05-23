@@ -22,6 +22,7 @@ class NotificacionesController extends Controller
             ->orderBy('notificacions.created_at', 'desc')
             ->get();
         $notificacionesCitaPaciente = DB::table('notificacion_pacientes')
+            ->where('paciente_id', '=', $paciente_id)
             ->get();
 
 
