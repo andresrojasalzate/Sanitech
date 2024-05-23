@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use App\Models\Paciente;
 use App\Models\Notificacion;
+use App\Models\NotificacionPaciente;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
@@ -23,13 +24,16 @@ class HomeController extends Controller
                 ->select(DB::raw('COUNT(*) as cantidad'))
                 ->where('notificacions.vista', '=', false)
                 ->first();
-                
 
-            return view('pages.home', ['notificaciones' => $notificaciones]);
+            $notificacionesPaciente = NotificacionPaciente::where('paciente_id', $paciente_id)
+                ->select(DB::raw('COUNT(*) as cantidad'))
+                ->where('vista', '=', false)
+                ->first();
+           
+
+            $cantidad = $notificacionesPaciente->cantidad + $notificaciones->cantidad;
+
+            return view('pages.home', ['cantidad' => $cantidad]);
         }
-        
-        
-
-        
     }
 }

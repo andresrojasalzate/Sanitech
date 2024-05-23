@@ -55,8 +55,8 @@
                     <div class="opciones-opcion">
                         <div class="opciones-opcion-card">
                             <i class="fa-solid fa-bell"></i>
-                            @if ($notificaciones->cantidad > 0)
-                                <div class="opciones-opcion-card-notificacion">{{ $notificaciones->cantidad }}</div>
+                            @if ($cantidad > 0)
+                                <div class="opciones-opcion-card-notificacion">{{ $cantidad }}</div>
                             @endif
                         </div>
                         <h4 class="medionegrita">Notificacions</h4>
