@@ -5,7 +5,6 @@
 
 @section('content')
     <main class="allform-container">
-
         <x-boton-atras :url="route('buscadorPacientes', ['accion' => 'crearCita'])" />
 
         <section class="tituloCrearCita">
@@ -13,7 +12,6 @@
         </section>
 
         <section class="allform-container-content">
-
             <form action="{{ route('guardarCita') }}" id="formCrearCita" class="formularioCrearCita" method="POST">
                 @csrf
 
@@ -45,17 +43,27 @@
                     <p class="medionegrita errorCrearCita">{{ $message }}</p>
                 @enderror
                 <div class="nivelEmergencia">
-                    @for ($i = 1; $i <= 5; $i++)
-                        <input type="radio" name="emergency_level" id="nivel{{ $i }}"
-                            value="{{ $i }}" {{ old('emergency_level') == $i ? 'checked' : '' }}>
-                        <label for="nivel{{ $i }}">{{ $i }}</label>
-                    @endfor
+                    <input type="radio" name="emergency_level" id="nivel1" value="1" {{ old('emergency_level') == 1 ? 'checked' : '' }}>
+                    <label for="nivel1" class="prioridad1">Nivell 1 (2-3 setmanes)</label>
+
+                    <input type="radio" name="emergency_level" id="nivel2" value="2" {{ old('emergency_level') == 2 ? 'checked' : '' }}>
+                    <label for="nivel2" class="prioridad2">Nivell 2 (3-4 setmanes)</label>
+
+                    <input type="radio" name="emergency_level" id="nivel3" value="3" {{ old('emergency_level') == 3 ? 'checked' : '' }}>
+                    <label for="nivel3" class="prioridad3">Nivell 3 (2-3 mesos)</label>
+
+                    <input type="radio" name="emergency_level" id="nivel4" value="4" {{ old('emergency_level') == 4 ? 'checked' : '' }}>
+                    <label for="nivel4" class="prioridad4">Nivell 4 (3 a 6 mesos)</label>
+
+                    <input type="radio" name="emergency_level" id="nivel5" value="5" {{ old('emergency_level') == 5 ? 'checked' : '' }}>
+                    <label for="nivel5" class="prioridad5">Nivell 5 (més de 6 mesos)</label>
+
+                    <div class="nivelEmergencia-slider"></div>
                 </div>
+
                 <input type="hidden" name="paciente_id" value="{{ $paciente->id }}">
                 <button class="confirmar-btn">Crear Cita</button>
             </form>
-
         </section>
-
     </main>
 @endsection

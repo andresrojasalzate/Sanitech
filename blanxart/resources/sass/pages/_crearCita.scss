@@ -1,3 +1,11 @@
+$verde: #4CAF50;
+$rojo: #F44336;
+$prioridad1: #FFCDD2;
+$prioridad2: #FFECB3;
+$prioridad3: #C8E6C9;
+$prioridad4: #BBDEFB;
+$prioridad5: #D1C4E9;
+
 .crearCitaContainer {
     display: grid;
     grid-template-columns: 1fr;
@@ -19,8 +27,7 @@
 .formularioCrearCita {
     display: flex;
     flex-direction: column;
-    padding-left: 10vw;
-    padding-right: 10vw;
+    padding-bottom: 10vw;
 
     & label {
         margin-bottom: 1vh;
@@ -49,8 +56,6 @@
     display: grid;
     grid-template-columns: repeat(2, auto);
     grid-template-rows: repeat(2, auto);
-    justify-items: center;
-    margin-right: 48vw;
     margin-bottom: 5vh;
 }
 
@@ -61,11 +66,74 @@
 }
 
 .nivelEmergencia {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-    justify-items: center;
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     margin-bottom: 5vh;
+    gap: 20px;
+
+    & input[type="radio"] {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+    }
+
+    & label {
+        width: 20%;
+        text-align: center;
+        cursor: pointer;
+        padding: 10px;
+        border-radius: 5px;
+        transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    & .prioridad1 {
+        background-color: $prioridad1;
+    }
+
+    & .prioridad2 {
+        background-color: $prioridad2;
+    }
+
+    & .prioridad3 {
+        background-color: $prioridad3;
+    }
+
+    & .prioridad4 {
+        background-color: $prioridad4;
+    }
+
+    & .prioridad5 {
+        background-color: $prioridad5;
+    }
+
+    & input[type="radio"]:checked + label {
+        background-color: $verde;
+    }
+
+    @media (max-width: 1155px) {
+        flex-direction: column;
+        align-items: flex-start;
+
+        & label {
+            width: 100%;
+            margin-bottom: 10px;
+        }
+
+        &::before {
+            display: none;
+        }
+
+        & .nivelEmergencia-slider {
+            display: none;
+        }
+
+        & input[type="radio"]:checked + label {
+            background-color: $verde;
+        }
+    }
 }
 
 .errorCrearCita {
