@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
-@section('title', 'Cercador pacient')
-@section('descripcion_pagina', 'Cerca el pacient que desitges')
+@section('title', 'Sol·licitud de canvi de metge')
+@section('descripcion_pagina', 'Demana un canvi de metge')
 
 @section('content')
     <main class="cambiarMedicoContainer">
