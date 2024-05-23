@@ -107,6 +107,7 @@ class PedirCitaController extends Controller
         $notificacion->title = 'Cita dia ' . $fechaFormateada;
         $notificacion->descripcion = $descripcion;
         $notificacion->tipo = 'Confirmacion';
+        $notificacion->vista = false;
         $notificacion->cita_id = $id;
         $notificacion->save();
 
