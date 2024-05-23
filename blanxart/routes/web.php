@@ -60,7 +60,7 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('/asignarFechaCita/cita/{id}/{ruta}/{name}/{emergency_level}/{nombrePrueba}', [PedirCitaController::class, 'agendarCita'])->name('agendarCita');
         Route::get('/reprogramarCita/cita/{id}/{ruta}/{name}/{emergency_level}/{nombrePrueba}', [PedirCitaController::class, 'agendarCita'])->name('agendarCitaRechazada');
         Route::post('/actualizar-cita/{id}/{ruta}', [PedirCitaController::class, 'actualizarCita'])->name('cita.actualizar');
-        Route::get('cambiar-medico/peticion/{idPaciente}', [CambiarMedicoController::class, 'showAdmin'])->name('cambioMedico.peticion');
+        Route::get('/cambiar-medico', [CambiarMedicoController::class, 'allRequests'])->name('cambiarMedico');        Route::get('cambiar-medico/peticion/{idPaciente}', [CambiarMedicoController::class, 'showAdmin'])->name('cambioMedico.peticion');
 
         
     });

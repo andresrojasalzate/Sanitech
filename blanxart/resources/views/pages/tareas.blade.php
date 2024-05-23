@@ -37,7 +37,7 @@
                 </div>
             </a>
 
-            <a>
+            <a href="{{ route('cambiarMedico') }}">
                 <div class="solicitudes-card_type_2">
                     <div class="solicitudes-card_type_2-icon">
                         <i class="fa-solid fa-user-doctor"></i>
