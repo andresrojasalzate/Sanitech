@@ -40,6 +40,11 @@ class Paciente extends Model
         return $this->hasMany(Resultado::class);
     }
 
+    public function notificacionPaciente(): HasMany
+    {
+        return $this->hasMany(NotificacionPaciente::class);
+    }
+
     public static function getPacientIdByUserId($id)
     {
         try {
