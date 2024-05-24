@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Notificacion;
+use App\Models\NotificacionPaciente;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -13,10 +14,15 @@ class NotificacionSeeder extends Seeder
      */
     public function run(): void
     {
-        // $cantidadNotificaciones = (int)$this->command->ask('¿Cuántas notificaciones quieres crear?', 10);
-
-        // Notificacion::factory()->count($cantidadNotificaciones)->create();
         
-        // $this->command->info('¡Se han creado ' . $cantidadNotificaciones . ' notificaciones!');
+        for ($i = 1; $i <= 10; $i++) {
+            NotificacionPaciente::create([
+                'title' => 'Cambio medico',
+                'descripcion' => 'medico cambiado correctamente',
+                'tipo' => 'Cambio',
+                'vista' => false, // Valor por defecto para "vista"
+                'paciente_id' => $i,
+            ]);
+        }
     }
 }
