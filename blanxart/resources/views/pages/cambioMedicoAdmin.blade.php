@@ -9,8 +9,8 @@
         <h1 class="medionegrita">Sol·licitud de canvi de metge</h1>
     </section>
 
-    <section class="allform-container-content">
-        <div class="contenedorInfoPaciente">
+    <section class="">
+        <div class="contenedorCambioMedicoAdmin">
             <div class="allform-container-content-datos-personales">
                 <h4>Dades del pacient</h4>
                 <div class="allform-container-content-datos-personales-usuario">
@@ -34,11 +34,13 @@
                 </div>
             </div>
             <div class="allform-container-content-datos-personales">
-            <h4 class="medionegrita">Motiu del pacient</h4>
-            <p>{{$motivoPaciente}}</p>
+                <h4 class="medionegrita">Motiu del pacient</h4>
+                <p>{{$motivoPaciente}}</p>
+            </div>
+            <div id="formularioCambioMedico">
+                <cambioMedico :medicos='@json($medicos)'></cambioMedico>
+            </div>
         </div>
-        </div>
-       
     </section>
 </main>
 @endsection
