@@ -15,6 +15,7 @@ import agendarCita from './components/agendarCita.vue';
 import reprogramarCitas from './components/reprogramarCitas.vue';
 import AlertaExito from './components/AlertaExito.vue';
 import listaCambioMedico from './components/listaCambioMedico.vue';
+import formularioCambioMedico from './components/FormularioCambioMedico.vue';
 
 const citas = createApp({});
 citas.component('citas-component', agenda);
@@ -81,4 +82,10 @@ agendaMedico.mount('#agendaMedico');
 const aletraExito = createApp({});
 aletraExito.component('aletraexito', AlertaExito);
 aletraExito.mount('#alertaExito');
+
+//componente para el formulario de gestion de una petecxion de cambio de medico
+
+const cambioMedicoAdmin = createApp({});
+cambioMedicoAdmin.component('cambiomedico', formularioCambioMedico);
+cambioMedicoAdmin.mount('#formularioCambioMedico');
 

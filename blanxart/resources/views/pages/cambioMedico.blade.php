@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
-@section('title', 'Cercador pacient')
-@section('descripcion_pagina', 'Cerca el pacient que desitges')
+@section('title', 'Sol·licitud de canvi de metge')
+@section('descripcion_pagina', 'Demana un canvi de metge')
 
 @section('content')
     <main class="cambiarMedicoContainer">
@@ -24,7 +24,7 @@
                 @enderror
                 <textarea name="reason" placeholder="Motiu del canvi de metge..."></textarea>
                 <input type="hidden" name="paciente_id" value="{{ $idPaciente }}">
-                <button type="submit">Enviar sol·licitud</button>
+                <button class="confirmar-btn" type="submit">Enviar sol·licitud</button>
             </form>
         </section>
     </main>
