@@ -6,18 +6,22 @@
                 <p>{{ formatCreatedAt(resultado.created_at) }}</p>
             </div>
             <div class="informe-parte2">
-                <i class="fa-solid fa-chevron-right fa-2xl" v-if="clickado"></i>
-                <i class="fa-solid fa-angle-down fa-2xl" v-else=""></i>
+                <Transition name="fade" mode="out-in">
+                    <i class="fa-solid fa-chevron-right fa-2xl" v-if="clickado"></i>
+                    <i class="fa-solid fa-angle-down fa-2xl" v-else=""></i>
+                </Transition>
             </div>
         </div>
-        <div class="cuerpo-informe" ref="desplegable" :style="{ maxHeight: clickado ? '0' : '1000px' }">
-            <p class="medionegrita cuerpo-informe-titulo">Resultat</p>
-            <p class="cuerpo-informe-texto">{{ resultado.resultado }}</p>
-            <p class="medionegrita cuerpo-informe-titulo">Servei</p>
-            <p class="cuerpo-informe-texto">{{ resultado.servicio }}</p>
-            <p class="medionegrita cuerpo-informe-titulo">Centre</p>
-            <p class="cuerpo-informe-texto">{{ resultado.centro }}</p>
-        </div>
+        <Transition name="slide-fade">
+            <div class="cuerpo-informe" v-if="!clickado">
+                <p class="medionegrita cuerpo-informe-titulo">Resultat</p>
+                <p class="cuerpo-informe-texto">{{ resultado.resultado }}</p>
+                <p class="medionegrita cuerpo-informe-titulo">Servei</p>
+                <p class="cuerpo-informe-texto">{{ resultado.servicio }}</p>
+                <p class="medionegrita cuerpo-informe-titulo">Centre</p>
+                <p class="cuerpo-informe-texto">{{ resultado.centro }}</p>
+            </div>
+        </Transition>
     </div>
 </template>
 
@@ -34,18 +38,18 @@ export default {
         seleccionado() {
             this.clickado = !this.clickado;
 
-            
+
             if (this.clickado) {
                 this.$refs.informe.style.backgroundColor = '';
                 this.$refs.primerParrafo.style.marginBottom = '3vh';
                 this.$refs.desplegable.style.paddingTop = '0';
                 this.$refs.desplegable.style.paddingBottom = '0';
-               
+
             } else {
                 this.$refs.informe.style.backgroundColor = '#E3E5FA';
                 this.$refs.desplegable.style.paddingTop = '5%';
                 this.$refs.desplegable.style.paddingBottom = '10%';
-                
+
             }
         },
         formatCreatedAt(createdAt) {
@@ -69,3 +73,4 @@ export default {
     }
 }
 </script>
+
