@@ -1,19 +1,27 @@
 <template>
     <div>
-        <form class="formulario-cambio-medico-admin" action="" method="post">
+        <form class="formulario-cambio-medico-admin" action="/cambiar-medico/peticion/solucion" method="post">
+            <input type="hidden" name="_token" :value="csrfToken">
+            <input type="hidden" name="idPaciente" :value="idPaciente">
             <div class="botones-cambio-medico-admin">
                 <button type="button" class="dialog-button-confirmar" @click="handleButtonClick('acceptar')">Acceptar</button>
                 <button type="button" class="dialog-button-rechazar" @click="handleButtonClick('rechazar')">Rebutjar</button>
             </div>
             <input type="hidden" name="action" :value="action">
-            <label for="motivoRechazo" v-if="mostrarMotivoRechazo">Especifiqui el motiu de rebuig de la petició</label>
-            <textarea name="motivoRechazo" placeholder="Motiu de rebuig de la petició..." v-if="mostrarMotivoRechazo"></textarea>
-            <label for="nuevoMedico" v-if="mostrarSelectMedico">Tria el nou metge</label>
-            <select name="nuevoMedico" v-if="mostrarSelectMedico">
-                <option value="" selected>Selecciona un metge</option>
-                <option v-for="medico in medicos" :key="medico.id" :value="medico.id">{{ medico.user.name}} 
-                    {{ medico.user.lastName }} | {{ medico.speciality }} | {{ medico.collegiate_number }}</option>
-            </select>
+            <div id="rechazoCambioMedico" v-if="mostrarMotivoRechazo">
+                <label for="motivoRechazo">Especifiqui el motiu de rebuig de la petició</label>
+                <p v-if="errors.motivoRechazo">{{ errors.motivoRechazo[0] }}</p>
+                <textarea name="motivoRechazo" placeholder="Motiu de rebuig de la petició..."></textarea>
+            </div>
+            <div id="aceptarCambioMedico" v-if="mostrarSelectMedico">
+                <label for="nuevoMedico">Tria el nou metge</label>
+                <p v-if="errors.nuevoMedico">{{ errors.nuevoMedico[0] }}</p>
+                <select name="nuevoMedico">
+                    <option value="" selected>Selecciona un metge</option>
+                    <option v-for="medico in medicos" :key="medico.id" :value="medico.id">{{ medico.user.name }} 
+                        {{ medico.user.lastName }} | {{ medico.speciality }} | {{ medico.collegiate_number }}</option>
+                </select>
+            </div>
             <button class="confirmar-btn" type="submit" v-if="mostrarFormulario">Enviar</button>
         </form>
     </div>
@@ -21,7 +29,7 @@
 
 <script>
 export default {
-    props: ['medicos'],
+    props: ['medicos', 'csrfToken', 'idPaciente', 'errors'],
     data() {
         return {
             action: '',
@@ -29,6 +37,14 @@ export default {
             mostrarMotivoRechazo: false,
             mostrarSelectMedico: false
         };
+    },
+    mounted() {
+        if (this.errors.nuevoMedico) {
+            this.mostrarSelect();
+        }
+        if (this.errors.motivoRechazo) {
+            this.mostrarTextarea();
+        }
     },
     methods: {
         handleButtonClick(actionType) {
