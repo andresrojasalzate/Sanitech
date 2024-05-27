@@ -10,6 +10,14 @@ class NotificacionPaciente extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'title',
+        'descripcion',
+        'tipo',
+        'vista',
+        'paciente_id'
+    ];
+
     public function pacientes(): BelongsTo
     {
         return $this->belongsTo(Paciente::class);

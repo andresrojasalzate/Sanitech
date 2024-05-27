@@ -4,12 +4,12 @@
 @section('descripcion_pagina', 'Demana un canvi de metge')
 
 @section('content')
-<main class="">
+<main>
     <section class="tituloCrearCita">
         <h1 class="medionegrita">Sol·licitud de canvi de metge</h1>
     </section>
 
-    <section class="">
+    <section>
         <div class="contenedorCambioMedicoAdmin">
             <div class="allform-container-content-datos-personales">
                 <h4>Dades del pacient</h4>
@@ -38,9 +38,13 @@
                 <p>{{$motivoPaciente}}</p>
             </div>
             <div id="formularioCambioMedico">
-                <cambioMedico :medicos='@json($medicos)'></cambioMedico>
+                <cambioMedico  id="cambio-medico-form" :csrf-token="'{{ csrf_token() }}'" :medicos='@json($medicos)' :id-paciente='@json($idPaciente)'  :errors='@json($errors->toArray())'></cambioMedico>
             </div>
         </div>
     </section>
 </main>
+
+@if ($errors->any())
+    <script src="{{ asset('js/formularioCambioAdmin.js') }}"></script>
+@endif
 @endsection

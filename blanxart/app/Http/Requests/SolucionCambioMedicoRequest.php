@@ -23,6 +23,7 @@ class SolucionCambioMedicoRequest extends FormRequest
     {
         $rules = [
             'action' => 'required|string|in:acceptar,rechazar',
+            'idPaciente' => 'required'
         ];
 
         if ($this->input('action') === 'acceptar') {
@@ -42,11 +43,11 @@ class SolucionCambioMedicoRequest extends FormRequest
     public function messages(): array
     {
         return [
-            'action.required' => 'El campo acción es obligatorio.',
-            'action.in' => 'El valor de acción no es válido.',
-            'nuevoMedico.required' => 'El campo nuevo médico es obligatorio cuando se acepta la petición.',
-            'nuevoMedico.exists' => 'El médico seleccionado no es válido.',
-            'motivoRechazo.required' => 'El campo motivo de rechazo es obligatorio cuando se rechaza la petición.',
+            'action.required' => 'El camp action és obligatori.',
+            'action.in' => "El valor d' acció no és vàlid.",
+            'nuevoMedico.required' => "El camp nou mèdic és obligatori quan s' accepta la petició.",
+            'nuevoMedico.exists' => 'El metge seleccionat no és vàlid.',
+            'motivoRechazo.required' => 'El camp motiu de rebuig és obligatori quan es rebutja la petició.',
         ];
     }
 }

@@ -33,11 +33,17 @@
         padding: 5px;
         min-height: 20vh;
         resize: none;
+        width: 100%;
     }
 
     & select{
         margin-top: 2vh;
         margin-bottom: 5vh;
+    }
+
+    & p{
+        color: red;
+        margin-top: 2vh;
     }
 }
 
