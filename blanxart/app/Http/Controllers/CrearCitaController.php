@@ -37,6 +37,6 @@ class CrearCitaController extends Controller
             'done' => false,
         ]);
 
-        return redirect()->route('home')->with('status', 'Cita creada correctament!');;
+        return redirect()->route('home')->with('status', 'Cita creada correctament!');
     }
 }

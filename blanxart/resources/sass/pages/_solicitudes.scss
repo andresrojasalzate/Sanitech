@@ -18,6 +18,13 @@
             border-radius: 20px;
             width: 400px;
             height: 150px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+            &:hover, &:active, &:focus {
+                transform: scale(1.05);
+                box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); 
+            }
 
             &-icon {
                 @include flex-column-center;
