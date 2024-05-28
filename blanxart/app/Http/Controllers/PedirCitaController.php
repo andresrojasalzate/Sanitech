@@ -107,6 +107,6 @@ class PedirCitaController extends Controller
         $notificacion->cita_id = $id;
         $notificacion->save();
 
-        return redirect()->route($ruta);
+        return redirect()->route($ruta)->with('status', 'Cita creada correctament.');
     }
 }

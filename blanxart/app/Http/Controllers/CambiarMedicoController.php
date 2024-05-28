@@ -20,7 +20,7 @@ class CambiarMedicoController extends Controller
         $idPaciente = $usuarioPaciente->paciente->id;
 
         if (CambioMedico::where('paciente_id', $idPaciente)->exists()) {
-            return redirect()->route('solicitudes');
+            return redirect()->route('solicitudes')->with('error', 'Ja has demanat un canvi de metge.');;
         } else {
 
             return view('pages.cambioMedico', [
