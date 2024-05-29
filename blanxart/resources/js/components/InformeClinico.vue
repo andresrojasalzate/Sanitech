@@ -6,13 +6,13 @@
                 <p>{{ formatCreatedAt(resultado.created_at) }}</p>
             </div>
             <div class="informe-parte2">
-                <Transition name="fade" mode="out-in">
+                <Transition name="fade-acordeon" mode="out-in">
                     <i class="fa-solid fa-chevron-right fa-2xl" v-if="clickado"></i>
                     <i class="fa-solid fa-angle-down fa-2xl" v-else=""></i>
                 </Transition>
             </div>
         </div>
-        <Transition name="slide-fade">
+        <Transition name="slide-fade-acordeon">
             <div class="cuerpo-informe" v-if="!clickado">
                 <p class="medionegrita cuerpo-informe-titulo">Resultat</p>
                 <p class="cuerpo-informe-texto">{{ resultado.resultado }}</p>
