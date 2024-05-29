@@ -11,7 +11,6 @@
 }
 
 select {
-    display: block;
     font-size: 16px;
     padding: 10px;
     width: 100%;
@@ -55,20 +54,20 @@ select:hover {
     grid-row: 2;
 
     &-confirmar {
-        background-color: #2ecc71;
+        background-color: $verde2;
         color: $blanco;
 
         &:hover {
-            background-color: #27ae60;
+            background-color: $verde2-hover;
         }
     }
 
     &-rechazar {
-        background-color: #e74c3c;
+        background-color: $rojo;
         color: $blanco;
 
         &:hover {
-            background-color: #c0392b;
+            background-color: $rojo-hover;
         }
     }
 }

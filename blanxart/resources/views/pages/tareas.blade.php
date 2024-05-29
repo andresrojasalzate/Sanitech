@@ -6,11 +6,10 @@
 @section('content')
 
     <main class="solicitudesContainer">
-
         <x-boton-atras :url="route('home')" />
 
-        <section class="info">
-            <h1 class="regular">Tasques</h1>
+        <section class="solicitudesContainer-solicitudes-title">
+            <h2 class="regular">Tasques</h2>
             <p>Aquí pots gestionar les cites programades pels metges.</p>
         </section>
 

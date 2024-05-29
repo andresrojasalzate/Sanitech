@@ -7,8 +7,9 @@
     <main class="allform-container">
         <x-boton-atras :url="route('buscadorPacientes', ['accion' => 'crearCita'])" />
 
-        <section class="tituloCrearCita">
-            <h1 class="medionegrita">Crear cita</h1>
+        <section class="allform-container-title">
+            <h2 class="regular">Crear cita</h2>
+            <p>Sol·liciti una cita amb el metge</p>
         </section>
 
         <section class="allform-container-content">

@@ -12,6 +12,7 @@
         font-size: 2rem;
     }
 }
+
 .contenedorSolicitudCambioMedico{
     margin-top: 5vh;
 }
@@ -26,34 +27,7 @@
         white-space: normal; 
     }
 
-    & textarea{
-        margin-top: 3vh;
-        min-height: 20vh;
-        padding: 10px;
-        resize: none;
-    }
-
     & button{
         margin-top: 5vh;
-    }
-}
-
-@media screen and (min-width: 768px) {
-    .contenedorSolicitudCambioMedico{
-        margin-left: 20%;
-        margin-right: 20%;
-        
-    }
-
-    .formularioCambioMedico{
-        
-        & label{
-           align-self: center; 
-        }
-
-        & textarea{
-           
-            min-height: 30vh;
-        }
     }
 }
