@@ -4,16 +4,15 @@
       <label for="speciality">1. Seleccioni la especialitat:</label>
       <select v-model="selectedSpeciality" @change="filterDoctors" class="select" required>
         <option value="">Selecciona una especialitat</option>
-        <option value="">Selecciona una especialitat</option>
         <option v-for="speciality in uniqueSpecialities" :value="speciality">{{ speciality }}</option>
       </select>
     </div>
 
     <div class="form-group">
       <label for="doctor">2. Seleccioni el metge:</label>
-      <select v-model="selectedDoctor" class="select" name="medico"  required>
+      <select v-model="selectedDoctor" class="select" name="medico" required>
         <option value="">Selecciona un metge</option>
-        <option v-for="doctor in filteredDoctors" :value="doctor.id" >{{ doctor.user.name }} {{ doctor.user.lastName }} -
+        <option v-for="doctor in filteredDoctors" :value="doctor.id">{{ doctor.user.name }} {{ doctor.user.lastName }} -
           {{ doctor.collegiate_number }}</option>
       </select>
     </div>
@@ -53,8 +52,9 @@ export default {
       selectedDate: '',
       selectedTime: '',
       uniqueSpecialities: [],
-      availableHours: ['08:00', '09:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00'],
-      citaId: this.cita_id
+      availableHours: '',
+      citaId: this.cita_id,
+      url: '/api/consultarFechaAsignar',
     };
   },
   computed: {
@@ -63,23 +63,55 @@ export default {
       return this.medicos.filter(medico => medico.speciality === this.selectedSpeciality);
     }
   },
+  watch: {
+    selectedDate: {
+      handler: 'consultarFechaAsignar',
+      immediate: false
+    }
+  },
   methods: {
+    async consultarFechaAsignar() {
+      try {
+        const response = await fetch(this.url, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+            'X-CSRF-TOKEN': '{{ csrf_token() }}',
+            'Accept': 'application/json'
+          },
+          body: new URLSearchParams({
+            'fecha': this.selectedDate,
+            'medico': this.selectedDoctor
+          })
+        });
+
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+
+        const data = await response.json();
+        // console.log(data);
+        this.availableHours = data;
+      } catch (error) {
+        console.error('There was a problem with the fetch operation:', error);
+      }
+    },
     filterDoctors() {
       this.selectedDoctor = ''; // Reset selected doctor when changing speciality
     },
     formatDate(date) {
-    const [year, month, day] = date.split('-');
-    return `${day}/${month}/${year}`;
-  }
+      const [year, month, day] = date.split('-');
+      return `${day}/${month}/${year}`;
+    }
   },
   mounted() {
 
     this.uniqueSpecialities = [...new Set(this.medicos.map(medico => medico.speciality))];
     this.selectedSpeciality = this.datos_cita[0].speciality ? this.datos_cita[0].speciality : '';
     this.selectedDoctor = this.datos_cita[0].medico_id ? this.datos_cita[0].medico_id : '';
-    this.selectedDate = this.datos_cita[0].date ? this.datos_cita[0].date: '';
+    this.selectedDate = this.datos_cita[0].date ? this.datos_cita[0].date : '';
     this.selectedTime = this.datos_cita[0].time ? this.datos_cita[0].time : '';
-    
+
   }
 };
 </script>

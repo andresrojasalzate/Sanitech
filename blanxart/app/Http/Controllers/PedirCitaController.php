@@ -2,13 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use Exception;
 use App\Models\Cita;
 use App\Models\Medico;
 use App\Models\Paciente;
 use App\Models\Notificacion;
 use Illuminate\Http\Request;
 use App\Http\Requests\CitaRequest;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Validator;
 
 class PedirCitaController extends Controller
 {
@@ -112,5 +115,80 @@ class PedirCitaController extends Controller
         $notificacion->save();
 
         return redirect()->route($ruta);
+    }
+
+
+    public static function get_horas_habiles ($resultados)
+    {
+        $horas_habiles = [];
+        $horas = explode(',',env('HORAS'));
+
+        if($resultados->isEmpty()){
+            $resultados = $horas;
+        }else{
+            foreach ($resultados as $resultado) {
+                array_push($horas_habiles,$resultado->time);
+            }
+            $resultados = $horas_habiles;
+            $resultados = array_diff($horas, $resultados);
+        }
+
+        return $resultados;
+    }
+
+    public static function consultarFecha(Request $request)
+    {
+        try {
+            Log::info('Llamada al metodo PedirCitaController.consultarFecha');
+
+            $validator = Validator::make($request->all(), [
+                'fecha' => 'required',
+                'user_id' => 'required'
+            ]);
+
+            if ($validator->fails()) {
+
+                return response()->json(['errors' => $validator->errors()], 422);
+            }
+
+            $fecha = $request->fecha;
+            $user_id = $request->user_id;
+            
+            $resultados = Cita::consultarHorasDisponibles($fecha, $user_id);
+
+            $horas_habiles = self::get_horas_habiles($resultados);
+            
+            return $horas_habiles;
+        } catch (Exception $e) {
+            Log::error($e->getMessage());
+        }
+    }
+
+    public static function consultarFechaAsignar(Request $request)
+    {
+        try {
+            Log::info('Llamada al metodo PedirCitaController.consultarFechaAsignar');
+
+            $validator = Validator::make($request->all(), [
+                'fecha' => 'required',
+                'medico' => 'required'
+            ]);
+
+            if ($validator->fails()) {
+
+                return response()->json(['errors' => $validator->errors()], 422);
+            }
+
+            $fecha = $request->fecha;
+            $doctor = $request->medico;
+            
+            $resultados = Cita::consultarHorasDisponiblesAdmin($fecha, $doctor);
+            
+            $horas_habiles = self::get_horas_habiles($resultados);
+            
+            return $horas_habiles;
+        } catch (Exception $e) {
+            Log::error($e->getMessage());
+        }
     }
 }
