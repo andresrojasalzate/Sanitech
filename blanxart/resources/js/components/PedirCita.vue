@@ -3,7 +3,7 @@
   <div class="formulario-2-columns">
     <div class="form-group" id="form-group-1">
       <label for="datepicker">1. Seleccioni la data de cita:</label>
-      <input type="date" v-model="selectedDate" class="datepicker" name="fecha" required>
+      <input type="date" v-model="selectedDate" class="datepicker" name="fecha" :min="minDate" required>
     </div>
 
     <div class="form-group" id="form-group-2">
@@ -31,46 +31,9 @@ export default {
     return {
       selectedDate: '',
       selectedTime: '',
-      availableHours: '',
-      url: '/api/consultarFecha',
-      user_id: this.user_id
+      minDate:'',
+      availableHours: ['08:00', '09:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00'],
     };
-  },
-  watch: {
-    selectedDate: {
-      handler: 'consultarFecha',
-      immediate: false
-    }
-  },
-  methods: {
-    async consultarFecha() {
-      try {
-        const response = await fetch(this.url, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/x-www-form-urlencoded',
-            'X-CSRF-TOKEN': '{{ csrf_token() }}',
-            'Accept': 'application/json'
-          },
-          body: new URLSearchParams({
-            'fecha': this.selectedDate,
-            'user_id': this.user_id
-          })
-        });
-
-        if (!response.ok) {
-          throw new Error('Network response was not ok');
-        }
-
-        const data = await response.json();
-        console.log(data);
-        this.availableHours = data;
-        // this.medicosEncontrados = data.length;
-        // this.busquedaRealizada = true;
-      } catch (error) {
-        console.error('There was a problem with the fetch operation:', error);
-      }
-    }
   }
-}
+};
 </script>

@@ -21,6 +21,11 @@
                 height: 150px;
                 border-radius: 10px;
                 box-shadow: $sombra;
+                transition: transform 0.3s ease;
+
+                &:hover {
+                    transform: scale(1.05); 
+                }
 
                 i {
                     color: $negro;

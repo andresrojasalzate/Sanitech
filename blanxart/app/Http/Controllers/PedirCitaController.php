@@ -37,15 +37,11 @@ class PedirCitaController extends Controller
         return view('pages.asignarFechaCita', ['citas' => $citas]);
     }
 
+    //Función que devuelve la vista para agendar una cita sin fecha del administrador
     public function agendarCita($id, $ruta, $name, $emergency_level, $nombrePrueba)
     {
-
         $datosCita = Cita::getDatosCitas($id);
-
-        // dd($datosCita);
-
         $medicos = Medico::with('user')->get()->toJson();
-
         return view('pages.agendarCita', ['cita_id' => $id, 'medicos' => $medicos, 'ruta'=>$ruta, 'name' => $name, 'emergency_level' => $emergency_level, 'nombrePrueba' => $nombrePrueba, 'datosCita' => $datosCita]);
     }
 
@@ -76,7 +72,7 @@ class PedirCitaController extends Controller
             'paciente_id' => $request->input('paciente_id')
         ]);
 
-        return redirect()->route('home');
+        return redirect()->route('home')->with('status', 'Cita demananada amb èxit!');
     }
 
     //Función update que actualiza una cita ya creada
@@ -114,7 +110,7 @@ class PedirCitaController extends Controller
         $notificacion->cita_id = $id;
         $notificacion->save();
 
-        return redirect()->route($ruta);
+        return redirect()->route($ruta)->with('status', 'Cita creada correctament.');
     }
 
 

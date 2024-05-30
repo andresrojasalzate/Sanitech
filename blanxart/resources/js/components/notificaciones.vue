@@ -2,6 +2,7 @@
 
   <div class="notificacion-title">
     <h2>Notificacions</h2>
+    <p>Consulta els teus recordatoris i accepta o rebutjar les  proves</p>
   </div>
   <div class="notificaciones-container">
     <div v-for="item in notificaciones" :key="item.id" class="notificacion-card">
