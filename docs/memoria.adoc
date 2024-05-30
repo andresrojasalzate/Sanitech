@@ -613,6 +613,30 @@ API_KEY = VD8x2HAiBTUx7ltZRI9TYJW3S5D3LKHsbbAWvhDp1f112b49
 ----
 Guardamos cambios con "Ctrl+o", presionamos "enter" para sobrescribir el nombre del fichero y salimos del editor nano con "Ctrl+x".
 
+== Manual de usuario
+
+En este apartado se detallará cada apartado de la página y sus respectivas funcionalidades tanto como usuario paciente, médico y administrador de nuestra aplicación.
+
+image::images/manual_usuario/login.png[Login]
+
+=== Usuario Paciente
+
+==== Home
+
+image::images/manual_usuario/paciente/home.png[Home paciente]
+
+image::images/manual_usuario/paciente/home_ultima_conexion.png[Home paciente ultima conexion]
+
+image::images/manual_usuario/paciente/agenda.png[Agenda]
+
+image::images/manual_usuario/paciente/informes.png[informes]
+
+image::images/manual_usuario/paciente/solicitudes.png[solicitudes]
+
+=== Usuario Médico
+
+=== Usuario Administrador
+
 == Datos de prueba para testear la aplicación
 
 Para poder hacer pruebas dentro de la aplicación y simular los flujos de funcionamiento desarrollados, dejamos a disposición las credenciales de acceso de un usuario por cada rol contemplado durante la planificación con el cliente. 

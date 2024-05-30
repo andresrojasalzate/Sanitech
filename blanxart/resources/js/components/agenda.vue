@@ -1,7 +1,7 @@
 <template>
     <div class="agenda-container">
         <div class="citas-title">
-            <h2>Agenda</h2>
+            <h2 class="regular">Agenda</h2>
             <p>Aquí podràs visualitzar totes les cites.</p>
         </div>
         <div class="citas-type">
