@@ -54,7 +54,7 @@ export default {
       uniqueSpecialities: [],
       availableHours: '',
       citaId: this.cita_id,
-      url: '/api/consultarFechaAsignar',,
+      url: '/api/consultarFechaAsignar',
       minDate: ''
     };
   },
@@ -107,6 +107,14 @@ export default {
       const year = today.getFullYear();
       this.minDate = `${year}-${month}-${day}`;
     }
-  }
+  },
+  mounted() {
+    this.setMinDate();
+    this.uniqueSpecialities = [...new Set(this.medicos.map(medico => medico.speciality))];
+    this.selectedSpeciality = this.datos_cita?.speciality || '';
+    this.selectedDoctor = this.datos_cita?.medico_id || '';
+    this.selectedDate = this.datos_cita?.date || '';
+    this.selectedTime = this.datos_cita?.time || '';
+  },
 };
 </script>
