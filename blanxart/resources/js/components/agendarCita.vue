@@ -52,8 +52,9 @@ export default {
       selectedDate: '',
       selectedTime: '',
       uniqueSpecialities: [],
-      availableHours: ['08:00', '09:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00'],
+      availableHours: '',
       citaId: this.cita_id,
+      url: '/api/consultarFechaAsignar',
       minDate: ''
     };
   },
@@ -63,15 +64,39 @@ export default {
       return this.medicos.filter(medico => medico.speciality === this.selectedSpeciality);
     }
   },
-  mounted() {
-    this.setMinDate();
-    this.uniqueSpecialities = [...new Set(this.medicos.map(medico => medico.speciality))];
-    this.selectedSpeciality = this.datos_cita?.speciality || '';
-    this.selectedDoctor = this.datos_cita?.medico_id || '';
-    this.selectedDate = this.datos_cita?.date || '';
-    this.selectedTime = this.datos_cita?.time || '';
+  watch: {
+    selectedDate: {
+      handler: 'consultarFechaAsignar',
+      immediate: false
+    }
   },
   methods: {
+    async consultarFechaAsignar() {
+      try {
+        const response = await fetch(this.url, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+            'X-CSRF-TOKEN': '{{ csrf_token() }}',
+            'Accept': 'application/json'
+          },
+          body: new URLSearchParams({
+            'fecha': this.selectedDate,
+            'medico': this.selectedDoctor
+          })
+        });
+
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+
+        const data = await response.json();
+        // console.log(data);
+        this.availableHours = data;
+      } catch (error) {
+        console.error('There was a problem with the fetch operation:', error);
+      }
+    },
     filterDoctors() {
       this.selectedDoctor = ''; // Reset selected doctor when changing speciality
     },
@@ -82,6 +107,14 @@ export default {
       const year = today.getFullYear();
       this.minDate = `${year}-${month}-${day}`;
     }
-  }
+  },
+  mounted() {
+    this.setMinDate();
+    this.uniqueSpecialities = [...new Set(this.medicos.map(medico => medico.speciality))];
+    this.selectedSpeciality = this.datos_cita?.speciality || '';
+    this.selectedDoctor = this.datos_cita?.medico_id || '';
+    this.selectedDate = this.datos_cita?.date || '';
+    this.selectedTime = this.datos_cita?.time || '';
+  },
 };
 </script>

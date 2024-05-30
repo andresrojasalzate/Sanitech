@@ -35,7 +35,7 @@
             <form action="{{ route('publicarPeticionCita') }}" method="POST" class="form-container">
                 @csrf
                 <div id="formPedirCita">
-                    <selecciondia-component></selecciondia-component>
+                    <selecciondia-component :user_id = '{{auth()->user()->id}}'></selecciondia-component>
                 </div>
                 @error('error')
                     <div class="alert alert-danger">{{ $message }}</div>

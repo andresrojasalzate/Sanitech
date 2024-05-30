@@ -2,12 +2,13 @@
 
 namespace App\Models;
 
-
+use Exception;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasOne;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Cita extends Model
@@ -169,5 +170,44 @@ class Cita extends Model
             ->toJson();
 
         return $cita;
+    }
+
+    public static function consultarHorasDisponibles($fecha, $user_id)
+    {
+        try {
+            Log::info('Llamada al metodo Cita.consultarHorasDisponibles fecha = ' . $fecha . 'user = ' . $user_id);
+            $horas = DB::table('citas')
+                ->select('time')
+                ->where('date', $fecha)
+                ->where('medico_id', function ($query) use ($user_id) {
+                    $query->select('medico_id')
+                        ->from('pacientes')
+                        ->where('user_id', $user_id)
+                        ->limit(1);
+                })
+                ->orderBy('time')
+                ->get();
+
+            return $horas;
+        } catch (Exception $e) {
+            Log::error($e->getMessage());
+        }
+    }
+
+    public static function consultarHorasDisponiblesAdmin($fecha, $medico_id)
+    {
+        try {
+            Log::info('Llamada al metodo Cita.consultarHorasDisponiblesAdmin fecha = ' . $fecha . ' medico_id = ' . $medico_id);
+            $horas = DB::table('citas')
+                ->select('time')
+                ->where('date', $fecha)
+                ->where('medico_id', $medico_id)
+                ->orderBy('time')
+                ->get();
+
+            return $horas;
+        } catch (Exception $e) {
+            Log::error($e->getMessage());
+        }
     }
 }
