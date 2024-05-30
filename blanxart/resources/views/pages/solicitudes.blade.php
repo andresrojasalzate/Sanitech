@@ -5,23 +5,23 @@
 
 @section('content')
 
+<x-boton-atras :url="route('home')" />
+
+@if (session('status'))
+<div id="alertaExito">
+    <aletraExito :mensaje='@json(session("status"))'>
+        </alertaExito>
+</div>
+@endif
+
+@if (session('error'))
+<div id="alertaError">
+    <alertaError :mensaje='@json(session("error"))'></alertaError>
+</div>
+
+@endif
+
 <main class="solicitudesContainer">
-    <x-boton-atras :url="route('home')" />
-
-    @if (session('status'))
-    <div id="alertaExito">
-        <aletraExito :mensaje='@json(session("status"))'></alertaExito>
-    </div>
-    @endif
-
-    @if (session('error'))
-    <div id="alertaError">
-        <alertaError :mensaje='@json(session("error"))'></alertaError>
-    </div>
-    <!-- <div class="alert alert-danger">
-        {{ session('error') }}
-    </div> -->
-    @endif
 
     <section class="info">
         <h1 class="regular">Solicituts</h1>
