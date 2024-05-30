@@ -26,17 +26,26 @@
 
 <script>
 export default {
-  props: ['medicos', 'cita_id'],
+  props: ['medicos', 'cita_id', 'user_id'],
   data() {
     return {
       selectedDate: '',
       selectedTime: '',
-      minDate: '',
-      availableHours: ['08:00', '09:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00'],
+      minDate:'',
+      availableHours: '',
+      url: '/api/consultarFecha',
+      user_id: this.user_id
+
     };
   },
   mounted() {
     this.setMinDate();
+  },
+  watch: {
+    selectedDate: {
+      handler: 'consultarFecha',
+      immediate: false
+    }
   },
   methods: {
     setMinDate() {
@@ -45,7 +54,33 @@ export default {
       const month = String(today.getMonth() + 1).padStart(2, '0');
       const year = today.getFullYear();
       this.minDate = `${year}-${month}-${day}`;
+    },
+    async consultarFecha() {
+      try {
+        const response = await fetch(this.url, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+            'X-CSRF-TOKEN': '{{ csrf_token() }}',
+            'Accept': 'application/json'
+          },
+          body: new URLSearchParams({
+            'fecha': this.selectedDate,
+            'user_id': this.user_id
+          })
+        });
+
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+
+        const data = await response.json();
+        // console.log(data);
+        this.availableHours = data;
+      } catch (error) {
+        console.error('There was a problem with the fetch operation:', error);
+      }
     }
-  }
+  },
 };
 </script>

@@ -1,9 +1,10 @@
 <?php
 
-use App\Http\Controllers\BuscadorMedicoController;
-use App\Http\Controllers\BuscadorPacienteController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PedirCitaController;
+use App\Http\Controllers\BuscadorMedicoController;
+use App\Http\Controllers\BuscadorPacienteController;
 
 
 /*
@@ -24,5 +25,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::middleware('auth:sanctum')->post('/filtradorPaciente', [BuscadorPacienteController::class, 'filtrarPaciente'])->name('filtrarPaciente');
 // Route::post('/filtradorMedico/',[BuscadorMedicoController::class, 'filtrarMedico']);
 Route::middleware('auth:sanctum')->post('/filtradorMedico',[BuscadorMedicoController::class, 'filtrarMedico']);
+Route::post('/consultarFecha',[PedirCitaController::class, 'consultarFecha']);
+Route::post('/consultarFechaAsignar',[PedirCitaController::class, 'consultarFechaAsignar']);
 
 
