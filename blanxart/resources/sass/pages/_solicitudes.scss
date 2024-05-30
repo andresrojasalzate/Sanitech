@@ -1,5 +1,4 @@
 .solicitudesContainer {
-
     &-solicitudes-title {
         text-align: center;
         padding: 5px;
@@ -7,7 +6,7 @@
 
     .solicitudes {
         @include card-grid-columns(2);
-        gap: 100px; 
+        gap: 100px;
         &-card_type_2 {
             display: flex;
             border: 1px solid $gris;
@@ -17,9 +16,11 @@
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 
-            &:hover, &:active, &:focus {
+            &:hover,
+            &:active,
+            &:focus {
                 transform: scale(1.05);
-                box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); 
+                box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
             }
 
             &-icon {
@@ -40,9 +41,10 @@
             }
         }
 
-        @media (max-width: 957px) { 
+
+        @media (max-width: 957px) {
             @include card-grid-columns(1);
-            gap: 60px; 
+            gap: 60px;
 
             &-card_type_2 {
                 width: 300px;
@@ -56,4 +58,12 @@
             }
         }
     }
+}
+
+.alertaSolicitudes {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto 1fr;
+    place-items: center;
+    align-content: space-around;
 }
