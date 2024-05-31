@@ -210,4 +210,14 @@ class Cita extends Model
             Log::error($e->getMessage());
         }
     }
+
+    public static function get_medico_id($paciente_id)
+    {
+        $medico_id = DB::table('pacientes')
+            ->select('medico_id')
+            ->where('id',$paciente_id)
+            ->get();
+
+        return $medico_id;
+    }
 }
