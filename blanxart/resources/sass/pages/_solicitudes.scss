@@ -5,6 +5,8 @@
     }
 
     .solicitudes {
+
+    margin-bottom: 10vh;
         @include card-grid-columns(2);
         gap: 100px;
         &-card_type_2 {
@@ -40,7 +42,6 @@
                 width: 70%;
             }
         }
-
 
         @media (max-width: 957px) {
             @include card-grid-columns(1);
