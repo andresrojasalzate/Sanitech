@@ -12,8 +12,6 @@
 = Sanitech
 Albert Mateos - Andres Rojas - Diego Amador - Samuel Garcia 
 
-
-
 ==  Introducción
 Os presentamos la memoria del tercer proyecto del curso 2023-2024 de 2o de Desarrollo de Aplicaciones Web del instituto Nicolau Copèrnic. Este proyecto consta del desarrollo de una página web de gestión de pruebas de un centro médico, desarrollado para el las estudiantes del instituto Blanxart de Terrassa. 
 
@@ -623,19 +621,103 @@ image::images/manual_usuario/login.png[Login]
 
 ==== Home
 
-image::images/manual_usuario/paciente/home.png[Home paciente]
+image::images/manual_usuario/paciente/home_paciente.png[Home paciente]
 
 image::images/manual_usuario/paciente/home_ultima_conexion.png[Home paciente ultima conexion]
 
+==== Agenda
+
 image::images/manual_usuario/paciente/agenda.png[Agenda]
+
+==== Informes
 
 image::images/manual_usuario/paciente/informes.png[informes]
 
+==== Solicitudes
+
 image::images/manual_usuario/paciente/solicitudes.png[solicitudes]
+
+==== Cambio de médico
+
+image::images/manual_usuario/paciente/cambio_medico.png[cambio medico]
+
+==== Solicitar justificante
+
+image::images/manual_usuario/paciente/justificante.png[justificante]
+
+==== Pedir cita al médico
+
+image::images/manual_usuario/paciente/pedir_cita_1.png[pedir cita 1]
+
+image::images/manual_usuario/paciente/pedir_cita_2.png[pedir cita 2]
+
+==== Notificaciones
+
+image::images/manual_usuario/paciente/notificaciones_1.png[notificaciones 1]
+
+image::images/manual_usuario/paciente/notificaciones_2.png[notificaciones 2]
 
 === Usuario Médico
 
+==== Home
+
+image::images/manual_usuario/medico/home_medico.png[home medico]
+
+==== Buscador de pacientes
+
+image::images/manual_usuario/medico/buscador_pacientes.png[buscador pacientes]
+
+==== Crear cita
+
+image::images/manual_usuario/medico/crear_cita.png[crear cita]
+
+==== Informes clínicos del médico
+
+image::images/manual_usuario/medico/informes_medico.png[informes medico]
+
+==== Agenda del médico
+
+image::images/manual_usuario/medico/agenda_medico.png[agenda medico]
+
 === Usuario Administrador
+
+==== Home
+
+image::images/manual_usuario/administrador/home_administrador.png[home administrador]
+
+==== Tareas
+
+image::images/manual_usuario/administrador/tareas.png[tareas]
+
+==== Listado de citas
+
+image::images/manual_usuario/administrador/listado_citas.png[listado_citas]
+
+==== Reprogramar cita
+
+image::images/manual_usuario/administrador/reprogramar_cita.png[reprogramar cita]
+
+image::images/manual_usuario/administrador/reprogramar_cita_2.png[reprogramar cita 2]
+
+==== Asignar cita
+
+image::images/manual_usuario/administrador/asignar_cita.png[asignar cita]
+
+image::images/manual_usuario/administrador/asignar_cita_2.png[asignar cita 2]
+
+==== Asignar cita cambio de médico por el administrador
+
+image::images/manual_usuario/administrador/cambio_medico_administrador.png[cambio medico administrador]
+
+image::images/manual_usuario/administrador/cambio_medico_administrador_2.png[cambio medico administrador 2]
+
+image::images/manual_usuario/administrador/cambio_medico_administrador_3.png[cambio medico administrador 3]
+
+==== Buscador de médicos
+
+image::images/manual_usuario/administrador/buscador_administrador.png[buscador administrador]
+
+==== Agenda de médicos del administrador
 
 == Datos de prueba para testear la aplicación
 
