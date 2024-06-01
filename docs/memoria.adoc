@@ -895,13 +895,7 @@ https://developer.mozilla.org/es/[Mozilla Develop Network]:
 
 https://laracasts.com/[Laracasts], y https://laravel.com/[Página oficial de Laravel]: Laravel y extensiones como gd.
 
-https://pagosonline.redsys.es/desarrolladores.html[Redsys para desarrolladores]: todo lo relacionado con la pasarela de pagos.
-
 https://www.w3schools.com/[w3schools]: Css, JavaScript.
-
-https://www.postgresql.org/docs/[Documentación oficial de Postgres]: consultas sobre postgres y sobretodo colación, _locale_, acentuación y mayúsculas.
-
-https://hub.docker.com/_/postgres[Documentación de docker]: sobretodo de cómo montar un contenedor con Postgres y cómo asignarle un _locale_ y colación al crearlo.
 
 https://github.com/KittyGiraudel/sass-boilerplate/tree/master/stylesheets[Repositorio GIT sass-boilerplate, de KittyGiraudel]: sass usando paradigma de estructuración 7:1. 
 
