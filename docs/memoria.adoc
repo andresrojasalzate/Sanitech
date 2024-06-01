@@ -832,6 +832,8 @@ Después de la entrega del proyecto, somos conscientes de que no hemos cumplido 
 
  * Funcionalidad para realizar reclamaciones por parte de los pacientes sobre sus citas realizadas.
  * Funcionalidad para realizar valoraciones por parte de los pacientes sobre sus citas realizadas.
+ * Notificaciones push para los pacientes, para un eventual cambio de aplicación web a una aplicación movil.
+ * Seleccionar fecha de las citas aplicando el rango de fechas según su nivel de emergencia.
  * Historial de acciones realizadas por los usuarios dentro de la aplicación. 
 
 === Posibles mejoras
@@ -839,6 +841,8 @@ Después de la entrega del proyecto, somos conscientes de que no hemos cumplido 
 Después de terminar todo lo pendiente del proyecto, hemos pensado alguna posible funcionalidad que se podría añadir al proyecto.
 
 * Una funcionalidad que permita cargar dentro del sistema, el resultado de las pruebas realizadas a los pacientes, ya sea por parte del mismo médico de cabecera o por el administrativo, se ha pensado en un formulario para dicho fin.
+
+* Mostrar únicamente los dias habiles (lunes a viernes) y los dias que cuenten con alguna hora disponibles para realizar la solicitud de citas por parte de los pacientes o la asignación de citas por parte de los administrativos de la aplicación.
 
 * Conectividad entre la aplicación desarrollada y el correo electronico de los usuarios de la aplciación, para tener un respaldo para recibir y contestar notificaciones sobre eventos y acciones realizadas dentro de la aplicación.
 

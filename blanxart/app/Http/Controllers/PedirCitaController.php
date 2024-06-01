@@ -42,7 +42,7 @@ class PedirCitaController extends Controller
     {
         $datosCita = Cita::getDatosCitas($id);
         $medicos = Medico::with('user')->get()->toJson();
-        return view('pages.agendarCita', ['cita_id' => $id, 'medicos' => $medicos, 'ruta'=>$ruta, 'name' => $name, 'emergency_level' => $emergency_level, 'nombrePrueba' => $nombrePrueba, 'datosCita' => $datosCita]);
+        return view('pages.agendarCita', ['cita_id' => $id, 'medicos' => $medicos, 'ruta' => $ruta, 'name' => $name, 'emergency_level' => $emergency_level, 'nombrePrueba' => $nombrePrueba, 'datosCita' => $datosCita]);
     }
 
     //Función que devuelve la vista para reprogramar una cita del administrador
@@ -72,7 +72,7 @@ class PedirCitaController extends Controller
             'done' => false,
             'accepted' => true,
             'paciente_id' => $request->input('paciente_id'),
-            'medico_id'=> $medico_id[0]->medico_id
+            'medico_id' => $medico_id[0]->medico_id
         ]);
 
         return redirect()->route('home')->with('status', 'Cita demananada amb èxit!');
@@ -117,16 +117,16 @@ class PedirCitaController extends Controller
     }
 
 
-    public static function get_horas_habiles ($resultados)
+    public static function get_horas_habiles($resultados)
     {
         $horas_habiles = [];
-        $horas = explode(',',env('HORAS'));
+        $horas = explode(',', env('HORAS'));
 
-        if($resultados->isEmpty()){
+        if ($resultados->isEmpty()) {
             $resultados = $horas;
-        }else{
+        } else {
             foreach ($resultados as $resultado) {
-                array_push($horas_habiles,$resultado->time);
+                array_push($horas_habiles, $resultado->time);
             }
             $resultados = $horas_habiles;
             $resultados = array_diff($horas, $resultados);
@@ -152,11 +152,11 @@ class PedirCitaController extends Controller
 
             $fecha = $request->fecha;
             $user_id = $request->user_id;
-            
+
             $resultados = Cita::consultarHorasDisponibles($fecha, $user_id);
 
             $horas_habiles = self::get_horas_habiles($resultados);
-            
+
             return $horas_habiles;
         } catch (Exception $e) {
             Log::error($e->getMessage());
@@ -180,11 +180,11 @@ class PedirCitaController extends Controller
 
             $fecha = $request->fecha;
             $doctor = $request->medico;
-            
+
             $resultados = Cita::consultarHorasDisponiblesAdmin($fecha, $doctor);
-            
+
             $horas_habiles = self::get_horas_habiles($resultados);
-            
+
             return $horas_habiles;
         } catch (Exception $e) {
             Log::error($e->getMessage());
