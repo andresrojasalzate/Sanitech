@@ -1,6 +1,6 @@
 <template>
     <div class="flex-center">
-        <h2 class="regular">Llistat de Cites</h2>
+        <h2 class="regular">Llistat de solicituts de cambi de metge</h2>
         <p>Aquí pots veure totes les cites</p>
         <template v-if="listaPaginada.length > 0">
             <div class="tabla">
