@@ -79,23 +79,19 @@ Para ver los detalles de los Sketching y Mockups, puede dirigirse al siguiente e
 En este apartado explicaremos brevemente la toma de decisiones a la hora de definir cada punto de la guía de estilos. Para poder acceder a la guía de estilos en FIGMA bastará con hacer click en el enlace que dejamos justo al terminar de explicar estos puntos.
 
 1. **Paleta de colores.**
-Entendemos que una aplicación así está orientada a un público sobre todo joven o de mediana edad y que necesitamos colores que llamen a la acción, así que nos hemos decidido por usar un tono rojo/rosado como color de marca sobre un fondo oscuro (gris casi negro), así como un color blanco para que los elementos tengan contraste sobre el fondo.
+Nuestra aplicación al estar orientada al personal que trabaja en el sector de la medicina, hemos decidido utilizar tonos azulados y verdosos como color de marca sobre un fondo blanco. Además el color azul refleja confianza y estabilidad, que es justo lo que necesitan los usuarios que hagan uso de una aplicación de este estilo.
 
 2. **Tipografía.**
-Hemos buscado tres fuentes que nos parezcan adecuadas con la temática, sean agradables a la vista, se lean bien en pantallas pequeñas y combinen bien entre sí. Una, sin serifa, será para la mayoría de textos y botones. La segunda, para los títulos y textos destacados. Y la tercera, con serifa y más estilizada, para citas destacadas y títulos artísticos.
+Como paleta de colores, tal y como está especificado en la guia de estilos, hemos usado Outfit, ya que es una tipografía elegante a la par de sencilla, y queda bien tanto como para los títulos o la letra de los botones.
 
 3. **Iconografía.**
 En cuanto a iconos hemos decidido optar por usar los de la librería font-awesome 5, que nos parecen quedan mejor con nuestro estilo y es gratis.
 
 4. **Espacios y formas.**
-Hemos decidido usar medidas a partir del tamaño de la fuente (rem), ya que al cambiar de pantalla, cambiamos de tamaño de fuente y en teoría todo debería de quedar proporcionado.
-Buscamos cual era el espacio estándar entre el contenido y los bordes en pantallas móviles y a partir de ahí lo escalamos según la pantalla. 
-También decidimos darle a la mayoría elementos de nuestro sitio web, botones, cards, contenedores... un aspecto rectangular con los bordes recortados en las esquinas.
+Hemos decidido usar medidas a partir del tamaño de la fuente (rem), ya que al cambiar de pantalla, cambiamos de tamaño de fuente y en teoría todo debería de quedar proporcionado. Buscamos cual era el espacio estándar entre el contenido y los bordes en pantallas móviles y a partir de ahí lo escalamos según la pantalla. 
 
 5. **Botones.**
-Los botones hemos decidido que usarían la misma fuente que el texto normal del sitio web. Tendrán un borde del color de la 'marca' de la web y un fondo transparente que se rellenará al hacer hover con el mismo color que el borde.
-
-En el siguiente enlace, puede encontrar toda la información a detalle de la guia de estilos de la aplicación https://www.figma.com/file/cOq2a3i65rwIY4i7gC5tbq/gr01-Gu%C3%ADa-de-estilos?type=design&node-id=0-1&mode=design&t=RbeKfi6LfndwQ6Wj-0[Guia de estilos]
+Los botones hemos decidido que usarían la misma fuente que el texto normal del sitio web. Tendrán un borde del color de la 'marca' de la web y un fondo azul que se rellenará al hacer hover con un color azulado más oscuro.
 
 == Manual de instalación, distribución y configuración. 
 
