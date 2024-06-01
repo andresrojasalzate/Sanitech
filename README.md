@@ -1,6 +1,9 @@
 # blanxart-m12-amador-garcia-rojas-mateos
 
+## Sanitech
 
+* Laboratorio de despliegue: Diego Amador.
+* ip del servidor: [http://34.199.117.43](http://34.199.117.43)
 
 ## Integrantes
 
