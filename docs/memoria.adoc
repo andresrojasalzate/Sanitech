@@ -613,87 +613,166 @@ Guardamos cambios con "Ctrl+o", presionamos "enter" para sobrescribir el nombre 
 
 == Manual de usuario
 
-En este apartado se detallará cada apartado de la página y sus respectivas funcionalidades tanto como usuario paciente, médico y administrador de nuestra aplicación.
+En este apartado se detallará cada apartado de la página web y sus respectivas funcionalidades para dar a conocer de forma detallada y sencilla la estructura de la web Sanitech. 
+
+Sanitech es un espacio de salut digital para nuestros usuarios la cual tiene como finalidad cubrir las siguientes necesidades: 
+
+* Acceder a información de preparación de pruebas médicas.
+* Gestionar citas complementarias y visitas.
+* Ofrecer un sistema de recordatorios de las citas.
+
+Cuando accedemos por primera vez a la página web, seremos redirigidos al login, donde podemos introducir nuestro DNI y contraseña para acceder a la web. Dependiendo del rol que tengamos, podemos registrarnos como paciente, médico o administrador.
 
 image::images/manual_usuario/login.png[Login]
 
 === Usuario Paciente
 
+Como usuario paciente, podemos hacer lo siguiente:
+
+* Acceder a los videos y documentos explicativos de las pruebas.
+* Consultar los resultados de las pruebas realizadas.
+* Consultar pruebas y visitas pendientes.
+* Pedir justificantes de una visita médica.
+* Recibir notificaciones de recordatio de las visitas asignadas con fecha y hora, con un tiempo de antelación.
+* Rechazar citas asignadas.      
+
 ==== Home
 
+Una vez registrados como paciente, seremos redirigidos a la página principal del sitio web. Podemos ver un header de color azul oscuro con un menú donde están los 4 accesos, permitiéndonos ingresar de forma más rápida.
+
+En el centro podemos ver una bienvenida con nuestro nombre y 4 bloques: (1) Agenda, (2) Informes y resultados, (3) Solicitudes y (4) Notificaciones. Podemos ver en el bloque de notificaciones que tiene un badge notification de color rojo con el número total de notificaciones nuevas no leidas por el usuario.
+
 image::images/manual_usuario/paciente/home_paciente.png[Home paciente]
+
+Si cerramos sesión y volvemos a ingresar, podemos ver la fecha y hora de nuestra última conexión en la web en la parte superior, debajo de la bienvenida.
 
 image::images/manual_usuario/paciente/home_ultima_conexion.png[Home paciente ultima conexion]
 
 ==== Agenda
 
+En este apartado podemos ver todas nuestras citas complementarias y visitas, las cuales podemos filtrar por 3 tipos: (1) citas realizadas (aquellas que ya se han hecho), (2) citas no realizadas (aquellas que no hemos hecho pero tenemos una fecha programada) y (3) citas pendientes por asignar (aquellas que ni hemos hecho ni tienen una fecha programada). 
+
+Las citas complementarias tienen asignado un documento pdf y un video con la explicación de la prueba.
+
 image::images/manual_usuario/paciente/agenda.png[Agenda]
 
 ==== Informes
+
+En el apartado de informes y resultados veremos un bloque con unas tarjetas despelgables las cuales contienen la información del resultado de la prueba realizada, como el nombre y la hora de la publicación, información del resultado, el servicio y el centro donde se ha realizado.
 
 image::images/manual_usuario/paciente/informes.png[informes]
 
 ==== Solicitudes
 
+En solicitudes, tendremos acceso a 3 bloques, podremos cambiar de médico, pedir un justificante de una cita realizada o pedir una cita de tipo visita a nuestro médico asignado.
+
 image::images/manual_usuario/paciente/solicitudes.png[solicitudes]
 
 ==== Cambio de médico
+
+Si queremos cambiar de médico, únicamente tenemos que rellenar el campo "motiu del canvi de metge" especificando por qué queremos cambiar de médico, y darle al botón enviar.
 
 image::images/manual_usuario/paciente/cambio_medico.png[cambio medico]
 
 ==== Solicitar justificante
 
+En este apartado podemos ver una tabla donde se listan todas las citas realizadas. Si queremos generar un justificante de una de estas citas, solo tenemos que dar click al icono del pdf y automáticamente se descargará nuestro justificante.
+
 image::images/manual_usuario/paciente/justificante.png[justificante]
 
 ==== Pedir cita al médico
 
+Al pedir una cita con nuestro médico, podemos ver en la parte superior una previsualización de información nuestra general. Para pedir cita, tenemos que escoger una fecha disponible y una hora disponible para ese dia. En caso que no exista una fecha disponible aparecerá una notificación de alerta diciendo que el dia seleccionado no tiene horas disponibles para escoger.
+
 image::images/manual_usuario/paciente/pedir_cita_1.png[pedir cita 1]
+
+Finalmente tenemos que rellenar el campo del motivo por el cual queremos hacer la visita.
 
 image::images/manual_usuario/paciente/pedir_cita_2.png[pedir cita 2]
 
 ==== Notificaciones
 
+En el apartado de notificaciones se pueden ver unas tarjetas con información. Existen distintos tipos de notificaciones: (1) notificaciones de recordatorio, (2) de cambio de médico y (3) para aceptar o rechazar una cita.
+
 image::images/manual_usuario/paciente/notificaciones_1.png[notificaciones 1]
+
+Para aceptar o rechazar una cita, solo bastará con dar click al botón respuesta y aparecerá una ventana emergente para aceptar, rechazar la cita o cancelar la acción. 
 
 image::images/manual_usuario/paciente/notificaciones_2.png[notificaciones 2]
 
 === Usuario Médico
 
+Como usuario médico, podemos hacer lo siguiente:
+
+* Crear una cita.
+* Buscar a nuestros pacientes asignados por nombre.
+* Consultar la agenda de los pacientes que tengamos asignados.
+* Consultar los resultados de las pruebas de nuestros pacientes.
+
 ==== Home
+
+Al iniciar sesión como médico, tendremos acceso a 3 opciones: (1) crear una cita, (2) ver los resultados y pruebas de los pacientes y (3) consultar sus agendas.
 
 image::images/manual_usuario/medico/home_medico.png[home medico]
 
 ==== Buscador de pacientes
 
+El buscador de pacientes es una funcionalidad que sirve para facilitar la búsqueda de los resultados de las pruebas o las citas de nuestros pacientes. Es una pantalla intermedia para cada apartado mencionado anteriormente.
+
 image::images/manual_usuario/medico/buscador_pacientes.png[buscador pacientes]
 
 ==== Crear cita
 
+Como médico, podremos crear una cita a nuestro paciente una vez seleccionado en el buscador de pacientes. En esta pantalla podemos ver en la parte superior un bloque con la información relevante de nuestro paciente, como el DNI, el nombre y su número de teléfono.
+
 image::images/manual_usuario/medico/crear_cita.png[crear cita]
 
+Primero que nada, tendremos que especificar si la cita tendrá una prueba. De ser así, aparecerá un selector donde podemos seleccionar el tipo de prueba. Después tenemos que seleccionar el nivel de emergéncia de la prueba, la cual determinará el tiempo máximo que se pueda realizar la cita : nivel 1 (2 - 3 semanas), nivel 2 (3 - 4 semanas), nivel 3 (2 - 3 meses), nivel 4 (3 a 6 meses) y nivel 5 (mas de 6 meses).
+
+image::images/manual_usuario/medico/crear_cita_2.png[crear cita 2]
+
 ==== Informes clínicos del médico
+
+En el apartado de informes clínicos, al igual que el paciente, el médico también puede consultar los resultados de las pruebas del paciente que haya seleccionado. La información que aparece es la misma: el nombre, la fecha de publicación y, al desplegar la tarjeta, el resultado, servicio y centro donde se ha realizado la prueba.
 
 image::images/manual_usuario/medico/informes_medico.png[informes medico]
 
 ==== Agenda del médico
 
+Además de los resultados, el médico también puede consultar la agenda de sus pacientes, cuya funcionalidad es exactamente la misma que la agenda del mismo paciente. También podra consultar los documentos y videos adjuntos.
+
 image::images/manual_usuario/medico/agenda_medico.png[agenda medico]
 
 === Usuario Administrador
 
+Como usuario administrador, podemos hacer lo siguiente:
+
+* Reprogramar las citas de todos los pacientes registrados en la web.
+* Asignar fecha a aquellas citas que no las tienen.
+* Efectuar o rechazar el cambio de médico que un paciente haya solicitado.
+* Consultar la agenda de todos los médicos registrados de la web.
+
 ==== Home
+
+Como usuario administrador, tenemos 2 accesos en la página de inicio: tareas y agenda de los médicos.
 
 image::images/manual_usuario/administrador/home_administrador.png[home administrador]
 
 ==== Tareas
 
+Si accedemos a tareas, podemos ver que como administrador podemos gestionar las citas de todos los médicos y asignar nuevos médicos a los pacientes.
+
 image::images/manual_usuario/administrador/tareas.png[tareas]
 
 ==== Listado de citas
 
+Al momento de seleccionar _reprogramar cita_ o _asignar cita_ podremos ver una tabla que contiene todas las citas de todos los pacientes registrados en la aplicación. Cada cita contiene información relevante, como el nivel de emergencia, la fecha y hora, nombre del paciente, DNI, CIP y el nombre de la prueba en cuestión.
+
 image::images/manual_usuario/administrador/listado_citas.png[listado_citas]
 
 ==== Reprogramar cita
+
+Cuando reprogramemos una cita, deberemos de seleccionar una en la tabla mencionada anteriormente. Una vez dentro del formulario, veremos en la parte superior información relevante del paciente de la cita seleccionada, y podemos editar cualquier campo de la cita como la especialidad, el médico, la fecha y hora de la cita. El campo número 5 será un mensaje que le llegará al paciente en forma de notificación.
 
 image::images/manual_usuario/administrador/reprogramar_cita.png[reprogramar cita]
 
@@ -701,23 +780,37 @@ image::images/manual_usuario/administrador/reprogramar_cita_2.png[reprogramar ci
 
 ==== Asignar cita
 
+A la hora de asignar una cita, tendremos que seleccionar una de la tabla mencionada anteriormente (en esta solo se mostrarán las citas que no tengan una fecha asignada) y deberemos de rellenar todos los campos del formulario.
+
 image::images/manual_usuario/administrador/asignar_cita.png[asignar cita]
 
 image::images/manual_usuario/administrador/asignar_cita_2.png[asignar cita 2]
 
-==== Asignar cita cambio de médico por el administrador
+==== Cambio de médico por el administrador
+
+Cuando un paciente solicita un cambio de médico, el administrador debe de aceptar o rechazar esta petición. El administrador puede ver la información de quien ha solicitado el cambio y el motivo por el cual quiere cambiar de médico.
 
 image::images/manual_usuario/administrador/cambio_medico_administrador.png[cambio medico administrador]
 
+Si aceptamos la solicitud, tendremos que elegir un nuevo médico para nuestro paciente y enviar el formulario. Una vez enviado, el paciente recibirá una notificación diciendo que el cambio de médico fué un éxito.
+
 image::images/manual_usuario/administrador/cambio_medico_administrador_2.png[cambio medico administrador 2]
+
+Si rechazamos la solicitud, tendremos que especificar el motivo por el rechazo, el cual verá el paciente en forma de notificación.
 
 image::images/manual_usuario/administrador/cambio_medico_administrador_3.png[cambio medico administrador 3]
 
 ==== Buscador de médicos
 
+Si decidimos consultar la agenda de los médicos, primero debemos pasar por esta pantalla. En ella podemos seleccionar el médico el cual queremos consultar sus citas programadas con sus pacientes. Si queremos buscar un médico en concreto, solo basta con escribir su nombre en el buscador.
+
 image::images/manual_usuario/administrador/buscador_administrador.png[buscador administrador]
 
 ==== Agenda de médicos del administrador
+
+Al seleccionar el médico, seremos redirigidos a su agenda, donde podemos ver en forma de tarjetas desplegables todas las citas que tiene asignadas, en las cuales se puede ver la siguiente información: (1) nombre del paciente, (2) fecha de cuando se realiza la cita, (3) hora de cuando se realiza la cita y (4) el motivo de la cita. 
+
+image::images/manual_usuario/administrador/agenda_administrador.png[agenda administrador]
 
 == Datos de prueba para testear la aplicación
 
