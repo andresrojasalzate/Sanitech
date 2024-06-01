@@ -26,12 +26,16 @@
 
     <div class="form-group" id="form-group-2">
       <label for="timepicker">4. Seleccioni la hora de cita:</label>
-      <select v-model="selectedTime" class="select" name="hora" required>
+      <select v-model="selectedTime" class="select" name="hora" required :disabled="!fecha_no_disponible">
         <option value="">Selecciona una hora</option>
         <option v-for="hour in availableHours" :key="hour" :value="hour">{{ hour }}</option>
       </select>
     </div>
   </div>
+
+  <Transition name="slide-fade">
+    <div class=" alert alert-danger" v-if="!fecha_no_disponible">No hi ha cites disponibles per a aquest dia</div>
+  </Transition>
 
   <div class="form-group">
     <label for="descripcion">5. Missatge per al pacient:</label>
@@ -53,6 +57,7 @@ export default {
       selectedTime: '',
       uniqueSpecialities: [],
       availableHours: '',
+      fecha_no_disponible: true,
       citaId: this.cita_id,
       url: '/api/consultarFechaAsignar',
       minDate: ''
@@ -71,6 +76,13 @@ export default {
     }
   },
   methods: {
+    fechaNoDisponible() {
+      if (this.availableHours.length === 0) {
+        this.fecha_no_disponible = false;
+      } else {
+        this.fecha_no_disponible = true;
+      }
+    },
     async consultarFechaAsignar() {
       try {
         const response = await fetch(this.url, {
@@ -93,6 +105,7 @@ export default {
         const data = await response.json();
         // console.log(data);
         this.availableHours = data;
+        this.fechaNoDisponible();
       } catch (error) {
         console.error('There was a problem with the fetch operation:', error);
       }
@@ -118,3 +131,20 @@ export default {
   },
 };
 </script>
+
+<style>
+.slide-fade-enter-active {
+  /* transition: all .8s ease; */
+  transition: all 250ms ease-in;
+}
+
+.slide-fade-leave-active {
+  transition: all .5s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+}
+
+.slide-fade-enter,
+.slide-fade-leave-to {
+  transform: translateX(10px);
+  opacity: 0;
+}
+</style>

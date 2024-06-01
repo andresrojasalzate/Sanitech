@@ -8,12 +8,15 @@
 
     <div class="form-group" id="form-group-2">
       <label for="timepicker">2. Seleccioni la hora de cita:</label>
-      <select v-model="selectedTime" class="select" name="hora" required>
+      <select v-model="selectedTime" class="select" name="hora" required :disabled="!fecha_no_disponible">
         <option value="">Selecciona una hora</option>
         <option v-for="hour in availableHours" :value="hour">{{ hour }}</option>
       </select>
     </div>
   </div>
+  <Transition name="slide-fade">
+    <div class=" alert alert-danger" v-if="!fecha_no_disponible">No hi ha cites disponibles per a aquest dia</div>
+  </Transition>
 
   <div class="form-group" id="form-group-3">
     <label for="descripcion">3. Motiu de la visita:</label>
@@ -25,14 +28,18 @@
 </template>
 
 <script>
+
+import AlertaError from './AlertaError.vue';
 export default {
   props: ['medicos', 'cita_id', 'user_id'],
+  components: { AlertaError },
   data() {
     return {
       selectedDate: '',
       selectedTime: '',
-      minDate:'',
+      minDate: '',
       availableHours: '',
+      fecha_no_disponible: true,
       url: '/api/consultarFecha',
       user_id: this.user_id
 
@@ -54,6 +61,13 @@ export default {
       const month = String(today.getMonth() + 1).padStart(2, '0');
       const year = today.getFullYear();
       this.minDate = `${year}-${month}-${day}`;
+    },
+    fechaNoDisponible() {
+      if (this.availableHours.length === 0) {
+        this.fecha_no_disponible = false;
+      } else {
+        this.fecha_no_disponible = true;
+      }
     },
     async consultarFecha() {
       try {
@@ -77,6 +91,7 @@ export default {
         const data = await response.json();
         // console.log(data);
         this.availableHours = data;
+        this.fechaNoDisponible();
       } catch (error) {
         console.error('There was a problem with the fetch operation:', error);
       }
@@ -84,3 +99,20 @@ export default {
   },
 };
 </script>
+
+<style>
+.slide-fade-enter-active {
+  /* transition: all .8s ease; */
+  transition: all 250ms ease-in;
+}
+
+.slide-fade-leave-active {
+  transition: all .5s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+}
+
+.slide-fade-enter,
+.slide-fade-leave-to {
+  transform: translateX(10px);
+  opacity: 0;
+}
+</style>
