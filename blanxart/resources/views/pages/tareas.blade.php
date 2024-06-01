@@ -6,11 +6,10 @@
 @section('content')
 
     <main class="solicitudesContainer">
-
         <x-boton-atras :url="route('home')" />
 
-        <section class="info">
-            <h1 class="regular">Tasques</h1>
+        <section class="solicitudesContainer-solicitudes-title">
+            <h2 class="regular">Tasques</h2>
             <p>Aquí pots gestionar les cites programades pels metges.</p>
         </section>
 
@@ -37,7 +36,7 @@
                 </div>
             </a>
 
-            <a>
+            <a href="{{ route('cambiarMedico') }}">
                 <div class="solicitudes-card_type_2">
                     <div class="solicitudes-card_type_2-icon">
                         <i class="fa-solid fa-user-doctor"></i>

@@ -23,7 +23,6 @@ class CitaRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'citaPrueba' => 'required',
             'prueba_id' => [
                 'nullable',
                 Rule::requiredIf(function () {
@@ -38,10 +37,9 @@ class CitaRequest extends FormRequest
     public function messages()
     {
         return [
-            'citaPrueba.required' => 'Indica si la cita tindrà prova o no.',
             'prueba_id.required' => 'Escull una proba per a la cita.',
             'emergency_level.required' => 'Escull el nivell de emergència de la cita.',
-            'paciente_id.required' => 'Fallo al seleccionar el pacinte.',
+            'paciente_id.required' => 'Error al seleccionar el pacinte.',
         ];
     }
 }

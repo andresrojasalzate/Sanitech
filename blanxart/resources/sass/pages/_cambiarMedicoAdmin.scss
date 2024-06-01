@@ -1,0 +1,64 @@
+.contenedorCambioMedicoAdmin{
+    margin-right: 10vw;
+    margin-left: 10vw;
+}
+
+#formularioCambioMedico{
+    margin-top: 5vh;
+}
+
+.botones-cambio-medico-admin{
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    gap: 10px; 
+    margin-bottom: 5vh;
+
+    & button{
+        border-radius: 5px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+
+}
+
+.formulario-cambio-medico-admin{
+    display: flex;
+    flex-direction: column;
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+
+    & textarea{
+        margin-top: 2vh;
+        margin-bottom: 5vh;
+        padding: 5px;
+        min-height: 20vh;
+        resize: none;
+        width: 100%;
+    }
+
+    & select{
+        margin-top: 2vh;
+        margin-bottom: 5vh;
+    }
+
+    & p{
+        color: red;
+        margin-top: 2vh;
+    }
+}
+
+@media screen and (min-width: 768px) {
+  
+    .contenedorCambioMedicoAdmin{
+        margin-right: 10vw;
+        margin-left: 10vw;
+        min-width: 50vw;
+    }
+
+    .botones-cambio-medico-admin{
+        & button{
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+    }
+}

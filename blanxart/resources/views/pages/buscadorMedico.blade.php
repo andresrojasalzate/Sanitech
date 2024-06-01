@@ -8,8 +8,9 @@
 
         <x-boton-atras :url="route('home')" />
 
-        <section class="tituloBuscadorPaiente">
-            <h1 class="medionegrita">Cercador metges</h1>
+        <section class="buscadorPaciente-title">
+            <h2 class="regular">Cercador metges</h2>
+            <p>Selecciona el metge per veure les seves cites assignades</p>
         </section>
 
         <section class="filtradorPaciente">

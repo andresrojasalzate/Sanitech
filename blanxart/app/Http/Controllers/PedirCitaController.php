@@ -2,13 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use Exception;
 use App\Models\Cita;
 use App\Models\Medico;
 use App\Models\Paciente;
 use App\Models\Notificacion;
 use Illuminate\Http\Request;
 use App\Http\Requests\CitaRequest;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Validator;
 
 class PedirCitaController extends Controller
 {
@@ -34,16 +37,12 @@ class PedirCitaController extends Controller
         return view('pages.asignarFechaCita', ['citas' => $citas]);
     }
 
+    //Función que devuelve la vista para agendar una cita sin fecha del administrador
     public function agendarCita($id, $ruta, $name, $emergency_level, $nombrePrueba)
     {
-
         $datosCita = Cita::getDatosCitas($id);
-
-        // dd($datosCita);
-
         $medicos = Medico::with('user')->get()->toJson();
-
-        return view('pages.agendarCita', ['cita_id' => $id, 'medicos' => $medicos, 'ruta'=>$ruta, 'name' => $name, 'emergency_level' => $emergency_level, 'nombrePrueba' => $nombrePrueba, 'datosCita' => $datosCita]);
+        return view('pages.agendarCita', ['cita_id' => $id, 'medicos' => $medicos, 'ruta' => $ruta, 'name' => $name, 'emergency_level' => $emergency_level, 'nombrePrueba' => $nombrePrueba, 'datosCita' => $datosCita]);
     }
 
     //Función que devuelve la vista para reprogramar una cita del administrador
@@ -62,6 +61,8 @@ class PedirCitaController extends Controller
     //Función store para crear una petición de una cita del paciente
     public function publicarPeticionCita(Request $request)
     {
+        $medico_id = Cita::get_medico_id($request->paciente_id);
+
         Cita::create([
             'prueba_id' => null,
             'date' => $request->input('fecha'),
@@ -70,10 +71,11 @@ class PedirCitaController extends Controller
             'emergency_level' => null,
             'done' => false,
             'accepted' => true,
-            'paciente_id' => $request->input('paciente_id')
+            'paciente_id' => $request->input('paciente_id'),
+            'medico_id' => $medico_id[0]->medico_id
         ]);
 
-        return redirect()->route('home');
+        return redirect()->route('home')->with('status', 'Cita demananada amb èxit!');
     }
 
     //Función update que actualiza una cita ya creada
@@ -107,9 +109,85 @@ class PedirCitaController extends Controller
         $notificacion->title = 'Cita dia ' . $fechaFormateada;
         $notificacion->descripcion = $descripcion;
         $notificacion->tipo = 'Confirmacion';
+        $notificacion->vista = false;
         $notificacion->cita_id = $id;
         $notificacion->save();
 
-        return redirect()->route($ruta);
+        return redirect()->route($ruta)->with('status', 'Cita creada correctament.');
+    }
+
+
+    public static function get_horas_habiles($resultados)
+    {
+        $horas_habiles = [];
+        $horas = explode(',', env('HORAS'));
+
+        if ($resultados->isEmpty()) {
+            $resultados = $horas;
+        } else {
+            foreach ($resultados as $resultado) {
+                array_push($horas_habiles, $resultado->time);
+            }
+            $resultados = $horas_habiles;
+            $resultados = array_diff($horas, $resultados);
+        }
+
+        return $resultados;
+    }
+
+    public static function consultarFecha(Request $request)
+    {
+        try {
+            Log::info('Llamada al metodo PedirCitaController.consultarFecha');
+
+            $validator = Validator::make($request->all(), [
+                'fecha' => 'required',
+                'user_id' => 'required'
+            ]);
+
+            if ($validator->fails()) {
+
+                return response()->json(['errors' => $validator->errors()], 422);
+            }
+
+            $fecha = $request->fecha;
+            $user_id = $request->user_id;
+
+            $resultados = Cita::consultarHorasDisponibles($fecha, $user_id);
+
+            $horas_habiles = self::get_horas_habiles($resultados);
+
+            return $horas_habiles;
+        } catch (Exception $e) {
+            Log::error($e->getMessage());
+        }
+    }
+
+    public static function consultarFechaAsignar(Request $request)
+    {
+        try {
+            Log::info('Llamada al metodo PedirCitaController.consultarFechaAsignar');
+
+            $validator = Validator::make($request->all(), [
+                'fecha' => 'required',
+                'medico' => 'required'
+            ]);
+
+            if ($validator->fails()) {
+
+                return response()->json(['errors' => $validator->errors()], 422);
+            }
+
+            $fecha = $request->fecha;
+            $doctor = $request->medico;
+
+            $resultados = Cita::consultarHorasDisponiblesAdmin($fecha, $doctor);
+
+            $horas_habiles = self::get_horas_habiles($resultados);
+
+            return $horas_habiles;
+        } catch (Exception $e) {
+            Log::error($e->getMessage());
+        }
     }
 }

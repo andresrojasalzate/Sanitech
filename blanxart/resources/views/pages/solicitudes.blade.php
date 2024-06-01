@@ -5,60 +5,65 @@
 
 @section('content')
 
-    <main class="solicitudesContainer">
+<main class="solicitudesContainer">
+    <x-boton-atras :url="route('home')" />
+    <div class="alertaSolicitudes">
+        @if (session('status'))
+        <div id="alertaExito">
+            <aletraExito :mensaje='@json(session("status"))'>
+                </alertaExito>
+        </div>
+        @endif
 
-        <x-boton-atras :url="route('home')" />
+        @if (session('error'))
+        <div id="alertaError">
+            <alertaError :mensaje='@json(session("error"))'></alertaError>
+        </div>
 
-        <section class="info">
-            <h1 class="regular">Solicituts</h1>
-            <p>Fes consultes, gestions o demana una cita.</p>
-        </section>
+        @endif
+    </div>
 
-        <section class="solicitudes">
-            <a>
-                <div class="solicitudes-card_type_2">
-                    <div class="solicitudes-card_type_2-icon">
-                        <i class="fa-solid fa-arrows-to-eye"></i>
-                    </div>
-                    <div class="solicitudes-card_type_2-info">
-                        <h4 class="medionegrita">Valoracions</h4>
-                    </div>
+    <section class="info">
+        <h1 class="regular">Solicituts</h1>
+        <p>Fes consultes, gestions o demana una cita.</p>
+    </section>
+
+    <section class="solicitudes">
+
+
+        <a href="{{ route('cambioMedico') }}">
+            <div class="solicitudes-card_type_2">
+                <div class="solicitudes-card_type_2-icon">
+                    <i class="fa-solid fa-user-doctor"></i>
                 </div>
-            </a>
-
-            <a>
-                <div class="solicitudes-card_type_2">
-                    <div class="solicitudes-card_type_2-icon">
-                        <i class="fa-solid fa-user-doctor"></i>
-                    </div>
-                    <div class="solicitudes-card_type_2-info">
-                        <h4 class="medionegrita">Canviar metge</h4>
-                    </div>
+                <div class="solicitudes-card_type_2-info">
+                    <h4 class="medionegrita">Canviar metge</h4>
                 </div>
-            </a>
+            </div>
+        </a>
 
-            <a href="{{ route('justificante', ['id' => auth()->user()->paciente->id]) }}">
-                <div class="solicitudes-card_type_2">
-                    <div class="solicitudes-card_type_2-icon">
-                        <i class="fa-solid fa-file"></i>
-                    </div>
-                    <div class="solicitudes-card_type_2-info">
-                        <h4 class="medionegrita">Justificant</h4>
-                    </div>
+        <a href="{{ route('justificante', ['id' => auth()->user()->id]) }}">
+            <div class="solicitudes-card_type_2">
+                <div class="solicitudes-card_type_2-icon">
+                    <i class="fa-solid fa-file"></i>
                 </div>
-            </a>
+                <div class="solicitudes-card_type_2-info">
+                    <h4 class="medionegrita">Justificant</h4>
+                </div>
+            </div>
+        </a>
 
-            <a href="{{ route('pedirCita', ['id' => auth()->user()->paciente->id]) }}">
-                <div class="solicitudes-card_type_2">
-                    <div class="solicitudes-card_type_2-icon">
-                        <i class="fa-regular fa-calendar-check"></i>
-                    </div>
-                    <div class="solicitudes-card_type_2-info">
-                        <h4 class="medionegrita">Demanar cita</h4>
-                    </div>
+        <a href="{{ route('pedirCita', ['id' => auth()->user()->paciente->id]) }}">
+            <div class="solicitudes-card_type_2">
+                <div class="solicitudes-card_type_2-icon">
+                    <i class="fa-regular fa-calendar-check"></i>
                 </div>
-            </a>
-        </section>
-    </main>
+                <div class="solicitudes-card_type_2-info">
+                    <h4 class="medionegrita">Demanar cita</h4>
+                </div>
+            </div>
+        </a>
+    </section>
+</main>
 
 @endsection
