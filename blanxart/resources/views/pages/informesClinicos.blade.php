@@ -13,9 +13,9 @@
             <x-boton-atras :url="route('home')" />
         @endif
 
-        <section class="tituloInformes">
-            <h1 class="medionegrita">Informes clínics</h1>
-            <p>Aquí pots visualitzar tots els resultats</p>
+        <section class="informes-title">
+            <h2 class="regular">Informes clínics</h1>
+            <p>Aquí pots visualitzar tots els resultats.</p>
         </section>
         <section class="listaInformes">
             @if ($resultados->count())

@@ -1,8 +1,8 @@
 <template>
     <div class="agenda-container">
         <div class="citas-title">
-            <h2>Agenda</h2>
-            <p>Aquí podràs visualitzar totes les teves cites</p>
+            <h2 class="regular">Agenda</h2>
+            <p>Aquí podràs visualitzar totes les cites.</p>
         </div>
         <div class="citas-type">
             <label>tipus de cita</label>

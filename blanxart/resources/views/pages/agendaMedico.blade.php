@@ -10,9 +10,9 @@
 
         <x-boton-atras :url="route('buscadorMedicos', ['accion' => 'agendaMedico'])" />
 
-        <section class="tituloInformes">
-            <h1 class="medionegrita">Agenda</h1>
-            <h1 class="medionegrita"></h1>
+        <section class="informes-title">
+            <h2 class="regular">Agenda</h2>
+            <p>Aquí pots visualitzar tots els resultats.</p>
         </section>
 
         <section class="listaInformes">

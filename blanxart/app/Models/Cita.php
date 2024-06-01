@@ -2,12 +2,13 @@
 
 namespace App\Models;
 
-
+use Exception;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasOne;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Cita extends Model
@@ -58,15 +59,16 @@ class Cita extends Model
         return $citas;
     }
 
-    public static function fillPDF($idCita)
+    public static function fillPDF($paciente_id, $cita_id)
     {
-        $cita = DB::table('citas')
-            ->join('users', 'users.id', '=', 'citas.paciente_id')
-            ->select('users.name', 'users.lastName', 'users.dni', 'citas.date', 'citas.time', 'citas.prueba_id')
-            ->where('citas.id', $idCita)
-            ->get();
+        $citas = DB::table('citas')
+            ->leftJoin('pruebas', 'citas.prueba_id', '=', 'pruebas.id')
+            ->select('citas.*', 'pruebas.name', 'pruebas.video', 'pruebas.document')
+            ->where('citas.id', $cita_id)
+            ->where('citas.paciente_id', $paciente_id)
+            ->first();
 
-        return $cita;
+        return $citas;
     }
 
     public static function getDiasNoDisponibles($medico_id)
@@ -168,5 +170,54 @@ class Cita extends Model
             ->toJson();
 
         return $cita;
+    }
+
+    public static function consultarHorasDisponibles($fecha, $user_id)
+    {
+        try {
+            Log::info('Llamada al metodo Cita.consultarHorasDisponibles fecha = ' . $fecha . 'user = ' . $user_id);
+            $horas = DB::table('citas')
+                ->select('time')
+                ->where('date', $fecha)
+                ->where('medico_id', function ($query) use ($user_id) {
+                    $query->select('medico_id')
+                        ->from('pacientes')
+                        ->where('user_id', $user_id)
+                        ->limit(1);
+                })
+                ->orderBy('time')
+                ->get();
+
+            return $horas;
+        } catch (Exception $e) {
+            Log::error($e->getMessage());
+        }
+    }
+
+    public static function consultarHorasDisponiblesAdmin($fecha, $medico_id)
+    {
+        try {
+            Log::info('Llamada al metodo Cita.consultarHorasDisponiblesAdmin fecha = ' . $fecha . ' medico_id = ' . $medico_id);
+            $horas = DB::table('citas')
+                ->select('time')
+                ->where('date', $fecha)
+                ->where('medico_id', $medico_id)
+                ->orderBy('time')
+                ->get();
+
+            return $horas;
+        } catch (Exception $e) {
+            Log::error($e->getMessage());
+        }
+    }
+
+    public static function get_medico_id($paciente_id)
+    {
+        $medico_id = DB::table('pacientes')
+            ->select('medico_id')
+            ->where('id',$paciente_id)
+            ->get();
+
+        return $medico_id;
     }
 }
