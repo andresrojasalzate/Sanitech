@@ -9,8 +9,8 @@
 
 * Samuel Garcia.
 * Andres Rojas.
-* [Albert Mateos.](https://albertma09.es/)
-* Diego Amador.
+* [Albert Mateos.(](https://albertma09.es/)
+* [Diego Amador.](https://diegoyah.github.io/)
 
 
 ## Links herramientas
