@@ -9,7 +9,7 @@
 
 * Samuel Garcia.
 * Andres Rojas.
-* [Albert Mateos.(](https://albertma09.es/)
+* [Albert Mateos.](https://albertma09.es/)
 * [Diego Amador.](https://diegoyah.github.io/)
 
 
